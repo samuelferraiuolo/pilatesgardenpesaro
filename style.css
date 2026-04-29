@@ -1,176 +1,73 @@
-/* --- REGOLE GENERALI SEZIONI --- */
-.section {
-    padding: 100px 20px;
-}
-
-.bg-light {
-    background-color: #F4F6F0; /* Un verdino chiarissimo per staccare */
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-family: var(--font-title);
-    font-size: 2.5rem;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-}
-
-.section-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 50px;
-    color: var(--accent-green);
-}
-
-.text-center {
-    text-align: center;
-}
-
-/* --- LAYOUT DIVISO (Immagine + Testo) --- */
-.split-layout {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.split-layout.reverse {
-    flex-direction: row-reverse;
-}
-
-.text-content {
-    flex: 1;
-}
-
-.text-content p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-
-.image-box {
-    flex: 1;
-}
-
-/* Placeholder temporanei per le foto */
-.placeholder-img {
-    width: 100%;
-    height: 400px;
-    background-color: #DDE2D6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    color: var(--accent-green);
-    font-family: var(--font-title);
-    font-style: italic;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-}
-
-.placeholder-img.circle {
-    border-radius: 50%;
-    width: 350px;
-    height: 350px;
-    margin: 0 auto;
-}
-
-/* --- SERVIZI: GRIGLIA E CARDS (Effetto WOW) --- */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.card {
-    background-color: white;
-    padding: 40px 30px;
-    border-radius: 20px;
-    text-align: center;
-    transition: all 0.4s ease; /* Transizione morbida */
-    box-shadow: 0 10px 30px rgba(44, 62, 45, 0.05); /* Ombra di base */
-    border: 1px solid #F0F0F0;
-}
-
-/* Effetto Hover: la card si solleva e l'ombra aumenta */
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(44, 62, 45, 0.12);
-    border-color: var(--accent-green);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    font-family: var(--font-title);
-    color: var(--text-dark);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-/* Card Speciale Fisiatria */
-.card-special {
-    background-color: var(--accent-green);
-    color: white;
-}
-
-.card-special h3 {
-    color: white;
-}
-
-/* --- FOOTER --- */
-.footer {
-    background-color: var(--text-dark);
-    color: var(--bg-cream);
-    padding: 60px 20px 20px;
-}
-
-.footer-content {
+/* --- FLASH CARDS CON FOTO E ZOOM --- */
+.flash-cards-grid {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 40px;
+    gap: 30px;
+    flex-wrap: wrap; /* Permette alle card di andare a capo sui telefoni */
 }
 
-.footer-info h2 {
-    font-family: var(--font-title);
-    margin-bottom: 10px;
+.flash-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden; /* Fondamentale: impedisce alla foto zoomata di uscire dai bordi arrotondati */
+    box-shadow: 0 10px 20px rgba(44, 62, 45, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: calc(33.333% - 20px); /* Divide in 3 colonne perfette */
+    display: flex;
+    flex-direction: column;
 }
 
-.footer-contacts h3 {
-    font-family: var(--font-title);
-    margin-bottom: 15px;
-    color: var(--accent-green);
+/* Effetto al passaggio del mouse sull'intera card (Sollevamento) */
+.flash-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(44, 62, 45, 0.15);
 }
 
-.footer-contacts p {
-    margin-bottom: 10px;
+.card-img-container {
+    width: 100%;
+    height: 240px;
+    overflow: hidden; /* Taglia via l'eccesso di foto durante lo zoom */
 }
 
-.footer-bottom {
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Riempie il contenitore senza deformare la foto */
+    transition: transform 0.6s ease; /* Rende lo zoom fluido e morbido */
+}
+
+/* LA MAGIA DELLO ZOOM: Quando passi sulla card, l'immagine dentro si ingrandisce */
+.flash-card:hover .card-img-container img {
+    transform: scale(1.1); /* Ingrandisce la foto del 10% */
+}
+
+.card-content {
+    padding: 30px 25px;
     text-align: center;
-    font-size: 0.9rem;
-    color: #88A082;
 }
 
-/* --- RESPONSIVE (Adattamento per i telefoni) --- */
-@media (max-width: 768px) {
-    .split-layout, .split-layout.reverse {
-        flex-direction: column;
-        text-align: center;
+.card-content h3 {
+    font-family: var(--font-title);
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Adattamento per i telefoni */
+@media (max-width: 900px) {
+    .flash-card {
+        width: calc(50% - 15px); /* 2 colonne sui tablet */
     }
-    
-    .hero h1 {
-        font-size: 3rem;
-    }
-    
-    .nav-links {
-        display: none; /* Nascondiamo i link su mobile per ora, in futuro servirà un menu hamburger */
+}
+
+@media (max-width: 600px) {
+    .flash-card {
+        width: 100%; /* 1 colonna sui telefoni */
     }
 }

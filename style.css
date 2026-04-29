@@ -1,23 +1,245 @@
-/* --- FLASH CARDS CON FOTO E ZOOM --- */
+/* =========================================
+   1. VARIABILI E IMPOSTAZIONI GENERALI
+========================================= */
+:root {
+    --bg-cream: #FDFBF7;     /* Sfondo panna/crema stile carta */
+    --text-dark: #2C3E2D;    /* Verde molto scuro/oliva per i testi */
+    --accent-green: #5B7B53; /* Verde foglia/salvia per i bottoni */
+    --font-title: 'Lora', serif;
+    --font-text: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. BARRA DI NAVIGAZIONE (NAVBAR)
+========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--bg-cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(44, 62, 45, 0.05);
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-green);
+}
+
+/* =========================================
+   3. BOTTONI
+========================================= */
+.btn-nav, .btn-primary {
+    text-decoration: none;
+    background-color: var(--accent-green);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-nav:hover, .btn-primary:hover {
+    background-color: var(--text-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   4. HERO SECTION (Homepage)
+========================================= */
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    background-color: #E9ECE5; /* In futuro metterai un'immagine di sfondo qui */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-family: var(--font-title);
+    font-size: 4.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: var(--accent-green);
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   5. INTESTAZIONI PAGINE INTERNE
+========================================= */
+.page-header {
+    background-color: var(--text-dark);
+    color: var(--bg-cream);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: var(--accent-green);
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* =========================================
+   6. LAYOUT E SEZIONI GENERALI
+========================================= */
+.section {
+    padding: 100px 20px;
+}
+
+.bg-light {
+    background-color: #F4F6F0; /* Verde chiarissimo */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    color: var(--accent-green);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Layout diviso a metà (Testo + Immagine) */
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.split-layout.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.image-box {
+    flex: 1;
+}
+
+/* Stili per le immagini inserite nelle sezioni */
+.rounded-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.img-circle {
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* =========================================
+   7. FLASH CARDS SERVIZI (Effetto Zoom e Hover)
+========================================= */
 .flash-cards-grid {
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    flex-wrap: wrap; /* Permette alle card di andare a capo sui telefoni */
+    flex-wrap: wrap;
 }
 
 .flash-card {
     background-color: white;
     border-radius: 15px;
-    overflow: hidden; /* Fondamentale: impedisce alla foto zoomata di uscire dai bordi arrotondati */
+    overflow: hidden;
     box-shadow: 0 10px 20px rgba(44, 62, 45, 0.08);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    width: calc(33.333% - 20px); /* Divide in 3 colonne perfette */
+    width: calc(33.333% - 20px);
     display: flex;
     flex-direction: column;
 }
 
-/* Effetto al passaggio del mouse sull'intera card (Sollevamento) */
 .flash-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(44, 62, 45, 0.15);
@@ -26,24 +248,25 @@
 .card-img-container {
     width: 100%;
     height: 240px;
-    overflow: hidden; /* Taglia via l'eccesso di foto durante lo zoom */
+    overflow: hidden;
 }
 
 .card-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Riempie il contenitore senza deformare la foto */
-    transition: transform 0.6s ease; /* Rende lo zoom fluido e morbido */
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-/* LA MAGIA DELLO ZOOM: Quando passi sulla card, l'immagine dentro si ingrandisce */
+/* Zoom della foto all'interno della card */
 .flash-card:hover .card-img-container img {
-    transform: scale(1.1); /* Ingrandisce la foto del 10% */
+    transform: scale(1.1);
 }
 
 .card-content {
     padding: 30px 25px;
     text-align: center;
+    flex-grow: 1; /* Spinge eventuali bottoni in basso */
 }
 
 .card-content h3 {
@@ -59,15 +282,92 @@
     line-height: 1.5;
 }
 
-/* Adattamento per i telefoni */
+/* =========================================
+   8. FOOTER
+========================================= */
+.footer {
+    background-color: var(--text-dark);
+    color: var(--bg-cream);
+    padding: 60px 20px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-info h2 {
+    font-family: var(--font-title);
+    margin-bottom: 10px;
+}
+
+.footer-contacts h3 {
+    font-family: var(--font-title);
+    margin-bottom: 15px;
+    color: var(--accent-green);
+}
+
+.footer-contacts p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #88A082;
+}
+
+/* =========================================
+   9. RESPONSIVE (Smartphone e Tablet)
+========================================= */
 @media (max-width: 900px) {
     .flash-card {
-        width: calc(50% - 15px); /* 2 colonne sui tablet */
+        width: calc(50% - 15px); /* Passa a 2 colonne sui tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .split-layout, .split-layout.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .nav-links {
+        display: none; /* In futuro andrà aggiunto un menu hamburger */
+    }
+
+    .img-circle {
+        width: 250px;
+        height: 250px;
     }
 }
 
 @media (max-width: 600px) {
     .flash-card {
-        width: 100%; /* 1 colonna sui telefoni */
+        width: 100%; /* Passa a 1 colonna singola sui cellulari */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.4rem;
     }
 }

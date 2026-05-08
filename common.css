@@ -1,0 +1,35 @@
+/* RESET E BASE */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fcfbf9; /* Panna */
+    color: #4a4a4a;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* ANIMAZIONI WOW */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-up { animation: fadeInUp 1s ease forwards; }
+.delay-1 { animation-delay: 0.3s; opacity: 0; }
+
+/* NAVIGAZIONE */
+.main-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background-color: #7a8a75; /* Verde Salvia */
+    position: sticky; top: 0; z-index: 1000;
+}
+.nav-logo img { max-width: 120px; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: #fcfbf9; text-decoration: none; font-family: sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* FOOTER */
+.legal-footer { background-color: #7a8a75; color: #fcfbf9; text-align: center; padding: 40px 20px; font-family: sans-serif; font-size: 0.8rem; }
+.legal-footer a { color: #fcfbf9; margin: 0 10px; }
+
+/* UTILS */
+.container { max-width: 800px; margin: 0 auto; padding: 80px 20px; text-align: center; }
+h1, h2 { color: #7a8a75; font-weight: normal; margin-bottom: 20px; }

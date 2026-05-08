@@ -1,0 +1,4 @@
+.target-list { list-style: none; text-align: left; max-width: 500px; margin: 0 auto; padding: 0; }
+.target-list li { padding: 15px 0; border-bottom: 1px solid #e0dfdb; font-size: 1.1rem; }
+.target-list li:last-child { border-bottom: none; }
+.note-mediche { font-style: italic; font-size: 1rem; color: #666; margin-top: 30px; }

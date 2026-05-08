@@ -1,0 +1,4 @@
+.servizi-list { list-style: none; margin: 40px auto; max-width: 400px; text-align: left; }
+.servizi-list li { margin-bottom: 20px; font-size: 1.2rem; }
+.promo-box { background-color: #7a8a75; color: #fcfbf9; padding: 40px 20px; border-radius: 10px; margin-top: 50px; }
+.promo-box p { color: #fcfbf9; margin: 0; }

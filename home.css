@@ -1,4 +1,28 @@
-.subtitle { font-size: 1.5rem; font-style: italic; color: #666; margin-bottom: 40px; }
+/* Stile del Logo al posto del testo Hero ("Pilates di qualità") */
+.hero-logo {
+    max-width: 350px; 
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: inline-block;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1));
+}
+
+@media (max-width: 768px) {
+    .hero-logo {
+        max-width: 250px;
+    }
+}
+
+/* Sottotitolo Hero */
+.subtitle { 
+    font-size: 1.5rem; 
+    font-style: italic; 
+    color: #666; 
+    margin-bottom: 40px; 
+}
+
+/* Pulsanti Call To Action */
 .btn-group { display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
 .btn {
     padding: 15px 40px; font-family: sans-serif; text-decoration: none;
@@ -9,16 +33,63 @@
 .btn-secondary { background-color: transparent; color: #7a8a75; border: 2px solid #7a8a75; }
 .btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-5px); }
 
-.promo-img-container { margin: 20px auto 60px auto; max-width: 800px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(122,138,117,0.15); transition: transform 0.3s ease; }
+/* --- BANNER PROMO IMMAGINE --- */
+.promo-img-container { 
+    margin: 20px auto 60px auto; 
+    max-width: 800px; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(122,138,117,0.15); 
+    transition: transform 0.3s ease; 
+}
 .promo-img-container:hover { transform: translateY(-5px); }
 .promo-img { width: 100%; height: auto; display: block; }
 
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; align-items: start; }
-.card { background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left; display: block; text-decoration: none; }
-.card.img-only-card { background-color: transparent; box-shadow: none; }
-.card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+/* --- GRIGLIA INSERZIONI --- */
+.cards-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    margin-top: 40px; 
+    align-items: start; 
+}
+
+/* Base della card standard con testo */
+.card { 
+    background-color: #ffffff; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    text-align: left; 
+    display: block; 
+    text-decoration: none; 
+}
+
+/* Base specifica per la card fatta SOLO di un'immagine (Matwork) */
+.card.img-only-card { 
+    background-color: transparent; 
+    box-shadow: none; 
+}
+
+.card:hover { 
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+}
+
+/* Immagini per card normali */
 .card-img { width: 100%; height: 220px; object-fit: cover; display: block; }
-.card-full-img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+
+/* Immagine per la tua card speciale Matwork */
+.card-full-img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
+}
+
+/* Contenuto interno alle card */
 .card-content { padding: 25px; }
 .card-content h3 { color: #7a8a75; font-size: 1.5rem; margin-bottom: 10px; font-weight: normal; }
 .card-content p { font-size: 1rem; color: #666; margin-bottom: 0; line-height: 1.6; }

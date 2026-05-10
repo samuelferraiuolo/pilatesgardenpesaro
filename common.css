@@ -1,5 +1,5 @@
 /* RESET E BASE */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+ { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Georgia', serif;
     background-color: #f2e8d5; /* Il tuo beige caldo di base */

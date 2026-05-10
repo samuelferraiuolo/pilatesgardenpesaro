@@ -1,4 +1,4 @@
-/* RESET E BASE */
+/* RESET E IMPOSTAZIONI BASE */
  { 
     box-sizing: border-box; 
     margin: 0; 
@@ -7,15 +7,44 @@
 
 body {
     font-family: 'Georgia', serif;
-    background-color: #f2e8d5; /* Il tuo beige caldo di base */
+    background-color: #f2e8d5; /* Il tuo beige caldo uniforme */
     color: #4a4a4a;
     line-height: 1.8;
     overflow-x: hidden;
+    position: relative; /* Necessario per le cascate laterali */
 }
 
-/* ANIMAZIONI DI INGRESSO */
+/* --- NOVITÀ: CASCATE DI FOGLIE AI LATI DEL SITO --- */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    top: 310px; /* Inizia esattamente sotto la sub-nav */
+    bottom: 220px; /* Finisce esattamente dove inizia il trafiletto verde */
+    width: 60px; /* Larghezza del ramo laterale */
+    background-image: url('foglielato.png'); /* Assicurati di aver caricato il file con questo nome */
+    background-size: contain;
+    background-repeat: repeat-y; /* Ripete il ramo in verticale */
+    background-position: center;
+    opacity: 0.8;
+    z-index: 100; /* Sopra tutto tranne il footer */
+    pointer-events: none; /* Non blocca i click */
+}
+
+/* Ramo sinistro */
+body::before {
+    left: 20px; /* Distanza dal bordo sinistro */
+}
+
+/* Ramo destro */
+body::after {
+    right: 20px; /* Distanza dal bordo destro */
+    transform: scaleX(-1); /* Specchia il ramo per simmetria */
+}
+
+/* ANIMAZIONI WOW */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(50px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -26,86 +55,246 @@ body {
 .delay-1 { animation-delay: 0.3s; }
 .delay-2 { animation-delay: 0.6s; }
 
-/* --- 1. HEADER PANORAMICO CON EFFETTO PARALLASSE --- */
+/* --- 1. HEADER PANORAMICO CON PARALLASSE --- */
 .top-header {
-    width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    padding: 40px 5%; 
     min-height: 250px; 
     background-image: url('sfondo-panorama.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
+    background-size: cover; background-position: center; background-repeat: no-repeat;
     background-attachment: fixed; /* Parallasse */
     background-color: #f2e8d5; 
 }
 
-/* --- 2. BARRA DI NAVIGAZIONE BEIGE DECISO --- */
+/* --- 2. BARRA DI NAVIGAZIONE BEIGE DECISO STICKY --- */
 .sub-nav {
-    background-color: #d4c5b3; 
-    padding: 18px 5%; 
-    position: sticky; 
-    top: 0; 
+    background-color: #d4c5b3; /* Beige deciso/corda */
+    padding: 15px 5%; 
+    position: sticky; top: 0; 
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
-    display: flex; 
-    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    display: flex; justify-content: center;
 }
 
 .nav-links { 
     list-style: none; 
-    display: flex; 
-    gap: 45px; 
+    display: flex; gap: 40px; 
 }
 
+/* Effetto sottolineatura animata */
 .nav-links a {
-    color: #2c3e2c; 
-    text-decoration: none; 
-    font-family: sans-serif; 
-    font-size: 0.95rem; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    font-weight: bold; 
-    position: relative;
-    padding-bottom: 5px;
+    color: #2c3e2c; text-decoration: none; font-family: sans-serif; 
+    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; 
+    font-weight: bold; position: relative; padding-bottom: 5px;
     transition: color 0.3s;
 }
 
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #5c705c;
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: 0; left: 0; background-color: #5c705c;
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover { color: #5c705c; }
 .nav-links a:hover::after { width: 100%; }
 
-/* UTILS COMUNI */
-.section-spacing { padding: 100px 5%; text-align: center; } 
-.light-bg { background-color: transparent; } 
+/* STRUTTURA E CONTENUTO GENERALE */
+.container { max-width: 800px; margin: 0 auto; width: 100%; }
+.section-spacing { padding: 80px 20px; text-align: center; }
 
-/* MEGA-CONTENITORE DA 1350px PER FAR RESPIRARE LE CARD GIGANTI */
-.container { max-width: 1350px; margin: 0 auto; width: 100%; } 
-
-h1 { font-size: 3.2rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
-h2 { font-size: 2.6rem; color: #7a8a75; margin-bottom: 40px; font-weight: normal; }
+h1 { font-size: 2.8rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
+h2 { font-size: 2.2rem; color: #7a8a75; margin-bottom: 30px; font-weight: normal; }
 p { font-size: 1.2rem; margin-bottom: 20px; }
 
-/* FOOTER LEGALE */
+/* --- 3. HERO SECTION (HOME) --- */
+.hero-content {
+    display: flex; flex-direction: column; align-items: center;
+}
+
+/* IL CONTENITORE DEL LOGO CON LE FOGLIE A PARENTESI */
+.logo-wrapper {
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 20px;
+}
+
+/* LOGO CENTRALE: Ridimensionato per essere pulito e lineare */
+.hero-logo {
+    max-width: 250px; /* Grandezza lineare ed elegante */
+    width: 100%; height: auto; 
+    display: block;
+    filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.15));
+}
+
+/* LE FOGLIE A PARENTESI AFFIANCO AL LOGO */
+.logo-wrapper::before,
+.logo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; /* Larghezza del ramo */
+    height: 100px; /* Altezza del ramo */
+    background-image: url('foglielato.png'); /* Usa lo stesso PNG delle cascate */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+/* Ramo sinistro ' (' */
+.logo-wrapper::before {
+    left: -40px; /* Lo posiziona a sinistra del logo */
+    background-position: left center;
+}
+
+/* Ramo destro ' )' */
+.logo-wrapper::after {
+    right: -40px; /* Lo posiziona a destra del logo */
+    background-position: right center;
+    transform: translateY(-50%) scaleX(-1); /* Specchia per chiudere la parentesi */
+}
+
+.subtitle { 
+    font-size: 1.5rem; font-style: italic; color: #666; margin-bottom: 40px;
+}
+
+/* Pulsanti Call To Action */
+.btn-group { display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
+.btn {
+    padding: 15px 40px; font-family: sans-serif; text-decoration: none;
+    text-transform: uppercase; border-radius: 50px; letter-spacing: 1px; transition: all 0.4s ease;
+}
+.btn-primary { background-color: #7a8a75; color: white; border: 2px solid #7a8a75; }
+.btn-primary:hover { background-color: transparent; color: #7a8a75; transform: translateY(-5px); }
+.btn-secondary { background-color: transparent; color: #7a8a75; border: 2px solid #7a8a75; }
+.btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-5px); }
+
+/* --- BANNER PROMO IMMAGINE --- */
+.promo-img-container {
+    margin: 20px auto 60px auto;
+    max-width: 800px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+.promo-img-container:hover { transform: translateY(-5px); }
+.promo-img { width: 100%; height: auto; display: block; }
+
+/* --- GRIGLIA INSERZIONI FOTO (HOME) --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    align-items: start;
+}
+
+/* Base della card standard con testo */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: block;
+    text-decoration: none;
+}
+
+/* Base specifica per la card fatta SOLO di un'immagine (Matwork) */
+.card.img-only-card {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Immagine intera per card Matwork */
+.card-full-img { 
+    width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
+}
+
+.card-content { padding: 25px; }
+.card-content h3 { color: #7a8a75; font-size: 1.5rem; margin-bottom: 10px; font-weight: normal; }
+.card-content p { font-size: 1rem; color: #666; margin-bottom: 0; line-height: 1.6; }
+
+/* --- STILE SPECIFICO PAGINA 'LO SPAZIO' (Integrato) --- */
+.hero-spazio {
+    position: relative;
+    height: 70vh;
+    background-size: cover; background-position: center;
+    display: flex; align-items: center;
+    padding: 0 10%;
+}
+
+.hero-spazio h1 {
+    color: white; font-size: 4rem; line-height: 1.1;
+    text-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+    max-width: 600px;
+}
+
+.split-section { display: flex; flex-wrap: wrap; min-height: 50vh; }
+
+.split-text {
+    flex: 1; min-width: 300px;
+    padding: 10% 8%;
+    display: flex; flex-direction: column; justify-content: center;
+    text-align: left;
+}
+
+.split-text h4 {
+    text-transform: uppercase; letter-spacing: 2px;
+    color: #7a8a75; font-size: 0.9rem; margin-bottom: 10px;
+}
+
+.split-text h2 {
+    font-size: 2.5rem; color: #2c3e2c; line-height: 1.3;
+}
+
+.split-image {
+    flex: 1; min-width: 300px;
+    background-size: cover; background-position: center;
+    min-height: 300px;
+}
+
+.icons-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; margin-top: 30px; text-align: center;
+}
+
+.icon-item img { max-width: 50px; margin-bottom: 10px; }
+.icon-item p { font-size: 0.85rem; line-height: 1.4; margin: 0; }
+
+/* FOOTER LEGALE E TRAFILETTO VERDE */
 .legal-footer {
-    background-color: #7a8a75; color: #fcfbf9; text-align: center;
-    padding: 50px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6;
+    background-color: #7a8a75; /* Il trafiletto verde in basso */
+    color: #fcfbf9; text-align: center;
+    padding: 40px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6;
+    margin-top: auto; /* Spinge il footer in basso */
+    z-index: 200; /* Sopra le cascate di foglie */
+    position: relative;
 }
 
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
 /* RESPONSIVE PER CELLULARI */
 @media (max-width: 768px) {
-    .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 2rem; }
-    .top-header { min-height: 180px; background-attachment: scroll; } 
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    h1 { font-size: 2.2rem; }
+    .hero-spazio { height: 50vh; }
+    .hero-spazio h1 { font-size: 2.5rem; }
+    .top-header { min-height: 180px; background-attachment: scroll; } /* Su mobile il parallasse viene disattivato per fluidità */
+    /* Nascondiamo le cascate laterali su mobile per non coprire il testo */
+    body::before, body::after { display: none; }
 }

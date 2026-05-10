@@ -45,11 +45,19 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
     box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
 }
 
+/* --- IL LOGO NELLA NAVBAR --- */
+.nav-logo {
+    /* Crea un elegantissimo alone sfumato beige dietro il logo per proteggerlo dal sole */
+    background: radial-gradient(ellipse at center, rgba(242, 232, 213, 0.9) 20%, rgba(242, 232, 213, 0) 75%);
+    padding: 15px 30px 15px 10px; 
+    border-radius: 50%;
+}
+
 .nav-logo img { 
-    max-width: 140px; 
+    max-width: 170px; /* Ingrandito per dare più importanza al brand */
     display: block; 
-    /* Questa ombra fa "staccare" il logo bianco dal cielo azzurro */
-    filter: drop-shadow(0px 2px 6px rgba(0,0,0,0.6));
+    /* Un'ombra scura e compatta per far risaltare le linee sottili */
+    filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .nav-links { list-style: none; display: flex; gap: 20px; }

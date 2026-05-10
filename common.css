@@ -1,4 +1,5 @@
-/* RESET E BASE */ { 
+/* RESET E BASE */
+ { 
     box-sizing: border-box; 
     margin: 0; 
     padding: 0; 
@@ -86,8 +87,8 @@ body {
 .section-spacing { padding: 100px 5%; text-align: center; } 
 .light-bg { background-color: transparent; } 
 
-/* CONTENITORE ALLARGATO PER FAR STARE LE 3 MEGA CARD IN UNA RIGA */
-.container { max-width: 1200px; margin: 0 auto; width: 100%; } 
+/* MEGA-CONTENITORE DA 1350px PER FAR RESPIRARE LE CARD GIGANTI */
+.container { max-width: 1350px; margin: 0 auto; width: 100%; } 
 
 h1 { font-size: 3.2rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
 h2 { font-size: 2.6rem; color: #7a8a75; margin-bottom: 40px; font-weight: normal; }

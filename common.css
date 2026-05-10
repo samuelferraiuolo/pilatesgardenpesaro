@@ -30,19 +30,52 @@ h1 { font-size: 2.8rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal
 h2 { font-size: 2.2rem; color: #7a8a75; margin-bottom: 30px; font-weight: normal; }
 p { font-size: 1.2rem; margin-bottom: 20px; }
 
-/* MENU DI NAVIGAZIONE */
+/* MENU DI NAVIGAZIONE CON FOTO PANORAMICA */
 .main-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; background-color: #7a8a75;
-    position: sticky; top: 0; z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 5%; 
+    
+    /* VIA IL VERDE, DENTRO LA FOTO */
+    background-image: url('sfondo-panorama.jpg'); /* Inserisci il nome esatto della foto */
+    background-size: cover; /* Adatta l'immagine a tutto lo spazio */
+    background-position: center; /* Centra l'orizzonte */
+    background-repeat: no-repeat;
+    
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Leggera ombra per staccare dal testo sotto */
 }
-.nav-logo img { max-width: 120px; display: block; }
-.nav-links { list-style: none; display: flex; gap: 20px; }
+
+.nav-logo img { 
+    max-width: 140px; /* Ho ingrandito leggermente il logo per farlo spiccare sul panorama */
+    display: block; 
+}
+
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 20px; 
+}
+
 .nav-links a {
-    color: #fcfbf9; text-decoration: none; font-family: sans-serif;
-    font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.3s;
+    color: #4a4a4a; /* Scritte grigio scuro/nere per leggersi bene sul cielo azzurro */
+    text-decoration: none; 
+    font-family: sans-serif; 
+    font-size: 0.95rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-weight: bold; /* Messe in grassetto per farle risaltare */
+    text-shadow: 1px 1px 3px rgba(255,255,255,0.8); /* Un alone bianco leggero dietro le scritte per massima leggibilità */
+    transition: opacity 0.3s, color 0.3s;
 }
-.nav-links a:hover { opacity: 0.7; }
+
+.nav-links a:hover { 
+    color: #7a8a75; /* Al passaggio del mouse diventano verde salvia */
+    opacity: 1; 
+}
 
 /* FOOTER LEGALE */
 .legal-footer {

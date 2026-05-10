@@ -1,56 +1,59 @@
 /* --- PAGINA HOME --- */
 
-/* IL CONTENITORE DEL LOGO CON LE NUOVE MEGA FOGLIE */
+/* IL CONTENITORE DEL LOGO PERFETTAMENTE CENTRATO */
 .logo-wrapper {
     position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-    padding: 0 90px; /* Più spazio per i grandi rami laterali */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px auto;
+    width: fit-content; /* Il contenitore abbraccia solo il logo, non sbava ai lati */
 }
 
 /* LOGO CENTRALE TRASFORMATO IN ARCO */
 .hero-logo {
-    max-width: 250px; /* Leggermente più grande per importanza */
+    max-width: 250px; 
     width: 100%; 
     height: auto; 
     display: block;
-    border-radius: 140px 140px 15px 15px; /* Crea l'arco */
+    border-radius: 140px 140px 15px 15px; 
     box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
-    border: 6px solid #f2e8d5; /* Si fonde con lo sfondo */
+    border: 6px solid #f2e8d5; 
     animation: float 6s ease-in-out infinite; 
+    position: relative;
+    z-index: 2; /* Tiene il logo sopra i rami */
 }
 
-/* I RAMI D'ULIVO (Disegnati in CSS puro, ora sono GRANDI e CURVI) */
+/* I RAMI D'ULIVO FISSATI ESATTAMENTE AI LATI */
 .logo-wrapper::before,
 .logo-wrapper::after {
     content: '';
     position: absolute;
-    top: 45%;
-    width: 70px;  /* RAMI MOLTO PIÙ LARGHI */
-    height: 150px; /* RAMI MOLTO PIÙ ALTI */
+    top: 50%;
+    width: 70px;  
+    height: 150px; 
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.85;
     animation: float 6s ease-in-out infinite;
     animation-delay: 0.5s;
+    z-index: 1; /* Foglie dietro al logo */
 }
 
-/* Ramo Sinistro */
+/* Ramo Sinistro - Ancorato fisicamente fuori a sinistra */
 .logo-wrapper::before {
-    left: 0;
+    left: -65px; 
     transform: translateY(-50%) rotate(-10deg);
-    /* Codice di un VERO ramo curvo con foglie larghe */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%237a8a75' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M 50 200 Q 20 100 80 10' /%3E%3Cpath d='M 45 170 Q 10 160 20 130 Q 50 140 45 170' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 35 110 Q 0 90 20 60 Q 55 80 35 110' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 60 70 Q 90 40 100 10 Q 70 10 60 70' fill='%237a8a75' opacity='0.8'/%3E%3C/svg%3E");
 }
 
-/* Ramo Destro */
+/* Ramo Destro - Ancorato fisicamente fuori a destra */
 .logo-wrapper::after {
-    right: 0;
-    transform: translateY(-50%) scaleX(-1) rotate(-10deg); /* Specchia e ruota perfettamente */
+    right: -65px; 
+    transform: translateY(-50%) scaleX(-1) rotate(-10deg); 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%237a8a75' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M 50 200 Q 20 100 80 10' /%3E%3Cpath d='M 45 170 Q 10 160 20 130 Q 50 140 45 170' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 35 110 Q 0 90 20 60 Q 55 80 35 110' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 60 70 Q 90 40 100 10 Q 70 10 60 70' fill='%237a8a75' opacity='0.8'/%3E%3C/svg%3E");
 }
 
-/* Animazione di Respiro */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-12px); }
@@ -74,7 +77,7 @@
 .btn-secondary { background-color: transparent; color: #7a8a75; border: 2px solid #7a8a75; }
 .btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-5px); box-shadow: 0 6px 20px rgba(122,138,117,0.3); }
 
-/* BANNER PROMO IMMAGINE (Aumentata grandezza) */
+/* BANNER PROMO IMMAGINE */
 .promo-img-container { 
     margin: 50px auto 70px auto; max-width: 900px; border-radius: 18px; 
     overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; 
@@ -82,14 +85,14 @@
 .promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
 .promo-img { width: 100%; height: auto; display: block; }
 
-/* --- GRIGLIA INSERZIONI: ORA SONO GIGANTI --- */
+/* --- GRIGLIA INSERZIONI FORZATA A 3 IN UNA RIGA SU DESKTOP --- */
 .cards-grid { 
     display: grid; 
-    /* LA MAGIA DELLE MEGA CARD: larghezza minima passata da 280px a 380px! */
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
-    gap: 40px; 
+    grid-template-columns: repeat(3, 1fr); /* Forza esattmente 3 colonne uguali */
+    gap: 30px; 
     margin-top: 50px; 
     align-items: stretch; 
+    width: 100%;
 }
 
 .card { 
@@ -111,11 +114,15 @@
 .card-content h3 { color: #7a8a75; font-size: 1.8rem; margin-bottom: 15px; font-weight: normal; }
 .card-content p { font-size: 1.15rem; color: #666; margin-bottom: 0; line-height: 1.7; }
 
-/* Responsive Logo Home & Cards per Cellulare */
+/* RESPONSIVE PER TABLET E CELLULARI */
+@media (max-width: 992px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); } /* 2 per riga su tablet */
+}
 @media (max-width: 768px) {
-    .logo-wrapper { padding: 0 50px; margin-bottom: 10px; }
+    .logo-wrapper::before { left: -45px; }
+    .logo-wrapper::after { right: -45px; }
     .hero-logo { max-width: 190px; }
     .logo-wrapper::before, .logo-wrapper::after { width: 45px; height: 90px; }
-    .cards-grid { grid-template-columns: 1fr; } /* Su cellulare tornano a colonna singola gigante */
+    .cards-grid { grid-template-columns: 1fr; } /* 1 per riga su cellulare */
     .card-img { height: 260px; }
 }

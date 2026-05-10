@@ -1,5 +1,10 @@
 /* RESET E BASE */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
 body {
     font-family: 'Georgia', serif;
     background-color: #f2e8d5; /* Il tuo beige caldo */
@@ -13,48 +18,84 @@ body {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 .animate-up {
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
 }
 .delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
 
 /* --- 1. HEADER PANORAMICO --- */
 .top-header {
-    display: flex; justify-content: center; align-items: center;
-    padding: 20px 5%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 40px 5%; 
+    min-height: 250px; /* Assicura che l'immagine sia visibile */
     background-image: url('sfondo-panorama.jpg'); 
-    background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-color: #f2e8d5; /* Backup se l'immagine carica lentamente */
 }
+
 .nav-logo {
     background: radial-gradient(ellipse at center, rgba(242, 232, 213, 0.7) 10%, rgba(242, 232, 213, 0) 80%);
-    padding: 10px 20px; border-radius: 50%;
+    padding: 10px 20px; 
+    border-radius: 50%;
 }
+
 .nav-logo img { 
-    max-width: 170px; display: block; 
-    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s ease;
+    max-width: 170px; 
+    display: block; 
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.3)); /* Ombra morbida per staccarlo dalla luce */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
-.nav-logo img:hover { transform: scale(1.02); }
+
+.nav-logo img:hover { 
+    transform: scale(1.02); 
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
+}
 
 /* --- 2. BARRA DI NAVIGAZIONE BEIGE DECISO --- */
 .sub-nav {
     background-color: #d4c5b3; /* Beige deciso/corda */
-    padding: 15px 5%; position: sticky; top: 0; z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; justify-content: center;
+    padding: 15px 5%; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    display: flex; 
+    justify-content: center;
 }
-.nav-links { list-style: none; display: flex; gap: 40px; }
+
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 40px; 
+}
+
 .nav-links a {
-    color: #2c3e2c; text-decoration: none; font-family: sans-serif; 
-    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; 
-    font-weight: bold; transition: opacity 0.3s, color 0.3s;
+    color: #2c3e2c; 
+    text-decoration: none; 
+    font-family: sans-serif; 
+    font-size: 0.95rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-weight: bold; 
+    transition: opacity 0.3s, color 0.3s;
 }
-.nav-links a:hover { color: #5c705c; }
+
+.nav-links a:hover { 
+    color: #5c705c; 
+}
 
 /* UTILS COMUNI */
 .section-spacing { padding: 80px 5%; text-align: center; }
-.light-bg { background-color: transparent; }
+.light-bg { background-color: transparent; } /* Tolto il bianco/grigio a favore del beige base */
 .container { max-width: 800px; margin: 0 auto; }
+
 h1 { font-size: 2.8rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
 h2 { font-size: 2.2rem; color: #7a8a75; margin-bottom: 30px; font-weight: normal; }
 p { font-size: 1.2rem; margin-bottom: 20px; }
@@ -64,9 +105,12 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
     background-color: #7a8a75; color: #fcfbf9; text-align: center;
     padding: 40px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6;
 }
+
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
+/* RESPONSIVE PER CELLULARI */
 @media (max-width: 768px) {
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
     h1 { font-size: 2.2rem; }
+    .top-header { min-height: 180px; }
 }

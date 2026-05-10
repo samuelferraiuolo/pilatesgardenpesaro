@@ -12,79 +12,62 @@
 .btn-secondary { background-color: transparent; color: #7a8a75; border: 2px solid #7a8a75; }
 .btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-5px); }
 
-/* --- NOVITÀ: BANNER PROMO IN EVIDENZA --- */
-.promo-banner {
-    background-color: #7a8a75;
-    color: #fcfbf9;
-    padding: 40px 20px;
-    border-radius: 15px;
+/* --- BANNER PROMO IMMAGINE --- */
+.promo-img-container {
     margin: 20px auto 60px auto;
     max-width: 800px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(122,138,117,0.2);
-    position: relative;
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
 }
-.promo-badge {
-    background-color: #fcfbf9;
-    color: #7a8a75;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-.promo-banner h3 { color: #fcfbf9; font-size: 2rem; margin-bottom: 15px; font-weight: normal; }
-.promo-banner p { color: #fcfbf9; margin-bottom: 0; font-size: 1.1rem; }
+.promo-img-container:hover { transform: translateY(-5px); }
+.promo-img { width: 100%; height: auto; display: block; }
 
-/* --- NOVITÀ: GRIGLIA INSERZIONI CON FOTO --- */
 /* --- GRIGLIA INSERZIONI --- */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    align-items: start; /* Allinea tutte le card in alto, evitando che si stirino in modo strano */
 }
 
-/* Base della card (sia che sia un <div> o un link <a>) */
+/* Base della card standard con testo */
 .card {
-    background-color: #fcf8ee;
+    background-color: #ffffff; /* Bianco pulito per far risaltare il testo */
     border-radius: 12px;
     overflow: hidden; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
-    display: block; /* Fondamentale per i link */
-    text-decoration: none; /* Toglie la sottolineatura se è un link */
+    display: block;
+    text-decoration: none;
 }
 
-/* L'effetto ZOOM ed elevazione */
+/* Base specifica per la card fatta SOLO di un'immagine (Matwork) */
+.card.img-only-card {
+    background-color: transparent; /* Toglie il bordino bianco */
+    box-shadow: none; /* L'ombra la diamo direttamente all'immagine */
+}
+
 .card:hover {
-    transform: translateY(-8px) scale(1.03); /* Si alza e si zooma verso di te! */
+    transform: translateY(-8px) scale(1.03); 
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-/* Per le foto dentro le vecchie card con testo */
-.card-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
+/* Immagini per card normali */
+.card-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+
+/* Immagine per la tua card speciale Matwork */
+.card-full-img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
 }
 
-/* Per la TUA nuova card che è interamente un'immagine */
-.card-full-img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.card-content {
-    padding: 25px;
-}
+.card-content { padding: 25px; }
 .card-content h3 { color: #7a8a75; font-size: 1.5rem; margin-bottom: 10px; font-weight: normal; }
 .card-content p { font-size: 1rem; color: #666; margin-bottom: 0; line-height: 1.6; }

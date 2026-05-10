@@ -1,5 +1,10 @@
 /* RESET E BASE */
- { box-sizing: border-box; margin: 0; padding: 0; }
+{ 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
 body {
     font-family: 'Georgia', serif;
     background-color: #f2e8d5; /* Il tuo beige caldo di base */
@@ -8,67 +13,82 @@ body {
     overflow-x: hidden;
 }
 
-/* EFFETTI WOW: ANIMAZIONI DI INGRESSO */
+/* ANIMAZIONI DI INGRESSO */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 .animate-up {
     animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
 }
 .delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
 
-/* --- 1. HEADER PANORAMICO PULITO --- */
+/* --- 1. HEADER PANORAMICO CON EFFETTO PARALLASSE --- */
 .top-header {
     width: 100%;
-    min-height: 250px; /* Assicura che l'immagine del panorama sia ben visibile */
+    min-height: 250px; 
     background-image: url('sfondo-panorama.jpg'); 
-    background-size: cover; background-position: center; background-repeat: no-repeat;
-    /* Rimosso il logo e lo sfondo verde come richiesto */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallasse */
+    background-color: #f2e8d5; 
 }
 
 /* --- 2. BARRA DI NAVIGAZIONE BEIGE DECISO --- */
 .sub-nav {
-    background-color: #d4c5b3; /* Beige deciso/corda */
-    padding: 18px 5%; position: sticky; top: 0; z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; justify-content: center;
+    background-color: #d4c5b3; 
+    padding: 18px 5%; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    display: flex; 
+    justify-content: center;
 }
-.nav-links { list-style: none; display: flex; gap: 40px; }
+
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 45px; 
+}
+
 .nav-links a {
-    color: #2c3e2c; text-decoration: none; font-family: sans-serif; 
-    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; 
-    font-weight: bold; position: relative; transition: color 0.3s;
+    color: #2c3e2c; 
+    text-decoration: none; 
+    font-family: sans-serif; 
+    font-size: 0.95rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-weight: bold; 
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
 }
-/* Effetto "wow" al passaggio del mouse sui bottoni */
-.nav-links a:hover { color: #5c705c; }
+
 .nav-links a::after {
-    content: ''; position: absolute; width: 0; height: 2px; 
-    bottom: -5px; left: 0; background-color: #5c705c; transition: width 0.3s;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #5c705c;
+    transition: width 0.3s ease;
 }
+
+.nav-links a:hover { color: #5c705c; }
 .nav-links a:hover::after { width: 100%; }
-
-/* --- SEZIONE HERO PULITA E LINEARE --- */
-.hero-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-/* LOGO CENTRALE: Ridimensionato per essere pulito e non sgranato */
-.hero-logo {
-    max-width: 250px; /* Grandezza perfetta, lineare ed elegante */
-    width: 100%; height: auto; margin-bottom: 20px; display: inline-block;
-    filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1));
-}
-
-.subtitle { 
-    font-size: 1.4rem; font-style: italic; color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;
-}
 
 /* UTILS COMUNI */
 .section-spacing { padding: 80px 5%; text-align: center; }
-.light-bg { background-color: transparent; }
+.light-bg { background-color: transparent; } 
 .container { max-width: 800px; margin: 0 auto; }
+
+h1 { font-size: 2.8rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
 h2 { font-size: 2.2rem; color: #7a8a75; margin-bottom: 30px; font-weight: normal; }
 p { font-size: 1.2rem; margin-bottom: 20px; }
 
@@ -77,9 +97,12 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
     background-color: #7a8a75; color: #fcfbf9; text-align: center;
     padding: 40px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6;
 }
+
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
+/* RESPONSIVE PER CELLULARI */
 @media (max-width: 768px) {
-    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .hero-logo { max-width: 200px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+    h1 { font-size: 2.2rem; }
+    .top-header { min-height: 180px; background-attachment: scroll; } 
 }

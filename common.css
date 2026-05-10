@@ -1,14 +1,14 @@
-/* RESET E IMPOSTAZIONI BASE */
+/* RESET E BASE */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Georgia', serif;
-    background-color: #f2e8d5; /* Il tuo bellissimo beige caldo */
+    background-color: #f2e8d5; /* Il tuo beige caldo */
     color: #4a4a4a;
     line-height: 1.8;
     overflow-x: hidden;
 }
 
-/* ANIMAZIONI WOW */
+/* ANIMAZIONI */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
@@ -18,68 +18,46 @@ body {
     opacity: 0;
 }
 .delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
 
-/* STRUTTURA SEZIONI COMUNI */
+/* --- 1. HEADER PANORAMICO --- */
+.top-header {
+    display: flex; justify-content: center; align-items: center;
+    padding: 20px 5%; 
+    background-image: url('sfondo-panorama.jpg'); 
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.nav-logo {
+    background: radial-gradient(ellipse at center, rgba(242, 232, 213, 0.7) 10%, rgba(242, 232, 213, 0) 80%);
+    padding: 10px 20px; border-radius: 50%;
+}
+.nav-logo img { 
+    max-width: 170px; display: block; 
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+.nav-logo img:hover { transform: scale(1.02); }
+
+/* --- 2. BARRA DI NAVIGAZIONE BEIGE DECISO --- */
+.sub-nav {
+    background-color: #d4c5b3; /* Beige deciso/corda */
+    padding: 15px 5%; position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; justify-content: center;
+}
+.nav-links { list-style: none; display: flex; gap: 40px; }
+.nav-links a {
+    color: #2c3e2c; text-decoration: none; font-family: sans-serif; 
+    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; 
+    font-weight: bold; transition: opacity 0.3s, color 0.3s;
+}
+.nav-links a:hover { color: #5c705c; }
+
+/* UTILS COMUNI */
 .section-spacing { padding: 80px 5%; text-align: center; }
-
-/* Rimuoviamo il blocco grigio/bianco per far fluire il beige ovunque */
 .light-bg { background-color: transparent; }
-
 .container { max-width: 800px; margin: 0 auto; }
-
-/* TIPOGRAFIA COMUNE */
 h1 { font-size: 2.8rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
 h2 { font-size: 2.2rem; color: #7a8a75; margin-bottom: 30px; font-weight: normal; }
 p { font-size: 1.2rem; margin-bottom: 20px; }
-
-/* MENU DI NAVIGAZIONE CON FOTO PANORAMICA */
-.main-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; 
-    background-image: url('sfondo-panorama.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    position: sticky; top: 0; z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
-}
-/* --- IL LOGO NELLA NAVBAR CON OMBRA SOFT --- */
-.nav-logo {
-    /* Manteniamo l'alone beige per sicurezza, ma lo rendiamo ancora più invisibile */
-    background: radial-gradient(ellipse at center, rgba(242, 232, 213, 0.7) 10%, rgba(242, 232, 213, 0) 80%);
-    padding: 10px 20px;
-    border-radius: 50%;
-}
-
-.nav-logo img { 
-    max-width: 170px; 
-    display: block; 
-    
-    /* OMBRA NERA MINI E TRASPARENTE (30% di opacità) */
-    /* 0px orizzontale, 3px verticale, 6px di sfocatura */
-    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.3));
-    
-    transition: transform 0.3s ease;
-}
-
-.nav-logo img:hover {
-    /* Piccolo effetto wow: il logo si alza leggermente quando ci passi sopra */
-    transform: scale(1.02);
-    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
-}
-
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a {
-    color: #2c3e2c; /* Verde molto scuro per massima leggibilità */
-    text-decoration: none; font-family: sans-serif; 
-    font-size: 0.95rem; text-transform: uppercase; 
-    letter-spacing: 1px; font-weight: bold; 
-    /* Alone bianco dietro il testo per staccarlo dallo sfondo */
-    text-shadow: 0px 0px 8px rgba(255,255,255,0.9); 
-    transition: opacity 0.3s, color 0.3s;
-}
-.nav-links a:hover { color: #7a8a75; }
 
 /* FOOTER LEGALE */
 .legal-footer {
@@ -89,7 +67,6 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
 @media (max-width: 768px) {
-    .main-nav { flex-direction: column; gap: 15px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
     h1 { font-size: 2.2rem; }
 }

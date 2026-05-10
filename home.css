@@ -49,9 +49,9 @@
     margin-top: 40px;
 }
 .card {
-    background-color: #ffffff;
+    background-color: #fcf8ee; /* Un beige luminosissimo che sostituisce il bianco puro */
     border-radius: 12px;
-    overflow: hidden; /* Taglia le foto per farle stare dentro i bordi arrotondati */
+    overflow: hidden; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;

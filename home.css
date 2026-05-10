@@ -1,111 +1,121 @@
 /* --- PAGINA HOME --- */
 
-/* IL CONTENITORE DEL LOGO CON LE FOGLIE */
+/* IL CONTENITORE DEL LOGO CON LE NUOVE MEGA FOGLIE */
 .logo-wrapper {
     position: relative;
     display: inline-block;
-    margin-bottom: 20px;
-    padding: 0 60px; /* Spazio per le foglie */
+    margin-bottom: 30px;
+    padding: 0 90px; /* Più spazio per i grandi rami laterali */
 }
 
 /* LOGO CENTRALE TRASFORMATO IN ARCO */
 .hero-logo {
-    max-width: 220px; 
+    max-width: 250px; /* Leggermente più grande per importanza */
     width: 100%; 
     height: auto; 
     display: block;
-    border-radius: 120px 120px 15px 15px; /* Crea l'arco */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
-    border: 5px solid #f2e8d5; /* Si fonde con lo sfondo */
+    border-radius: 140px 140px 15px 15px; /* Crea l'arco */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+    border: 6px solid #f2e8d5; /* Si fonde con lo sfondo */
     animation: float 6s ease-in-out infinite; 
 }
 
-/* LE FOGLIE (Disegnate in CSS puro) */
+/* I RAMI D'ULIVO (Disegnati in CSS puro, ora sono GRANDI e CURVI) */
 .logo-wrapper::before,
 .logo-wrapper::after {
     content: '';
     position: absolute;
-    top: 50%;
-    width: 45px;
-    height: 90px;
+    top: 45%;
+    width: 70px;  /* RAMI MOLTO PIÙ LARGHI */
+    height: 150px; /* RAMI MOLTO PIÙ ALTI */
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.7;
+    opacity: 0.85;
     animation: float 6s ease-in-out infinite;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
 }
 
 /* Ramo Sinistro */
 .logo-wrapper::before {
     left: 0;
-    transform: translateY(-50%) rotate(-15deg);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a8a75' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22v-7l-3-3'/%3E%3Cpath d='M12 15l3-3'/%3E%3Cpath d='M12 8V2'/%3E%3Cpath d='M12 8c-2 0-4-1-4-3s2-3 4-3'/%3E%3Cpath d='M12 8c2 0 4-1 4-3s-2-3-4-3'/%3E%3Cpath d='M9 12c-2 0-4-1-4-3s2-3 4-3'/%3E%3Cpath d='M15 12c2 0 4-1 4-3s-2-3-4-3'/%3E%3C/svg%3E");
+    transform: translateY(-50%) rotate(-10deg);
+    /* Codice di un VERO ramo curvo con foglie larghe */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%237a8a75' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M 50 200 Q 20 100 80 10' /%3E%3Cpath d='M 45 170 Q 10 160 20 130 Q 50 140 45 170' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 35 110 Q 0 90 20 60 Q 55 80 35 110' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 60 70 Q 90 40 100 10 Q 70 10 60 70' fill='%237a8a75' opacity='0.8'/%3E%3C/svg%3E");
 }
 
 /* Ramo Destro */
 .logo-wrapper::after {
     right: 0;
-    transform: translateY(-50%) rotate(15deg) scaleX(-1);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a8a75' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22v-7l-3-3'/%3E%3Cpath d='M12 15l3-3'/%3E%3Cpath d='M12 8V2'/%3E%3Cpath d='M12 8c-2 0-4-1-4-3s2-3 4-3'/%3E%3Cpath d='M12 8c2 0 4-1 4-3s-2-3-4-3'/%3E%3Cpath d='M9 12c-2 0-4-1-4-3s2-3 4-3'/%3E%3Cpath d='M15 12c2 0 4-1 4-3s-2-3-4-3'/%3E%3C/svg%3E");
+    transform: translateY(-50%) scaleX(-1) rotate(-10deg); /* Specchia e ruota perfettamente */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%237a8a75' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M 50 200 Q 20 100 80 10' /%3E%3Cpath d='M 45 170 Q 10 160 20 130 Q 50 140 45 170' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 35 110 Q 0 90 20 60 Q 55 80 35 110' fill='%237a8a75' opacity='0.8'/%3E%3Cpath d='M 60 70 Q 90 40 100 10 Q 70 10 60 70' fill='%237a8a75' opacity='0.8'/%3E%3C/svg%3E");
 }
 
 /* Animazione di Respiro */
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
     100% { transform: translateY(0px); }
 }
 
 /* Sottotitolo Hero */
 .subtitle { 
-    font-size: 1.4rem; font-style: italic; color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;
+    font-size: 1.5rem; font-style: italic; color: #666; margin-bottom: 50px; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6;
 }
 
 /* Pulsanti */
-.btn-group { display: flex; justify-content: center; gap: 20px; margin-top: 50px; flex-wrap: wrap; }
+.btn-group { display: flex; justify-content: center; gap: 25px; margin-top: 60px; flex-wrap: wrap; }
 .btn {
-    padding: 16px 45px; font-family: sans-serif; text-decoration: none;
+    padding: 18px 50px; font-family: sans-serif; text-decoration: none;
     text-transform: uppercase; border-radius: 50px; letter-spacing: 1.5px; 
-    font-size: 0.9rem; font-weight: bold; transition: all 0.4s ease;
+    font-size: 1rem; font-weight: bold; transition: all 0.4s ease;
 }
-.btn-primary { background-color: #7a8a75; color: white; border: 2px solid #7a8a75; box-shadow: 0 4px 15px rgba(122,138,117,0.3); }
-.btn-primary:hover { background-color: transparent; color: #7a8a75; transform: translateY(-4px); box-shadow: none; }
+.btn-primary { background-color: #7a8a75; color: white; border: 2px solid #7a8a75; box-shadow: 0 6px 20px rgba(122,138,117,0.3); }
+.btn-primary:hover { background-color: transparent; color: #7a8a75; transform: translateY(-5px); box-shadow: none; }
 .btn-secondary { background-color: transparent; color: #7a8a75; border: 2px solid #7a8a75; }
-.btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-4px); box-shadow: 0 4px 15px rgba(122,138,117,0.3); }
+.btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-5px); box-shadow: 0 6px 20px rgba(122,138,117,0.3); }
 
-/* BANNER PROMO IMMAGINE */
+/* BANNER PROMO IMMAGINE (Aumentata grandezza) */
 .promo-img-container { 
-    margin: 40px auto 60px auto; max-width: 800px; border-radius: 15px; 
-    overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; 
+    margin: 50px auto 70px auto; max-width: 900px; border-radius: 18px; 
+    overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; 
 }
-.promo-img-container:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+.promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
 .promo-img { width: 100%; height: auto; display: block; }
 
-/* GRIGLIA INSERZIONI */
+/* --- GRIGLIA INSERZIONI: ORA SONO GIGANTI --- */
 .cards-grid { 
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; margin-top: 40px; align-items: start; 
+    display: grid; 
+    /* LA MAGIA DELLE MEGA CARD: larghezza minima passata da 280px a 380px! */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+    gap: 40px; 
+    margin-top: 50px; 
+    align-items: stretch; 
 }
 
 .card { 
-    background-color: #ffffff; border-radius: 12px; overflow: hidden; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.4s ease, box-shadow 0.4s ease; 
-    text-align: left; display: block; text-decoration: none; 
+    background-color: #ffffff; border-radius: 16px; overflow: hidden; 
+    box-shadow: 0 6px 25px rgba(0,0,0,0.04); transition: transform 0.4s ease, box-shadow 0.4s ease; 
+    text-align: left; display: flex; flex-direction: column; text-decoration: none; 
 }
 
-.card.img-only-card { background-color: transparent; box-shadow: none; }
-.card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.card.img-only-card { background-color: transparent; box-shadow: none; justify-content: center; }
+.card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
 
-.card-img { width: 100%; height: 220px; object-fit: cover; display: block; }
-.card-full-img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+/* FOTO PIÙ ALTE NELLE CARD */
+.card-img { width: 100%; height: 320px; object-fit: cover; display: block; }
 
-.card-content { padding: 30px; }
-.card-content h3 { color: #7a8a75; font-size: 1.5rem; margin-bottom: 12px; font-weight: normal; }
-.card-content p { font-size: 1rem; color: #666; margin-bottom: 0; line-height: 1.7; }
+.card-full-img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 6px 25px rgba(0,0,0,0.06); }
 
-/* Responsive Logo Home */
+/* TESTI DELLE CARD PIÙ GRANDI */
+.card-content { padding: 40px 35px; flex-grow: 1; }
+.card-content h3 { color: #7a8a75; font-size: 1.8rem; margin-bottom: 15px; font-weight: normal; }
+.card-content p { font-size: 1.15rem; color: #666; margin-bottom: 0; line-height: 1.7; }
+
+/* Responsive Logo Home & Cards per Cellulare */
 @media (max-width: 768px) {
-    .logo-wrapper { padding: 0 40px; }
-    .hero-logo { max-width: 180px; }
-    .logo-wrapper::before, .logo-wrapper::after { width: 30px; height: 60px; }
+    .logo-wrapper { padding: 0 50px; margin-bottom: 10px; }
+    .hero-logo { max-width: 190px; }
+    .logo-wrapper::before, .logo-wrapper::after { width: 45px; height: 90px; }
+    .cards-grid { grid-template-columns: 1fr; } /* Su cellulare tornano a colonna singola gigante */
+    .card-img { height: 260px; }
 }

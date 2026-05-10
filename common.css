@@ -2,10 +2,15 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Georgia', serif;
-    background-color: #fcfbf9; /* Color Panna */
+    background-color: #f2e8d5; /* <-- IL NUOVO BEIGE DELLE TUE GRAFICHE */
     color: #4a4a4a;
     line-height: 1.8;
     overflow-x: hidden;
+}
+
+/* Sfondo per le sezioni alternate */
+.light-bg { 
+    background-color: #e8decb; /* Un beige appena più scuro per creare un leggero stacco tra una sezione e l'altra */
 }
 
 /* ANIMAZIONI WOW */

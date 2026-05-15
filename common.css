@@ -21,8 +21,8 @@ body::before, body::after {
     bottom: 220px; /* Finiscono prima del footer */
     width: 60px; 
     background-image: url('foglielato.png'); /* Usa il tuo PNG */
-    background-size: contain;
-    background-repeat: repeat-y; 
+    background-size: 100%;
+    background-repeat: no-repeat; 
     background-position: center top;
     opacity: 0.6; /* Leggermente trasparenti per eleganza */
     z-index: 1; 

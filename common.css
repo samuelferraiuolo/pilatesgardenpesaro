@@ -1,7 +1,8 @@
 /* =========================================
    IL MOTORE GRAFICO DI PILATES GARDEN
 ========================================= */
- { box-sizing: border-box; margin: 0; padding: 0; }
+
+{ box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Georgia', serif;
@@ -9,29 +10,30 @@ body {
     color: #4a4a4a;
     line-height: 1.8;
     overflow-x: hidden;
-    position: relative; 
 }
 
-/* --- LE CORNICI DI FOGLIE AI LATI ESTREMI DELLO SCHERMO --- */
+/* --- LE CORNICI DI FOGLIE (Ora FISSE e NON sformate!) --- */
 body::before, body::after {
     content: '';
-    position: absolute;
-    top: 250px; /* Partono subito sotto il panorama in alto */
-    bottom: 0; /* Arrivano fino alla fine della pagina */
-    width: 150px; /* Belle grandi e larghe come hai chiesto */
+    /* LA MAGIA: Fissa l'immagine allo schermo. Scorrendo il sito, le foglie restano ferme! */
+    position: fixed; 
+    top: 0; 
+    bottom: 0; 
+    width: 160px; /* Larghezza della cornice naturale */
     background-image: url('foglielato.png'); 
     
-    /* LA MAGIA: Un'unica immagine allungata per tutto il sito, ZERO duplicati */
-    background-size: 100% 100%; 
+    /* Mantiene le proporzioni perfette, non la tira MAI. Copre l'altezza dello schermo in modo armonioso */
+    background-size: cover; 
     background-repeat: no-repeat; 
+    background-position: center;
     
-    opacity: 0.7; 
-    z-index: 1; 
-    pointer-events: none; /* Fa sì che non blocchino i click sui bottoni */
+    opacity: 0.6; /* Morbide e leggermente trasparenti */
+    z-index: 990; /* Stanno sopra il contenuto ma sotto la barra di navigazione */
+    pointer-events: none; /* Non bloccano i click sui bottoni del sito */
 }
 
-body::before { left: 0; } /* Cascata sinistra attaccata al bordo */
-body::after { right: 0; transform: scaleX(-1); } /* Cascata destra specchiata attaccata al bordo */
+body::before { left: 0; } /* Foglie a sinistra */
+body::after { right: 0; transform: scaleX(-1); } /* Foglie a destra (specchiate perfettamente) */
 
 
 /* =========================================

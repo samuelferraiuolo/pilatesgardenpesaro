@@ -2,7 +2,7 @@
    IL MOTORE GRAFICO DI PILATES GARDEN
 ========================================= */
 
-{ box-sizing: border-box; margin: 0; padding: 0; }
+ { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Georgia', serif;
@@ -10,36 +10,39 @@ body {
     color: #4a4a4a;
     line-height: 1.8;
     overflow-x: hidden;
+    position: relative; 
 }
 
-/* --- LE CORNICI DI FOGLIE (Ora FISSE e NON sformate!) --- */
+/* --- LE CORNICI DI FOGLIE FISSE --- */
 body::before, body::after {
     content: '';
-    /* LA MAGIA: Fissa l'immagine allo schermo. Scorrendo il sito, le foglie restano ferme! */
     position: fixed; 
-    top: 0; 
-    bottom: 0; 
-    width: 160px; /* Larghezza della cornice naturale */
+    /* Sborda leggermente sopra e sotto per eliminare qualsiasi millimetro di spazio vuoto! */
+    top: -10px; 
+    bottom: -10px; 
+    width: 170px; 
     background-image: url('foglielato.png'); 
     
-    /* Mantiene le proporzioni perfette, non la tira MAI. Copre l'altezza dello schermo in modo armonioso */
-    background-size: cover; 
+    /* LA MAGIA: Forza l'immagine a stirarsi esattamente fino ai bordi dello schermo */
+    background-size: 100% 100%; 
     background-repeat: no-repeat; 
     background-position: center;
     
-    opacity: 0.6; /* Morbide e leggermente trasparenti */
-    z-index: 990; /* Stanno sopra il contenuto ma sotto la barra di navigazione */
-    pointer-events: none; /* Non bloccano i click sui bottoni del sito */
+    opacity: 0.65; 
+    z-index: 2; /* Livello basso: staranno SOTTO il panorama e SOTTO il contenuto centrale */
+    pointer-events: none; 
 }
 
 body::before { left: 0; } /* Foglie a sinistra */
-body::after { right: 0; transform: scaleX(-1); } /* Foglie a destra (specchiate perfettamente) */
+body::after { right: 0; transform: scaleX(-1); } /* Foglie a destra specchiate */
 
 
 /* =========================================
    NAVBAR E HEADER
 ========================================= */
 .top-header {
+    position: relative; /* Indispensabile per attivare lo z-index */
+    z-index: 20; /* Questo livello alto fa sì che IL PANORAMA COPRA LE FOGLIE! */
     display: flex; justify-content: center; align-items: center;
     padding: 40px 5%; min-height: 250px; 
     background-image: url('sfondo-panorama.jpg'); 
@@ -49,7 +52,8 @@ body::after { right: 0; transform: scaleX(-1); } /* Foglie a destra (specchiate 
 }
 
 .sub-nav {
-    background-color: #d4c5b3; padding: 15px 5%; position: sticky; top: 0; z-index: 1000;
+    background-color: #d4c5b3; padding: 15px 5%; position: sticky; top: 0; 
+    z-index: 1000; /* Sta sopra a tutto */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; justify-content: center;
 }
 
@@ -69,7 +73,10 @@ body::after { right: 0; transform: scaleX(-1); } /* Foglie a destra (specchiate 
 /* =========================================
    UTILITIES GENERALI E TIPOGRAFIA
 ========================================= */
-.container { max-width: 1350px; margin: 0 auto; width: 100%; position: relative; z-index: 10; }
+.container { 
+    max-width: 1350px; margin: 0 auto; width: 100%; 
+    position: relative; z-index: 30; /* Il testo e le foto staranno SOPRA le foglie */
+}
 .section-spacing { padding: 80px 20px; text-align: center; }
 
 h1 { font-size: 3.2rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
@@ -100,7 +107,7 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 
 @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
-/* Cards Giganti (Tutte e 3 su una riga) */
+/* Cards Giganti */
 .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; align-items: stretch; width: 100%; }
 .card { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.04); transition: transform 0.4s ease, box-shadow 0.4s ease; text-align: left; display: flex; flex-direction: column; text-decoration: none; }
 .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
@@ -133,9 +140,9 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 .target-list li:last-child { border-bottom: none; }
 
 /* Pagina Lo Spazio */
-.hero-spazio { position: relative; height: 70vh; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 10%; }
+.hero-spazio { position: relative; height: 70vh; background-size: cover; background-position: center; display: flex; align-items: center; padding: 0 10%; z-index: 20; }
 .hero-spazio h1 { color: white; font-size: 4rem; line-height: 1.1; text-shadow: 0px 4px 15px rgba(0,0,0,0.6); max-width: 600px; }
-.split-section { display: flex; flex-wrap: wrap; min-height: 50vh; }
+.split-section { display: flex; flex-wrap: wrap; min-height: 50vh; position: relative; z-index: 20; }
 .split-text { flex: 1; min-width: 300px; padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; text-align: left; }
 .split-text h4 { text-transform: uppercase; letter-spacing: 2px; color: #7a8a75; font-size: 0.9rem; margin-bottom: 10px; }
 .split-text h2 { font-size: 2.5rem; color: #2c3e2c; line-height: 1.3; margin-bottom: 0; }
@@ -151,7 +158,7 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 .btn-mail:hover { background-color: #7a8a75; color: white; }
 
 /* Footer */
-.legal-footer { background-color: #7a8a75; color: #fcfbf9; text-align: center; padding: 50px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6; position: relative; z-index: 10; margin-top: auto; }
+.legal-footer { background-color: #7a8a75; color: #fcfbf9; text-align: center; padding: 50px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6; position: relative; z-index: 20; margin-top: auto; }
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
 /* RESPONSIVE */

@@ -1,77 +1,136 @@
 /* =========================================
-   IL MOTORE GRAFICO DI PILATES GARDEN
+   COMMON.CSS - PILATES GARDEN PESARO
+   Architettura Unificata Definitiva
 ========================================= */
 
-{ box-sizing: border-box; margin: 0; padding: 0; }
+/* RESET E IMPOSTAZIONI BASE */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
 body {
     font-family: 'Georgia', serif;
-    background-color: #f2e8d5; /* Il tuo Beige caldo di base */
+    background-color: #f2e8d5; /* Il tuo beige caldo di base */
     color: #4a4a4a;
     line-height: 1.8;
     overflow-x: hidden;
-    position: relative; 
+    position: relative;
 }
 
-/* --- IL NUOVO SFONDO: TANTE PICCOLE FOGLIE A PATTERN --- */
-body::before {
+/* --- LE CORNICI DI FOGLIE LATERALI (FIXED E SENZA DISTORSIONE) --- */
+/* Questo blocco risolve l'effetto "codice a barre" schiacciato */
+body::before, body::after {
     content: '';
-    position: fixed; /* Fisse, così mentre scorri il sito le foglie stanno ferme come una carta da parati */
-    top: 0; left: 0; right: 0; bottom: 0; 
-    
+    position: fixed; 
+    top: 0; 
+    bottom: 0; 
+    width: 130px; /* Larghezza della colonna di foglie */
     background-image: url('foglielato.png'); 
     
-    /* LA MAGIA: Rimpicciolisce l'immagine e la ripete ovunque */
-    background-size: 180px; /* Grandezza delle foglioline (puoi aumentare o diminuire questo numero) */
-    background-repeat: repeat; 
+    /* Mantiene le proporzioni originali e si ripete in verticale */
+    background-size: 100% auto; 
+    background-repeat: repeat-y; 
+    background-position: top center;
     
-    opacity: 0.12; /* Molto leggere e semitrasparenti per non disturbare la lettura! */
-    z-index: 0; /* Appoggiate sopra il beige, ma dietro a tutto il resto */
-    pointer-events: none; /* Non bloccano i click */
+    opacity: 0.7; 
+    z-index: 1; /* Livello base: staranno sotto il panorama e il menu */
+    pointer-events: none; 
 }
 
-/* (Rimosso il body::after che faceva la seconda cornice) */
+body::before { left: 0; }
+body::after { right: 0; transform: scaleX(-1); } /* Specchia il ramo a destra */
 
-/* =========================================
-   NAVBAR E HEADER
-========================================= */
+/* ANIMAZIONI WOW */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-up {
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+}
+.delay-1 { animation-delay: 0.3s; }
+
+/* --- 1. HEADER PANORAMICO CON PARALLASSE --- */
 .top-header {
     position: relative; 
-    z-index: 20; /* Sta sopra allo sfondo di foglie */
-    display: flex; justify-content: center; align-items: center;
-    padding: 40px 5%; min-height: 250px; 
+    z-index: 20; /* Copre le foglie quando si è in cima alla pagina */
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 40px 5%; 
+    min-height: 250px; 
     background-image: url('sfondo-panorama.jpg'); 
-    background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     background-attachment: fixed; /* Parallasse */
     background-color: #f2e8d5; 
 }
 
+/* --- 2. BARRA DI NAVIGAZIONE BEIGE DECISO STICKY --- */
 .sub-nav {
-    background-color: #d4c5b3; padding: 15px 5%; position: sticky; top: 0; 
-    z-index: 1000; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; justify-content: center;
+    background-color: #d4c5b3; 
+    padding: 15px 5%; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; /* Sempre sopra a tutto per coprire le foglie mentre scorri */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    display: flex; 
+    justify-content: center;
 }
 
-.nav-links { list-style: none; display: flex; gap: 40px; }
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 40px; 
+}
+
 .nav-links a {
-    color: #2c3e2c; text-decoration: none; font-family: sans-serif; 
-    font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; 
-    font-weight: bold; position: relative; padding-bottom: 5px; transition: color 0.3s;
+    color: #2c3e2c; 
+    text-decoration: none; 
+    font-family: sans-serif; 
+    font-size: 0.95rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-weight: bold; 
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
 }
+
 .nav-links a::after {
-    content: ''; position: absolute; width: 0; height: 2px;
-    bottom: 0; left: 0; background-color: #5c705c; transition: width 0.3s ease;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #5c705c;
+    transition: width 0.3s ease;
 }
+
 .nav-links a:hover { color: #5c705c; }
 .nav-links a:hover::after { width: 100%; }
 
-/* =========================================
-   UTILITIES GENERALI E TIPOGRAFIA
-========================================= */
+/* --- UTILITIES E CONTENITORE --- */
 .container { 
-    max-width: 1350px; margin: 0 auto; width: 100%; 
-    position: relative; z-index: 30; /* Il testo e le foto staranno ben SOPRA lo sfondo */
+    max-width: 1350px; 
+    margin: 0 auto; 
+    width: 100%; 
+    position: relative; 
+    z-index: 30; /* Assicura che il contenuto sia sopra le foglie laterali */
 }
+
 .section-spacing { padding: 80px 20px; text-align: center; }
 
 h1 { font-size: 3.2rem; color: #7a8a75; margin-bottom: 20px; font-weight: normal; }
@@ -79,53 +138,139 @@ h2 { font-size: 2.6rem; color: #7a8a75; margin-bottom: 40px; font-weight: normal
 p { font-size: 1.2rem; margin-bottom: 20px; }
 .subtitle { font-size: 1.5rem; font-style: italic; color: #666; margin-bottom: 40px; }
 
-/* ANIMAZIONI WOW */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.animate-up { animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-.delay-1 { animation-delay: 0.3s; }
-
 /* =========================================
-   HOME PAGE: LOGO E CARDS
+   HOME PAGE: LOGO E CARDS GIGANTI
 ========================================= */
 .logo-wrapper {
-    position: relative; display: flex; justify-content: center; align-items: center;
-    margin: 0 auto 30px auto; width: fit-content; z-index: 10;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px auto;
+    width: fit-content;
 }
 
 .hero-logo {
-    max-width: 250px; width: 100%; height: auto; display: block;
-    border-radius: 140px 140px 15px 15px; 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 6px solid #f2e8d5; 
-    animation: float 6s ease-in-out infinite; position: relative; z-index: 2;
+    max-width: 250px; 
+    width: 100%; 
+    height: auto; 
+    display: block;
+    border-radius: 140px 140px 15px 15px; /* Forma ad arco */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+    border: 6px solid #f2e8d5; 
+    animation: float 6s ease-in-out infinite; 
 }
 
-@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+/* Griglia Inserzioni */
+.cards-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    margin-top: 50px; 
+    align-items: stretch; 
+}
 
-/* Cards Giganti */
-.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; align-items: stretch; width: 100%; }
-.card { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.04); transition: transform 0.4s ease, box-shadow 0.4s ease; text-align: left; display: flex; flex-direction: column; text-decoration: none; }
-.card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
-.card-img { width: 100%; height: 350px; object-fit: cover; display: block; }
-.card-content { padding: 40px; flex-grow: 1; background-color: white; }
-.card-content h3 { color: #3e4f3e; font-size: 2.4rem; margin-bottom: 15px; font-weight: bold; }
-.card-content p { font-size: 1.35rem; color: #333333; margin-bottom: 0; line-height: 1.7; }
+.card { 
+    background-color: #ffffff; 
+    border-radius: 16px; 
+    overflow: hidden; 
+    box-shadow: 0 6px 25px rgba(0,0,0,0.04); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+    text-align: left; 
+    display: flex; 
+    flex-direction: column; 
+    text-decoration: none; 
+}
+
+.card:hover { 
+    transform: translateY(-12px); 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12); 
+}
+
+.card-img { 
+    width: 100%; 
+    height: 350px; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.card-content { 
+    padding: 40px; 
+    flex-grow: 1; 
+    background-color: white;
+}
+
+.card-content h3 { 
+    color: #3e4f3e; 
+    font-size: 2.4rem; 
+    margin-bottom: 15px; 
+    font-weight: bold; 
+}
+
+.card-content p { 
+    font-size: 1.35rem; 
+    color: #333333; 
+    margin-bottom: 0; 
+    line-height: 1.7; 
+}
 
 /* Promo Banner */
-.promo-img-container { margin: 50px auto 70px auto; max-width: 900px; border-radius: 18px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease; }
-.promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
-.promo-img { width: 100%; height: auto; display: block; position: relative; z-index: 10; }
+.promo-img-container { 
+    margin: 50px auto 70px auto; 
+    max-width: 900px; 
+    border-radius: 18px; 
+    overflow: hidden; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+    transition: transform 0.4s ease; 
+}
+
+.promo-img { width: 100%; height: auto; display: block; }
 
 /* =========================================
-   PAGINE INTERNE E FOOTER
+   PAGINE INTERNE (Metodo, Spazio, Contatti)
 ========================================= */
 
 /* Pulsanti */
-.btn-group { display: flex; justify-content: center; gap: 25px; margin-top: 60px; flex-wrap: wrap; position: relative; z-index: 10; }
-.btn { padding: 18px 50px; font-family: sans-serif; text-decoration: none; text-transform: uppercase; border-radius: 50px; letter-spacing: 1.5px; font-size: 1rem; font-weight: bold; transition: all 0.4s ease; }
-.btn-primary { background-color: #7a8a75; color: white; border: 2px solid #7a8a75; box-shadow: 0 6px 20px rgba(122,138,117,0.3); }
-.btn-primary:hover { background-color: #f2e8d5; color: #7a8a75; transform: translateY(-5px); box-shadow: none; }
-.btn-secondary { background-color: #f2e8d5; color: #7a8a75; border: 2px solid #7a8a75; }
-.btn-secondary:hover { background-color: #7a8a75; color: white; transform: translateY(-5px); box-shadow: 0 6px 20px rgba(122,138,117,0.3); }
+.btn-group { display: flex; justify-content: center; gap: 25px; margin-top: 60px; flex-wrap: wrap; }
+
+.btn { 
+    padding: 18px 50px; 
+    font-family: sans-serif; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    border-radius: 50px; 
+    letter-spacing: 1.5px; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    transition: all 0.4s ease; 
+}
+
+.btn-primary { 
+    background-color: #7a8a75; 
+    color: white; 
+    border: 2px solid #7a8a75; 
+    box-shadow: 0 6px 20px rgba(122,138,117,0.3); 
+}
+
+.btn-primary:hover { 
+    background-color: #f2e8d5; 
+    color: #7a8a75; 
+    transform: translateY(-5px); 
+    box-shadow: none; 
+}
+
+.btn-secondary { 
+    background-color: #f2e8d5; 
+    color: #7a8a75; 
+    border: 2px solid #7a8a75; 
+}
+
+.btn-secondary:hover { 
+    background-color: #7a8a75; 
+    color: white; 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 20px rgba(122,138,117,0.3); 
+}
 
 /* Pagina Metodo */
 .target-list { list-style: none; text-align: left; max-width: 500px; margin: 0 auto; padding: 0; }
@@ -150,20 +295,36 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 .btn-mail { background-color: #f2e8d5; color: #7a8a75; border: 2px solid #7a8a75; }
 .btn-mail:hover { background-color: #7a8a75; color: white; }
 
-/* Footer */
-.legal-footer { background-color: #7a8a75; color: #fcfbf9; text-align: center; padding: 50px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6; position: relative; z-index: 20; margin-top: auto; }
+/* =========================================
+   FOOTER
+========================================= */
+.legal-footer { 
+    background-color: #7a8a75; 
+    color: #fcfbf9; 
+    text-align: center; 
+    padding: 50px 20px; 
+    font-family: sans-serif; 
+    font-size: 0.85rem; 
+    line-height: 1.6; 
+    position: relative; 
+    z-index: 20; /* Copre le foglie laterali in fondo alla pagina */
+    margin-top: auto; 
+}
+
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
-/* RESPONSIVE */
+/* RESPONSIVE PER CELLULARI */
 @media (max-width: 1100px) {
     .cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 768px) {
+    body::before, body::after { display: none; } /* Nascondiamo le foglie laterali su mobile per pulizia */
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
-    h1 { font-size: 2.4rem; } h2 { font-size: 2rem; }
+    h1 { font-size: 2.4rem; } 
+    h2 { font-size: 2rem; }
     .top-header { min-height: 180px; background-attachment: scroll; } 
     .hero-logo { max-width: 190px; }
     .cards-grid { grid-template-columns: 1fr; }
     .card-img { height: 260px; }
-    body::before { background-size: 120px; } /* Foglie più piccole su smartphone */
 }

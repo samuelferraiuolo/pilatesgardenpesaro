@@ -144,7 +144,7 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 
 .card-img { 
     width: 100%; 
-    height: -650px; 
+    height: -750px; 
     object-fit: cover; 
     display: block; 
     background-color: #e9e0d1; /* Colore provvisorio se manca la foto */

@@ -2,7 +2,7 @@
    IL MOTORE GRAFICO DI PILATES GARDEN
 ========================================= */
 
-{ box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Georgia', serif;
@@ -13,24 +13,26 @@ body {
     position: relative; 
 }
 
-/* --- LE CASCATE DI FOGLIE LATERALI --- */
+/* --- LE CORNICI DI FOGLIE AI LATI ESTREMI DELLO SCHERMO --- */
 body::before, body::after {
     content: '';
     position: absolute;
-    top: 310px; /* Partono sotto la navbar */
-    bottom: 220px; /* Finiscono prima del footer */
-    width: 60px; 
-    background-image: url('foglielato.png'); /* Usa il tuo PNG */
-    background-size: 100%;
+    top: 250px; /* Partono subito sotto il panorama in alto */
+    bottom: 0; /* Arrivano fino alla fine della pagina */
+    width: 150px; /* Belle grandi e larghe come hai chiesto */
+    background-image: url('foglielato.png'); 
+    
+    /* LA MAGIA: Un'unica immagine allungata per tutto il sito, ZERO duplicati */
+    background-size: 100% 100%; 
     background-repeat: no-repeat; 
-    background-position: center top;
-    opacity: 0.6; /* Leggermente trasparenti per eleganza */
+    
+    opacity: 0.7; 
     z-index: 1; 
-    pointer-events: none; 
+    pointer-events: none; /* Fa sì che non blocchino i click sui bottoni */
 }
 
-body::before { left: 15px; } /* Cascata sinistra */
-body::after { right: 15px; transform: scaleX(-1); } /* Cascata destra specchiata */
+body::before { left: 0; } /* Cascata sinistra attaccata al bordo */
+body::after { right: 0; transform: scaleX(-1); } /* Cascata destra specchiata attaccata al bordo */
 
 
 /* =========================================
@@ -95,26 +97,13 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
     animation: float 6s ease-in-out infinite; position: relative; z-index: 2;
 }
 
-/* Le Foglie "a parentesi" accanto al logo */
-.logo-wrapper::before, .logo-wrapper::after {
-    content: ''; position: absolute; top: 50%;
-    width: 45px; height: 110px;
-    background-image: url('foglielato.png'); /* Usa il tuo PNG */
-    background-size: contain; background-repeat: no-repeat; background-position: center;
-    opacity: 0.8; animation: float 6s ease-in-out infinite; animation-delay: 0.5s; z-index: 1;
-}
-.logo-wrapper::before { left: -50px; transform: translateY(-50%); }
-.logo-wrapper::after { right: -50px; transform: translateY(-50%) scaleX(-1); } /* Specchiata a destra */
-
 @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
 
-/* Cards Giganti */
+/* Cards Giganti (Tutte e 3 su una riga) */
 .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; align-items: stretch; width: 100%; }
 .card { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.04); transition: transform 0.4s ease, box-shadow 0.4s ease; text-align: left; display: flex; flex-direction: column; text-decoration: none; }
-.card.img-only-card { background-color: transparent; box-shadow: none; justify-content: center; }
 .card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); }
 .card-img { width: 100%; height: 350px; object-fit: cover; display: block; }
-.card-full-img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 6px 25px rgba(0,0,0,0.06); }
 .card-content { padding: 40px; flex-grow: 1; }
 .card-content h3 { color: #3e4f3e; font-size: 2.4rem; margin-bottom: 15px; font-weight: bold; }
 .card-content p { font-size: 1.35rem; color: #333333; margin-bottom: 0; line-height: 1.7; }
@@ -126,7 +115,7 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 
 
 /* =========================================
-   PAGINE INTERNE (Metodo, Spazio, Contatti)
+   PAGINE INTERNE E FOOTER
 ========================================= */
 
 /* Pulsanti */
@@ -160,32 +149,20 @@ p { font-size: 1.2rem; margin-bottom: 20px; }
 .btn-mail { background-color: transparent; color: #7a8a75; border: 2px solid #7a8a75; }
 .btn-mail:hover { background-color: #7a8a75; color: white; }
 
-/* =========================================
-   FOOTER
-========================================= */
-.legal-footer {
-    background-color: #7a8a75; color: #fcfbf9; text-align: center;
-    padding: 50px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6;
-    position: relative; z-index: 10; margin-top: auto;
-}
+/* Footer */
+.legal-footer { background-color: #7a8a75; color: #fcfbf9; text-align: center; padding: 50px 20px; font-family: sans-serif; font-size: 0.85rem; line-height: 1.6; position: relative; z-index: 10; margin-top: auto; }
 .legal-footer a { color: #fcfbf9; text-decoration: underline; margin: 0 10px; }
 
-/* =========================================
-   RESPONSIVE (Tablet e Cellulari)
-========================================= */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
     .cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-    body::before, body::after { display: none; } /* Nasconde le cascate laterali su cell per pulizia */
+    body::before, body::after { display: none; } /* Su cellulare nascondiamo le foglie laterali per pulizia */
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
     h1 { font-size: 2.4rem; } h2 { font-size: 2rem; }
     .top-header { min-height: 180px; background-attachment: scroll; } 
     .hero-logo { max-width: 190px; }
-    .logo-wrapper::before { left: -35px; } .logo-wrapper::after { right: -35px; }
-    .logo-wrapper::before, .logo-wrapper::after { width: 35px; height: 80px; }
     .cards-grid { grid-template-columns: 1fr; }
     .card-img { height: 260px; }
-    .hero-spazio { height: 50vh; }
-    .hero-spazio h1 { font-size: 2.5rem; }
 }

@@ -1,12 +1,10 @@
 /* =========================================
-   IL NUOVO LOOK EDITORIALE - PILATES GARDEN
+   COMMON.CSS - SOLO BASE, NAVBAR E FOOTER
 ========================================= */
 
-/* Importiamo il font scelto dal cliente */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 :root {
-    /* I colori esatti richiesti su WhatsApp */
     --crema-sfondo: #F3EEE4;
     --verde-oliva-titoli: #5E6E4F;
     --verde-salvia: #9AA08B;
@@ -16,201 +14,46 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Cormorant Garamond', serif; /* Il nuovo font ufficiale */
+    font-family: 'Cormorant Garamond', serif;
     background-color: var(--crema-sfondo);
     color: var(--testo-scuro);
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Serve per spingere il footer in basso */
 }
 
-/* =========================================
-   TIPOGRAFIA
-========================================= */
-h1, h2, h3, h4 {
-    color: var(--verde-oliva-titoli);
-    font-weight: 600; /* SemiBold come richiesto */
-    text-align: center;
-}
+/* TIPOGRAFIA DI BASE */
+h1, h2, h3, h4 { color: var(--verde-oliva-titoli); font-weight: 600; text-align: center; }
+.maiuscole-spaziate { text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; color: var(--verde-oliva-titoli); }
 
-.title-mega { font-size: 4rem; margin-bottom: 10px; }
-.subtitle-italic { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); text-align: center; margin-bottom: 30px; }
-.text-body { font-size: 1.4rem; text-align: center; max-width: 800px; margin: 0 auto 40px auto; }
-
-/* Maiuscole spaziate come richiesto dal cliente */
-.maiuscole-spaziate {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 1rem;
-    color: var(--verde-oliva-titoli);
-}
-
-/* =========================================
-   NAVBAR
-========================================= */
+/* NAVBAR */
 .sub-nav {
-    background-color: transparent; /* Ora è pulita e si fonde col crema */
+    background-color: var(--crema-sfondo);
     padding: 20px 5%;
     display: flex; 
     justify-content: center;
-    border-bottom: 1px solid rgba(94, 110, 79, 0.2); /* Linea sottile verde oliva */
+    border-bottom: 1px solid rgba(94, 110, 79, 0.2);
+    position: sticky; top: 0; z-index: 1000;
 }
-
 .nav-links { list-style: none; display: flex; gap: 50px; }
 .nav-links a {
-    color: var(--verde-oliva-titoli); 
-    text-decoration: none; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    font-weight: 600; 
-    font-size: 1.1rem;
-    transition: color 0.3s;
+    color: var(--verde-oliva-titoli); text-decoration: none; 
+    text-transform: uppercase; letter-spacing: 2px; 
+    font-weight: 600; font-size: 1.1rem; transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--verde-salvia); }
 
-/* =========================================
-   HERO SECTION (Le grandi foto in alto)
-========================================= */
-.hero-editorial {
-    position: relative;
-    width: 100%;
-    height: 65vh; /* Altezza della foto grande in alto */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 40px;
-}
-
-.hero-logo-overlay {
-    width: 180px;
-    height: auto;
-    filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.3));
-}
-
-/* =========================================
-   SEZIONI CONTENUTO (Matwork, Reformer)
-========================================= */
-.editorial-section {
-    padding: 80px 20px;
-    background-color: var(--crema-sfondo);
-    position: relative;
-}
-
-.divider-leaf {
-    display: block;
-    margin: 40px auto;
-    width: 250px; /* La larghezza del piccolo decoro floreale orizzontale */
-}
-
-/* Griglia delle Icone (Per Stabilità, Naturalezza, ecc.) */
-.icons-row {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    max-width: 1000px;
-    margin: 60px auto 0 auto;
-    flex-wrap: wrap;
-}
-
-.icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 250px;
-}
-
-.icon-item img {
-    width: 60px; /* Grandezza delle icone circolari */
-    height: 60px;
-    margin-bottom: 20px;
-}
-
-.icon-item h4 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.icon-item p {
-    font-size: 1.1rem;
-    color: var(--testo-scuro);
-}
-
-/* =========================================
-   SEZIONE "IL METODO COVATECH" (Layout a metà)
-========================================= */
-.split-covatech {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: var(--crema-sfondo);
-}
-
-.split-text {
-    flex: 1;
-    min-width: 400px;
-    padding: 80px 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.split-text h2 { text-align: left; font-size: 3rem; margin-bottom: 20px; }
-.split-text h3 { text-align: left; font-size: 1.8rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
-.split-text p { font-size: 1.3rem; margin-bottom: 20px; line-height: 1.6; }
-
-.split-image {
-    flex: 1;
-    min-width: 400px;
-    background-size: cover;
-    background-position: center;
-    min-height: 600px;
-}
-
-/* Griglia a 6 per il metodo Covatech */
-.grid-6-icons {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 40px auto;
-}
-.grid-6-icons .icon-item img { width: 50px; height: 50px; }
-
-/* Loghi certificazioni (ASI, APPI, Italia) */
-.badges-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    margin: 50px 0;
-    flex-wrap: wrap;
-}
-.badges-row img { max-width: 150px; height: auto; }
-
-/* Footer */
+/* FOOTER */
 .footer-bar {
-    background-color: var(--verde-oliva-titoli);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
+    background-color: var(--verde-oliva-titoli); color: var(--crema-sfondo);
+    text-align: center; padding: 30px 20px; text-transform: uppercase;
+    letter-spacing: 2px; font-size: 0.9rem; margin-top: auto;
 }
+.footer-bar a { color: var(--crema-sfondo); text-decoration: underline; margin: 0 10px; }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .icons-row { gap: 40px; }
-    .grid-6-icons { grid-template-columns: repeat(3, 1fr); gap: 30px; }
-}
+/* RESPONSIVE BASE */
 @media (max-width: 768px) {
     .nav-links { flex-wrap: wrap; gap: 15px; justify-content: center; }
-    .split-text { padding: 40px 20px; }
-    .title-mega { font-size: 3rem; }
-    .grid-6-icons { grid-template-columns: repeat(2, 1fr); }
-    .badges-row { gap: 30px; flex-direction: column; }
 }

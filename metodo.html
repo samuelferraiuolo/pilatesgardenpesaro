@@ -5,15 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Metodo | Pilates Garden</title>
     <link rel="stylesheet" href="common.css">
+    
+    <style>
+        .split-covatech { display: flex; flex-wrap: wrap; }
+        .split-text { flex: 1; min-width: 400px; padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
+        .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 20px; line-height: 1; }
+        .split-text h3 { text-align: left; font-size: 2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
+        .split-text p { font-size: 1.4rem; margin-bottom: 20px; }
+        
+        .split-image { flex: 1; min-width: 400px; background-size: cover; background-position: center; min-height: 600px; }
+        
+        .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
+        .grid-6-icons { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin: 50px 0; }
+        .icon-item { display: flex; flex-direction: column; align-items: center; }
+        .icon-item img { width: 55px; height: 55px; margin-bottom: 15px; }
+        
+        .badges-row { display: flex; justify-content: center; gap: 60px; margin-top: 50px; flex-wrap: wrap; }
+        .badges-row img { max-width: 140px; height: auto; }
+        
+        @media (max-width: 900px) { .grid-6-icons { grid-template-columns: repeat(3, 1fr); gap: 40px; } }
+        @media (max-width: 768px) { .split-text { padding: 40px 20px; } .split-text h2 { font-size: 3.5rem; } .grid-6-icons { grid-template-columns: repeat(2, 1fr); } }
+    </style>
 </head>
 <body>
 
     <nav class="sub-nav">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="percorsi.html">I percorsi</a></li>
-            <li><a href="lo-spazio.html">Lo spazio</a></li>
+            <li><a href="metodo.html">Il Metodo</a></li>
+            <li><a href="lo-spazio.html">Lo Spazio</a></li>
             <li><a href="contatti.html">Contatti</a></li>
         </ul>
     </nav>
@@ -22,49 +42,40 @@
         <div class="split-text">
             <h4 class="maiuscole-spaziate" style="text-align: left; margin-bottom: 10px;">Il Metodo</h4>
             <h2>COVATECH®</h2>
-            
             <img src="piccola-foglia.png" alt="Decoro" style="width: 40px; margin-bottom: 20px;">
             
             <h3>Una formazione di eccellenza italiana ed europea</h3>
             <p>Pilates Garden Pesaro nasce dalla formazione nel metodo CovaTech® Pilates®, una delle realtà storiche più autorevoli nel panorama della formazione Pilates in Italia.</p>
-            <p>Fondata nel 1989 da Anna Maria Cova, rappresenta oggi un centro di eccellenza riconosciuto a livello italiano ed internazionale.</p>
-            <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento, sulla consapevolezza corporea e sulla qualità degli appoggi.</p>
+            <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento.</p>
         </div>
         
         <div class="split-image" style="background-image: url('foto-covatech-donna.jpg');"></div>
     </section>
 
-    <section class="editorial-section">
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-bottom: 20px;">Precisione, ascolto<br>e consapevolezza</h2>
-            <p class="text-body" style="font-size: 1.2rem;">
-                Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo. L'attenzione al pavimento pelvico, alla respirazione, al controllo motorio...
-            </p>
-        </div>
+    <section class="icons-section">
+        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem;">Precisione, ascolto e consapevolezza</h2>
+        <p style="font-size: 1.3rem; max-width: 800px; margin: 20px auto;">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
 
         <div class="grid-6-icons">
-            <div class="icon-item"><img src="icon-pelvico.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.9rem;">Pavimento<br>Pelvico</h4></div>
-            <div class="icon-item"><img src="icon-respiro.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.9rem;">Respirazione</h4></div>
-            <div class="icon-item"><img src="icon-controllo.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.9rem;">Controllo</h4></div>
-            <div class="icon-item"><img src="icon-postura.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.9rem;">Postura</h4></div>
-            <div class="icon-item"><img src="icon-precisione.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.9rem;">Precisione<br>del gesto</h4></div>
-            <div class="icon-item"><img src="icon-ascolto-cuore.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.9rem;">Ascolto<br>del corpo</h4></div>
+            <div class="icon-item"><img src="icon-pelvico.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.85rem;">Pavimento<br>Pelvico</h4></div>
+            <div class="icon-item"><img src="icon-respiro.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.85rem;">Respirazione</h4></div>
+            <div class="icon-item"><img src="icon-controllo.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.85rem;">Controllo</h4></div>
+            <div class="icon-item"><img src="icon-postura.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.85rem;">Postura</h4></div>
+            <div class="icon-item"><img src="icon-precisione.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.85rem;">Precisione<br>del gesto</h4></div>
+            <div class="icon-item"><img src="icon-ascolto-cuore.png" alt="Icona"><h4 class="maiuscole-spaziate" style="font-size: 0.85rem;">Ascolto<br>del corpo</h4></div>
         </div>
 
-        <p class="text-body" style="font-weight: 600; margin-top: 40px;">Ogni dettaglio del movimento nasce da ciò che ci sostiene.</p>
-        <img src="decoro-foglie-orizzontale.png" class="divider-leaf" alt="Decoro">
-
-        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 60px;">Una scuola riconosciuta</h2>
+        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 80px;">Una scuola riconosciuta</h2>
         <div class="badges-row">
-            <div class="icon-item"><img src="logo-asi.png" alt="ASI"><p style="font-size: 0.9rem; margin-top: 10px;">Settore Fitness & Wellness ASI</p></div>
-            <div class="icon-item"><img src="logo-appi.png" alt="APPI"><p style="font-size: 0.9rem; margin-top: 10px;">Scuola approvata APPI 2026</p></div>
-            <div class="icon-item"><img src="logo-italia-coni.png" alt="CONI"><p style="font-size: 0.9rem; margin-top: 10px;">Ente di promozione sportiva riconosciuto dal CONI</p></div>
+            <div class="icon-item"><img src="logo-asi.png" alt="ASI"></div>
+            <div class="icon-item"><img src="logo-appi.png" alt="APPI"></div>
+            <div class="icon-item"><img src="logo-italia-coni.png" alt="CONI"></div>
         </div>
     </section>
 
-    <div class="footer-bar">
-        Formazione • Precisione • Consapevolezza • Ricerca • Qualità dell'insegnamento
-    </div>
+    <footer class="footer-bar">
+        <p>Pilates Garden Pesaro | Metodo Covatech®</p>
+    </footer>
 
 </body>
 </html>

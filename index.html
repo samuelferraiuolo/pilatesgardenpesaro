@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="common.css">
     
     <style>
+        /* --- IL NUOVO SFONDO A FOGLIE (Come Carta da Parati) --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            
+            /* Assicurati che il nome file su GitHub sia ESATTAMENTE questo */
+            background-image: url('Sfondo beige con foglie per sito web.png'); 
+            
+            background-size: 350px; /* Grandezza delle foglie */
+            background-repeat: repeat; /* Ripete le foglie su tutto lo schermo */
+            opacity: 0.15; /* Leggera trasparenza per un effetto lussuoso che non disturba la lettura */
+            z-index: -1; /* Lo spinge sullo sfondo dietro a tutto */
+        }
+
         .home-container { max-width: 1350px; margin: 0 auto; width: 100%; padding: 60px 20px; }
         
         .logo-wrapper { display: flex; justify-content: center; margin-bottom: 50px; }
@@ -14,7 +29,19 @@
         
         .subtitle-italic { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); text-align: center; margin-bottom: 40px; }
         
-        /* GRIGLIA DELLE CARD CHE TI PIACEVANO */
+        /* IL BANNER DELLA PROMOZIONE */
+        .promo-img-container { 
+            margin: 0 auto 70px auto; 
+            max-width: 900px; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            transition: transform 0.4s ease; 
+        }
+        .promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
+        .promo-img { width: 100%; height: auto; display: block; }
+
+        /* GRIGLIA DELLE CARD */
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
         .card { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none; transition: transform 0.3s; }
         .card:hover { transform: translateY(-10px); }
@@ -44,6 +71,10 @@
         </div>
         
         <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
+
+        <div class="promo-img-container">
+            <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
+        </div>
 
         <div class="cards-grid">
             

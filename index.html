@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Pilates Garden Pesaro</title>
     <link rel="stylesheet" href="common.css">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
-    <meta property="og:image" content="logo.png">
+    
+    <style>
+        .home-container { max-width: 1350px; margin: 0 auto; width: 100%; padding: 60px 20px; }
+        
+        .logo-wrapper { display: flex; justify-content: center; margin-bottom: 50px; }
+        .hero-logo { width: 250px; border-radius: 140px 140px 15px 15px; border: 6px solid var(--crema-sfondo); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        
+        .subtitle-italic { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); text-align: center; margin-bottom: 40px; }
+        
+        /* GRIGLIA DELLE CARD CHE TI PIACEVANO */
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
+        .card { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { width: 100%; height: 350px; object-fit: cover; }
+        .card-content { padding: 40px; flex-grow: 1; text-align: center; }
+        .card-content h3 { font-size: 2.8rem; margin-bottom: 15px; }
+        .card-content p { font-size: 1.3rem; color: var(--testo-scuro); }
+        
+        @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } .card-img { height: 260px; } }
+    </style>
 </head>
 <body>
-    
-    <header class="top-header"></header>
 
     <nav class="sub-nav">
         <ul class="nav-links">
@@ -22,60 +38,45 @@
         </ul>
     </nav>
 
-    <section class="section-spacing animate-up">
-        <div class="container hero-content" style="max-width: 1000px;">
-            
-            <div class="logo-wrapper">
-                <img src="logo.png" alt="Pilates Garden Pesaro" class="hero-logo">
-            </div>
-            
-            <p class="subtitle">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
-            
-            <div class="promo-img-container">
-                <img src="promo-estate.jpg" alt="Promozione Estate: Reformer e Prima Lezione Gratuita" class="promo-img">
-            </div>
+    <div class="home-container">
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="Pilates Garden Pesaro" class="hero-logo">
         </div>
-    </section>
+        
+        <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
 
-    <section class="section-spacing light-bg animate-up delay-1">
-        <div class="container" style="max-width: 1000px;">
-            <h2>I nostri percorsi</h2>
+        <div class="cards-grid">
             
-            <div class="cards-grid">
-                
-                <a href="metodo.html" class="card img-only-card">
-                    <img src="card-matwork.jpg" alt="Matwork Pilates" class="card-full-img">
-                </a>
-
-                <div class="card">
-                    <img src="foto-2.jpg" alt="Lezioni Reformer" class="card-img">
-                    <div class="card-content">
-                        <h3>Reformer</h3>
-                        <p>Il prossimo passo del lavoro sul corpo. Da giugno lezioni dedicate sul macchinario con classi esclusive da massimo 3 persone.</p>
-                    </div>
+            <a href="matwork.html" class="card">
+                <img src="foto-1.jpg" alt="Matwork" class="card-img">
+                <div class="card-content">
+                    <h3>Matwork</h3>
+                    <p>Lavoro a terra su base in legno. Classi intime di massimo 5 persone per garantire la massima attenzione.</p>
                 </div>
+            </a>
 
-                <div class="card">
-                    <img src="foto-3.jpg" alt="Pilates all'aperto" class="card-img">
-                    <div class="card-content">
-                        <h3>L'Ambiente</h3>
-                        <p>Un'esperienza di Pilates immersa nel verde. Aria pura, silenzio e panorama a pochi minuti dal centro storico di Pesaro.</p>
-                    </div>
+            <a href="reformer.html" class="card">
+                <img src="foto-2.jpg" alt="Reformer" class="card-img">
+                <div class="card-content">
+                    <h3>Reformer</h3>
+                    <p>Il prossimo passo del lavoro sul corpo. Da giugno lezioni dedicate sul macchinario con classi esclusive da massimo 3 persone.</p>
                 </div>
-                
-            </div>
+            </a>
+
+            <a href="lo-spazio.html" class="card">
+                <img src="foto-3.jpg" alt="L'Ambiente" class="card-img">
+                <div class="card-content">
+                    <h3>L'Ambiente</h3>
+                    <p>Un'esperienza di Pilates immersa nel verde. Aria pura, silenzio e panorama a pochi minuti dal centro storico di Pesaro.</p>
+                </div>
+            </a>
             
-            <div class="btn-group" style="margin-top: 60px;">
-                <a href="metodo.html" class="btn btn-primary">Scopri il metodo</a>
-                <a href="contatti.html" class="btn btn-secondary">Prenota la prova</a>
-            </div>
         </div>
-    </section>
+    </div>
 
-    <footer class="legal-footer">
-        <p>Pilates Garden Pesaro di Sara Di Franco | Sede: Pesaro | P.IVA: [Inserire Partita IVA]</p>
-        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
-        <p>&copy; 2024 Pilates Garden Pesaro</p>
+    <footer class="footer-bar">
+        <p>Pilates Garden Pesaro | P.IVA: [Inserire Partita IVA]</p>
+        <p><a href="privacy-policy.html">Privacy Policy</a></p>
     </footer>
 
 </body>

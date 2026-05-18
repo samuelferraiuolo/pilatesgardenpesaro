@@ -7,7 +7,7 @@
 :root {
     --crema-sfondo: #F3EEE4;
     --verde-oliva-titoli: #5E6E4F;
-    --verde-salvia: #9AA08B;
+    --verde-salvia: #9AA08B; /* Il colore del banner promozionale */
     --testo-scuro: #333333;
 }
 
@@ -21,29 +21,33 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Serve per spingere il footer in basso */
+    min-height: 100vh;
 }
 
 /* TIPOGRAFIA DI BASE */
 h1, h2, h3, h4 { color: var(--verde-oliva-titoli); font-weight: 600; text-align: center; }
 .maiuscole-spaziate { text-transform: uppercase; letter-spacing: 3px; font-size: 1rem; color: var(--verde-oliva-titoli); }
 
-/* NAVBAR */
+/* --- NAVBAR VERDE SALVIA --- */
 .sub-nav {
-    background-color: var(--crema-sfondo);
+    background-color: var(--verde-salvia); /* Colore cambiato per matchare il banner! */
     padding: 20px 5%;
     display: flex; 
     justify-content: center;
-    border-bottom: 1px solid rgba(94, 110, 79, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: sticky; top: 0; z-index: 1000;
 }
+
 .nav-links { list-style: none; display: flex; gap: 50px; }
+
 .nav-links a {
-    color: var(--verde-oliva-titoli); text-decoration: none; 
+    color: var(--crema-sfondo); /* Testo crema chiaro per risaltare sul verde */
+    text-decoration: none; 
     text-transform: uppercase; letter-spacing: 2px; 
     font-weight: 600; font-size: 1.1rem; transition: color 0.3s;
 }
-.nav-links a:hover { color: var(--verde-salvia); }
+
+.nav-links a:hover { color: #ffffff; }
 
 /* FOOTER */
 .footer-bar {

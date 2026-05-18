@@ -7,19 +7,12 @@
     <link rel="stylesheet" href="common.css">
     
     <style>
-        /* --- IL NUOVO SFONDO A FOGLIE (Come Carta da Parati) --- */
+        /* --- IL NUOVO SFONDO A FOGLIE --- */
         body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            
-            /* Assicurati che il nome file su GitHub sia ESATTAMENTE questo */
+            content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('Sfondo beige con foglie per sito web.png'); 
-            
-            background-size: 350px; /* Grandezza delle foglie */
-            background-repeat: repeat; /* Ripete le foglie su tutto lo schermo */
-            opacity: 0.15; /* Leggera trasparenza per un effetto lussuoso che non disturba la lettura */
-            z-index: -1; /* Lo spinge sullo sfondo dietro a tutto */
+            background-size: 350px; background-repeat: repeat; 
+            opacity: 0.15; z-index: -1; 
         }
 
         .home-container { max-width: 1350px; margin: 0 auto; width: 100%; padding: 60px 20px; }
@@ -31,27 +24,56 @@
         
         /* IL BANNER DELLA PROMOZIONE */
         .promo-img-container { 
-            margin: 0 auto 70px auto; 
-            max-width: 900px; 
-            border-radius: 18px; 
-            overflow: hidden; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            transition: transform 0.4s ease; 
+            margin: 0 auto 70px auto; max-width: 900px; border-radius: 18px; 
+            overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease; 
         }
         .promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
         .promo-img { width: 100%; height: auto; display: block; }
 
-        /* GRIGLIA DELLE CARD */
+        /* =========================================
+           GRIGLIA DELLE CARD EDITORIALI DI LUSSO
+        ========================================= */
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
-        .card { background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.05); display: flex; flex-direction: column; text-decoration: none; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 350px; object-fit: cover; }
-        .card-content { padding: 40px; flex-grow: 1; text-align: center; }
-        .card-content h3 { font-size: 2.8rem; margin-bottom: 15px; }
-        .card-content p { font-size: 1.3rem; color: var(--testo-scuro); }
+        
+        .card { 
+            background-color: var(--crema-sfondo); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            display: flex; flex-direction: column; text-decoration: none; transition: transform 0.4s ease; 
+            border: 1px solid rgba(94, 110, 79, 0.15); /* Bordino quasi invisibile */
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        
+        /* Contenitore Immagine con Sfumatura */
+        .card-img-wrapper { position: relative; width: 100%; height: 280px; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* LA MAGIA: Crea la dissolvenza dalla foto al crema */
+        .card-img-wrapper::after {
+            content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 120px;
+            background: linear-gradient(to bottom, rgba(243, 238, 228, 0) 0%, var(--crema-sfondo) 100%);
+        }
+        
+        /* Contenuto Testuale */
+        .card-content { 
+            padding: 0 30px 40px 30px; flex-grow: 1; text-align: center; 
+            display: flex; flex-direction: column; align-items: center;
+            background-color: var(--crema-sfondo); position: relative; z-index: 2;
+        }
+        
+        .icon-top-card { width: 25px; margin-bottom: 5px; margin-top: -15px; } /* Fogliolina in alto */
+        
+        .card-content h3 { font-size: 3.2rem; margin-bottom: 10px; font-weight: 400; color: var(--verde-oliva-titoli); line-height: 1; }
+        
+        .card-divider { width: 50px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px auto; }
+        
+        .card-content p { font-size: 1.3rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
+        
+        .card-bottom-leaf { width: 140px; margin-top: auto; padding-top: 30px; } /* Ramo in basso */
         
         @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } .card-img { height: 260px; } }
+        @media (max-width: 768px) { .cards-grid { grid-template-columns: 1fr; } .card-img-wrapper { height: 260px; } }
     </style>
 </head>
 <body>
@@ -66,6 +88,7 @@
     </nav>
 
     <div class="home-container">
+        
         <div class="logo-wrapper">
             <img src="logo.png" alt="Pilates Garden Pesaro" class="hero-logo">
         </div>
@@ -79,26 +102,44 @@
         <div class="cards-grid">
             
             <a href="matwork.html" class="card">
-                <img src="foto-1.jpg" alt="Matwork" class="card-img">
+                <div class="card-img-wrapper">
+                    <img src="foto-matwork-pulita.jpg" alt="Matwork">
+                </div>
                 <div class="card-content">
+                    <img src="piccola-foglia.png" class="icon-top-card" alt="Decoro">
                     <h3>Matwork</h3>
-                    <p>Lavoro a terra su base in legno. Classi intime di massimo 5 persone per garantire la massima attenzione.</p>
+                    <div class="card-divider"></div>
+                    <p>Lavoro a terra su base in legno.<br>Classi intime di massimo 5 persone<br>per garantire la massima attenzione.</p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">Perché i dettagli fanno la differenza.</p>
+                    <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
 
             <a href="reformer.html" class="card">
-                <img src="foto-2.jpg" alt="Reformer" class="card-img">
+                <div class="card-img-wrapper">
+                    <img src="foto-reformer-pulita.jpg" alt="Reformer">
+                </div>
                 <div class="card-content">
+                    <img src="piccola-foglia.png" class="icon-top-card" alt="Decoro">
                     <h3>Reformer</h3>
-                    <p>Il prossimo passo del lavoro sul corpo. Da giugno lezioni dedicate sul macchinario con classi esclusive da massimo 3 persone.</p>
+                    <div class="card-divider"></div>
+                    <p>Lezioni in piccoli gruppi,<br>massimo 3 persone.</p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli); margin-top: 10px;">Precisione, fluidità e attenzione personalizzata.</p>
+                    <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
 
             <a href="lo-spazio.html" class="card">
-                <img src="foto-3.jpg" alt="L'Ambiente" class="card-img">
+                <div class="card-img-wrapper">
+                    <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
+                </div>
                 <div class="card-content">
-                    <h3>L'Ambiente</h3>
-                    <p>Un'esperienza di Pilates immersa nel verde. Aria pura, silenzio e panorama a pochi minuti dal centro storico di Pesaro.</p>
+                    <img src="piccola-foglia.png" class="icon-top-card" alt="Decoro">
+                    <h3>Uno spazio da vivere</h3>
+                    <div class="card-divider"></div>
+                    <p>Un giardino immerso nel verde,<br>dove natura e silenzio creano<br>il luogo ideale per ritrovare equilibrio e benessere.</p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">Perché anche l'ambiente fa parte della pratica.</p>
+                    <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
             

@@ -38,7 +38,14 @@
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         
         .card-img-wrapper { position: relative; width: 100%; height: 280px; }
-        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* 📌 AGGIORNATO: object-position per abbassare la foto matwork */
+        .card-img-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: center bottom; /* Sposta il fuoco della foto verso il basso */
+        }
         
         .card-img-wrapper::after {
             content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 120px;
@@ -51,7 +58,7 @@
             background-color: var(--crema-sfondo); position: relative; z-index: 2;
         }
         
-        .icon-top-card { width: 25px; margin-bottom: 5px; margin-top: -15px; }
+        /* Classe per l'icona rimossa nel HTML */
         .card-content h3 { font-size: 3.2rem; margin-bottom: 10px; font-weight: 400; color: var(--verde-oliva-titoli); line-height: 1; }
         .card-divider { width: 50px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px auto; }
         .card-content p { font-size: 1.3rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
@@ -77,7 +84,7 @@
             <img src="logo.png" alt="Pilates Garden Pesaro" class="hero-logo">
         </div>
         
-        <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
+        <p class="subtitle-italic">Ascolto, attentione, natura. Un modo diverso di vivere il Pilates.</p>
 
         <div class="promo-img-container">
             <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
@@ -89,7 +96,6 @@
                     <img src="foto-matwork-pulita.jpg" alt="Matwork">
                 </div>
                 <div class="card-content">
-                    <img src="piccola-foglia.png" class="icon-top-card" alt="Decoro">
                     <h3>Matwork</h3>
                     <div class="card-divider"></div>
                     <p>Lavoro a terra su base in legno.<br>Classi intime di massimo 5 persone<br>per garantire la massima attenzione.</p>
@@ -103,7 +109,6 @@
                     <img src="foto-reformer-pulita.jpg" alt="Reformer">
                 </div>
                 <div class="card-content">
-                    <img src="piccola-foglia.png" class="icon-top-card" alt="Decoro">
                     <h3>Reformer</h3>
                     <div class="card-divider"></div>
                     <p>Lezioni in piccoli gruppi,<br>massimo 3 persone.</p>
@@ -117,7 +122,6 @@
                     <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
                 </div>
                 <div class="card-content">
-                    <img src="piccola-foglia.png" class="icon-top-card" alt="Decoro">
                     <h3>Uno spazio da vivere</h3>
                     <div class="card-divider"></div>
                     <p>Un giardino immerso nel verde,<br>dove natura e silenzio creano<br>il luogo ideale per ritrovare equilibrio e benessere.</p>

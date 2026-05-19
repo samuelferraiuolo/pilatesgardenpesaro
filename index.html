@@ -30,6 +30,7 @@
 
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
         
+        /* Struttura base uguale per tutte le card */
         .card { 
             background-color: var(--crema-sfondo); border-radius: 20px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; 
@@ -39,15 +40,16 @@
         
         .card-img-wrapper { position: relative; width: 100%; height: 280px; }
         
-        /* 📌 AGGIORNATO: object-position per abbassare la foto matwork */
-  .card-img-wrapper img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    
-    /* X resta al 50% (centrato), Y scende all'80% (quasi in fondo) */
-    object-position: 50% 40%; 
-}
+        .card-img-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        /* 📌 CLASSI DEDICATE PER SPOSTARE LE FOTO INDIVIDUALMENTE */
+        .card-1 .card-img-wrapper img { object-position: 50% 40%; } /* Foto Matwork */
+        .card-2 .card-img-wrapper img { object-position: 50% 50%; } /* Foto Reformer */
+        .card-3 .card-img-wrapper img { object-position: 50% 50%; } /* Foto Spazio */
         
         .card-img-wrapper::after {
             content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 120px;
@@ -60,7 +62,6 @@
             background-color: var(--crema-sfondo); position: relative; z-index: 2;
         }
         
-        /* Classe per l'icona rimossa nel HTML */
         .card-content h3 { font-size: 3.2rem; margin-bottom: 10px; font-weight: 400; color: var(--verde-oliva-titoli); line-height: 1; }
         .card-divider { width: 50px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px auto; }
         .card-content p { font-size: 1.3rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
@@ -86,14 +87,14 @@
             <img src="logo.png" alt="Pilates Garden Pesaro" class="hero-logo">
         </div>
         
-        <p class="subtitle-italic">Ascolto, attentione, natura. Un modo diverso di vivere il Pilates.</p>
+        <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
 
         <div class="promo-img-container">
             <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
         </div>
 
         <div class="cards-grid">
-            <a href="matwork.html" class="card">
+            <a href="matwork.html" class="card card-1">
                 <div class="card-img-wrapper">
                     <img src="foto-matwork-pulita.jpg" alt="Matwork">
                 </div>
@@ -106,7 +107,7 @@
                 </div>
             </a>
 
-            <a href="reformer.html" class="card">
+            <a href="reformer.html" class="card card-2">
                 <div class="card-img-wrapper">
                     <img src="foto-reformer-pulita.jpg" alt="Reformer">
                 </div>
@@ -119,7 +120,7 @@
                 </div>
             </a>
 
-            <a href="lo-spazio.html" class="card">
+            <a href="lo-spazio.html" class="card card-3">
                 <div class="card-img-wrapper">
                     <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
                 </div>

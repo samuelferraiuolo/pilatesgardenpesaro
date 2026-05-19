@@ -30,6 +30,7 @@
 
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
         
+        /* LA STRUTTURA ESTERNA DELLE CARD (Identica per tutte) */
         .card { 
             background-color: var(--crema-sfondo); border-radius: 20px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; 
@@ -37,18 +38,36 @@
         }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         
-        .card-img-wrapper { position: relative; width: 100%; height: 280px; }
+        .card-img-wrapper { position: relative; width: 100%; height: 400px; }
         
-        /* 📌 LA MISURA PERFETTA PER TUTTE E 3 LE FOTO */
         .card-img-wrapper img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; 
-            object-position: 50% 80%; /* X centrato, Y verso il basso */
+            object-fit: cover; /* Mantiene la foto proporzionata al contenitore */
         }
         
+        /* ========================================================
+           📌 CONTROLLO INDIVIDUALE DELLE FOTO (Il tuo pannello di regia)
+           Cambia il secondo valore (la Y) per alzare o abbassare ogni foto.
+           0% = Tutto in alto | 50% = Centro | 100% = Tutto in basso
+        ======================================================== */
+        
+        .card-matwork .card-img-wrapper img { 
+            object-position: 50% 85%; /* Se è troppo ritagliata, prova a metterla a 60% o 100% */
+        }
+        
+        .card-reformer .card-img-wrapper img { 
+            object-position: 50% 50%; /* Se i reformer sono troppo alti, mettila a 80% */
+        }
+        
+        .card-spazio .card-img-wrapper img { 
+            object-position: 50% 100%; /* Spinta tutta in basso per prendere l'aratro */
+        }
+
+        /* ======================================================== */
+        
         .card-img-wrapper::after {
-            content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 120px;
+            content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 160px;
             background: linear-gradient(to bottom, rgba(243, 238, 228, 0) 0%, var(--crema-sfondo) 100%);
         }
         
@@ -91,7 +110,7 @@
 
         <div class="cards-grid">
             
-            <a href="matwork.html" class="card">
+            <a href="matwork.html" class="card card-matwork">
                 <div class="card-img-wrapper">
                     <img src="foto-matwork-pulita.jpg" alt="Matwork">
                 </div>
@@ -104,7 +123,7 @@
                 </div>
             </a>
 
-            <a href="reformer.html" class="card">
+            <a href="reformer.html" class="card card-reformer">
                 <div class="card-img-wrapper">
                     <img src="foto-reformer-pulita.jpg" alt="Reformer">
                 </div>
@@ -117,7 +136,7 @@
                 </div>
             </a>
 
-            <a href="lo-spazio.html" class="card">
+            <a href="lo-spazio.html" class="card card-spazio">
                 <div class="card-img-wrapper">
                     <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
                 </div>

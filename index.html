@@ -30,7 +30,6 @@
 
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
         
-        /* Struttura base uguale per tutte le card */
         .card { 
             background-color: var(--crema-sfondo); border-radius: 20px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; 
@@ -40,16 +39,13 @@
         
         .card-img-wrapper { position: relative; width: 100%; height: 280px; }
         
+        /* 📌 LA MISURA PERFETTA PER TUTTE E 3 LE FOTO */
         .card-img-wrapper img { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
+            object-position: 50% 80%; /* X centrato, Y verso il basso */
         }
-
-        /* 📌 CLASSI DEDICATE PER SPOSTARE LE FOTO INDIVIDUALMENTE */
-        .card-1 .card-img-wrapper img { object-position: 50% 40%; } /* Foto Matwork */
-        .card-2 .card-img-wrapper img { object-position: 50% 25%; } /* Foto Reformer */
-        .card-3 .card-img-wrapper img { object-position: 50% 15%; } /* Foto Spazio */
         
         .card-img-wrapper::after {
             content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 120px;
@@ -94,7 +90,8 @@
         </div>
 
         <div class="cards-grid">
-            <a href="matwork.html" class="card card-1">
+            
+            <a href="matwork.html" class="card">
                 <div class="card-img-wrapper">
                     <img src="foto-matwork-pulita.jpg" alt="Matwork">
                 </div>
@@ -107,7 +104,7 @@
                 </div>
             </a>
 
-            <a href="reformer.html" class="card card-2">
+            <a href="reformer.html" class="card">
                 <div class="card-img-wrapper">
                     <img src="foto-reformer-pulita.jpg" alt="Reformer">
                 </div>
@@ -120,7 +117,7 @@
                 </div>
             </a>
 
-            <a href="lo-spazio.html" class="card card-3">
+            <a href="lo-spazio.html" class="card">
                 <div class="card-img-wrapper">
                     <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
                 </div>
@@ -132,6 +129,7 @@
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
+            
         </div>
     </div>
 

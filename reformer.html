@@ -3,61 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reformer | Pilates Garden</title>
+    <title>Reformer | Pilates Garden Pesaro</title>
     <link rel="stylesheet" href="common.css">
+    <style>
+        body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
+        
+        /* Immagine Hero in alto */
+        .hero-detail {
+            height: 65vh;
+            background-image: url('foto-reformer.jpg'); /* Carica la tua foto del macchinario su GitHub */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Sezione contenuto che si sovrappone leggermente alla foto */
+        .content-section {
+            max-width: 900px;
+            margin: -50px auto 0;
+            background-color: var(--crema-sfondo);
+            padding: 60px 50px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand-svg-small { max-width: 180px; margin: 0 auto 30px; display: block; }
+        
+        .content-section h4 { color: var(--verde-salvia); letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
+        .content-section h2 { font-size: 4rem; color: var(--verde-oliva-titoli); margin-bottom: 15px; font-weight: 400; }
+        .content-section h3 { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); margin-bottom: 40px; font-weight: 400; }
+        .content-section p { font-size: 1.3rem; line-height: 1.7; color: var(--testo-scuro); margin-bottom: 50px; }
+
+        /* Griglia delle 3 icone */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .feature-item { text-align: center; }
+        .feature-item img { width: 70px; height: 70px; margin-bottom: 15px; display: inline-block; }
+        .feature-item h5 { font-size: 0.9rem; letter-spacing: 2px; color: var(--verde-oliva-titoli); margin-bottom: 0; margin-top: 0; }
+
+        /* Pillola informativa in basso */
+        .info-pill {
+            display: inline-block;
+            padding: 15px 35px;
+            border: 1px solid var(--verde-salvia);
+            border-radius: 50px;
+            color: var(--testo-scuro);
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer Legale */
+        .footer-bar {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .content-section { margin-top: 0; padding: 40px 20px; }
+            .features-grid { grid-template-columns: 1fr; gap: 40px; }
+            .content-section h2 { font-size: 3rem; }
+        }
+    </style>
 </head>
 <body>
 
     <nav class="sub-nav">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="chi-sono.html">Chi sono</a></li>
-            <li><a href="percorsi.html">I percorsi</a></li>
-            <li><a href="lo-spazio.html">Lo spazio</a></li>
+            <li><a href="metodo.html">Il Metodo</a></li>
+            <li><a href="lo-spazio.html">Lo Spazio</a></li>
             <li><a href="contatti.html">Contatti</a></li>
         </ul>
     </nav>
 
-    <section class="hero-editorial" style="background-image: url('foto-reformer-prato.jpg');">
-        <img src="logo.png" alt="Logo Pilates Garden" class="hero-logo-overlay">
-    </section>
+    <header class="hero-detail"></header>
 
-    <section class="editorial-section">
+    <section class="content-section">
+        <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden" class="brand-svg-small">
         
-        <h1 class="title-mega">Reformer</h1>
-        <p class="subtitle-italic">Precisione, fluidità, controllo.</p>
+        <h4>REFORMER</h4>
+        <h2>Reformer</h2>
+        <h3>Precisione, fluidità, controllo.</h3>
         
-        <p class="text-body">
-            Nel Reformer ogni dettaglio accompagna il corpo<br>
-            verso un movimento più consapevole,<br>
-            armonioso e organizzato.
-        </p>
-        
-        <p class="text-body" style="font-style: italic;">
-            Classi intime di massimo 3 persone.
-        </p>
+        <p>Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più consapevole, armonioso e organizzato. Grazie alla resistenza delle molle, il lavoro diventa una danza di precisione e forza profonda.</p>
 
-        <img src="decoro-foglie-orizzontale.png" class="divider-leaf" alt="Decoro">
-
-        <div class="icons-row">
-            <div class="icon-item">
-                <img src="icona-precisione.png" alt="Precisione">
-                <h4 class="maiuscole-spaziate">Precisione</h4>
+        <div class="features-grid">
+            <div class="feature-item">
+                <img src="precisione.svg" alt="Precisione">
+                <h5>PRECISIONE</h5>
             </div>
-            <div class="icon-item">
-                <img src="icona-ascolto.png" alt="Ascolto">
-                <h4 class="maiuscole-spaziate">Ascolto</h4>
+            <div class="feature-item">
+                <img src="ascolto.svg" alt="Ascolto">
+                <h5>ASCOLTO</h5>
             </div>
-            <div class="icon-item">
-                <img src="icona-continuita.png" alt="Continuità">
-                <h4 class="maiuscole-spaziate">Continuità</h4>
+            <div class="feature-item">
+                <img src="continuita.svg" alt="Continuità">
+                <h5>CONTINUITÀ</h5>
             </div>
         </div>
 
-        <img src="decoro-foglie-orizzontale.png" class="divider-leaf" alt="Decoro" style="margin-top: 60px;">
-
+        <div class="info-pill">Classi intime di massimo 3 persone.</div>
     </section>
-    
+
+    <footer class="footer-bar">
+        <p>Pilates Garden Pesaro | Metodo Covatech®</p>
+    </footer>
 
 </body>
 </html>

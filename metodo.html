@@ -65,30 +65,22 @@
             margin: 0 auto;
         }
         
-        /* 📌 AGGIORNATO: Il riquadro Beige/Crema con padding inferiore ridotto */
-        .caratteristiche-box {
-            background-color: var(--crema-sfondo);
-            border-radius: 20px;
-            /* Ordine padding: Top Right Bottom Left -> Ridotto il bottom a 30px per tagliare il vuoto */
-            padding: 50px 40px 30px 40px; 
+        /* 📌 AGGIORNATO: Il nuovo contenitore che ospita il tuo riquadro SVG */
+        .cara3-wrapper {
             margin: 0 auto;
-            max-width: 1000px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            border: 1px solid rgba(94, 110, 79, 0.1); 
-            position: relative; 
-            z-index: 2;
+            max-width: 1000px; /* La dimensione massima che avevamo deciso */
+            width: 100%;
+            /* Se su Canva non hai messo l'ombra al riquadro, puoi de-commentare la riga sotto: */
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 20px; */
         }
-
-        /* 📌 AGGIORNATO: Margine superiore ridotto da 40px a 20px per avvicinare l'immagine al testo */
-        .caratteristiche-img-wrapper { 
-            margin: 20px auto 0 auto; 
-            max-width: 900px; 
+        
+        .cara3-wrapper img { 
             width: 100%; 
+            height: auto; 
+            display: block; 
         }
         
-        .caratteristiche-img-wrapper img { width: 100%; height: auto; display: block; }
-        
-        .loghi-img-wrapper { margin: 40px auto 0 auto; max-width: 700px; width: 100%; }
+        .loghi-img-wrapper { margin: 60px auto 0 auto; max-width: 700px; width: 100%; }
         .loghi-img-wrapper img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
         
         @media (max-width: 768px) { 
@@ -100,7 +92,6 @@
                 width: 100%; height: 100px;
                 background: linear-gradient(to bottom, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
             }
-            .caratteristiche-box { padding: 40px 20px 20px 20px; } 
         }
     </style>
 </head>
@@ -135,18 +126,8 @@
 
     <section class="icons-section">
         
-        <div class="caratteristiche-box">
-            <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; color: var(--verde-oliva-titoli);">Precisione, ascolto e consapevolezza</h2>
-            
-            <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px auto;"></div>
-            
-            <p style="font-size: 1.3rem; max-width: 850px; margin: 0 auto; color: var(--testo-scuro); line-height: 1.5;">
-                Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo. L'attenzione al pavimento pelvico, alla respirazione, al controllo motorio e alla qualità dell'esecuzione permette di sviluppare un lavoro profondo, consapevole e personalizzato.
-            </p>
-
-            <div class="caratteristiche-img-wrapper">
-                <img src="caratteristiche2.png" alt="Le 6 caratteristiche del Metodo Covatech">
-            </div>
+        <div class="cara3-wrapper">
+            <img src="cara3.svg" alt="Principi: Precisione, ascolto e consapevolezza">
         </div>
 
         <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 80px; color: var(--verde-oliva-titoli);">Una scuola riconosciuta</h2>

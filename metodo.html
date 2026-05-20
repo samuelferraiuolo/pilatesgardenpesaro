@@ -17,26 +17,54 @@
 
         body { background-color: var(--crema-sfondo); }
 
-        .split-covatech { display: flex; flex-wrap: wrap; background-color: rgba(243, 238, 228, 0.9); }
-        .split-text { flex: 1; min-width: 400px; padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
+        /* 📌 AGGIORNATO: Contenitore principale reso più coeso */
+        .split-covatech { 
+            display: flex; 
+            flex-wrap: wrap; 
+            background-color: var(--crema-sfondo); /* Sfondo pieno per far funzionare la sfumatura */
+            margin: 0 auto;
+            max-width: 1400px; /* Limita la larghezza per non disperdere troppo su schermi giganti */
+        }
         
-        /* 📌 AGGIUNTO: Stile per il tuo file SVG */
-        .brand-svg { max-width: 220px; height: auto; margin-bottom: 20px; display: block; }
-        
-        .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 20px; line-height: 1; color: var(--verde-oliva-titoli); }
-        .split-text h3 { text-align: left; font-size: 2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
-        .split-text p { font-size: 1.4rem; margin-bottom: 20px; color: var(--testo-scuro); }
-        
-        .split-image { 
+        .split-text { 
             flex: 1; 
+            min-width: 400px; 
+            padding: 80px 4% 80px 8%; /* 📌 Più spazio a sinistra per respirare */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            position: relative;
+            z-index: 2; /* Mantiene il testo sopra a tutto */
+        }
+        
+        /* Stile per il tuo file SVG */
+        .brand-svg { max-width: 200px; height: auto; margin-bottom: 25px; display: block; }
+        
+        .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 15px; line-height: 1; color: var(--verde-oliva-titoli); }
+        .split-text h3 { text-align: left; font-size: 1.8rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
+        .split-text p { font-size: 1.3rem; margin-bottom: 20px; color: var(--testo-scuro); line-height: 1.6; }
+        
+        /* 📌 AGGIORNATA: Immagine e Sfumatura */
+        .split-image { 
+            flex: 1.2; /* Diamo leggermente più spazio all'immagine rispetto al testo */
             min-width: 400px; 
             background-size: cover; 
             background-position: center; 
-            min-height: 600px;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            min-height: 650px;
+            position: relative;
         }
         
-        .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto; background-color: rgba(243, 238, 228, 0.8); border-radius: 20px; margin-top: 40px; margin-bottom: 40px;}
+        /* 📌 LA MAGIA DELLA SFUMATURA: Dissolvenza dal crema alla foto */
+        .split-image::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0; left: 0;
+            width: 200px; /* Larghezza della sfumatura */
+            background: linear-gradient(to right, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
+            z-index: 1;
+        }
+        
+        .icons-section { padding: 60px 20px 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto;}
         
         /* Contenitore per l'immagine unica delle caratteristiche */
         .caratteristiche-img-wrapper {
@@ -65,9 +93,22 @@
             mix-blend-mode: multiply; 
         }
         
+        /* Regole per Tablet e Cellulari */
+        @media (max-width: 900px) {
+            .split-image::before { width: 100px; } /* Sfumatura più stretta su tablet */
+        }
+        
         @media (max-width: 768px) { 
             .split-text { padding: 40px 20px; } 
             .split-text h2 { font-size: 3.5rem; } 
+            .split-image { min-height: 400px; }
+            
+            /* 📌 Sfumatura mobile: Da sinistra a destra non serve se sono impilati, la facciamo dall'alto! */
+            .split-image::before {
+                top: 0; left: 0; right: 0; bottom: auto;
+                width: 100%; height: 100px;
+                background: linear-gradient(to bottom, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
+            }
         }
     </style>
 </head>
@@ -86,7 +127,7 @@
         <div class="split-text">
             <img src="pilatesgardenpes.svg" alt="Pilates Garden Pesaro" class="brand-svg">
             
-            <h4 class="maiuscole-spaziate" style="text-align: left; margin-bottom: 10px;">Il Metodo</h4>
+            <h4 class="maiuscole-spaziate" style="text-align: left; margin-bottom: 10px; color: var(--verde-salvia);">Il Metodo</h4>
             <h2>COVATECH®</h2>
             
             <div style="width: 50px; height: 2px; background-color: var(--verde-salvia); margin-bottom: 30px;"></div> 
@@ -96,7 +137,7 @@
             <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento.</p>
         </div>
         
-        <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80');"></div>
+        <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80');"></div>
     </section>
 
     <section class="icons-section">

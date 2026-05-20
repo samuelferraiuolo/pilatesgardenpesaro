@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="common.css">
     <style>
         body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
-        
-        /* Immagine Hero in alto */
+
+        /* 📌 Immagine Hero in alto aggiornata con la foto pulita */
         .hero-detail {
             height: 65vh;
-            background-image: url('foto-matwork.jpg'); /* Carica la tua foto con i tappetini su GitHub */
+            background-image: url('foto-matwork-pulita.jpg'); 
             background-size: cover;
             background-position: center;
             position: relative;
@@ -20,7 +20,7 @@
         /* Sezione contenuto che si sovrappone leggermente alla foto */
         .content-section {
             max-width: 900px;
-            margin: -50px auto 0; 
+            margin: -50px auto 0;
             background-color: var(--crema-sfondo);
             padding: 60px 50px;
             text-align: center;
@@ -30,7 +30,7 @@
         }
 
         .brand-svg-small { max-width: 180px; margin: 0 auto 30px; display: block; }
-        
+
         .content-section h4 { color: var(--verde-salvia); letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
         .content-section h2 { font-size: 4rem; color: var(--verde-oliva-titoli); margin-bottom: 15px; font-weight: 400; }
         .content-section h3 { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); margin-bottom: 40px; font-weight: 400; }
@@ -49,6 +49,15 @@
         .feature-item p { font-size: 0.95rem; line-height: 1.4; color: var(--testo-scuro); margin: 0; }
 
         .slogan { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--verde-oliva-titoli); font-style: italic; margin-top: 40px; }
+
+        /* 📌 Nuova classe per la decorazione della foglia in fondo */
+        .leaf-bottom {
+            width: 45px;
+            height: auto;
+            display: block;
+            margin: 30px auto 0 auto;
+            opacity: 0.8;
+        }
 
         /* Footer Legale */
         .footer-bar {
@@ -82,11 +91,11 @@
 
     <section class="content-section">
         <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden" class="brand-svg-small">
-        
+
         <h4>MATWORK</h4>
         <h2>Matwork</h2>
         <h3>Lavoro a terra su base in legno</h3>
-        
+
         <p>Nel Matwork la qualità degli appoggi cambia profondamente il lavoro. Una superficie stabile, uniforme e naturale permette al corpo di percepirsi con maggiore precisione, favorendo un movimento più consapevole, preciso e organizzato.</p>
 
         <div class="features-grid">
@@ -109,6 +118,8 @@
 
         <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px;"></div>
         <div class="slogan">Perché i dettagli fanno la differenza.</div>
+        
+        <img src="fogliamatw.svg" alt="Decoro Foglia Matwork" class="leaf-bottom">
     </section>
 
     <footer class="footer-bar">

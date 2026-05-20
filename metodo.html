@@ -58,7 +58,6 @@
             z-index: 1;
         }
         
-        /* 📌 SEZIONE CENTRALE AGGIORNATA: Il riquadro Beige/Crema */
         .icons-section { 
             padding: 80px 20px; 
             text-align: center; 
@@ -66,21 +65,23 @@
             margin: 0 auto;
         }
         
-        /* 📌 IL NUOVO RIQUADRO PER LE CARATTERISTICHE */
+        /* 📌 AGGIORNATO: Il riquadro Beige/Crema con padding inferiore ridotto */
         .caratteristiche-box {
-            background-color: var(--crema-sfondo); /* Sfondo crema pieno */
-            border-radius: 20px; /* Bordi arrotondati come nel bozzetto */
-            padding: 60px 40px; /* Spazio interno generoso */
+            background-color: var(--crema-sfondo);
+            border-radius: 20px;
+            /* Ordine padding: Top Right Bottom Left -> Ridotto il bottom a 30px per tagliare il vuoto */
+            padding: 50px 40px 30px 40px; 
             margin: 0 auto;
             max-width: 1000px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombra elegante per staccarlo dal fondo */
-            border: 1px solid rgba(94, 110, 79, 0.1); /* Bordino finissimo */
-            position: relative; /* Serve per sovrapporsi alle foglie di sfondo */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border: 1px solid rgba(94, 110, 79, 0.1); 
+            position: relative; 
             z-index: 2;
         }
 
+        /* 📌 AGGIORNATO: Margine superiore ridotto da 40px a 20px per avvicinare l'immagine al testo */
         .caratteristiche-img-wrapper { 
-            margin: 40px auto 0 auto; 
+            margin: 20px auto 0 auto; 
             max-width: 900px; 
             width: 100%; 
         }
@@ -99,7 +100,7 @@
                 width: 100%; height: 100px;
                 background: linear-gradient(to bottom, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
             }
-            .caratteristiche-box { padding: 40px 20px; } /* Meno padding sui telefoni */
+            .caratteristiche-box { padding: 40px 20px 20px 20px; } 
         }
     </style>
 </head>
@@ -139,8 +140,9 @@
             
             <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px auto;"></div>
             
-            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto; color: var(--testo-scuro);">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.
-L'attenzione al pavimento pelvico, alla respirazione, al controllo motorio e alla qualità dell'esecuzione permette di sviluppare un lavoro profondo, consapevole e personalizzato.</p>
+            <p style="font-size: 1.3rem; max-width: 850px; margin: 0 auto; color: var(--testo-scuro); line-height: 1.5;">
+                Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo. L'attenzione al pavimento pelvico, alla respirazione, al controllo motorio e alla qualità dell'esecuzione permette di sviluppare un lavoro profondo, consapevole e personalizzato.
+            </p>
 
             <div class="caratteristiche-img-wrapper">
                 <img src="caratteristiche2.png" alt="Le 6 caratteristiche del Metodo Covatech">

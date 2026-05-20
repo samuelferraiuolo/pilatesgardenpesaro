@@ -16,7 +16,7 @@
             opacity: 0.15; z-index: -1; 
         }
         
-        /* 📌 FIX ELEGANZA: Altezza ridotta per non tagliare la foto */
+        /* La foto con altezza bilanciata */
         .hero-detail {
             height: 55vh; 
             min-height: 400px;
@@ -27,7 +27,7 @@
             width: 100%;
         }
 
-        /* 📌 FIX ELEGANZA: Sfumatura morbida alla base della foto */
+        /* La sfumatura alla base della foto (si fonde col crema) */
         .hero-detail::after {
             content: ''; 
             position: absolute; 
@@ -36,18 +36,20 @@
             background: linear-gradient(to bottom, rgba(243, 238, 228, 0) 0%, var(--crema-sfondo) 100%);
         }
 
-        /* Contenitore del testo che fluttua morbidamente sopra la sfumatura */
+        /* 📌 FIX: Ripristinato il riquadro color crema solido con bordi arrotondati */
         .content-section {
             max-width: 900px;
             margin: -60px auto 0; 
-            background-color: transparent; /* Reso trasparente per fondersi con la sfumatura */
-            padding: 40px 50px 70px 50px;
+            background-color: var(--crema-sfondo); /* Rimesso il colore di sfondo solido */
+            padding: 60px 50px 70px 50px; /* Spaziature interne ripristinate */
             text-align: center;
             position: relative;
             z-index: 10;
+            border-radius: 24px 24px 0 0; /* Arrotondati gli angoli superiori */
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05); /* Leggera ombra per staccarlo dallo sfondo */
         }
         
-        /* Il titolo inizia direttamente senza loghi o scritte extra sopra */
+        /* Titoli e Testi */
         .content-section h2 { 
             font-size: 4.5rem; 
             color: var(--verde-oliva-titoli); 
@@ -75,7 +77,7 @@
 
         .slogan { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--verde-oliva-titoli); font-style: italic; margin-top: 50px; }
 
-        /* La decorazione della foglia finale ingrandita di 4 volte (180px) */
+        /* La decorazione della foglia finale */
         .leaf-bottom {
             width: 180px; 
             height: auto;
@@ -96,7 +98,7 @@
 
         @media (max-width: 768px) {
             .hero-detail { height: 45vh; min-height: 300px; }
-            .content-section { margin-top: -40px; padding: 20px 20px 40px 20px; }
+            .content-section { margin-top: -40px; padding: 40px 20px; border-radius: 16px 16px 0 0; }
             .features-grid { grid-template-columns: 1fr; gap: 50px; }
             .content-section h2 { font-size: 3.5rem; }
             .leaf-bottom { width: 130px; } 

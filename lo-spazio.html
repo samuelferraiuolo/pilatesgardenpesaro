@@ -5,13 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lo Spazio | Pilates Garden Pesaro</title>
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="spazio.css">
-    <link rel="icon" type="image/png" href="logo.png">
+    
+    <style>
+        /* Reset e Sfondo Base */
+        body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
+
+        /* 1. HERO SECTION (Prima foto gigante) */
+        .hero-spazio {
+            height: 90vh; /* Occupa quasi tutto lo schermo */
+            background-image: url('foto-spazio-1.jpg'); /* FOTO 1: Alberi e aratro al tramonto */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+        }
+        
+        /* Leggera sfumatura scura a sinistra per far risaltare il testo bianco */
+        .hero-spazio::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 60%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff; 
+        }
+        
+        .hero-content h1 {
+            font-size: 5.5rem;
+            line-height: 1.05;
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            text-shadow: 0px 4px 15px rgba(0,0,0,0.2); /* Ombra per massima leggibilità */
+        }
+
+        /* 2. SPLIT SECTIONS (Sezioni alternate Metà Testo / Metà Foto) */
+        .split-section { 
+            display: flex; 
+            flex-wrap: wrap; 
+            background-color: var(--crema-sfondo); 
+        }
+
+        .split-text {
+            flex: 1;
+            min-width: 400px;
+            padding: 80px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-image {
+            flex: 1;
+            min-width: 400px;
+            background-size: cover;
+            background-position: center;
+            min-height: 600px; /* Assicura che la foto sia bella slanciata */
+        }
+
+        /* Tipografia per le split sections */
+        .split-text h4 {
+            font-size: 0.9rem;
+            color: var(--verde-salvia);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .split-text h2 {
+            font-size: 3.2rem;
+            line-height: 1.1;
+            color: var(--verde-oliva-titoli);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .testo-chiusura {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            color: var(--verde-oliva-titoli);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* 3. BANNER CENTRALE (Foto panoramica bassa) */
+        .banner-spazio {
+            height: 65vh;
+            background-image: url('foto-spazio-3.jpg'); /* FOTO 3: I tappetini sui pallet */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end; /* Spinge il testo in basso */
+            padding: 60px 10%;
+            position: relative;
+        }
+        
+        .banner-spazio::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+            z-index: 1;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+        }
+        
+        .banner-content h2 {
+            font-size: 3.5rem;
+            font-style: italic;
+            font-weight: 400;
+            margin: 0;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* 4. GRIGLIA ICONE */
+        .icons-grid-spazio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Colonne */
+            gap: 30px 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .icon-item { text-align: center; }
+        .icon-item img { width: 45px; height: 45px; margin-bottom: 15px; } 
+        .icon-item p { font-size: 0.95rem; color: var(--testo-scuro); line-height: 1.3; }
+        
+        .nota-pelvico {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--testo-scuro);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Dettagli decorativi */
+        .decoro-linea {
+            width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px 0;
+        }
+
+        /* 📱 RESPONSIVE (Telefoni) */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 4rem; }
+            .split-text { padding: 60px 5%; }
+            .split-text h2 { font-size: 2.5rem; }
+            .testo-chiusura { font-size: 2.2rem; }
+            .icons-grid-spazio { grid-template-columns: repeat(2, 1fr); }
+            .banner-spazio { height: 45vh; }
+            .banner-content h2 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <header class="top-header">
-        <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Logo"></a></div>
-    </header>
+
     <nav class="sub-nav">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -21,42 +172,58 @@
         </ul>
     </nav>
 
-    <section class="hero-spazio animate-up" style="background-image: url('spazio-1.jpg');">
-        <h1>Uno<br>spazio<br>da vivere</h1>
+    <section class="hero-spazio">
+        <div class="hero-content">
+            <h1>Uno<br>spazio<br>da vivere</h1>
+        </div>
     </section>
 
-    <section class="split-section animate-up delay-1">
+    <section class="split-section">
         <div class="split-text">
             <h4>Il Giardino</h4>
             <h2>Natura che accoglie,<br>spazio che rigenera.</h2>
         </div>
-        <div class="split-image" style="background-image: url('spazio-2.jpg');"></div>
-    </section>
+        <div class="split-image" style="background-image: url('foto-spazio-2.jpg');"></div> </section>
 
-    <section class="hero-spazio animate-up" style="background-image: url('spazio-3.jpg'); height: 60vh;">
-        <h1 style="font-size: 3rem; font-style: italic; font-weight: normal;">Movimento<br>immerso nella natura.</h1>
-    </section>
-
-    <section class="split-section animate-up">
-        <div class="split-text">
-            <h4>Ci prendiamo cura di ciò che ti sostiene</h4>
-            <p style="margin-top: 20px;">Prenditi cura, con ciò che ti sostiene e ogni giorno il tuo pavimento pelvico.</p>
-            <div class="icons-grid">
-                <div class="icon-item"><p><strong>♡</strong><br>Benessere complessivo</p></div>
-                <div class="icon-item"><p><strong>🧘‍♀️</strong><br>Postura e consapevolezza</p></div>
-                <div class="icon-item"><p><strong>🌬️</strong><br>Respirazione e presenza</p></div>
-                <div class="icon-item"><p><strong>🌱</strong><br>Pavimento pelvico</p></div>
-                <div class="icon-item"><p><strong>👥</strong><br>Piccoli gruppi</p></div>
-                <div class="icon-item"><p><strong>✨</strong><br>Movimento consapevole</p></div>
-            </div>
-            <h2 style="margin-top: 60px;">Per rallentare.<br>Per ascoltarti.<br>Per stare bene.</h2>
+    <section class="banner-spazio">
+        <div class="banner-content">
+            <h2>Movimento<br>immerso nella natura.</h2>
         </div>
-        <div class="split-image" style="background-image: url('spazio-4.jpg');"></div>
     </section>
+
+    <section class="split-section">
+        <div class="split-text" style="padding-top: 100px;">
+            <h4>Ci prendiamo cura di ciò<br>che ti sostiene.</h4>
+            
+            <div class="icons-grid-spazio">
+                <div class="icon-item"><img src="icon-cuore.png" alt="Icona"><p>Benessere<br>complessivo</p></div>
+                <div class="icon-item"><img src="icon-postura.png" alt="Icona"><p>Postura<br>e consapevolezza</p></div>
+                <div class="icon-item"><img src="icon-respiro.png" alt="Icona"><p>Respirazione<br>e presenza</p></div>
+                <div class="icon-item"><img src="icon-pelvico.png" alt="Icona"><p>Pavimento<br>pelvico</p></div>
+                <div class="icon-item"><img src="icon-gruppi.png" alt="Icona"><p>Piccoli<br>gruppi</p></div>
+                <div class="icon-item"><img src="icon-movimento.png" alt="Icona"><p>Movimento<br>consapevole</p></div>
+            </div>
+            
+            <p class="nota-pelvico">Prenditi cura, con ciò che ti sostiene e ogni giorno il tuo pavimento pelvico.</p>
+            <div class="decoro-linea" style="margin: 30px auto;"></div>
+        </div>
+        <div class="split-image" style="background-image: url('foto-spazio-4.jpg');"></div> </section>
+
+    <section class="split-section">
+        <div class="split-text">
+            <img src="piccola-foglia.png" alt="Decoro" style="width: 30px; margin-bottom: 20px;">
+            <div class="testo-chiusura">
+                Per rallentare.<br>
+                Per ascoltarti.<br>
+                Per stare bene.
+            </div>
+            <div class="decoro-linea"></div>
+        </div>
+        <div class="split-image" style="background-image: url('foto-spazio-5.jpg');"></div> </section>
 
     <footer class="legal-footer">
-        <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: [Inserire Partita IVA]</p>
-        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
+        <p>Pilates Garden Pesaro | Metodo Covatech®</p>
     </footer>
+
 </body>
 </html>

@@ -19,6 +19,10 @@
 
         .split-covatech { display: flex; flex-wrap: wrap; background-color: rgba(243, 238, 228, 0.9); }
         .split-text { flex: 1; min-width: 400px; padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
+        
+        /* 📌 AGGIUNTO: Stile per il tuo file SVG */
+        .brand-svg { max-width: 220px; height: auto; margin-bottom: 20px; display: block; }
+        
         .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 20px; line-height: 1; color: var(--verde-oliva-titoli); }
         .split-text h3 { text-align: left; font-size: 2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
         .split-text p { font-size: 1.4rem; margin-bottom: 20px; color: var(--testo-scuro); }
@@ -47,10 +51,10 @@
             display: block;
         }
         
-        /* 📌 AGGIORNATO: Nuovo contenitore per l'immagine unica dei loghi */
+        /* Contenitore per l'immagine unica dei loghi */
         .loghi-img-wrapper {
             margin: 40px auto 0 auto;
-            max-width: 700px; /* Leggermente più stretto delle caratteristiche per incorniciarli bene */
+            max-width: 700px; 
             width: 100%;
         }
         
@@ -58,7 +62,7 @@
             width: 100%;
             height: auto;
             display: block;
-            mix-blend-mode: multiply; /* 📌 TRUCCO PRO: Se l'immagine loghi.png ha uno sfondo bianco, questo comando lo fa "sparire" fondendolo con il crema! */
+            mix-blend-mode: multiply; 
         }
         
         @media (max-width: 768px) { 
@@ -80,6 +84,8 @@
 
     <section class="split-covatech">
         <div class="split-text">
+            <img src="pilatesgardenpes.svg" alt="Pilates Garden Pesaro" class="brand-svg">
+            
             <h4 class="maiuscole-spaziate" style="text-align: left; margin-bottom: 10px;">Il Metodo</h4>
             <h2>COVATECH®</h2>
             
@@ -90,7 +96,7 @@
             <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento.</p>
         </div>
         
-        <div class="split-image" style="background-image: url('foto-covatech-donna.jpg');"></div>
+        <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80');"></div>
     </section>
 
     <section class="icons-section">

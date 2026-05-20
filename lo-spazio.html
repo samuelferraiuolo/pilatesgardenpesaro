@@ -10,10 +10,10 @@
         /* Reset e Sfondo Base */
         body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
 
-        /* 1. HERO SECTION (Prima foto gigante) */
+        /* 1. HERO SECTION */
         .hero-spazio {
-            height: 90vh; /* Occupa quasi tutto lo schermo */
-            background-image: url('foto-spazio-1.jpg'); /* FOTO 1: Alberi e aratro al tramonto */
+            height: 90vh; 
+            background-image: url('foto-spazio-1.jpg'); 
             background-size: cover;
             background-position: center;
             display: flex;
@@ -22,28 +22,22 @@
             position: relative;
         }
         
-        /* Leggera sfumatura scura a sinistra per far risaltare il testo bianco */
         .hero-spazio::after {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 60%);
             z-index: 1;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: #ffffff; 
-        }
-        
+        .hero-content { position: relative; z-index: 2; color: #ffffff; }
         .hero-content h1 {
             font-size: 5.5rem;
             line-height: 1.05;
             margin: 0;
             font-family: 'Cormorant Garamond', serif;
-            text-shadow: 0px 4px 15px rgba(0,0,0,0.2); /* Ombra per massima leggibilità */
+            text-shadow: 0px 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* 2. SPLIT SECTIONS (Sezioni alternate Metà Testo / Metà Foto) */
+        /* 2. SPLIT SECTIONS */
         .split-section { 
             display: flex; 
             flex-wrap: wrap; 
@@ -64,10 +58,9 @@
             min-width: 400px;
             background-size: cover;
             background-position: center;
-            min-height: 600px; /* Assicura che la foto sia bella slanciata */
+            min-height: 600px; 
         }
 
-        /* Tipografia per le split sections */
         .split-text h4 {
             font-size: 0.9rem;
             color: var(--verde-salvia);
@@ -83,22 +76,15 @@
             margin-bottom: 20px;
             font-weight: 400;
         }
-        
-        .testo-chiusura {
-            font-size: 2.8rem;
-            line-height: 1.3;
-            color: var(--verde-oliva-titoli);
-            font-family: 'Cormorant Garamond', serif;
-        }
 
-        /* 3. BANNER CENTRALE (Foto panoramica bassa) */
+        /* 3. BANNER CENTRALE */
         .banner-spazio {
             height: 65vh;
-            background-image: url('foto-spazio-3.jpg'); /* FOTO 3: I tappetini sui pallet */
+            background-image: url('foto-spazio-3.jpg'); 
             background-size: cover;
             background-position: center;
             display: flex;
-            align-items: flex-end; /* Spinge il testo in basso */
+            align-items: flex-end; 
             padding: 60px 10%;
             position: relative;
         }
@@ -109,12 +95,7 @@
             z-index: 1;
         }
         
-        .banner-content {
-            position: relative;
-            z-index: 2;
-            color: #ffffff;
-        }
-        
+        .banner-content { position: relative; z-index: 2; color: #ffffff; }
         .banner-content h2 {
             font-size: 3.5rem;
             font-style: italic;
@@ -126,7 +107,7 @@
         /* 4. GRIGLIA ICONE */
         .icons-grid-spazio {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 Colonne */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 30px 15px;
             margin-top: 40px;
             margin-bottom: 20px;
@@ -144,20 +125,100 @@
             margin-top: 10px;
         }
 
-        /* Dettagli decorativi */
-        .decoro-linea {
-            width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px 0;
+        .decoro-linea { width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px 0; }
+
+        /* 📌 5. NUOVA SEZIONE CAROUSEL MULTIMEDIALE */
+        .carousel-section {
+            padding: 100px 20px;
+            background-color: var(--crema-sfondo);
+            text-align: center;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 16px;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 20px;
+        }
+        
+        .carousel-item {
+            min-width: calc(33.333% - 14px); /* 3 elementi visibili contemporaneamente su PC */
+            box-sizing: border-box;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(243, 238, 228, 0.5);
+            height: 450px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+        }
+        
+        .carousel-item img, .carousel-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Frecce di Navigazione */
+        .carousel-btn {
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            border: none;
+            padding: 15px 18px;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-btn:hover {
+            background-color: var(--verde-salvia);
+            transform: scale(1.05);
+        }
+        
+        .prev-btn { left: -25px; }
+        .next-btn { right: -25px; }
+
+        /* Footer Legale */
+        .legal-footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            font-size: 0.9rem;
         }
 
-        /* 📱 RESPONSIVE (Telefoni) */
+        /* 📱 RESPONSIVE */
+        @media (max-width: 900px) {
+            .carousel-item { min-width: calc(50% - 10px); } /* 2 elementi su Tablet */
+        }
+
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 4rem; }
             .split-text { padding: 60px 5%; }
             .split-text h2 { font-size: 2.5rem; }
-            .testo-chiusura { font-size: 2.2rem; }
             .icons-grid-spazio { grid-template-columns: repeat(2, 1fr); }
             .banner-spazio { height: 45vh; }
             .banner-content h2 { font-size: 2.5rem; }
+            
+            .carousel-item { min-width: 100%; height: 380px; } /* 1 solo elemento su Mobile */
+            .prev-btn { left: 5px; }
+            .next-btn { right: 5px; }
         }
     </style>
 </head>
@@ -183,7 +244,8 @@
             <h4>Il Giardino</h4>
             <h2>Natura che accoglie,<br>spazio che rigenera.</h2>
         </div>
-        <div class="split-image" style="background-image: url('foto-spazio-2.jpg');"></div> </section>
+        <div class="split-image" style="background-image: url('foto-spazio-2.jpg');"></div>
+    </section>
 
     <section class="banner-spazio">
         <div class="banner-content">
@@ -207,23 +269,103 @@
             <p class="nota-pelvico">Prenditi cura, con ciò che ti sostiene e ogni giorno il tuo pavimento pelvico.</p>
             <div class="decoro-linea" style="margin: 30px auto;"></div>
         </div>
-        <div class="split-image" style="background-image: url('foto-spazio-4.jpg');"></div> </section>
+        <div class="split-image" style="background-image: url('foto-spazio-5.jpg');"></div> 
+    </section>
 
-    <section class="split-section">
-        <div class="split-text">
-            <img src="piccola-foglia.png" alt="Decoro" style="width: 30px; margin-bottom: 20px;">
-            <div class="testo-chiusura">
-                Per rallentare.<br>
-                Per ascoltarti.<br>
-                Per stare bene.
+    <section class="carousel-section">
+        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; color: var(--verde-oliva-titoli);">Esplora il Giardino</h2>
+        <div style="width: 50px; height: 1px; background-color: var(--verde-salvia); margin: 15px auto 0 auto;"></div>
+        
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    
+                    <div class="carousel-item">
+                        <img src="imag1.jpg" alt="Scorcio Giardino 1">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="imag2.jpg" alt="Scorcio Giardino 2">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <video src="video1.mp4" controls loop muted></video>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="imag3.jpg" alt="Scorcio Giardino 3">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="imag4.jpg" alt="Scorcio Giardino 4">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <video src="video2.mp4" controls loop muted></video>
+                    </div>
+                    
+                </div>
             </div>
-            <div class="decoro-linea"></div>
+            
+            <button class="carousel-btn next-btn">&#10095;</button>
         </div>
-        <div class="split-image" style="background-image: url('foto-spazio-5.jpg');"></div> </section>
+    </section>
 
     <footer class="legal-footer">
         <p>Pilates Garden Pesaro | Metodo Covatech®</p>
     </footer>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const nextButton = document.querySelector('.next-btn');
+        const prevButton = document.querySelector('.prev-btn');
+        const items = document.querySelectorAll('.carousel-item');
+        
+        let currentIndex = 0;
+        
+        // Calcola quanti elementi mostrare in base alla larghezza dello schermo
+        function getVisibleItemsCount() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 900) return 2;
+            return 3;
+        }
+
+        function updateCarouselPosition() {
+            const visibleItems = getVisibleItemsCount();
+            const itemWidth = items[0].getBoundingClientRect().width;
+            // Calcola lo spostamento includendo il gap di 20px impostato nel CSS
+            const amountToMove = currentIndex * (itemWidth + 20);
+            track.style.transform = `translateX(-${amountToMove}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            const visibleItems = getVisibleItemsCount();
+            if (currentIndex < items.length - visibleItems) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Torna all'inizio quando finisce
+            }
+            updateCarouselPosition();
+        });
+
+        prevButton.addEventListener('click', () => {
+            const visibleItems = getVisibleItemsCount();
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = items.length - visibleItems; // Va alla fine
+            }
+            updateCarouselPosition();
+        });
+
+        // Riposiziona se l'utente ridimensiona la finestra (es. ruota lo smartphone)
+        window.addEventListener('resize', () => {
+            currentIndex = 0;
+            updateCarouselPosition();
+        });
+    </script>
 
 </body>
 </html>

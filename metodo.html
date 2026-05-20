@@ -17,97 +17,88 @@
 
         body { background-color: var(--crema-sfondo); }
 
-        /* 📌 AGGIORNATO: Contenitore principale reso più coeso */
         .split-covatech { 
             display: flex; 
             flex-wrap: wrap; 
-            background-color: var(--crema-sfondo); /* Sfondo pieno per far funzionare la sfumatura */
+            background-color: var(--crema-sfondo);
             margin: 0 auto;
-            max-width: 1400px; /* Limita la larghezza per non disperdere troppo su schermi giganti */
+            max-width: 100%; /* Sfrutta tutta la larghezza per l'effetto split */
+            min-height: 100vh;
         }
         
+        /* 📌 AGGIORNATO: Testo ancorato in alto a sinistra */
         .split-text { 
             flex: 1; 
-            min-width: 400px; 
-            padding: 80px 4% 80px 8%; /* 📌 Più spazio a sinistra per respirare */
+            min-width: 450px; 
+            padding: 100px 5% 60px 8%; /* Padding superiore generoso per spingere in alto */
             display: flex; 
             flex-direction: column; 
-            justify-content: center; 
+            justify-content: flex-start; /* Ancoraggio in alto */
+            align-items: flex-start; /* Allineamento a sinistra */
             position: relative;
-            z-index: 2; /* Mantiene il testo sopra a tutto */
+            z-index: 2;
         }
         
-        /* Stile per il tuo file SVG */
-        .brand-svg { max-width: 200px; height: auto; margin-bottom: 25px; display: block; }
+        /* 📌 AGGIORNATO: Logo più grande e visibile */
+        .brand-svg { 
+            max-width: 280px; /* Aumentato per visibilità */
+            width: 100%;
+            height: auto; 
+            margin-bottom: 60px; /* Spazio lussuoso sotto il logo */
+            display: block; 
+            opacity: 0.9;
+        }
         
-        .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 15px; line-height: 1; color: var(--verde-oliva-titoli); }
-        .split-text h3 { text-align: left; font-size: 1.8rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
-        .split-text p { font-size: 1.3rem; margin-bottom: 20px; color: var(--testo-scuro); line-height: 1.6; }
+        .split-text h4 { color: var(--verde-salvia); margin-bottom: 15px; letter-spacing: 4px; }
+        .split-text h2 { text-align: left; font-size: 5rem; margin-bottom: 20px; line-height: 0.9; color: var(--verde-oliva-titoli); }
+        .split-text h3 { text-align: left; font-size: 2.2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 40px; }
+        .split-text p { font-size: 1.4rem; margin-bottom: 25px; color: var(--testo-scuro); line-height: 1.7; max-width: 550px; /* Evita righe troppo lunghe, tipico del design premium */ }
         
-        /* 📌 AGGIORNATA: Immagine e Sfumatura */
+        /* Immagine e Sfumatura */
         .split-image { 
-            flex: 1.2; /* Diamo leggermente più spazio all'immagine rispetto al testo */
-            min-width: 400px; 
+            flex: 1.3; 
+            min-width: 450px; 
+            background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1400&q=80');
             background-size: cover; 
             background-position: center; 
-            min-height: 650px;
+            min-height: 700px;
             position: relative;
         }
         
-        /* 📌 LA MAGIA DELLA SFUMATURA: Dissolvenza dal crema alla foto */
+        /* Dissolvenza laterale */
         .split-image::before {
             content: '';
             position: absolute;
             top: 0; bottom: 0; left: 0;
-            width: 200px; /* Larghezza della sfumatura */
-            background: linear-gradient(to right, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
+            width: 250px; 
+            background: linear-gradient(to right, var(--crema-sfondo) 15%, rgba(243, 238, 228, 0) 100%);
             z-index: 1;
         }
         
-        .icons-section { padding: 60px 20px 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto;}
+        /* Sezioni Icone e Loghi */
+        .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
         
-        /* Contenitore per l'immagine unica delle caratteristiche */
-        .caratteristiche-img-wrapper {
-            margin: 50px auto;
-            max-width: 900px;
-            width: 100%;
-        }
+        .caratteristiche-img-wrapper { margin: 50px auto; max-width: 950px; width: 100%; }
+        .caratteristiche-img-wrapper img { width: 100%; height: auto; display: block; }
         
-        .caratteristiche-img-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .loghi-img-wrapper { margin: 40px auto 0 auto; max-width: 750px; width: 100%; }
+        .loghi-img-wrapper img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
         
-        /* Contenitore per l'immagine unica dei loghi */
-        .loghi-img-wrapper {
-            margin: 40px auto 0 auto;
-            max-width: 700px; 
-            width: 100%;
-        }
-        
-        .loghi-img-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            mix-blend-mode: multiply; 
-        }
-        
-        /* Regole per Tablet e Cellulari */
-        @media (max-width: 900px) {
-            .split-image::before { width: 100px; } /* Sfumatura più stretta su tablet */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .split-text h2 { font-size: 4rem; }
+            .brand-svg { max-width: 220px; }
         }
         
         @media (max-width: 768px) { 
-            .split-text { padding: 40px 20px; } 
-            .split-text h2 { font-size: 3.5rem; } 
-            .split-image { min-height: 400px; }
-            
-            /* 📌 Sfumatura mobile: Da sinistra a destra non serve se sono impilati, la facciamo dall'alto! */
+            .split-text { padding: 60px 30px; } 
+            .brand-svg { max-width: 200px; margin-bottom: 40px; }
+            .split-text h2 { font-size: 3.2rem; } 
+            .split-image { min-height: 450px; }
             .split-image::before {
                 top: 0; left: 0; right: 0; bottom: auto;
-                width: 100%; height: 100px;
-                background: linear-gradient(to bottom, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
+                width: 100%; height: 150px;
+                background: linear-gradient(to bottom, var(--crema-sfondo) 20%, rgba(243, 238, 228, 0) 100%);
             }
         }
     </style>
@@ -127,36 +118,38 @@
         <div class="split-text">
             <img src="pilatesgardenpes.svg" alt="Pilates Garden Pesaro" class="brand-svg">
             
-            <h4 class="maiuscole-spaziate" style="text-align: left; margin-bottom: 10px; color: var(--verde-salvia);">Il Metodo</h4>
+            <h4 class="maiuscole-spaziate">IL METODO</h4>
             <h2>COVATECH®</h2>
             
-            <div style="width: 50px; height: 2px; background-color: var(--verde-salvia); margin-bottom: 30px;"></div> 
+            <div style="width: 60px; height: 1px; background-color: var(--verde-salvia); margin: 25px 0 35px 0;"></div> 
             
             <h3>Una formazione di eccellenza italiana ed europea</h3>
+            
             <p>Pilates Garden Pesaro nasce dalla formazione nel metodo CovaTech® Pilates®, una delle realtà storiche più autorevoli nel panorama della formazione Pilates in Italia.</p>
+            
             <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento.</p>
         </div>
         
-        <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="split-image"></div>
     </section>
 
     <section class="icons-section">
-        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; color: var(--verde-oliva-titoli);">Precisione, ascolto e consapevolezza</h2>
-        <p style="font-size: 1.3rem; max-width: 800px; margin: 20px auto; color: var(--testo-scuro);">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
+        <h2 class="maiuscole-spaziate" style="font-size: 1.4rem; color: var(--verde-oliva-titoli); opacity: 0.8;">PRECISIONE, ASCOLTO E CONSAPEVOLEZZA</h2>
+        <p style="font-size: 1.2rem; max-width: 850px; margin: 25px auto; color: var(--testo-scuro); font-style: italic;">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
 
         <div class="caratteristiche-img-wrapper">
-            <img src="caratteristiche2.png" alt="Le 6 caratteristiche del Metodo Covatech">
+            <img src="caratteristiche2.png" alt="Caratteristiche Covatech">
         </div>
 
-        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 80px; color: var(--verde-oliva-titoli);">Una scuola riconosciuta</h2>
+        <h2 class="maiuscole-spaziate" style="font-size: 1.4rem; margin-top: 100px; color: var(--verde-oliva-titoli); opacity: 0.8;">UNA SCUOLA RICONOSCIUTA</h2>
         
         <div class="loghi-img-wrapper">
-            <img src="loghi.png" alt="Riconoscimenti ASI, APPI, CONI">
+            <img src="loghi.png" alt="Riconoscimenti Ufficiali">
         </div>
     </section>
 
     <footer class="footer-bar">
-        <p>Pilates Garden Pesaro | Metodo Covatech®</p>
+        <p>Pilates Garden Pesaro | P.IVA 02735270412 | Metodo Covatech®</p>
     </footer>
 
 </body>

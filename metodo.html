@@ -34,21 +34,32 @@
         
         .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto; background-color: rgba(243, 238, 228, 0.8); border-radius: 20px; margin-top: 40px; margin-bottom: 40px;}
         
-        /* 📌 AGGIORNATO: Nuovo contenitore per l'immagine unica delle caratteristiche */
+        /* Contenitore per l'immagine unica delle caratteristiche */
         .caratteristiche-img-wrapper {
             margin: 50px auto;
-            max-width: 900px; /* Non farla allargare troppo sui computer grandi */
+            max-width: 900px;
             width: 100%;
         }
         
         .caratteristiche-img-wrapper img {
             width: 100%;
-            height: auto; /* Mantiene le proporzioni corrette */
+            height: auto;
             display: block;
         }
         
-        .badges-row { display: flex; justify-content: center; gap: 60px; margin-top: 50px; flex-wrap: wrap; }
-        .badges-row img { max-width: 140px; height: auto; }
+        /* 📌 AGGIORNATO: Nuovo contenitore per l'immagine unica dei loghi */
+        .loghi-img-wrapper {
+            margin: 40px auto 0 auto;
+            max-width: 700px; /* Leggermente più stretto delle caratteristiche per incorniciarli bene */
+            width: 100%;
+        }
+        
+        .loghi-img-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            mix-blend-mode: multiply; /* 📌 TRUCCO PRO: Se l'immagine loghi.png ha uno sfondo bianco, questo comando lo fa "sparire" fondendolo con il crema! */
+        }
         
         @media (max-width: 768px) { 
             .split-text { padding: 40px 20px; } 
@@ -92,10 +103,8 @@
 
         <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 80px; color: var(--verde-oliva-titoli);">Una scuola riconosciuta</h2>
         
-        <div class="badges-row">
-            <div class="icon-item"><img src="logo-asi.png" alt="ASI"></div>
-            <div class="icon-item"><img src="logo-appi.png" alt="APPI"></div>
-            <div class="icon-item"><img src="logo-italia-coni.png" alt="CONI"></div>
+        <div class="loghi-img-wrapper">
+            <img src="loghi.png" alt="Riconoscimenti ASI, APPI, CONI">
         </div>
     </section>
 

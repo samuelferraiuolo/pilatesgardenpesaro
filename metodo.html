@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="common.css">
     
     <style>
-        /* Sfondo a foglie in filigrana come nella Home */
+        /* Sfondo a foglie in filigrana - RIPRISTINATO */
         body::before {
             content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('Sfondo beige con foglie per sito web.png'); 
@@ -17,88 +17,79 @@
 
         body { background-color: var(--crema-sfondo); }
 
+        /* 📌 RIPRISTINATO: Il layout split "incorniciato" (con lo sfondo a foglie visibile ai lati) */
         .split-covatech { 
             display: flex; 
             flex-wrap: wrap; 
-            background-color: var(--crema-sfondo);
-            margin: 0 auto;
-            max-width: 100%; /* Sfrutta tutta la larghezza per l'effetto split */
-            min-height: 100vh;
+            background-color: var(--crema-sfondo); 
+            /* Rimosso max-width e margin per farlo tornare a tutto schermo o incorniciato come prima */
         }
         
-        /* 📌 AGGIORNATO: Testo ancorato in alto a sinistra */
         .split-text { 
             flex: 1; 
-            min-width: 450px; 
-            padding: 100px 5% 60px 8%; /* Padding superiore generoso per spingere in alto */
+            min-width: 400px; 
+            padding: 80px 5%; /* RIPRISTINATO il padding originale */
             display: flex; 
             flex-direction: column; 
-            justify-content: flex-start; /* Ancoraggio in alto */
-            align-items: flex-start; /* Allineamento a sinistra */
+            justify-content: center; /* RIPRISTINATO al centro */
             position: relative;
             z-index: 2;
         }
         
-        /* 📌 AGGIORNATO: Logo più grande e visibile */
+        /* 📌 IL TUO LOGO SVG (In alto a sinistra) */
         .brand-svg { 
-            max-width: 280px; /* Aumentato per visibilità */
-            width: 100%;
+            max-width: 250px; 
             height: auto; 
-            margin-bottom: 60px; /* Spazio lussuoso sotto il logo */
+            margin-bottom: 40px; 
             display: block; 
-            opacity: 0.9;
+            align-self: flex-start; /* Assicura che stia a sinistra */
         }
         
-        .split-text h4 { color: var(--verde-salvia); margin-bottom: 15px; letter-spacing: 4px; }
-        .split-text h2 { text-align: left; font-size: 5rem; margin-bottom: 20px; line-height: 0.9; color: var(--verde-oliva-titoli); }
-        .split-text h3 { text-align: left; font-size: 2.2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 40px; }
-        .split-text p { font-size: 1.4rem; margin-bottom: 25px; color: var(--testo-scuro); line-height: 1.7; max-width: 550px; /* Evita righe troppo lunghe, tipico del design premium */ }
+        /* TIPOGRAFIA RIPRISTINATA COME PRIMA */
+        .split-text h4 { color: var(--verde-salvia); margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 20px; line-height: 1; color: var(--verde-oliva-titoli); }
+        .split-text h3 { text-align: left; font-size: 2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
+        .split-text p { font-size: 1.4rem; margin-bottom: 20px; color: var(--testo-scuro); }
         
-        /* Immagine e Sfumatura */
+        /* 📌 L'IMMAGINE CON LA SFUMATURA RIPRISTINATA */
         .split-image { 
-            flex: 1.3; 
-            min-width: 450px; 
-            background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1400&q=80');
+            flex: 1; /* RIPRISTINATO */
+            min-width: 400px; 
+            background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; 
             background-position: center; 
-            min-height: 700px;
+            min-height: 600px; /* RIPRISTINATO */
             position: relative;
         }
         
-        /* Dissolvenza laterale */
+        /* La sfumatura morbida dal crema alla foto */
         .split-image::before {
             content: '';
             position: absolute;
             top: 0; bottom: 0; left: 0;
-            width: 250px; 
-            background: linear-gradient(to right, var(--crema-sfondo) 15%, rgba(243, 238, 228, 0) 100%);
+            width: 150px; 
+            background: linear-gradient(to right, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
             z-index: 1;
         }
         
-        /* Sezioni Icone e Loghi */
-        .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto; }
+        /* SEZIONI ICONE E LOGHI - RIPRISTINATE */
+        .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto;}
         
-        .caratteristiche-img-wrapper { margin: 50px auto; max-width: 950px; width: 100%; }
+        .caratteristiche-img-wrapper { margin: 50px auto; max-width: 900px; width: 100%; }
         .caratteristiche-img-wrapper img { width: 100%; height: auto; display: block; }
         
-        .loghi-img-wrapper { margin: 40px auto 0 auto; max-width: 750px; width: 100%; }
+        .loghi-img-wrapper { margin: 40px auto 0 auto; max-width: 700px; width: 100%; }
         .loghi-img-wrapper img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
         
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .split-text h2 { font-size: 4rem; }
-            .brand-svg { max-width: 220px; }
-        }
-        
+        /* RESPONSIVE RIPRISTINATO */
         @media (max-width: 768px) { 
-            .split-text { padding: 60px 30px; } 
-            .brand-svg { max-width: 200px; margin-bottom: 40px; }
-            .split-text h2 { font-size: 3.2rem; } 
-            .split-image { min-height: 450px; }
+            .split-text { padding: 40px 20px; } 
+            .split-text h2 { font-size: 3.5rem; } 
+            .split-image { min-height: 400px; }
             .split-image::before {
                 top: 0; left: 0; right: 0; bottom: auto;
-                width: 100%; height: 150px;
-                background: linear-gradient(to bottom, var(--crema-sfondo) 20%, rgba(243, 238, 228, 0) 100%);
+                width: 100%; height: 100px;
+                background: linear-gradient(to bottom, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
             }
         }
     </style>
@@ -118,15 +109,13 @@
         <div class="split-text">
             <img src="pilatesgardenpes.svg" alt="Pilates Garden Pesaro" class="brand-svg">
             
-            <h4 class="maiuscole-spaziate">IL METODO</h4>
+            <h4 class="maiuscole-spaziate">Il Metodo</h4>
             <h2>COVATECH®</h2>
             
-            <div style="width: 60px; height: 1px; background-color: var(--verde-salvia); margin: 25px 0 35px 0;"></div> 
+            <div style="width: 50px; height: 2px; background-color: var(--verde-salvia); margin-bottom: 30px;"></div> 
             
             <h3>Una formazione di eccellenza italiana ed europea</h3>
-            
             <p>Pilates Garden Pesaro nasce dalla formazione nel metodo CovaTech® Pilates®, una delle realtà storiche più autorevoli nel panorama della formazione Pilates in Italia.</p>
-            
             <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento.</p>
         </div>
         
@@ -134,22 +123,22 @@
     </section>
 
     <section class="icons-section">
-        <h2 class="maiuscole-spaziate" style="font-size: 1.4rem; color: var(--verde-oliva-titoli); opacity: 0.8;">PRECISIONE, ASCOLTO E CONSAPEVOLEZZA</h2>
-        <p style="font-size: 1.2rem; max-width: 850px; margin: 25px auto; color: var(--testo-scuro); font-style: italic;">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
+        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; color: var(--verde-oliva-titoli);">Precisione, ascolto e consapevolezza</h2>
+        <p style="font-size: 1.3rem; max-width: 800px; margin: 20px auto; color: var(--testo-scuro);">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
 
         <div class="caratteristiche-img-wrapper">
-            <img src="caratteristiche2.png" alt="Caratteristiche Covatech">
+            <img src="caratteristiche2.png" alt="Le 6 caratteristiche del Metodo Covatech">
         </div>
 
-        <h2 class="maiuscole-spaziate" style="font-size: 1.4rem; margin-top: 100px; color: var(--verde-oliva-titoli); opacity: 0.8;">UNA SCUOLA RICONOSCIUTA</h2>
+        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 80px; color: var(--verde-oliva-titoli);">Una scuola riconosciuta</h2>
         
         <div class="loghi-img-wrapper">
-            <img src="loghi.png" alt="Riconoscimenti Ufficiali">
+            <img src="loghi.png" alt="Riconoscimenti ASI, APPI, CONI">
         </div>
     </section>
 
     <footer class="footer-bar">
-        <p>Pilates Garden Pesaro | P.IVA 02735270412 | Metodo Covatech®</p>
+        <p>Pilates Garden Pesaro | Metodo Covatech®</p>
     </footer>
 
 </body>

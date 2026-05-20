@@ -61,7 +61,7 @@
             min-height: 600px; 
         }
 
-        /* 📌 AGGIORNATO: Contenitore flex per allineare il titolo e la foglia */
+        /* Contenitore flex per allineare il titolo e la foglia */
         .title-with-leaf {
             display: flex;
             align-items: center;
@@ -74,12 +74,12 @@
             color: var(--verde-salvia);
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin: 0; /* Rimosso il margine per allinearlo alla foglia */
+            margin: 0; 
         }
 
-        /* Stile per la foglia accanto al titolo */
+        /* 📌 STILE FOGLIA ACCANTO AL TITOLO */
         .leaf-accent {
-            width: 24px;
+            width: 45px; /* 👈 MODIFICA QUI: Cambia i pixel per ingrandire la fogliolina (es. mettila a 90px se la vuoi gigante) */
             height: auto;
             display: block;
             opacity: 0.8;
@@ -130,7 +130,15 @@
         }
         
         .icon-item { text-align: center; }
-        .icon-item img { width: 45px; height: 45px; margin-bottom: 15px; display: inline-block; } 
+        
+        /* 📌 STILE ICONE DELLA GRIGLIA (Salute, Postura, ecc.) */
+        .icon-item img { 
+            width: 90px; /* 👈 MODIFICA QUI: Cambia i pixel per allargare o stringere le icone SVG */
+            height: 90px; /* 👈 MODIFICA QUI: Ricorda di mantenere questo valore uguale alla larghezza per non schiacciarle */
+            margin-bottom: 20px; 
+            display: inline-block; 
+        } 
+        
         .icon-item p { font-size: 0.95rem; color: var(--testo-scuro); line-height: 1.3; }
         
         .nota-pelvico {
@@ -219,6 +227,10 @@
         }
 
         /* 📱 RESPONSIVE */
+        @media (max-width: 900px) {
+            .carousel-item { min-width: calc(50% - 10px); } 
+        }
+
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 4rem; }
             .split-text { padding: 60px 5%; }
@@ -330,7 +342,7 @@
 
     <footer class="legal-footer">
         <p>Pilates Garden Pesaro | Metodo Covatech®</p>
-    </footer
+    </footer>
 
     <script>
         const track = document.querySelector('.carousel-track');

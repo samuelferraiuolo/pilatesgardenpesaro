@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="common.css">
     
     <style>
-        /* Sfondo a foglie in filigrana - RIPRISTINATO */
+        /* Sfondo a foglie in filigrana */
         body::before {
             content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('Sfondo beige con foglie per sito web.png'); 
@@ -17,71 +17,79 @@
 
         body { background-color: var(--crema-sfondo); }
 
-        /* 📌 RIPRISTINATO: Il layout split "incorniciato" (con lo sfondo a foglie visibile ai lati) */
+        /* Layout split in alto */
         .split-covatech { 
             display: flex; 
             flex-wrap: wrap; 
             background-color: var(--crema-sfondo); 
-            /* Rimosso max-width e margin per farlo tornare a tutto schermo o incorniciato come prima */
         }
         
         .split-text { 
             flex: 1; 
             min-width: 400px; 
-            padding: 80px 5%; /* RIPRISTINATO il padding originale */
+            padding: 80px 5%; 
             display: flex; 
             flex-direction: column; 
-            justify-content: center; /* RIPRISTINATO al centro */
+            justify-content: center; 
             position: relative;
             z-index: 2;
         }
         
-        /* 📌 IL TUO LOGO SVG (In alto a sinistra) */
-        .brand-svg { 
-            max-width: 250px; 
-            height: auto; 
-            margin-bottom: 40px; 
-            display: block; 
-            align-self: flex-start; /* Assicura che stia a sinistra */
-        }
+        .brand-svg { max-width: 250px; height: auto; margin-bottom: 40px; display: block; align-self: flex-start; }
         
-        /* TIPOGRAFIA RIPRISTINATA COME PRIMA */
         .split-text h4 { color: var(--verde-salvia); margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
         .split-text h2 { text-align: left; font-size: 4.5rem; margin-bottom: 20px; line-height: 1; color: var(--verde-oliva-titoli); }
         .split-text h3 { text-align: left; font-size: 2rem; font-style: italic; font-weight: 400; color: var(--testo-scuro); margin-bottom: 30px; }
         .split-text p { font-size: 1.4rem; margin-bottom: 20px; color: var(--testo-scuro); }
         
-        /* 📌 L'IMMAGINE CON LA SFUMATURA RIPRISTINATA */
         .split-image { 
-            flex: 1; /* RIPRISTINATO */
+            flex: 1; 
             min-width: 400px; 
             background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; 
             background-position: center; 
-            min-height: 600px; /* RIPRISTINATO */
+            min-height: 600px; 
             position: relative;
         }
         
-        /* La sfumatura morbida dal crema alla foto */
         .split-image::before {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0; left: 0;
-            width: 150px; 
+            content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 150px; 
             background: linear-gradient(to right, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
             z-index: 1;
         }
         
-        /* SEZIONI ICONE E LOGHI - RIPRISTINATE */
-        .icons-section { padding: 80px 20px; text-align: center; max-width: 1200px; margin: 0 auto;}
+        /* 📌 SEZIONE CENTRALE AGGIORNATA: Il riquadro Beige/Crema */
+        .icons-section { 
+            padding: 80px 20px; 
+            text-align: center; 
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
         
-        .caratteristiche-img-wrapper { margin: 50px auto; max-width: 900px; width: 100%; }
+        /* 📌 IL NUOVO RIQUADRO PER LE CARATTERISTICHE */
+        .caratteristiche-box {
+            background-color: var(--crema-sfondo); /* Sfondo crema pieno */
+            border-radius: 20px; /* Bordi arrotondati come nel bozzetto */
+            padding: 60px 40px; /* Spazio interno generoso */
+            margin: 0 auto;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombra elegante per staccarlo dal fondo */
+            border: 1px solid rgba(94, 110, 79, 0.1); /* Bordino finissimo */
+            position: relative; /* Serve per sovrapporsi alle foglie di sfondo */
+            z-index: 2;
+        }
+
+        .caratteristiche-img-wrapper { 
+            margin: 40px auto 0 auto; 
+            max-width: 900px; 
+            width: 100%; 
+        }
+        
         .caratteristiche-img-wrapper img { width: 100%; height: auto; display: block; }
         
         .loghi-img-wrapper { margin: 40px auto 0 auto; max-width: 700px; width: 100%; }
         .loghi-img-wrapper img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
         
-        /* RESPONSIVE RIPRISTINATO */
         @media (max-width: 768px) { 
             .split-text { padding: 40px 20px; } 
             .split-text h2 { font-size: 3.5rem; } 
@@ -91,6 +99,7 @@
                 width: 100%; height: 100px;
                 background: linear-gradient(to bottom, var(--crema-sfondo) 0%, rgba(243, 238, 228, 0) 100%);
             }
+            .caratteristiche-box { padding: 40px 20px; } /* Meno padding sui telefoni */
         }
     </style>
 </head>
@@ -116,8 +125,7 @@
             
             <h3>Una formazione di eccellenza italiana ed europea</h3>
             <p>Pilates Garden Pesaro nasce dalla formazione nel metodo CovaTech® Pilates, una delle realtà storiche più autorevoli nel panorama della formazione Pilates in Italia.</p>
-            <p>Fondata nel 1989 da Anna Maria Cova, CovaTech® Pilates è stata la prima scuola di formazione Pilates nata in Italia e rappresenta oggi un centro di eccellenza riconosciuto a livello italiano ed internazionale.
-</p>
+            <p>Fondata nel 1989 da Anna Maria Cova, CovaTech® Pilates è stata la prima scuola di formazione Pilates nata in Italia e rappresenta oggi un centro di eccellenza riconosciuto a livello italiano ed internazionale.</p>
             <p>Da oltre trent'anni il metodo unisce ricerca, esperienza didattica e approfondimento tecnico, con un approccio fondato sulla precisione del movimento, sulla consapevolezza corporea e sulla qualità degli appoggi.</p>
         </div>
         
@@ -125,11 +133,17 @@
     </section>
 
     <section class="icons-section">
-        <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; color: var(--verde-oliva-titoli);">Precisione, ascolto e consapevolezza</h2>
-        <p style="font-size: 1.3rem; max-width: 800px; margin: 20px auto; color: var(--testo-scuro);">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
+        
+        <div class="caratteristiche-box">
+            <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; color: var(--verde-oliva-titoli);">Precisione, ascolto e consapevolezza</h2>
+            
+            <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px auto;"></div>
+            
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto; color: var(--testo-scuro);">Nel metodo CovaTech®, la percezione degli appoggi è alla base di un movimento preciso, efficace e rispettoso del corpo.</p>
 
-        <div class="caratteristiche-img-wrapper">
-            <img src="caratteristiche2.png" alt="Le 6 caratteristiche del Metodo Covatech">
+            <div class="caratteristiche-img-wrapper">
+                <img src="caratteristiche2.png" alt="Le 6 caratteristiche del Metodo Covatech">
+            </div>
         </div>
 
         <h2 class="maiuscole-spaziate" style="font-size: 1.5rem; margin-top: 80px; color: var(--verde-oliva-titoli);">Una scuola riconosciuta</h2>

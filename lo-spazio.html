@@ -127,7 +127,7 @@
 
         .decoro-linea { width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px 0; }
 
-        /* 📌 5. NUOVA SEZIONE CAROUSEL MULTIMEDIALE */
+        /* 5. CAROUSEL MULTIMEDIALE */
         .carousel-section {
             padding: 100px 20px;
             background-color: var(--crema-sfondo);
@@ -155,7 +155,7 @@
         }
         
         .carousel-item {
-            min-width: calc(33.333% - 14px); /* 3 elementi visibili contemporaneamente su PC */
+            min-width: calc(33.333% - 14px); 
             box-sizing: border-box;
             border-radius: 12px;
             overflow: hidden;
@@ -171,7 +171,6 @@
             display: block;
         }
         
-        /* Frecce di Navigazione */
         .carousel-btn {
             background-color: var(--verde-oliva-titoli);
             color: var(--crema-sfondo);
@@ -205,7 +204,7 @@
 
         /* 📱 RESPONSIVE */
         @media (max-width: 900px) {
-            .carousel-item { min-width: calc(50% - 10px); } /* 2 elementi su Tablet */
+            .carousel-item { min-width: calc(50% - 10px); } 
         }
 
         @media (max-width: 768px) {
@@ -216,7 +215,7 @@
             .banner-spazio { height: 45vh; }
             .banner-content h2 { font-size: 2.5rem; }
             
-            .carousel-item { min-width: 100%; height: 380px; } /* 1 solo elemento su Mobile */
+            .carousel-item { min-width: 100%; height: 380px; } 
             .prev-btn { left: 5px; }
             .next-btn { right: 5px; }
         }
@@ -303,7 +302,7 @@
                     </div>
                     
                     <div class="carousel-item">
-                        <video src="video2.mp4" controls loop muted></video>
+                        <img src="imag5.jpg" alt="Scorcio Giardino 5">
                     </div>
                     
                 </div>
@@ -325,7 +324,6 @@
         
         let currentIndex = 0;
         
-        // Calcola quanti elementi mostrare in base alla larghezza dello schermo
         function getVisibleItemsCount() {
             if (window.innerWidth <= 768) return 1;
             if (window.innerWidth <= 900) return 2;
@@ -335,7 +333,6 @@
         function updateCarouselPosition() {
             const visibleItems = getVisibleItemsCount();
             const itemWidth = items[0].getBoundingClientRect().width;
-            // Calcola lo spostamento includendo il gap di 20px impostato nel CSS
             const amountToMove = currentIndex * (itemWidth + 20);
             track.style.transform = `translateX(-${amountToMove}px)`;
         }
@@ -345,7 +342,7 @@
             if (currentIndex < items.length - visibleItems) {
                 currentIndex++;
             } else {
-                currentIndex = 0; // Torna all'inizio quando finisce
+                currentIndex = 0; 
             }
             updateCarouselPosition();
         });
@@ -355,12 +352,11 @@
             if (currentIndex > 0) {
                 currentIndex--;
             } else {
-                currentIndex = items.length - visibleItems; // Va alla fine
+                currentIndex = items.length - visibleItems; 
             }
             updateCarouselPosition();
         });
 
-        // Riposiziona se l'utente ridimensiona la finestra (es. ruota lo smartphone)
         window.addEventListener('resize', () => {
             currentIndex = 0;
             updateCarouselPosition();

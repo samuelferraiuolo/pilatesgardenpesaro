@@ -5,38 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatti | Pilates Garden Pesaro</title>
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="contatti.css">
+    
+    <style>
+        body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
+
+        /* Struttura a metà schermo */
+        .contact-split {
+            display: flex;
+            min-height: 85vh; /* Occupa quasi tutto lo schermo */
+            flex-wrap: wrap;
+        }
+
+        /* 📌 METÀ SINISTRA: L'immagine o il Logo grande */
+        .contact-left {
+            flex: 1;
+            min-width: 400px;
+            /* Puoi inserire qui l'URL della tua foto o del logo col fondo verde */
+            background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--verde-salvia); /* Colore di sicurezza */
+        }
+
+        /* 📌 METÀ DESTRA: I bottoni e il testo */
+        .contact-right {
+            flex: 1;
+            min-width: 400px;
+            padding: 80px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Foglie in filigrana solo sulla parte destra */
+        .contact-right::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('Sfondo beige con foglie per sito web.png'); 
+            background-size: 350px; background-repeat: repeat; 
+            opacity: 0.15; z-index: 0; 
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-content h1 { 
+            font-size: 4rem; 
+            color: var(--verde-oliva-titoli); 
+            margin-bottom: 20px; 
+            line-height: 1; 
+        }
+        
+        .contact-content p.subtitle { 
+            font-size: 1.4rem; 
+            color: var(--testo-scuro); 
+            margin-bottom: 50px; 
+            line-height: 1.6; 
+        }
+
+        /* 📌 GRIGLIA DEI BOTTONI */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Due colonne per i bottoni */
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn-contact {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 1px solid var(--verde-salvia);
+            border-radius: 12px; /* Angoli morbidi */
+            text-decoration: none;
+            color: var(--verde-oliva-titoli);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background-color: rgba(255, 255, 255, 0.5); /* Fondo leggermente traslucido */
+            transition: all 0.3s ease;
+        }
+
+        /* Effetto quando passi col mouse */
+        .btn-contact:hover {
+            background-color: var(--verde-salvia);
+            color: #fff;
+            transform: translateY(-3px); /* Si alza leggermente */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Crea un'ombra */
+        }
+
+        /* Footer */
+        .legal-footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            font-size: 0.9rem;
+        }
+        .legal-footer a { color: var(--crema-sfondo); text-decoration: none; opacity: 0.8; }
+        .legal-footer a:hover { opacity: 1; text-decoration: underline; }
+
+        /* Responsive per i cellulari */
+        @media(max-width: 900px) {
+            .btn-grid { grid-template-columns: 1fr; } /* I bottoni si mettono uno sotto l'altro */
+            .contact-left { min-height: 350px; }
+            .contact-content h1 { font-size: 3.5rem; }
+            .contact-right { padding: 50px 20px; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-logo"><a href="index.html"><img src="logo.png" alt="Logo"></a></div>
+
+    <nav class="sub-nav">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="chi-sono.html">Chi Sono</a></li>
             <li><a href="metodo.html">Il Metodo</a></li>
-            <li><a href="servizi.html">Servizi</a></li>
+            <li><a href="lo-spazio.html">Lo Spazio</a></li>
             <li><a href="contatti.html">Contatti</a></li>
         </ul>
     </nav>
 
-    <section class="section-spacing animate-up">
-        <div class="container">
-            <h1>Inizia un percorso</h1>
-            <p>Per informazioni o per riservare il tuo posto, contattami direttamente.</p>
-            
-            <div class="contact-wrapper">
-                <a href="https://wa.me/393922351065" target="_blank" class="btn-contact btn-wa">Scrivimi su WhatsApp</a>
+    <div class="contact-split">
+        <div class="contact-left"></div>
+        
+        <div class="contact-right">
+            <div class="contact-content">
+                <h1>Inizia un percorso</h1>
+                <p class="subtitle">Per informazioni o per riservare il tuo posto nel giardino, contattami direttamente. Risponderò il prima possibile.</p>
                 
-                <a href="mailto:sara.difranco78@gmail.com" class="btn-contact btn-mail">Invia un'Email</a>
+                <div class="btn-grid">
+                    <a href="https://wa.me/393922351065" target="_blank" class="btn-contact">WhatsApp</a>
+                    
+                    <a href="mailto:sara.difranco78@gmail.com" class="btn-contact">Email</a>
+                    
+                    <a href="https://www.instagram.com/pilatesgardenpesaro/" target="_blank" class="btn-contact">Instagram</a>
+                    
+                    <a href="INSERISCI_QUI_IL_LINK_FACEBOOK" target="_blank" class="btn-contact">Facebook</a>
+                </div>
             </div>
-
-            <a href="https://www.instagram.com/pilatesgardenpesaro/" target="_blank" class="ig-link">Seguimi su Instagram @PilatesGardenPesaro</a>
         </div>
-    </section>
+    </div>
 
     <footer class="legal-footer">
         <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: [Inserire Partita IVA]</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
     </footer>
+
 </body>
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matwork | Pilates Garden Pesaro</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
+        
+        /* Immagine Hero in alto */
+        .hero-detail {
+            height: 65vh;
+            background-image: url('foto-matwork.jpg'); /* Carica la tua foto con i tappetini su GitHub */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Sezione contenuto che si sovrappone leggermente alla foto */
+        .content-section {
+            max-width: 900px;
+            margin: -50px auto 0; 
+            background-color: var(--crema-sfondo);
+            padding: 60px 50px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand-svg-small { max-width: 180px; margin: 0 auto 30px; display: block; }
+        
+        .content-section h4 { color: var(--verde-salvia); letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
+        .content-section h2 { font-size: 4rem; color: var(--verde-oliva-titoli); margin-bottom: 15px; font-weight: 400; }
+        .content-section h3 { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); margin-bottom: 40px; font-weight: 400; }
+        .content-section p { font-size: 1.3rem; line-height: 1.7; color: var(--testo-scuro); margin-bottom: 50px; }
+
+        /* Griglia 3 icone delle caratteristiche */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .feature-item { text-align: center; }
+        .feature-item img { width: 70px; height: 70px; margin-bottom: 15px; display: inline-block; }
+        .feature-item h5 { font-size: 0.9rem; letter-spacing: 2px; color: var(--verde-oliva-titoli); margin-bottom: 10px; margin-top: 0; }
+        .feature-item p { font-size: 0.95rem; line-height: 1.4; color: var(--testo-scuro); margin: 0; }
+
+        .slogan { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--verde-oliva-titoli); font-style: italic; margin-top: 40px; }
+
+        /* Footer Legale */
+        .footer-bar {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .content-section { margin-top: 0; padding: 40px 20px; }
+            .features-grid { grid-template-columns: 1fr; gap: 40px; }
+            .content-section h2 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sub-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="metodo.html">Il Metodo</a></li>
+            <li><a href="lo-spazio.html">Lo Spazio</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-detail"></header>
+
+    <section class="content-section">
+        <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden" class="brand-svg-small">
+        
+        <h4>MATWORK</h4>
+        <h2>Matwork</h2>
+        <h3>Lavoro a terra su base in legno</h3>
+        
+        <p>Nel Matwork la qualità degli appoggi cambia profondamente il lavoro. Una superficie stabile, uniforme e naturale permette al corpo di percepirsi con maggiore precisione, favorendo un movimento più consapevole, preciso e organizzato.</p>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <img src="stabilita.svg" alt="Stabilità">
+                <h5>STABILITÀ</h5>
+                <p>Una superficie solida e uniforme che aiuta l'allineamento e migliora la consapevolezza.</p>
+            </div>
+            <div class="feature-item">
+                <img src="natura.svg" alt="Naturalezza">
+                <h5>NATURALEZZA</h5>
+                <p>Il legno è un materiale vivo, caldo, autentico. In armonia con la natura che ci circonda.</p>
+            </div>
+            <div class="feature-item">
+                <img src="attenzione.svg" alt="Attenzione">
+                <h5>ATTENZIONE</h5>
+                <p>Ogni dettaglio è scelto per prendersi cura di te e del tuo movimento.</p>
+            </div>
+        </div>
+
+        <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px;"></div>
+        <div class="slogan">Perché i dettagli fanno la differenza.</div>
+    </section>
+
+    <footer class="footer-bar">
+        <p>Pilates Garden Pesaro | Metodo Covatech®</p>
+    </footer>
+
+</body>
+</html>

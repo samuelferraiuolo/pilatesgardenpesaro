@@ -14,116 +14,129 @@
             padding: 0; 
         }
 
-        /* 1. HERO SECTION */
+        /* 1. IMMAGINE HERO (Grande, luminosa e con la scritta bianca) */
         .hero-matwork {
-            height: 90vh; /* 👈 Altezza a schermo intero */
-            background-image: url('foto-matwork-pulita2.jpg'); /* 👈 La tua immagine senza testo */
+            height: 75vh; /* Bella grande nello schermo */
+            background-image: url('foto-matwork-pulita.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
-            padding: 0 10%;
+            justify-content: center; /* Centra la scritta in mezzo */
             position: relative;
+            width: 100%;
         }
         
-        /* 📌 Sovrapposizione opaca per garantire la leggibilità del testo */
+        /* Un'ombra leggerissima solo per far leggere la scritta bianca, senza scurire la foto */
         .hero-matwork::after {
             content: ''; 
             position: absolute; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* 👈 Leggera opacità scura */
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.15); 
             z-index: 1;
         }
         
         .hero-content { 
             position: relative; 
             z-index: 2; 
-            color: #ffffff; 
+            text-align: center;
         }
+
         .hero-content h1 {
-            font-size: 5.5rem;
-            line-height: 1.05;
+            font-size: 6rem;
+            color: #ffffff; /* Scritta bianca */
             margin: 0;
             font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
             text-shadow: 0px 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* 2. SPLIT SECTIONS */
-        .split-section { 
-            display: flex; 
-            flex-wrap: wrap; 
-            background-color: var(--crema-sfondo); 
+        /* 2. IL RIQUADRO CREMA CENTRALE (Senza colonne grigie) */
+        .content-section {
+            max-width: 900px;
+            margin: -50px auto 0 auto; /* Si sovrappone leggermente alla foto */
+            background-color: var(--crema-sfondo);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05); /* Separa il blocco in modo pulito */
         }
 
-        .split-text {
-            flex: 1;
-            min-width: 400px;
-            padding: 80px 8%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .split-image {
-            flex: 1;
-            min-width: 400px;
-            background-size: cover;
-            background-position: center;
-            min-height: 600px; 
-        }
-
-        .split-text h4 {
-            font-size: 0.9rem;
-            color: var(--verde-salvia);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        
-        .split-text h2 {
-            font-size: 3.2rem;
-            line-height: 1.1;
+        .content-section h2 {
+            font-size: 3.5rem;
             color: var(--verde-oliva-titoli);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            margin-top: 0;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
         }
 
-        /* 3. GRIGLIA ICONE */
-        .icons-grid-matwork {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 30px 15px;
-            margin-top: 40px;
-            margin-bottom: 20px;
+        .content-section h3 {
+            font-size: 1rem;
+            color: var(--verde-salvia);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: normal;
         }
-        
-        .icon-item { text-align: center; }
-        
-        /* Stile per gli SVG, ingranditi a 90px */
-        .icon-item img { 
-            width: 90px; /* 👈 Dimensione ingrandita */
-            height: 90px; /* 👈 Dimensione ingrandita */
-            margin-bottom: 15px; 
-            display: inline-block;
-        } 
-        
-        .icon-item p { font-size: 0.95rem; color: var(--testo-scuro); line-height: 1.3; }
-        
-        .nota-pelvico {
-            font-size: 0.9rem;
-            font-style: italic;
+
+        .content-section p.descrizione {
+            font-size: 1.25rem;
+            line-height: 1.6;
             color: var(--testo-scuro);
-            text-align: center;
-            margin-top: 10px;
+            margin-bottom: 50px;
         }
 
-        .decoro-linea { width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 20px 0; }
+        /* 3. GRIGLIA DELLE 3 ICONE */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
 
-        /* Footer Legale */
-        .legal-footer {
+        .feature-item { text-align: center; }
+        .feature-item img {
+            width: 80px; 
+            height: 80px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .feature-item h5 {
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            color: var(--verde-oliva-titoli);
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: var(--testo-scuro);
+            margin: 0;
+        }
+
+        .slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--verde-oliva-titoli);
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        /* FOGLIA GIGANTE IN FONDO */
+        .leaf-bottom {
+            width: 160px;
+            height: auto;
+            display: block;
+            margin: 40px auto 0 auto;
+            opacity: 0.85;
+        }
+
+        /* Footer */
+        .footer-bar {
             text-align: center;
             padding: 40px 20px;
             background-color: var(--verde-oliva-titoli);
@@ -131,12 +144,12 @@
             font-size: 0.9rem;
         }
 
-        /* 📱 RESPONSIVE */
+        /* Responsive per i telefoni */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 4rem; }
-            .split-text { padding: 60px 5%; }
-            .split-text h2 { font-size: 2.5rem; }
-            .icons-grid-matwork { grid-template-columns: repeat(2, 1fr); }
+            .content-section { margin-top: -30px; padding: 40px 20px; }
+            .features-grid { grid-template-columns: 1fr; gap: 40px; }
+            .leaf-bottom { width: 120px; }
         }
     </style>
 </head>
@@ -151,42 +164,45 @@
         </ul>
     </nav>
 
-    <section class="hero-matwork">
+    <header class="hero-matwork">
         <div class="hero-content">
-            <h1>Matwork<br>Lavoro a terra</h1>
+            <h1>Matwork</h1>
         </div>
-    </section>
+    </header>
 
-    <section class="split-section">
-        <div class="split-text">
-            <h4>Il Giardino</h4>
-            <h2>Matwork</h2>
-            <p>Un percorso per trovare equilibrio e forza.</p>
-        </div>
-        <div class="split-image" style="background-image: url('foto-matwork-2.jpg');"></div>
-    </section>
+    <section class="content-section">
+        
+        <h2>Matwork</h2>
+        <h3>Lavoro a terra su base in legno</h3>
+        
+        <p class="descrizione">Nel Matwork la qualità degli appoggi cambia profondamente il lavoro. Una superficie stabile, uniforme e naturale permette al corpo di percepirsi con maggiore precisione, favorendo un movimento più consapevole, preciso e organizzato.</p>
 
-    <section class="split-section">
-        <div class="split-text" style="padding-top: 100px;">
-            <h4>Ci prendiamo cura di ciò<br>che ti sostiene.</h4>
-            
-            <div class="icons-grid-matwork">
-                <div class="icon-item"><img src="salute.svg" alt="Benessere complessivo"><p>Benessere<br>complessivo</p></div>
-                <div class="icon-item"><img src="postura.svg" alt="Postura e consapevolezza"><p>Postura<br>e consapevolezza</p></div>
-                <div class="icon-item"><img src="foglia.svg" alt="Respirazione e presenza"><p>Respirazione<br>e presenza</p></div>
-                
-                <div class="icon-item"><img src="cuore.svg" alt="Pavimento pelvico"><p>Pavimento<br>pelvico</p></div>
-                <div class="icon-item"><img src="persone.svg" alt="Piccoli gruppi"><p>Piccoli<br>gruppi</p></div>
-                <div class="icon-item"><img src="movimento.svg" alt="Movimento consapevole"><p>Movimento<br>consapevole</p></div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <img src="sassi.svg" alt="Stabilità">
+                <h5>STABILITÀ</h5>
+                <p>Una superficie solida e uniforme che aiuta l'allineamento e migliora la consapevolezza.</p>
             </div>
-            
-            <p class="nota-pelvico">Prenditi cura del tuo corpo con ogni movimento.</p>
-            <div class="decoro-linea" style="margin: 30px auto;"></div>
+            <div class="feature-item">
+                <img src="ramo.svg" alt="Naturalezza">
+                <h5>NATURALEZZA</h5>
+                <p>Il legno è un materiale vivo, caldo, autentico. In armonia con la natura che ci circonda.</p>
+            </div>
+            <div class="feature-item">
+                <img src="attenzione.svg" alt="Attenzione">
+                <h5>ATTENZIONE</h5>
+                <p>Ogni dettaglio è scelto per prendersi cura di te e del tuo movimento.</p>
+            </div>
         </div>
-        <div class="split-image" style="background-image: url('foto-matwork-3.jpg');"></div> 
+
+        <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px;"></div>
+        
+        <div class="slogan">Perché i dettagli fanno la differenza.</div>
+        
+        <img src="fogliamatw.svg" alt="Decoro Foglia Matwork" class="leaf-bottom">
     </section>
 
-    <footer class="legal-footer">
+    <footer class="footer-bar">
         <p>Pilates Garden Pesaro | Metodo Covatech®</p>
     </footer>
 

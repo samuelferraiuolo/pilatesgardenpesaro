@@ -14,61 +14,92 @@
             padding: 0; 
         }
 
-        /* 1. IMMAGINE HERO (Grande, luminosa e con la scritta bianca) */
+        /* 📌 AGGIUNTO: Pattern di sfondo sottile per l'intera pagina */
+        body::before {
+            content: ''; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background-image: url('Sfondo beige con foglie per sito web.png'); 
+            background-size: 350px; /* Dimensione del pattern */
+            background-repeat: repeat; 
+            opacity: 0.15; /* Sottile filigrana */
+            z-index: -1; 
+        }
+
+        /* 📌 AGGIORNATO: Foto a tutto schermo (rimozione colonne grigie) */
         .hero-matwork {
-            height: 75vh; /* Bella grande nello schermo */
+            height: 75vh; /* Altezza significativa per lo schermo */
             background-image: url('foto-matwork-pulita.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
-            justify-content: center; /* Centra la scritta in mezzo */
+            justify-content: center; /* Centra la scritta "Matwork" */
             position: relative;
-            width: 100%;
+            
+            /* Trucco per estendere a tutta la larghezza dello schermo, superando qualsiasi container */
+            width: 100vw;
+            margin-left: -50vw;
+            left: 50%;
+            margin-right: -50vw;
+            right: 50%;
         }
         
-        /* Un'ombra leggerissima solo per far leggere la scritta bianca, senza scurire la foto */
+        /* Sovrapposizione leggera per la leggibilità del testo bianca sulla foto */
         .hero-matwork::after {
             content: ''; 
             position: absolute; 
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.15); 
+            background: rgba(0, 0, 0, 0.2); 
             z-index: 1;
         }
         
         .hero-content { 
             position: relative; 
             z-index: 2; 
+            color: #ffffff; /* Testo bianco centrale */
             text-align: center;
         }
 
         .hero-content h1 {
             font-size: 6rem;
-            color: #ffffff; /* Scritta bianca */
+            line-height: 1.05;
             margin: 0;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
             text-shadow: 0px 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* 2. IL RIQUADRO CREMA CENTRALE (Senza colonne grigie) */
+        /* 📌 AGGIORNATO: Riquadro centrale che non si sovrappone alla foto */
         .content-section {
             max-width: 900px;
-            margin: -50px auto 0 auto; /* Si sovrappone leggermente alla foto */
+            margin: 60px auto 0 auto; /* 👈 Rimosso il margine negativo e aggiunto un margine positivo */
             background-color: var(--crema-sfondo);
-            padding: 60px 40px;
+            padding: 70px 50px;
             text-align: center;
+            border-radius: 16px; /* Bordo arrotondato uniforme */
             position: relative;
             z-index: 10;
-            border-radius: 16px 16px 0 0;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.05); /* Separa il blocco in modo pulito */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombra per profondità */
+        }
+
+        /* Logo centrale del Brand all'interno della sezione (come in index.html) */
+        .brand-svg-container {
+            margin: 0 auto 30px;
+            max-width: 180px;
+        }
+        .brand-svg-container img {
+            width: 100%;
+            height: auto;
         }
 
         .content-section h2 {
             font-size: 3.5rem;
             color: var(--verde-oliva-titoli);
             margin-bottom: 10px;
-            margin-top: 0;
             font-family: 'Cormorant Garamond', serif;
             font-weight: 400;
         }
@@ -89,12 +120,12 @@
             margin-bottom: 50px;
         }
 
-        /* 3. GRIGLIA DELLE 3 ICONE */
+        /* 📌 RIPRISTINATO: Griglia a 3 icone (Sassi, Ramo, Attenzione) */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .feature-item { text-align: center; }
@@ -123,19 +154,19 @@
             font-size: 2rem;
             color: var(--verde-oliva-titoli);
             font-style: italic;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
-        /* FOGLIA GIGANTE IN FONDO */
+        /* 📌 AGGIORNATO E PERSONALIZZATO: Foglia di decoro finale, resa più grande */
         .leaf-bottom {
-            width: 160px;
+            width: 180px; /* 👈 Ingrandito per un effetto più prominente */
             height: auto;
             display: block;
-            margin: 40px auto 0 auto;
+            margin: 50px auto 0 auto;
             opacity: 0.85;
         }
 
-        /* Footer */
+        /* Footer Legale */
         .footer-bar {
             text-align: center;
             padding: 40px 20px;
@@ -144,12 +175,12 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive per i telefoni */
+        /* 📱 RESPONSIVE */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 4rem; }
-            .content-section { margin-top: -30px; padding: 40px 20px; }
+            .content-section { margin-top: 30px; padding: 40px 20px; border-radius: 0; }
             .features-grid { grid-template-columns: 1fr; gap: 40px; }
-            .leaf-bottom { width: 120px; }
+            .leaf-bottom { width: 130px; }
         }
     </style>
 </head>
@@ -171,6 +202,9 @@
     </header>
 
     <section class="content-section">
+        <div class="brand-svg-container">
+            <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden Pesaro">
+        </div>
         
         <h2>Matwork</h2>
         <h3>Lavoro a terra su base in legno</h3>

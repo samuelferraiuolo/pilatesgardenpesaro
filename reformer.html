@@ -5,47 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reformer | Pilates Garden Pesaro</title>
     <link rel="stylesheet" href="common.css">
+    
     <style>
-        body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
-        
-        /* Immagine Hero in alto */
-        .hero-detail {
-            height: 65vh;
+        /* Reset e Sfondo Base */
+        body { 
+            background-color: var(--crema-sfondo); 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* Pattern di sfondo sottile per l'intera pagina */
+        body::before {
+            content: ''; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background-image: url('Sfondo beige con foglie per sito web.png'); 
+            background-size: 350px; 
+            background-repeat: repeat; 
+            opacity: 0.15; 
+            z-index: -1; 
+        }
+
+        /* Foto a tutto schermo per il Reformer */
+        .hero-reformer {
+            height: 75vh; 
             background-image: url('foto-reformer.jpg'); /* Carica la tua foto del macchinario su GitHub */
             background-size: cover;
             background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
             position: relative;
+            
+            /* Trucco per estendere a tutta la larghezza dello schermo */
+            width: 100vw;
+            margin-left: -50vw;
+            left: 50%;
+            margin-right: -50vw;
+            right: 50%;
+        }
+        
+        /* Sovrapposizione leggera per la leggibilità del testo bianco */
+        .hero-reformer::after {
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.2); 
+            z-index: 1;
+        }
+        
+        .hero-content { 
+            position: relative; 
+            z-index: 2; 
+            color: #ffffff; 
+            text-align: center;
         }
 
-        /* Sezione contenuto che si sovrappone leggermente alla foto */
+        .hero-content h1 {
+            font-size: 6rem;
+            line-height: 1.05;
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            text-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Riquadro centrale che non si sovrappone alla foto */
         .content-section {
             max-width: 900px;
-            margin: -50px auto 0;
+            margin: 60px auto 0 auto; 
             background-color: var(--crema-sfondo);
-            padding: 60px 50px;
+            padding: 70px 50px;
             text-align: center;
-            border-radius: 20px 20px 0 0;
+            border-radius: 16px; 
             position: relative;
             z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
         }
 
-        .brand-svg-small { max-width: 180px; margin: 0 auto 30px; display: block; }
-        
-        .content-section h4 { color: var(--verde-salvia); letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem; }
-        .content-section h2 { font-size: 4rem; color: var(--verde-oliva-titoli); margin-bottom: 15px; font-weight: 400; }
-        .content-section h3 { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); margin-bottom: 40px; font-weight: 400; }
-        .content-section p { font-size: 1.3rem; line-height: 1.7; color: var(--testo-scuro); margin-bottom: 50px; }
+        /* Logo centrale del Brand */
+        .brand-svg-container {
+            margin: 0 auto 30px;
+            max-width: 180px;
+        }
+        .brand-svg-container img {
+            width: 100%;
+            height: auto;
+        }
 
-        /* Griglia delle 3 icone */
+        /* Stili Tipografici */
+        .content-section h2 {
+            font-size: 3.5rem;
+            color: var(--verde-oliva-titoli);
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        .content-section h3 {
+            font-size: 1rem;
+            color: var(--verde-salvia);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .content-section p.descrizione {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--testo-scuro);
+            margin-bottom: 50px;
+        }
+
+        /* Griglia a 3 icone */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
+
         .feature-item { text-align: center; }
-        .feature-item img { width: 70px; height: 70px; margin-bottom: 15px; display: inline-block; }
-        .feature-item h5 { font-size: 0.9rem; letter-spacing: 2px; color: var(--verde-oliva-titoli); margin-bottom: 0; margin-top: 0; }
+        .feature-item img {
+            width: 80px; 
+            height: 80px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .feature-item h5 {
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            color: var(--verde-oliva-titoli);
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
 
         /* Pillola informativa in basso */
         .info-pill {
@@ -56,24 +153,34 @@
             color: var(--testo-scuro);
             font-style: italic;
             font-size: 1.1rem;
-            margin-top: 30px;
+            margin-top: 10px;
             background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Foglia di decoro finale */
+        .leaf-bottom {
+            width: 180px; 
+            height: auto;
+            display: block;
+            margin: 50px auto 0 auto;
+            opacity: 0.85;
         }
 
         /* Footer Legale */
         .footer-bar {
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             background-color: var(--verde-oliva-titoli);
             color: var(--crema-sfondo);
             font-size: 0.9rem;
-            margin-top: 60px;
         }
 
+        /* 📱 RESPONSIVE */
         @media (max-width: 768px) {
-            .content-section { margin-top: 0; padding: 40px 20px; }
+            .hero-content h1 { font-size: 4rem; }
+            .content-section { margin-top: 30px; padding: 40px 20px; border-radius: 0; }
             .features-grid { grid-template-columns: 1fr; gap: 40px; }
-            .content-section h2 { font-size: 3rem; }
+            .leaf-bottom { width: 130px; }
         }
     </style>
 </head>
@@ -88,16 +195,21 @@
         </ul>
     </nav>
 
-    <header class="hero-detail"></header>
+    <header class="hero-reformer">
+        <div class="hero-content">
+            <h1>Reformer</h1>
+        </div>
+    </header>
 
     <section class="content-section">
-        <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden" class="brand-svg-small">
+        <div class="brand-svg-container">
+            <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden Pesaro">
+        </div>
         
-        <h4>REFORMER</h4>
         <h2>Reformer</h2>
         <h3>Precisione, fluidità, controllo.</h3>
         
-        <p>Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più consapevole, armonioso e organizzato. Grazie alla resistenza delle molle, il lavoro diventa una danza di precisione e forza profonda.</p>
+        <p class="descrizione">Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più consapevole, armonioso e organizzato. Grazie alla resistenza delle molle, il lavoro diventa una danza di precisione e forza profonda.</p>
 
         <div class="features-grid">
             <div class="feature-item">
@@ -115,6 +227,8 @@
         </div>
 
         <div class="info-pill">Classi intime di massimo 3 persone.</div>
+        
+        <img src="fogliamatw.svg" alt="Decoro Foglia" class="leaf-bottom">
     </section>
 
     <footer class="footer-bar">

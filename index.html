@@ -14,7 +14,7 @@
             opacity: 0.15; z-index: -1; 
         }
 
-        .home-container { max-width: 1350px; margin: 0 auto; width: 100%; padding: 60px 20px; }
+        .home-container { max-width: 1350px; margin: 0 auto; width: 100%; padding: 60px 20px; text-align: center; } /* Aggiunto text-align: center per centrare il bottone */
         
         .logo-wrapper { display: flex; justify-content: center; margin-bottom: 50px; }
         .hero-logo { width: 250px; border-radius: 140px 140px 15px 15px; border: 6px solid var(--crema-sfondo); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -22,13 +22,72 @@
         .subtitle-italic { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); text-align: center; margin-bottom: 40px; }
         
         .promo-img-container { 
-            margin: 0 auto 70px auto; max-width: 900px; border-radius: 18px; 
+            margin: 0 auto 30px auto; /* Ridotto il margin-bottom per avvicinare il bottone */
+            max-width: 900px; border-radius: 18px; 
             overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease; 
         }
         .promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
         .promo-img { width: 100%; height: auto; display: block; }
 
-        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; }
+        /* NUOVO BOTTONE ANIMATO */
+        .btn-novita {
+            display: inline-block;
+            background-color: var(--verde-salvia, #9AA08A);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            border-radius: 50px; /* Arrotondato */
+            box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4);
+            margin-bottom: 70px; /* Spazio prima delle cards */
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            /* Animazione pulsante leggera continua */
+            animation: pulse-soft 2s infinite; 
+        }
+
+        /* Effetto scia al passaggio del mouse */
+        .btn-novita::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background-color: var(--verde-oliva-titoli, #5E6E4F);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: -1; /* Mette l'effetto dietro al testo */
+        }
+
+        .btn-novita:hover {
+            color: var(--crema-sfondo, #F3EEE4);
+            box-shadow: 0 6px 20px rgba(94, 110, 79, 0.5);
+            transform: translateY(-3px); /* Si alza leggermente */
+            animation: none; /* Ferma la pulsazione quando ci passi sopra */
+        }
+
+        .btn-novita:hover::after {
+            transform: translate(-50%, -50%) scale(1); /* Allarga il cerchio scuro interno */
+        }
+        
+        /* Definizione dell'animazione pulsante */
+        @keyframes pulse-soft {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(154, 160, 138, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
+        }
+
+        /* Fai in modo che il testo resti davanti all'effetto */
+        .btn-novita span { position: relative; z-index: 1; }
+        /* FINE BOTTONE ANIMATO */
+
+
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; text-align: left;} /* text-align: left per ripristinare l'allineamento delle card */
         
         /* LA STRUTTURA ESTERNA DELLE CARD (Identica per tutte) */
         .card { 
@@ -107,6 +166,11 @@
         <div class="promo-img-container">
             <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
         </div>
+
+        <!-- IL BOTTONE INSERITO QUI -->
+        <a href="novita.html" class="btn-novita">
+            <span>Scopri le novità di Settembre ♡</span>
+        </a>
 
         <div class="cards-grid">
             

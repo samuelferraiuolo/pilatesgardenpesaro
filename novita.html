@@ -34,27 +34,15 @@
             font-family: sans-serif;
         }
 
-        /* Griglia Collage */
+        /* Griglia Collage - Modificata per essere più compatta come la foto */
         .collage-wrapper {
-            max-width: 1300px;
-            margin: 20px auto 60px;
-            padding: 0 20px;
+            max-width: 1350px;
+            margin: 0 auto 60px;
+            padding: 0 15px;
             display: grid;
             grid-template-columns: 1.2fr 1fr 1fr 1fr;
-            grid-auto-rows: minmax(300px, auto);
-            gap: 15px;
-        }
-
-        .collage-box {
-            position: relative;
-            background-color: #EBE5D9; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-            text-align: center;
-            color: var(--testo-scuro);
+            grid-auto-rows: minmax(380px, auto);
+            gap: 4px; /* Ridotto al minimo per dare l'effetto mosaico */
         }
 
         /* Colonna grande a sinistra */
@@ -62,39 +50,43 @@
             grid-column: 1;
             grid-row: 1 / span 2;
             background-color: var(--crema-sfondo);
-            justify-content: flex-start;
-            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 40px;
             background-image: url('foto-verticale-sinistra.jpg'); 
             background-size: cover;
-            background-position: bottom;
+            background-position: center;
             position: relative;
+            text-align: left;
         }
 
-        /* Overlay sfumato per leggere il testo sulla foto grande */
+        /* Overlay sfumato foto grande */
         .box-main::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(243, 238, 228, 0.9) 0%, rgba(243, 238, 228, 0.7) 40%, rgba(243, 238, 228, 0) 100%);
+            background: linear-gradient(to right, rgba(243, 238, 228, 0.95) 0%, rgba(243, 238, 228, 0.7) 60%, rgba(243, 238, 228, 0) 100%);
             z-index: 1;
         }
 
-        .main-content { position: relative; z-index: 2; text-align: left; }
-        .main-content img.logo { max-width: 150px; margin-bottom: 40px; }
+        .main-content { position: relative; z-index: 2; }
+        .main-content img.logo { max-width: 140px; margin-bottom: 20px; }
         .main-content h2 { 
             color: var(--verde-oliva-titoli); 
-            font-size: 2.5rem; 
+            font-size: 3.2rem; 
             font-weight: 400; 
-            line-height: 1.2; 
-            margin-bottom: 40px; 
+            line-height: 1.1; 
+            margin-bottom: 30px; 
+            margin-top: 0;
         }
-        .main-content p { font-size: 1.2rem; }
-        .main-content .italic-script { font-style: italic; font-size: 1.4rem; }
+        .main-content p { font-size: 1.2rem; color: var(--testo-scuro); margin-bottom: 5px; }
+        .main-content .italic-script { font-style: italic; font-size: 1.5rem; }
 
-        /* Stile Testi nei Box */
+        /* Stile Testi Generali */
         .text-rust { color: var(--terracotta); }
         .text-olive { color: var(--verde-oliva-titoli); }
-        .text-script { font-style: italic; font-size: 1.3rem; color: var(--verde-oliva-titoli); }
+        .text-script { font-style: italic; font-size: 1.4rem; color: var(--verde-oliva-titoli); }
 
         /* Numeri in alto a sinistra */
         .number-badge {
@@ -102,51 +94,86 @@
             top: 15px; left: 15px;
             background-color: var(--verde-oliva-titoli);
             color: white;
-            width: 25px; height: 25px;
+            width: 28px; height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             z-index: 5;
         }
 
-        /* Box con immagini di sfondo */
+        /* Box Immagini Base */
         .bg-img {
             background-size: cover;
             background-position: center;
-            justify-content: flex-end; 
-            padding: 15px;
-            min-height: 450px; /* ALTEZZA MINIMA: garantisce che la foto sotto si veda sempre */
+            position: relative;
+            display: flex;
+            align-items: flex-end; /* Allinea il testo in basso per i riquadri 2, 3, 4, 5 */
+            padding: 0; /* Tolto il padding per far toccare lo sfondo ai bordi */
+            overflow: hidden;
         }
         
-        .bg-img .text-overlay {
-            background-color: rgba(243, 238, 228, 0.75); 
-            padding: 15px;
+        /* Stile Sfumatura in Basso (per Box 2, 3, 4, 5) */
+        .text-overlay {
             width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .text-overlay p { font-size: 1.1rem; line-height: 1.5; margin-bottom: 15px; margin-top: 0; }
-
-        /* Footer Banner */
-        .footer-bar {
+            padding: 50px 20px 20px 20px;
             text-align: center;
-            padding: 30px 20px;
-            background-color: var(--verde-oliva-titoli);
-            color: var(--crema-sfondo);
-            font-size: 0.9rem;
-            margin-top: 60px;
+            background: linear-gradient(to top, rgba(243, 238, 228, 1) 0%, rgba(243, 238, 228, 0.8) 50%, rgba(243, 238, 228, 0) 100%);
+            box-sizing: border-box;
+            color: var(--testo-scuro);
+        }
+        .text-overlay p { font-size: 1.15rem; line-height: 1.4; margin: 0; padding-bottom: 10px; }
+
+        /* Stile Overlay Completo (per Box 1 e 6) */
+        .bg-img.full-text {
+            align-items: center; /* Centra il testo in altezza */
+        }
+        .bg-img.full-text .text-overlay {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(243, 238, 228, 0.78); /* Velo semi-trasparente su tutta la foto */
+            padding: 30px;
         }
 
         /* Icone / Decori */
-        .decor-leaf { max-width: 30px; margin: 5px auto 10px auto; display: block; opacity: 0.5; }
+        .decor-leaf { max-width: 35px; margin: 15px auto; display: block; opacity: 0.6; }
 
-        /* Responsive Mobile */
-        @media (max-width: 1024px) {
+        /* Banner Inferiore Tema Originale */
+        .bottom-banner {
+            max-width: 1350px;
+            margin: 0 auto;
+            background-color: var(--verde-salvia);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+        }
+        .bottom-banner-left { display: flex; align-items: center; font-style: italic; }
+        .bottom-banner-center { font-style: italic; font-size: 1.4rem; }
+        .bottom-banner-right { text-align: right; font-family: sans-serif; font-size: 0.7rem; letter-spacing: 2px; }
+        .bottom-banner-right span { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; text-transform: capitalize; margin-bottom: 3px; letter-spacing: normal;}
+
+        /* Footer standard sotto al banner */
+        .footer-bar {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
             .collage-wrapper { grid-template-columns: 1fr 1fr; }
-            .box-main { grid-column: 1 / span 2; grid-row: 1; }
+            .box-main { grid-column: 1 / span 2; grid-row: 1; min-height: 400px; }
+            .bottom-banner { flex-direction: column; text-align: center; gap: 15px; }
         }
 
         @media (max-width: 768px) {
@@ -171,18 +198,18 @@
     <section class="collage-wrapper">
         
         <!-- COLONNA SINISTRA (MAIN) -->
-        <div class="collage-box box-main">
+        <div class="box-main">
             <div class="main-content">
                 <img src="pilatesgardenpes.svg" alt="Pilates Garden Pesaro" class="logo">
-                <h2>Le radici crescono<br>quando incontrano<br>una terra capace<br>di accoglierle.</h2>
-                <hr style="width: 30px; border: 1px solid var(--verde-oliva-titoli); margin: 30px 0; margin-left: 0;">
+                <h2>Le radici<br>crescono<br>quando incontrano<br>una terra capace<br>di accoglierle.</h2>
+                <hr style="width: 40px; border: 1px solid var(--verde-oliva-titoli); margin: 20px 0; margin-left: 0;">
                 <p>Da settembre<br>inizia un nuovo capitolo.</p>
                 <p class="italic-script">Non un cambiamento,<br>ma una continuità.</p>
             </div>
         </div>
 
-        <!-- BOX 1 (Immagine + Testo) -->
-        <div class="collage-box bg-img" style="background-image: url('foto-entrata.jpeg');">
+        <!-- BOX 1 (Testo intero centrato: Aggiunta classe "full-text") -->
+        <div class="bg-img full-text" style="background-image: url('foto-entrata.jpeg');">
             <div class="number-badge">1</div>
             <div class="text-overlay">
                 <p>Ci sono collaborazioni<br>che nascono da un'opportunità.<br><span class="text-rust">Altre nascono quando ci si incontra<br>per uno scopo comune:<br>prendersi cura degli altri.</span></p>
@@ -191,59 +218,71 @@
             </div>
         </div>
 
-        <!-- BOX 2 (Immagine + Testo) -->
-        <div class="collage-box bg-img" style="background-image: url('foto-tavolino.jpg');">
+        <!-- BOX 2 (Testo sfumato in basso) -->
+        <div class="bg-img" style="background-image: url('foto-tavolino.jpg');">
             <div class="number-badge">2</div>
             <div class="text-overlay">
                 <p class="text-olive">A Vibrando Home<br>ho ritrovato proprio questo.</p>
             </div>
         </div>
 
-        <!-- BOX 3 (Immagine + Testo) -->
-        <div class="collage-box bg-img" style="background-image: url('foto-targhetta.jpg');">
+        <!-- BOX 3 (Testo sfumato in basso) -->
+        <div class="bg-img" style="background-image: url('foto-targhetta.jpg');">
             <div class="number-badge">3</div>
             <div class="text-overlay">
                 <p>Una casa dove le <span class="text-rust">persone</span><br>non entrano soltanto<br>per un trattamento,<br>ma per <span class="text-rust">sentirsi accolte</span>.</p>
-                <img src="fogliamatw.svg" alt="leaf" class="decor-leaf">
+                <img src="fogliamatw.svg" alt="leaf" class="decor-leaf" style="margin-bottom: 0;">
             </div>
         </div>
 
-        <!-- BOX 4 (Immagine + Testo) -->
-        <div class="collage-box bg-img" style="background-image: url('foto-stanza.jpg');">
+        <!-- BOX 4 (Testo sfumato in basso) -->
+        <div class="bg-img" style="background-image: url('foto-stanza.jpg');">
             <div class="number-badge">4</div>
             <div class="text-overlay">
                 <p>Dove il tempo di una tisana,<br>di un caffè o di una semplice<br>chiacchierata fa parte della <span class="text-rust">cura</span>.</p>
-                <img src="fogliamatw.svg" alt="leaf" class="decor-leaf">
+                <img src="fogliamatw.svg" alt="leaf" class="decor-leaf" style="margin-bottom: 0;">
             </div>
         </div>
 
-        <!-- BOX 5 (Immagine + Testo) -->
-        <div class="collage-box bg-img" style="background-image: url('foto-puff.jpg');">
+        <!-- BOX 5 (Testo sfumato in basso) -->
+        <div class="bg-img" style="background-image: url('foto-puff.jpg');">
             <div class="number-badge">5</div>
             <div class="text-overlay">
                 <p>Dove professionisti diversi<br>mettono le proprie competenze<br>al servizio di un unico obiettivo:<br>aiutare ogni persona a vibrare<br>in <span class="text-rust">armonia, equilibrio e libertà</span>.</p>
-                <span class="text-rust">♡</span>
+                <p class="text-rust" style="font-size: 1.5rem;">♡</p>
             </div>
         </div>
 
-        <!-- BOX 6 (Immagine + Testo) -->
-        <div class="collage-box bg-img" style="background-image: url('foto-stanza -puff.jpg');">
+        <!-- BOX 6 (Testo intero centrato: Aggiunta classe "full-text") -->
+        <div class="bg-img full-text" style="background-image: url('foto-stanza -puff.jpg');">
             <div class="number-badge">6</div>
             <div class="text-overlay">
                 <p>Per questo sono felice<br>che, da settembre,<br><span class="text-rust">Pilates Garden Pesaro</span><br>possa continuare<br>il suo percorso<br>anche qui.</p>
                 <p>Perché i luoghi più belli<br>non sono quelli<br>costruiti con i muri.</p>
-                <p class="text-script text-olive" style="font-size: 1.6rem; margin-bottom: 0;">Sono quelli<br>costruiti intorno<br>alle persone. ♡</p>
+                <p class="text-script text-olive" style="font-size: 1.8rem;">Sono quelli<br>costruiti intorno<br>alle persone. ♡</p>
             </div>
         </div>
 
     </section>
 
-    <!-- Banner Inferiore -->
+    <!-- Banner Tema Originale (quello verde chiaro della foto) -->
+    <div class="bottom-banner">
+        <div class="bottom-banner-left">
+            <img src="fogliamatw.svg" alt="leaf" style="width:25px; filter: brightness(0) invert(1); margin-right: 15px;">
+            Lo stesso spirito del giardino, una casa in più.
+        </div>
+        <div class="bottom-banner-center">
+            Ci vediamo da settembre a Vibrando Home ♡
+        </div>
+        <div class="bottom-banner-right">
+            <span>Sara Di Franco</span>
+            PILATES GARDEN PESARO
+        </div>
+    </div>
+
+    <!-- Footer Legale base -->
     <footer class="footer-bar">
-        <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
-            <a href="privacy.html" style="color: var(--crema-sfondo); text-decoration: underline;">Privacy & Cookie Policy</a>
-        </p>
+        <p>P.IVA: 02812250419 | Metodo Covatech® | <a href="privacy.html" style="color: var(--crema-sfondo); text-decoration: underline;">Privacy & Cookie Policy</a></p>
     </footer>
 
 </body>

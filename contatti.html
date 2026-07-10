@@ -7,7 +7,25 @@
     <link rel="stylesheet" href="common.css">
     
     <style>
-        body { background-color: var(--crema-sfondo); margin: 0; padding: 0; font-family: 'Cormorant Garamond', serif; }
+        body { 
+            background-color: var(--crema-sfondo); 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Cormorant Garamond', serif; 
+            position: relative;
+        }
+
+        /* SFONDO CON LE FOGLIE PER TUTTA LA PAGINA */
+        body::before {
+            content: ''; 
+            position: fixed; 
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('Sfondo beige con foglie per sito web.png'); 
+            background-size: 350px; 
+            background-repeat: repeat; 
+            opacity: 0.15; 
+            z-index: -1; 
+        }
 
         :root {
             --crema-sfondo: #F3EEE4;
@@ -37,11 +55,11 @@
             flex-wrap: wrap;
         }
 
-        /* METÀ SINISTRA */
+        /* 📌 METÀ SINISTRA (Ripristinata la tua immagine originale) */
         .contact-left {
             flex: 1;
             min-width: 400px;
-            background-image: url('foto-verticale-sinistra.jpg'); /* O usa imag10.jpg per il tramonto! */
+            background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=1000&q=80'); 
             background-size: cover;
             background-position: center;
             background-color: var(--verde-salvia); 
@@ -56,13 +74,6 @@
             flex-direction: column;
             justify-content: center;
             position: relative;
-        }
-
-        .contact-right::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('Sfondo beige con foglie per sito web.png'); 
-            background-size: 350px; background-repeat: repeat; 
-            opacity: 0.15; z-index: 0; 
         }
 
         .contact-content { position: relative; z-index: 1; }
@@ -115,23 +126,23 @@
         }
 
         /* ===================================================
-           NUOVA SEZIONE: ORARI (Stile Locandina)
+           SEZIONE: ORARI (Stile Locandina)
         =================================================== */
         .schedule-section {
             padding: 80px 20px;
-            background-color: #EBE5D9; /* Leggero stacco cromatico dal crema */
+            background-color: transparent; /* Reso trasparente per far vedere le foglie sotto */
             position: relative;
         }
 
         .schedule-container {
             max-width: 850px;
             margin: 0 auto;
-            background-color: var(--crema-sfondo);
+            background-color: var(--crema-sfondo); /* Il "foglio" rimane coprente per far leggere bene i testi */
             border: 1px solid rgba(94, 110, 79, 0.3);
             border-radius: 20px;
             padding: 50px;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             position: relative;
             z-index: 2;
         }
@@ -145,7 +156,7 @@
         .info-badge {
             display: inline-flex;
             align-items: center;
-            background-color: rgba(154, 160, 138, 0.15); /* verde salvia molto chiaro */
+            background-color: rgba(154, 160, 138, 0.15); 
             color: var(--testo-scuro);
             padding: 12px 25px;
             border-radius: 30px;
@@ -168,7 +179,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 40px;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.5);
             border-radius: 12px;
             overflow: hidden;
         }
@@ -206,7 +217,7 @@
 
         /* Box Avvertenza in basso */
         .schedule-note {
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.7);
             border: 1px solid var(--verde-salvia);
             border-radius: 15px;
             padding: 25px;
@@ -233,6 +244,8 @@
             background-color: var(--verde-oliva-titoli);
             color: var(--crema-sfondo);
             font-size: 0.9rem;
+            position: relative;
+            z-index: 2; /* Tiene il footer sopra lo sfondo a foglie */
         }
         .legal-footer a { color: var(--crema-sfondo); text-decoration: none; opacity: 0.8; }
         .legal-footer a:hover { opacity: 1; text-decoration: underline; }

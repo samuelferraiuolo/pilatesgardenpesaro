@@ -30,10 +30,10 @@
         .promo-img { width: 100%; height: auto; display: block; }
 
         /* ===================================================
-           NUOVO BOX AVVISO SETTEMBRE ANIMATO
+           BOX AVVISO SETTEMBRE ANIMATO (CON COLORI DEL SITO)
         =================================================== */
         .avviso-settembre {
-            background-color: #EBE5D9; /* Sfondo leggermente più scuro per staccare dal fondo pagina */
+            background-color: #EBE5D9; 
             border: 2px dashed var(--verde-salvia);
             border-radius: 20px;
             max-width: 800px;
@@ -83,25 +83,25 @@
             flex-wrap: wrap; 
         }
         
+        /* Bottoni Social con i colori del sito */
         .btn-social {
             padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
+            background-color: var(--verde-salvia); /* Colore base in tema */
             font-family: sans-serif;
             font-size: 0.95rem;
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
         }
-        
-        .btn-social.ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .btn-social.fb { background-color: #1877F2; }
 
         .btn-social:hover { 
-            transform: scale(1.05); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            transform: translateY(-4px); 
+            box-shadow: 0 8px 20px rgba(94, 110, 79, 0.3); 
+            background-color: var(--verde-oliva-titoli); /* Colore hover scuro */
             color: white;
         }
 
@@ -176,7 +176,7 @@
             <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
         </div>
 
-        <!-- NUOVO AVVISO SETTEMBRE INSERITO QUI -->
+        <!-- AVVISO SETTEMBRE -->
         <div class="avviso-settembre">
             <div class="avviso-icona">✨</div>
             <h4>Grandi Novità in Arrivo!</h4>
@@ -184,8 +184,8 @@
             <p class="avviso-sub">Segui le nostre pagine social per scoprire il nuovo spazio e rimanere sempre aggiornato:</p>
             
             <div class="avviso-social">
-                <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social ig">Instagram</a>
-                <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social fb">Facebook</a>
+                <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">Instagram</a>
+                <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">Facebook</a>
             </div>
         </div>
         <!-- FINE AVVISO SETTEMBRE -->

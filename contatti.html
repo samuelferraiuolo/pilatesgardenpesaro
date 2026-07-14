@@ -15,12 +15,14 @@
             border: 2px dashed var(--verde-salvia);
             border-radius: 20px;
             max-width: 800px;
-            margin: 0 auto 70px auto;
+            /* Modificato il margin top a 40px per distanziarlo dalla sezione orari */
+            margin: 40px auto 70px auto;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15);
             /* Animazione di fluttuazione continua */
             animation: float-avviso 3.5s ease-in-out infinite;
             position: relative;
+            z-index: 2; /* Tiene il box sopra lo sfondo */
         }
 
         @keyframes float-avviso {
@@ -29,7 +31,7 @@
             100% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); }
         }
 
-        .avviso-icona { font-size: 2.5rem; margin-bottom: 10px; }
+        .avviso-icona { font-size: 2.5rem; margin-bottom: 10px; text-align: center; }
         
         .avviso-settembre h4 { 
             color: var(--terracotta); 
@@ -37,6 +39,7 @@
             margin-top: 0; 
             margin-bottom: 15px; 
             font-weight: 400; 
+            text-align: center;
         }
         
         .avviso-settembre p { 
@@ -44,6 +47,7 @@
             color: var(--testo-scuro); 
             margin-bottom: 10px; 
             line-height: 1.4; 
+            text-align: center;
         }
         
         .avviso-settembre p strong { color: var(--verde-oliva-titoli); }
@@ -67,7 +71,7 @@
             border-radius: 50px;
             text-decoration: none;
             color: white;
-            background-color: var(--verde-salvia); /* Colore base in tema */
+            background-color: var(--verde-salvia); 
             font-family: sans-serif;
             font-size: 0.95rem;
             font-weight: bold;
@@ -79,7 +83,7 @@
         .btn-social:hover { 
             transform: translateY(-4px); 
             box-shadow: 0 8px 20px rgba(94, 110, 79, 0.3); 
-            background-color: var(--verde-oliva-titoli); /* Colore hover scuro */
+            background-color: var(--verde-oliva-titoli); 
             color: white;
         }
 
@@ -133,7 +137,7 @@
             flex-wrap: wrap;
         }
 
-        /* 📌 METÀ SINISTRA (Ripristinata la tua immagine originale) */
+        /* 📌 METÀ SINISTRA */
         .contact-left {
             flex: 1;
             min-width: 400px;
@@ -207,15 +211,15 @@
            SEZIONE: ORARI (Stile Locandina)
         =================================================== */
         .schedule-section {
-            padding: 80px 20px;
-            background-color: transparent; /* Reso trasparente per far vedere le foglie sotto */
+            padding: 80px 20px 0 20px; /* Ridotto il padding sotto per avvicinare l'avviso */
+            background-color: transparent; 
             position: relative;
         }
 
         .schedule-container {
             max-width: 850px;
             margin: 0 auto;
-            background-color: var(--crema-sfondo); /* Il "foglio" rimane coprente per far leggere bene i testi */
+            background-color: var(--crema-sfondo); 
             border: 1px solid rgba(94, 110, 79, 0.3);
             border-radius: 20px;
             padding: 50px;
@@ -371,19 +375,6 @@
             </div>
         </div>
     </div>
- <!-- AVVISO SETTEMBRE -->
-        <div class="avviso-settembre">
-            <div class="avviso-icona">✨</div>
-            <h4>Grandi Novità in Arrivo!</h4>
-            <p>A <strong>Settembre</strong> Pilates Garden Pesaro si sposterà al coperto, per continuare a prenderci cura di voi e della vostra pratica anche nelle stagioni più fresche.</p>
-            <p class="avviso-sub">Segui le nostre pagine social per scoprire il nuovo spazio e rimanere sempre aggiornato:</p>
-            
-            <div class="avviso-social">
-                <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">Instagram</a>
-                <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">Facebook</a>
-            </div>
-        </div>
-        <!-- FINE AVVISO SETTEMBRE -->
 
     <!-- Nuova Sezione Locandina Orari -->
     <section class="schedule-section">
@@ -464,6 +455,20 @@
 
         </div>
     </section>
+
+    <!-- AVVISO SETTEMBRE Spostato Sotto agli Orari -->
+    <div class="avviso-settembre">
+        <div class="avviso-icona">✨</div>
+        <h4>Grandi Novità in Arrivo!</h4>
+        <p>A <strong>Settembre</strong> Pilates Garden Pesaro si sposterà al coperto, per continuare a prenderci cura di voi e della vostra pratica anche nelle stagioni più fresche.</p>
+        <p class="avviso-sub">Segui le nostre pagine social per scoprire il nuovo spazio e rimanere sempre aggiornato:</p>
+        
+        <div class="avviso-social">
+            <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">Instagram</a>
+            <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">Facebook</a>
+        </div>
+    </div>
+    <!-- FINE AVVISO SETTEMBRE -->
 
     <!-- Footer -->
     <footer class="legal-footer">

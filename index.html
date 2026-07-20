@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="common.css">
     
     <style>
+        /* SFONDO CON LE FOGLIE PER TUTTA LA PAGINA */
         body::before {
             content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background-image: url('Sfondo beige con foglie per sito web.png'); 
@@ -22,7 +23,7 @@
         .subtitle-italic { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); text-align: center; margin-bottom: 40px; }
         
         .promo-img-container { 
-            margin: 0 auto 50px auto; 
+            margin: 0 auto 30px auto; /* Margine ridotto per avvicinare il bottone */
             max-width: 900px; border-radius: 18px; 
             overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease; 
         }
@@ -30,7 +31,47 @@
         .promo-img { width: 100%; height: auto; display: block; }
 
         /* ===================================================
-           BOX AVVISO SETTEMBRE ANIMATO (CON COLORI DEL SITO)
+           NUOVO BOTTONE ANIMATO: LISTINO PREZZI
+        =================================================== */
+        .btn-listino-wrapper {
+            margin-bottom: 70px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-listino {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--verde-salvia);
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            font-size: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-listino 2s infinite;
+        }
+
+        .btn-listino:hover {
+            transform: translateY(-3px);
+            background-color: var(--verde-oliva-titoli);
+            box-shadow: 0 8px 25px rgba(94, 110, 79, 0.3);
+            color: white;
+            animation: none; /* Ferma la pulsazione quando ci passi sopra */
+        }
+
+        @keyframes pulse-listino {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(154, 160, 138, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
+        }
+
+        /* ===================================================
+           BOX AVVISO SETTEMBRE ANIMATO
         =================================================== */
         .avviso-settembre {
             background-color: #EBE5D9; 
@@ -40,7 +81,6 @@
             margin: 0 auto 70px auto;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15);
-            /* Animazione di fluttuazione continua */
             animation: float-avviso 3.5s ease-in-out infinite;
             position: relative;
         }
@@ -83,13 +123,12 @@
             flex-wrap: wrap; 
         }
         
-        /* Bottoni Social con i colori del sito */
         .btn-social {
             padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
-            background-color: var(--verde-salvia); /* Colore base in tema */
+            background-color: var(--verde-salvia); 
             font-family: sans-serif;
             font-size: 0.95rem;
             font-weight: bold;
@@ -101,14 +140,13 @@
         .btn-social:hover { 
             transform: translateY(-4px); 
             box-shadow: 0 8px 20px rgba(94, 110, 79, 0.3); 
-            background-color: var(--verde-oliva-titoli); /* Colore hover scuro */
+            background-color: var(--verde-oliva-titoli); 
             color: white;
         }
 
-
+        /* STRUTTURA CARD */
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; text-align: left;} 
         
-        /* LA STRUTTURA ESTERNA DELLE CARD (Identica per tutte) */
         .card { 
             background-color: var(--crema-sfondo); border-radius: 20px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; 
@@ -117,14 +155,8 @@
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         
         .card-img-wrapper { position: relative; width: 100%; height: 400px; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
         
-        .card-img-wrapper img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-        
-        /* CONTROLLO INDIVIDUALE DELLE FOTO */
         .card-matwork .card-img-wrapper img { object-position: 50% 60%; }
         .card-reformer .card-img-wrapper img { object-position: 50% 60%; }
         .card-spazio .card-img-wrapper img { object-position: 50% 60%; }
@@ -145,12 +177,24 @@
         .card-content p { font-size: 1.3rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
         .card-bottom-leaf { width: 140px; margin-top: auto; padding-top: 30px; }
         
+        /* FOOTER */
+        .footer-bar {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--verde-oliva-titoli);
+            color: var(--crema-sfondo);
+            font-size: 0.9rem;
+        }
+        .footer-bar a { color: var(--crema-sfondo); text-decoration: underline; opacity: 0.8; }
+        .footer-bar a:hover { opacity: 1; }
+
         @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { 
             .cards-grid { grid-template-columns: 1fr; } 
             .card-img-wrapper { height: 260px; } 
             .avviso-settembre { padding: 30px 20px; }
             .avviso-settembre h4 { font-size: 1.8rem; }
+            .btn-listino { font-size: 1.1rem; padding: 14px 25px; text-align: center; flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -172,8 +216,20 @@
         
         <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
 
+        <!-- IMMAGINE PROMOZIONE -->
         <div class="promo-img-container">
             <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
+        </div>
+
+        <!-- AVVISO LISTINO PREZZI (IL LINK PUNTA ALL'ANCORA #listino-prezzi) -->
+        <div class="btn-listino-wrapper">
+            <a href="contatti.html#listino-prezzi" class="btn-listino">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+                Scopri il Listino Prezzi & Promo -30%
+            </a>
         </div>
 
         <!-- AVVISO SETTEMBRE -->
@@ -188,10 +244,9 @@
                 <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">Facebook</a>
             </div>
         </div>
-        <!-- FINE AVVISO SETTEMBRE -->
 
+        <!-- CARD DEI SERVIZI -->
         <div class="cards-grid">
-            
             <a href="matwork.html" class="card card-matwork">
                 <div class="card-img-wrapper">
                     <img src="foto-matwork-pulita.jpg" alt="Matwork">
@@ -230,14 +285,13 @@
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
-            
         </div>
     </div>
 
    <footer class="footer-bar">
         <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
         <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
-            <a href="privacy.html" style="color: var(--crema-sfondo); text-decoration: underline;">Privacy & Cookie Policy</a>
+            <a href="privacy.html">Privacy & Cookie Policy</a>
         </p>
     </footer>
 

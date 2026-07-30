@@ -1,69 +1,479 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Reformer | Pilates Garden Pesaro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="common.css">
-<style>
-body{margin:0;font-family:Montserrat,sans-serif;background:var(--crema-sfondo);}
-body:before{content:"";position:fixed;inset:0;background:url('Sfondo beige con foglie per sito web.png') repeat;background-size:350px;opacity:.12;z-index:-1}
-.hero-reformer{height:78vh;background:url('imag5.jpg') center/cover no-repeat;display:flex;justify-content:center;align-items:center;position:relative}
-.hero-reformer:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}
-.hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:20px}
-.hero-content h1{font:400 5.5rem "Cormorant Garamond",serif;margin:.2em 0}
-.badge{display:inline-block;padding:12px 24px;border-radius:40px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.4)}
-.cta{display:inline-block;margin-top:25px;padding:14px 34px;border-radius:40px;background:#fff;color:#55624b;text-decoration:none;font-weight:600}
-.content{max-width:960px;margin:60px auto;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);padding:60px;border-radius:18px}
-h2{font:400 3.3rem "Cormorant Garamond",serif;color:var(--verde-oliva-titoli)}
-.subtitle{text-transform:uppercase;letter-spacing:3px;color:var(--verde-salvia)}
-.desc{font-size:1.15rem;line-height:1.8}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:45px 0}
-.card{text-align:center;padding:24px;background:rgba(255,255,255,.45);border-radius:16px}
-.card img{width:78px}
-.card h5{letter-spacing:2px}
-.premium{padding:18px;border:1px solid var(--verde-salvia);border-radius:16px;text-align:center;margin:30px auto;max-width:480px}
-.cross{text-align:center;padding:50px 0}
-footer{text-align:center;padding:35px;background:var(--verde-oliva-titoli);color:#fff}
-.fade{opacity:0;transform:translateY(25px);transition:.7s}
-.fade.show{opacity:1;transform:none}
-@media(max-width:768px){.hero-content h1{font-size:3.5rem}.content{margin:20px;padding:30px}.grid{grid-template-columns:1fr}}
-</style></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reformer | Pilates Garden Pesaro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="common.css">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--olive);
+      font-family: var(--font-body);
+      background: var(--cream);
+    }
+
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      opacity: .12;
+      background: url("Sfondo beige con foglie per sito web.png") repeat;
+      background-size: 350px;
+      pointer-events: none;
+    }
+
+    .hero-reformer {
+      position: relative;
+      display: grid;
+      min-height: min(82vh, 820px);
+      padding: 8rem 1.5rem 13rem;
+      overflow: hidden;
+      place-items: center;
+      isolation: isolate;
+      background: url("imag5.jpg") center / cover no-repeat;
+      clip-path: polygon(0 0, 100% 0, 100% 88%, 58% 100%, 0 91%);
+    }
+
+    .hero-reformer::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--olive) 78%, transparent),
+          color-mix(in srgb, var(--olive) 35%, transparent)
+        );
+    }
+
+    .hero-content {
+      max-width: 760px;
+      color: var(--cream);
+      text-align: center;
+      animation: heroReveal 1.1s cubic-bezier(.2, .7, .2, 1) both;
+    }
+
+    .hero-eyebrow,
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0 0 1.25rem;
+      color: var(--sage);
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+
+    .hero-eyebrow { color: var(--cream); }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after,
+    .section-kicker::before,
+    .section-kicker::after {
+      width: 38px;
+      height: 1px;
+      content: "";
+      background: currentColor;
+      opacity: .75;
+    }
+
+    h1,
+    h2,
+    blockquote {
+      font-family: var(--font-display);
+      font-weight: 400;
+    }
+
+    .hero-content h1 {
+      margin: 0;
+      font-size: clamp(4.5rem, 11vw, 8.5rem);
+      line-height: .82;
+      letter-spacing: -.04em;
+    }
+
+    .hero-description {
+      max-width: 540px;
+      margin: 1.6rem auto 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions,
+    .cross-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .9rem;
+      margin-top: 2.2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: .8rem 1.55rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .button-primary {
+      color: var(--cream);
+      background: var(--olive);
+    }
+
+    .button-secondary {
+      color: var(--olive);
+      border-color: color-mix(in srgb, var(--cream) 70%, transparent);
+      background: color-mix(in srgb, var(--cream) 86%, transparent);
+      backdrop-filter: blur(10px);
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: clamp(-110px, -8vw, -80px) auto 5rem;
+      padding: 0 1.25rem;
+    }
+
+    .content-section {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(2.5rem, 7vw, 5.5rem);
+      border: 1px solid color-mix(in srgb, var(--cream) 76%, transparent);
+      border-radius: var(--radius-large);
+      background:
+        linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--cream) 96%, transparent),
+          color-mix(in srgb, var(--cream) 76%, transparent)
+        );
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(175px, 55%);
+      margin: 0 auto 2.4rem;
+      animation: fadeUp .9s .2s ease both;
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--olive);
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.035em;
+    }
+
+    .lead {
+      max-width: 750px;
+      margin: 2rem auto 0;
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      margin: clamp(3rem, 7vw, 5rem) 0;
+    }
+
+    .feature-item {
+      padding: 2.4rem 1.5rem;
+      text-align: center;
+      border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent);
+      border-radius: var(--radius-medium);
+      background: color-mix(in srgb, var(--cream) 58%, transparent);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-item img {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      animation: iconFloat 4.5s ease-in-out infinite;
+    }
+
+    .feature-item:nth-child(2) img { animation-delay: -1.5s; }
+    .feature-item:nth-child(3) img { animation-delay: -3s; }
+
+    .feature-item h3 {
+      margin: 1.35rem 0 .75rem;
+      color: var(--olive);
+      font-family: var(--font-body);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+    }
+
+    .feature-item p {
+      margin: 0;
+      font-size: .94rem;
+      line-height: 1.7;
+    }
+
+    .premium-note {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1.6rem 2rem;
+      color: var(--olive);
+      text-align: center;
+      border: 1px solid var(--sage);
+      border-radius: var(--radius-medium);
+      background: color-mix(in srgb, var(--cream) 55%, transparent);
+    }
+
+    .premium-note strong {
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .testimonial-section {
+      position: relative;
+      max-width: 900px;
+      margin: clamp(3rem, 7vw, 5.5rem) auto;
+      padding: clamp(2.5rem, 6vw, 4.5rem);
+      overflow: hidden;
+      color: var(--cream);
+      text-align: center;
+      border-radius: var(--radius-large);
+      background: var(--olive);
+    }
+
+    .testimonial-section::before {
+      position: absolute;
+      top: -2.2rem;
+      left: 50%;
+      content: "“";
+      color: var(--sage);
+      font-family: var(--font-display);
+      font-size: 11rem;
+      line-height: 1;
+      opacity: .5;
+      transform: translateX(-50%);
+    }
+
+    blockquote {
+      position: relative;
+      max-width: 690px;
+      margin: 1.5rem auto 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+    }
+
+    .testimonial-section cite {
+      position: relative;
+      display: block;
+      margin-top: 1.5rem;
+      font-size: .72rem;
+      font-style: normal;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .explore-section {
+      position: relative;
+      padding-top: 1rem;
+      text-align: center;
+    }
+
+    .explore-section::before {
+      display: block;
+      width: 1px;
+      height: 58px;
+      margin: 0 auto 2.5rem;
+      content: "";
+      background: var(--sage);
+    }
+
+    .explore-section p {
+      max-width: 520px;
+      margin: 1.5rem auto 0;
+      line-height: 1.8;
+    }
+
+    .leaf-bottom {
+      position: absolute;
+      right: clamp(-5rem, -2vw, -1.5rem);
+      bottom: -4rem;
+      width: clamp(160px, 22vw, 280px);
+      opacity: .16;
+      pointer-events: none;
+      animation: leafReveal 1.2s .5s ease both;
+    }
+
+    footer {
+      padding: 2.2rem 1.5rem;
+      color: var(--cream);
+      font-size: .72rem;
+      letter-spacing: .08em;
+      line-height: 1.8;
+      text-align: center;
+      background: var(--olive);
+    }
+
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(35px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @keyframes leafReveal {
+      from { opacity: 0; transform: translate(30px, 25px) rotate(8deg); }
+      to { opacity: .16; transform: translate(0) rotate(0); }
+    }
+
+    @media (max-width: 760px) {
+      .hero-reformer {
+        min-height: 720px;
+        padding-bottom: 11rem;
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 52% 100%, 0 94%);
+      }
+
+      .features-grid { grid-template-columns: 1fr; }
+
+      .main-content { padding: 0 .8rem; }
+
+      .hero-actions,
+      .cross-actions { flex-direction: column; }
+
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+
 <body>
-<header class="hero-reformer">
-<div class="hero-content">
-<div class="badge">Solo 2 persone per lezione</div>
-<h1>Reformer</h1>
-<p>Precisione. Controllo. Movimento consapevole.</p>
-<a class="cta" href="contatti.html">Prenota una prova</a>
-</div></header>
-<section class="content fade">
-<div style="text-align:center"><img src="pilatesgardenpes.svg" style="max-width:170px"></div>
-<h2 style="text-align:center">Un'esperienza quasi privata</h2>
-<p class="subtitle" style="text-align:center">Precisione, fluidità, controllo</p>
-<p class="desc">Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più consapevole, armonioso e organizzato. Grazie alla resistenza delle molle, ogni esercizio viene adattato alle esigenze della persona, favorendo forza profonda, equilibrio e controllo.</p>
-<div class="grid">
-<div class="card"><img src="precisione.svg"><h5>PRECISIONE</h5><p>Ogni movimento viene guidato con cura.</p></div>
-<div class="card"><img src="ascolto.svg"><h5>ASCOLTO</h5><p>Lezione costruita sulle tue esigenze.</p></div>
-<div class="card"><img src="onda.svg"><h5>CONTINUITÀ</h5><p>Progressi costanti nel tempo.</p></div>
-</div>
-<div class="premium"><strong>Esperienza Premium</strong><br>Classi intime di massimo <strong>2 persone</strong>, per garantire attenzione personalizzata e qualità del movimento.</div>
-<div class="cross">
-<h2>Pronto a iniziare?</h2>
-<p>Scopri il Reformer con una lezione guidata.</p>
-<a class="cta" href="contatti.html">Prenota ora</a>
-<hr style="margin:50px auto;width:120px">
-<h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem">Preferisci il movimento a corpo libero?</h3>
-<p>Scopri il percorso Matwork.</p>
-<a class="cta" href="matwork.html">Esplora Matwork</a>
-</div>
-</section>
-<footer>Pilates Garden Pesaro di Sara Di Franco | P.IVA 02812250419 | Metodo Covatech®</footer>
-<script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}));
-document.querySelectorAll('.fade').forEach(el=>io.observe(el));
-</script>
-</body></html>
+  <header class="hero-reformer">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Pilates Garden Pesaro</p>
+      <h1>Reformer</h1>
+      <p class="hero-description">
+        Resistenza, controllo e fluidità per un corpo riallineato.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-secondary" href="contatti.html">Prenota una prova</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="content-section">
+      <img class="brand-logo" src="pilatesgardenpes.svg" alt="Pilates Garden Pesaro">
+
+      <div class="section-heading">
+        <p class="section-kicker">Movimento consapevole</p>
+        <h2>Un’esperienza quasi privata</h2>
+        <p class="lead">
+          Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più
+          armonioso e organizzato. La resistenza delle molle rende ogni esercizio
+          adattabile alle tue esigenze, sviluppando forza profonda, equilibrio e controllo.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-item">
+          <img src="precisione.svg" alt="">
+          <h3>Precisione</h3>
+          <p>Ogni movimento viene guidato con cura, attenzione e intenzione.</p>
+        </article>
+
+        <article class="feature-item">
+          <img src="ascolto.svg" alt="">
+          <h3>Ascolto</h3>
+          <p>Ogni lezione si costruisce sulle esigenze reali del tuo corpo.</p>
+        </article>
+
+        <article class="feature-item">
+          <img src="onda.svg" alt="">
+          <h3>Continuità</h3>
+          <p>Un percorso graduale per coltivare progressi costanti nel tempo.</p>
+        </article>
+      </div>
+
+      <div class="premium-note">
+        <strong>Esperienza premium</strong><br>
+        Classi intime di massimo <strong>2 persone</strong>, per garantire
+        attenzione personalizzata e qualità del movimento.
+      </div>
+
+      <section class="testimonial-section">
+        <blockquote>
+          Il Reformer trasforma il movimento in uno spazio di ascolto, forza e presenza.
+        </blockquote>
+        <cite>Pilates Garden Pesaro</cite>
+      </section>
+
+      <section class="explore-section">
+        <p class="section-kicker">Continua il tuo percorso</p>
+        <h2>Preferisci il movimento a corpo libero?</h2>
+        <p>
+          Scopri Matwork: un lavoro essenziale e profondo, guidato dal respiro
+          e dalla consapevolezza del corpo.
+        </p>
+
+        <div class="cross-actions">
+          <a class="button button-primary" href="contatti.html">Prenota ora</a>
+          <a class="button button-secondary" href="matwork.html">Esplora Matwork</a>
+        </div>
+      </section>
+
+      <img class="leaf-bottom" src="Sfondo beige con foglie per sito web.png" alt="" aria-hidden="true">
+    </section>
+  </main>
+
+  <footer>
+    Pilates Garden Pesaro di Sara Di Franco · P.IVA 02812250419 · Metodo Covatech®
+  </footer>
+</body>
+</html>

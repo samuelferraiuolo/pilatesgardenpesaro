@@ -1,242 +1,69 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reformer | Pilates Garden Pesaro</title>
-    <link rel="stylesheet" href="common.css">
-    
-    <style>
-        /* Reset e Sfondo Base */
-        body { 
-            background-color: var(--crema-sfondo); 
-            margin: 0; 
-            padding: 0; 
-        }
-
-        /* Pattern di sfondo sottile per l'intera pagina */
-        body::before {
-            content: ''; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0;
-            background-image: url('Sfondo beige con foglie per sito web.png'); 
-            background-size: 350px; 
-            background-repeat: repeat; 
-            opacity: 0.15; 
-            z-index: -1; 
-        }
-
-        /* Foto a tutto schermo per il Reformer */
-        .hero-reformer {
-            height: 75vh; 
-            background-image: url('imag5.jpg'); /* Carica la tua foto del macchinario su GitHub */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            position: relative;
-            
-            /* Trucco per estendere a tutta la larghezza dello schermo */
-            width: 100vw;
-            margin-left: -50vw;
-            left: 50%;
-            margin-right: -50vw;
-            right: 50%;
-        }
-        
-        /* Sovrapposizione leggera per la leggibilità del testo bianco */
-        .hero-reformer::after {
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.2); 
-            z-index: 1;
-        }
-        
-        .hero-content { 
-            position: relative; 
-            z-index: 2; 
-            color: #ffffff; 
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 6rem;
-            line-height: 1.05;
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            text-shadow: 0px 4px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Riquadro centrale che non si sovrappone alla foto */
-        .content-section {
-            max-width: 900px;
-            margin: 60px auto 0 auto; 
-            background-color: var(--crema-sfondo);
-            padding: 70px 50px;
-            text-align: center;
-            border-radius: 16px; 
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-        }
-
-        /* Logo centrale del Brand */
-        .brand-svg-container {
-            margin: 0 auto 30px;
-            max-width: 180px;
-        }
-        .brand-svg-container img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* Stili Tipografici */
-        .content-section h2 {
-            font-size: 3.5rem;
-            color: var(--verde-oliva-titoli);
-            margin-bottom: 10px;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-        }
-
-        .content-section h3 {
-            font-size: 1rem;
-            color: var(--verde-salvia);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            font-weight: normal;
-        }
-
-        .content-section p.descrizione {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            color: var(--testo-scuro);
-            margin-bottom: 50px;
-        }
-
-        /* Griglia a 3 icone */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .feature-item { text-align: center; }
-        .feature-item img {
-            width: 80px; 
-            height: 80px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-        .feature-item h5 {
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            color: var(--verde-oliva-titoli);
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
-
-        /* Pillola informativa in basso */
-        .info-pill {
-            display: inline-block;
-            padding: 15px 35px;
-            border: 1px solid var(--verde-salvia);
-            border-radius: 50px;
-            color: var(--testo-scuro);
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-top: 10px;
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Foglia di decoro finale */
-        .leaf-bottom {
-            width: 180px; 
-            height: auto;
-            display: block;
-            margin: 50px auto 0 auto;
-            opacity: 0.85;
-        }
-
-        /* Footer Legale */
-        .footer-bar {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--verde-oliva-titoli);
-            color: var(--crema-sfondo);
-            font-size: 0.9rem;
-        }
-
-        /* 📱 RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 4rem; }
-            .content-section { margin-top: 30px; padding: 40px 20px; border-radius: 0; }
-            .features-grid { grid-template-columns: 1fr; gap: 40px; }
-            .leaf-bottom { width: 130px; }
-        }
-    </style>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Reformer | Pilates Garden Pesaro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+body{margin:0;font-family:Montserrat,sans-serif;background:var(--crema-sfondo);}
+body:before{content:"";position:fixed;inset:0;background:url('Sfondo beige con foglie per sito web.png') repeat;background-size:350px;opacity:.12;z-index:-1}
+.hero-reformer{height:78vh;background:url('imag5.jpg') center/cover no-repeat;display:flex;justify-content:center;align-items:center;position:relative}
+.hero-reformer:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.25)}
+.hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:20px}
+.hero-content h1{font:400 5.5rem "Cormorant Garamond",serif;margin:.2em 0}
+.badge{display:inline-block;padding:12px 24px;border-radius:40px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.4)}
+.cta{display:inline-block;margin-top:25px;padding:14px 34px;border-radius:40px;background:#fff;color:#55624b;text-decoration:none;font-weight:600}
+.content{max-width:960px;margin:60px auto;background:rgba(255,255,255,.72);backdrop-filter:blur(14px);padding:60px;border-radius:18px}
+h2{font:400 3.3rem "Cormorant Garamond",serif;color:var(--verde-oliva-titoli)}
+.subtitle{text-transform:uppercase;letter-spacing:3px;color:var(--verde-salvia)}
+.desc{font-size:1.15rem;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:45px 0}
+.card{text-align:center;padding:24px;background:rgba(255,255,255,.45);border-radius:16px}
+.card img{width:78px}
+.card h5{letter-spacing:2px}
+.premium{padding:18px;border:1px solid var(--verde-salvia);border-radius:16px;text-align:center;margin:30px auto;max-width:480px}
+.cross{text-align:center;padding:50px 0}
+footer{text-align:center;padding:35px;background:var(--verde-oliva-titoli);color:#fff}
+.fade{opacity:0;transform:translateY(25px);transition:.7s}
+.fade.show{opacity:1;transform:none}
+@media(max-width:768px){.hero-content h1{font-size:3.5rem}.content{margin:20px;padding:30px}.grid{grid-template-columns:1fr}}
+</style></head>
 <body>
-
-    <nav class="sub-nav">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="metodo.html">Il Metodo</a></li>
-            <li><a href="lo-spazio.html">Lo Spazio</a></li>
-            <li><a href="contatti.html">Contatti e Orari</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero-reformer">
-        <div class="hero-content">
-            <h1 style="color:white;">Reformer</h1>
-        </div>
-    </header>
-
-    <section class="content-section">
-        <div class="brand-svg-container">
-            <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden Pesaro">
-        </div>
-        
-        <h2>Reformer</h2>
-        <h3>Precisione, fluidità, controllo.</h3>
-        
-        <p class="descrizione">Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più consapevole, armonioso e organizzato. Grazie alla resistenza delle molle, il lavoro diventa una danza di precisione e forza profonda.</p>
-
-        <div class="features-grid">
-            <div class="feature-item">
-                <img src="precisione.svg" alt="Precisione">
-                <h5>PRECISIONE</h5>
-            </div>
-            <div class="feature-item">
-                <img src="ascolto.svg" alt="Ascolto">
-                <h5>ASCOLTO</h5>
-            </div>
-            <div class="feature-item">
-                <img src="onda.svg" alt="Continuità">
-                <h5>CONTINUITÀ</h5>
-            </div>
-        </div>
-
-        <div class="info-pill">Classi intime di massimo 2 persone.</div>
-        
-        <img src="fogliamatw.svg" alt="Decoro Foglia" class="leaf-bottom">
-    </section>
-
- <footer class="footer-bar">
-        <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
-            <a href="privacy.html" style="color: var(--crema-sfondo); text-decoration: underline;">Privacy & Cookie Policy</a>
-        </p>
-    </footer>
-
-</body>
-</html>
+<header class="hero-reformer">
+<div class="hero-content">
+<div class="badge">Solo 2 persone per lezione</div>
+<h1>Reformer</h1>
+<p>Precisione. Controllo. Movimento consapevole.</p>
+<a class="cta" href="contatti.html">Prenota una prova</a>
+</div></header>
+<section class="content fade">
+<div style="text-align:center"><img src="pilatesgardenpes.svg" style="max-width:170px"></div>
+<h2 style="text-align:center">Un'esperienza quasi privata</h2>
+<p class="subtitle" style="text-align:center">Precisione, fluidità, controllo</p>
+<p class="desc">Nel Reformer ogni dettaglio accompagna il corpo verso un movimento più consapevole, armonioso e organizzato. Grazie alla resistenza delle molle, ogni esercizio viene adattato alle esigenze della persona, favorendo forza profonda, equilibrio e controllo.</p>
+<div class="grid">
+<div class="card"><img src="precisione.svg"><h5>PRECISIONE</h5><p>Ogni movimento viene guidato con cura.</p></div>
+<div class="card"><img src="ascolto.svg"><h5>ASCOLTO</h5><p>Lezione costruita sulle tue esigenze.</p></div>
+<div class="card"><img src="onda.svg"><h5>CONTINUITÀ</h5><p>Progressi costanti nel tempo.</p></div>
+</div>
+<div class="premium"><strong>Esperienza Premium</strong><br>Classi intime di massimo <strong>2 persone</strong>, per garantire attenzione personalizzata e qualità del movimento.</div>
+<div class="cross">
+<h2>Pronto a iniziare?</h2>
+<p>Scopri il Reformer con una lezione guidata.</p>
+<a class="cta" href="contatti.html">Prenota ora</a>
+<hr style="margin:50px auto;width:120px">
+<h3 style="font-family:'Cormorant Garamond',serif;font-size:2rem">Preferisci il movimento a corpo libero?</h3>
+<p>Scopri il percorso Matwork.</p>
+<a class="cta" href="matwork.html">Esplora Matwork</a>
+</div>
+</section>
+<footer>Pilates Garden Pesaro di Sara Di Franco | P.IVA 02812250419 | Metodo Covatech®</footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}));
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
+</body></html>

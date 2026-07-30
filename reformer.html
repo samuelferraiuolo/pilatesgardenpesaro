@@ -28,19 +28,37 @@
     body { margin: 0; overflow-x: hidden; color: var(--ink); font-family: var(--font-body); background: var(--cream); }
     a { -webkit-tap-highlight-color: transparent; }
 
-    .site-header { position: relative; z-index: 20; background: var(--cream); }
-    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .72rem clamp(1.25rem, 5vw, 5rem); color: var(--cream); background: var(--olive); font-size: .67rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
-    .topbar p { margin: 0; }
-    .topbar a { color: inherit; text-decoration: none; }
+    /* =========================================================
+       PATTERN DI SFONDO (Identico al Matwork)
+    ========================================================= */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+            linear-gradient(
+                rgba(247, 243, 234, 0.88),
+                rgba(247, 243, 234, 0.88)
+            ),
+            url("Sfondo beige con foglie per sito web.png");
+        background-size: auto, 360px;
+        background-repeat: repeat, repeat;
+        opacity: 0.5;
+        z-index: -2;
+    }
 
-    .navbar { display: flex; align-items: center; justify-content: center; max-width: 1280px; min-height: 84px; margin: auto; padding: .85rem clamp(1.25rem, 4vw, 3rem); }
-    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(1rem, 2.5vw, 2.5rem); }
-    .nav-links a { position: relative; padding: .55rem 0; color: var(--olive); font-size: .69rem; font-weight: 500; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; }
-    .nav-links a::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; content: ""; background: var(--sage); transform: scaleX(0); transform-origin: center; transition: transform .28s ease; }
-    .nav-links a:hover::after, .nav-links .active::after { transform: scaleX(1); }
-    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; min-height: 51px; padding: .8rem 1.45rem; border-radius: 999px; font-family: var(--font-body); font-size: .69rem; font-weight: 500; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; transition: transform .28s ease, box-shadow .28s ease, background .28s ease; }
-    .nav-cta { color: var(--cream); background: var(--olive); }
-    .nav-cta:hover, .button:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
+    /* =========================================================
+       NAVIGAZIONE
+    ========================================================= */
+    .sub-nav {
+        position: relative;
+        z-index: 50;
+    }
+
+    /* Stile Bottoni (mantenuto intatto rimuovendo solo le vecchie classi nav) */
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 51px; padding: .8rem 1.45rem; border-radius: 999px; font-family: var(--font-body); font-size: .69rem; font-weight: 500; letter-spacing: .13em; text-decoration: none; text-transform: uppercase; transition: transform .28s ease, box-shadow .28s ease, background .28s ease; }
+    .button:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
 
     .hero-reformer { position: relative; display: grid; min-height: min(74vh, 780px); padding: 7rem 1.5rem 12rem; overflow: hidden; place-items: center; isolation: isolate; background: url("imag5.jpg") center / cover no-repeat; clip-path: polygon(0 0, 100% 0, 100% 90%, 55% 100%, 0 92%); }
     .hero-reformer::before { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(125deg, color-mix(in srgb, var(--olive) 22%, transparent), color-mix(in srgb, var(--olive) 6%, transparent)); }
@@ -94,16 +112,27 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes iconFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
-    @media (max-width: 800px) { .topbar { justify-content: center; } .topbar p { display: none; } .navbar { min-height: 72px; } .nav-links { gap: .7rem 1.15rem; } .nav-links a { font-size: .61rem; } .hero-reformer { min-height: 690px; padding: 6rem 1.25rem 10rem; clip-path: polygon(0 0, 100% 0, 100% 93%, 52% 100%, 0 95%); } .main-content { margin-top: -55px; padding: 0 .8rem; } .features-grid { grid-template-columns: 1fr; } .hero-actions, .cross-actions { flex-direction: column; } .button { width: 100%; } }
+    
+    @media (max-width: 800px) { 
+        .hero-reformer { min-height: 690px; padding: 6rem 1.25rem 10rem; clip-path: polygon(0 0, 100% 0, 100% 93%, 52% 100%, 0 95%); } 
+        .main-content { margin-top: -55px; padding: 0 .8rem; } 
+        .features-grid { grid-template-columns: 1fr; } 
+        .hero-actions, .cross-actions { flex-direction: column; } 
+        .button { width: 100%; } 
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="topbar"><p>Pilates Garden Pesaro</p><a href="tel:+393922351065">Prenota la tua prova</a></div>
-    <nav class="navbar" aria-label="Navigazione principale">
-      <div class="nav-links"><a href="index.html">Home</a><a href="metodo.html">Il Metodo</a><a href="lo-spazio.html">Lo Spazio</a><a href="matwork.html"><a href="contatti.html">Contatti e Orari</a></div>
-    </nav>
-  </header>
+
+  <!-- Navigazione identica al Matwork -->
+  <nav class="sub-nav" aria-label="Navigazione principale">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="metodo.html">Il Metodo</a></li>
+        <li><a href="lo-spazio.html">Lo Spazio</a></li>
+        <li><a href="contatti.html">Contatti e Orari</a></li>
+    </ul>
+  </nav>
 
   <header class="hero-reformer">
     <div class="hero-content"><p class="hero-eyebrow">Pilates Garden Pesaro</p><h1 style="color: white;">Reformer</h1><p class="hero-description">Resistenza, controllo e fluidità per un corpo riallineato.</p><div class="hero-actions"><a class="button button-secondary" href="contatti.html">Prenota una prova</a></div></div>

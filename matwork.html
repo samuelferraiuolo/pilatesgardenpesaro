@@ -1,246 +1,1980 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matwork | Pilates Garden Pesaro</title>
-    <link rel="stylesheet" href="common.css">
-    
-    <style>
-        /* Reset e Sfondo Base */
-        body { 
-            background-color: var(--crema-sfondo); 
-            margin: 0; 
-            padding: 0; 
+
+```
+<!-- Viewport ottimizzato per dispositivi mobili -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matwork | Pilates Garden Pesaro</title>
+
+<meta
+    name="description"
+    content="Scopri il Matwork di Pilates Garden Pesaro: un lavoro a terra consapevole, preciso e naturale, su una base in legno progettata per valorizzare il movimento."
+>
+
+<!-- CSS globale del sito -->
+<link rel="stylesheet" href="common.css">
+
+<!--
+    Font premium:
+    - Cormorant Garamond: titoli, citazioni e testi emozionali
+    - Inter: testi, navigazione e componenti UI
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+    /* =========================================================
+       1. DESIGN TOKENS
+    ========================================================= */
+
+    :root {
+        --cream: #f7f3ea;
+        --cream-light: #fcfaf5;
+        --olive: #40533f;
+        --olive-dark: #28382b;
+        --sage: #93a58f;
+        --sage-light: #dce4d8;
+        --text: #3e443d;
+        --white: #ffffff;
+
+        --font-display: "Cormorant Garamond", Georgia, serif;
+        --font-body: "Inter", Arial, sans-serif;
+
+        --shadow-soft:
+            0 24px 70px rgba(50, 64, 48, 0.10),
+            0 8px 24px rgba(50, 64, 48, 0.06);
+
+        --shadow-card:
+            0 18px 45px rgba(48, 64, 47, 0.08);
+
+        --radius-large: 32px;
+        --radius-medium: 22px;
+        --radius-small: 16px;
+
+        --transition:
+            280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+
+    /* =========================================================
+       2. RESET E BASE
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+
+        background-color: var(--cream);
+        color: var(--text);
+
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.7;
+
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Focus accessibile per navigazione da tastiera */
+    :focus-visible {
+        outline: 3px solid rgba(147, 165, 143, 0.75);
+        outline-offset: 5px;
+    }
+
+
+    /* =========================================================
+       3. PATTERN DI SFONDO
+    ========================================================= */
+
+    body::before {
+        content: "";
+
+        position: fixed;
+        inset: 0;
+
+        pointer-events: none;
+
+        background-image:
+            linear-gradient(
+                rgba(247, 243, 234, 0.88),
+                rgba(247, 243, 234, 0.88)
+            ),
+            url("Sfondo beige con foglie per sito web.png");
+
+        background-size:
+            auto,
+            360px;
+
+        background-repeat:
+            repeat,
+            repeat;
+
+        opacity: 0.5;
+
+        z-index: -2;
+    }
+
+
+    /* =========================================================
+       4. NAVIGAZIONE
+       La struttura originale viene mantenuta per compatibilità
+       con common.css.
+    ========================================================= */
+
+    .sub-nav {
+        position: relative;
+        z-index: 50;
+    }
+
+
+    /* =========================================================
+       5. HERO FULL-WIDTH
+       
+       La hero non usa più:
+       width: 100vw;
+       margin-left: -50vw;
+       left: 50%;
+
+       Essendo un elemento diretto del body, occupa
+       naturalmente tutta la larghezza disponibile.
+    ========================================================= */
+
+    .hero-matwork {
+        position: relative;
+
+        width: 100%;
+        min-height: clamp(620px, 82vh, 900px);
+
+        display: grid;
+        place-items: center;
+
+        isolation: isolate;
+
+        overflow: hidden;
+
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(20, 31, 22, 0.10) 0%,
+                rgba(20, 31, 22, 0.18) 38%,
+                rgba(20, 31, 22, 0.76) 100%
+            ),
+            url("foto-matwork-pulita.jpg");
+
+        background-size: cover;
+        background-position: center;
+
+        /*
+            Il bordo inferiore crea una transizione elegante
+            verso il contenuto.
+        */
+        clip-path:
+            polygon(
+                0 0,
+                100% 0,
+                100% 94%,
+                75% 98%,
+                50% 96%,
+                25% 99%,
+                0 95%
+            );
+    }
+
+    /*
+        Overlay supplementare:
+        vignettatura delicata sui lati.
+    */
+    .hero-matwork::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        z-index: -1;
+
+        background:
+            radial-gradient(
+                circle at center,
+                transparent 25%,
+                rgba(20, 31, 22, 0.22) 100%
+            );
+    }
+
+    .hero-content {
+        width: min(100% - 40px, 1000px);
+
+        padding:
+            clamp(90px, 12vh, 150px)
+            20px
+            clamp(110px, 16vh, 180px);
+
+        text-align: center;
+        color: var(--white);
+
+        animation:
+            heroReveal 1.2s
+            cubic-bezier(0.22, 1, 0.36, 1)
+            both;
+    }
+
+    .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+
+        margin: 0 0 22px;
+
+        color: rgba(255, 255, 255, 0.90);
+
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+        content: "";
+
+        width: 34px;
+        height: 1px;
+
+        background-color:
+            rgba(255, 255, 255, 0.65);
+    }
+
+    .hero-content h1 {
+        max-width: 850px;
+        margin: 0 auto;
+
+        font-family: var(--font-display);
+        font-size:
+            clamp(4.8rem, 12vw, 10rem);
+
+        font-weight: 400;
+        line-height: 0.82;
+        letter-spacing: -0.045em;
+
+        text-shadow:
+            0 8px 35px
+            rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-subtitle {
+        max-width: 560px;
+
+        margin:
+            30px auto
+            0;
+
+        color:
+            rgba(255, 255, 255, 0.88);
+
+        font-size:
+            clamp(0.95rem, 1.8vw, 1.1rem);
+
+        font-weight: 400;
+        line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       6. CONTENUTO PRINCIPALE
+    ========================================================= */
+
+    .main-content {
+        position: relative;
+        z-index: 2;
+
+        width: min(
+            calc(100% - 40px),
+            1180px
+        );
+
+        margin:
+            clamp(-80px, -8vw, -110px)
+            auto
+            0;
+    }
+
+    .content-section {
+        position: relative;
+
+        padding:
+            clamp(55px, 8vw, 105px)
+            clamp(22px, 6vw, 80px);
+
+        overflow: hidden;
+
+        text-align: center;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.94),
+                rgba(250, 247, 239, 0.90)
+            );
+
+        border:
+            1px solid
+            rgba(255, 255, 255, 0.85);
+
+        border-radius:
+            var(--radius-large);
+
+        box-shadow:
+            var(--shadow-soft);
+
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+    }
+
+    /*
+        Decorazione organica molto discreta
+        nell'angolo superiore.
+    */
+    .content-section::before {
+        content: "";
+
+        position: absolute;
+
+        width: 380px;
+        height: 380px;
+
+        top: -230px;
+        right: -170px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(147, 165, 143, 0.10);
+
+        filter:
+            blur(4px);
+
+        pointer-events: none;
+    }
+
+
+    /* =========================================================
+       7. INTRODUZIONE
+    ========================================================= */
+
+    .brand-svg-container {
+        width: min(170px, 45vw);
+
+        margin:
+            0 auto
+            34px;
+
+        opacity: 0;
+
+        animation:
+            fadeUp 850ms
+            150ms
+            ease-out
+            forwards;
+    }
+
+    .brand-svg-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .section-kicker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+
+        margin:
+            0 0
+            18px;
+
+        color: var(--sage);
+
+        font-size: 0.70rem;
+        font-weight: 700;
+        letter-spacing: 0.30em;
+        text-transform: uppercase;
+    }
+
+    .section-kicker::before,
+    .section-kicker::after {
+        content: "";
+
+        width: 28px;
+        height: 1px;
+
+        background:
+            var(--sage);
+    }
+
+    .content-section h2 {
+        max-width: 760px;
+
+        margin:
+            0 auto
+            18px;
+
+        color:
+            var(--olive);
+
+        font-family:
+            var(--font-display);
+
+        font-size:
+            clamp(3.4rem, 7vw, 6.2rem);
+
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: -0.045em;
+    }
+
+    .content-section h3 {
+        max-width: 680px;
+
+        margin:
+            0 auto
+            34px;
+
+        color:
+            var(--sage);
+
+        font-size:
+            clamp(0.72rem, 1.4vw, 0.85rem);
+
+        font-weight: 600;
+        letter-spacing: 0.26em;
+        line-height: 1.6;
+        text-transform: uppercase;
+    }
+
+    .content-section p.descrizione {
+        max-width: 760px;
+
+        margin:
+            0 auto
+            38px;
+
+        color:
+            var(--text);
+
+        font-size:
+            clamp(1.05rem, 1.8vw, 1.22rem);
+
+        font-weight: 400;
+        line-height: 1.95;
+    }
+
+
+    /* =========================================================
+       8. CTA
+    ========================================================= */
+
+    .cta-area {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+
+        margin:
+            0 auto
+            75px;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        min-height: 54px;
+
+        padding:
+            14px 27px;
+
+        border-radius:
+            999px;
+
+        font-family:
+            var(--font-body);
+
+        font-size:
+            0.84rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            0.04em;
+
+        text-decoration:
+            none;
+
+        transition:
+            transform var(--transition),
+            box-shadow var(--transition),
+            background-color var(--transition),
+            color var(--transition);
+    }
+
+    .button-primary {
+        color:
+            var(--white);
+
+        background:
+            var(--olive);
+
+        box-shadow:
+            0 12px 28px
+            rgba(64, 83, 63, 0.24);
+    }
+
+    .button-primary:hover {
+        transform:
+            translateY(-3px);
+
+        background:
+            var(--olive-dark);
+
+        box-shadow:
+            0 18px 35px
+            rgba(64, 83, 63, 0.28);
+    }
+
+    .button-secondary {
+        color:
+            var(--olive);
+
+        background:
+            rgba(255, 255, 255, 0.68);
+
+        border:
+            1px solid
+            rgba(64, 83, 63, 0.18);
+    }
+
+    .button-secondary:hover {
+        transform:
+            translateY(-3px);
+
+        background:
+            var(--white);
+
+        box-shadow:
+            0 15px 30px
+            rgba(64, 83, 63, 0.10);
+    }
+
+
+    /* =========================================================
+       9. FEATURES GRID
+    ========================================================= */
+
+    .features-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap:
+            clamp(18px, 3vw, 30px);
+
+        margin:
+            0 auto
+            75px;
+    }
+
+    .feature-item {
+        position: relative;
+
+        min-height: 340px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        padding:
+            42px 28px
+            36px;
+
+        overflow: hidden;
+
+        text-align: center;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.80),
+                rgba(240, 244, 236, 0.64)
+            );
+
+        border:
+            1px solid
+            rgba(255, 255, 255, 0.90);
+
+        border-radius:
+            var(--radius-medium);
+
+        box-shadow:
+            var(--shadow-card);
+
+        backdrop-filter:
+            blur(14px);
+
+        -webkit-backdrop-filter:
+            blur(14px);
+
+        transition:
+            transform 450ms
+            cubic-bezier(0.22, 1, 0.36, 1),
+
+            box-shadow 450ms
+            cubic-bezier(0.22, 1, 0.36, 1),
+
+            border-color 450ms
+            ease;
+    }
+
+    /*
+        Riflesso leggero:
+        dona profondità senza rendere la card pesante.
+    */
+    .feature-item::before {
+        content: "";
+
+        position: absolute;
+
+        width: 180px;
+        height: 180px;
+
+        top: -110px;
+        left: -80px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(255, 255, 255, 0.72);
+
+        filter:
+            blur(8px);
+
+        pointer-events: none;
+    }
+
+    .feature-item:hover {
+        transform:
+            translateY(-10px);
+
+        border-color:
+            rgba(147, 165, 143, 0.35);
+
+        box-shadow:
+            0 30px 65px
+            rgba(48, 64, 47, 0.13);
+    }
+
+    .feature-icon-wrap {
+        width: 112px;
+        height: 112px;
+
+        display: grid;
+        place-items: center;
+
+        margin:
+            0 auto
+            27px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(255, 255, 255, 0.68);
+
+        box-shadow:
+            inset 0 1px 1px
+            rgba(255, 255, 255, 0.95),
+
+            0 12px 28px
+            rgba(64, 83, 63, 0.08);
+
+        transition:
+            transform 500ms
+            cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .feature-item:hover .feature-icon-wrap {
+        transform:
+            translateY(-7px)
+            rotate(-3deg)
+            scale(1.04);
+    }
+
+    .feature-item img {
+        width: 64px;
+        height: 64px;
+
+        object-fit: contain;
+
+        animation:
+            iconFloat
+            5s
+            ease-in-out
+            infinite;
+    }
+
+    .feature-item:nth-child(2) img {
+        animation-delay:
+            -1.5s;
+    }
+
+    .feature-item:nth-child(3) img {
+        animation-delay:
+            -3s;
+    }
+
+    .feature-item h4 {
+        margin:
+            0 0
+            13px;
+
+        color:
+            var(--olive);
+
+        font-size:
+            0.82rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            0.20em;
+
+        line-height:
+            1.4;
+    }
+
+    .feature-item p {
+        max-width:
+            260px;
+
+        margin:
+            0;
+
+        color:
+            #5a6258;
+
+        font-size:
+            0.93rem;
+
+        line-height:
+            1.75;
+    }
+
+
+    /* =========================================================
+       10. DIVISORE E SLOGAN
+    ========================================================= */
+
+    .sage-divider {
+        position: relative;
+
+        width: 82px;
+        height: 1px;
+
+        margin:
+            0 auto
+            27px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                var(--sage),
+                transparent
+            );
+    }
+
+    .sage-divider::after {
+        content: "";
+
+        position: absolute;
+
+        width: 7px;
+        height: 7px;
+
+        top: 50%;
+        left: 50%;
+
+        border-radius: 50%;
+
+        background:
+            var(--sage);
+
+        transform:
+            translate(-50%, -50%);
+    }
+
+    .slogan {
+        max-width:
+            760px;
+
+        margin:
+            0 auto;
+
+        color:
+            var(--olive);
+
+        font-family:
+            var(--font-display);
+
+        font-size:
+            clamp(2rem, 4vw, 3.4rem);
+
+        font-style:
+            italic;
+
+        font-weight:
+            400;
+
+        line-height:
+            1.08;
+    }
+
+
+    /* =========================================================
+       11. FOGLIA DECORATIVA
+    ========================================================= */
+
+    .leaf-bottom {
+        width:
+            clamp(125px, 18vw, 210px);
+
+        height:
+            auto;
+
+        margin:
+            42px auto
+            0;
+
+        opacity:
+            0;
+
+        transform:
+            translateY(24px)
+            rotate(-5deg);
+
+        animation:
+            leafReveal
+            1.1s
+            550ms
+            cubic-bezier(0.22, 1, 0.36, 1)
+            forwards;
+    }
+
+
+    /* =========================================================
+       12. TESTIMONIAL
+    ========================================================= */
+
+    .testimonial-section {
+        width:
+            min(
+                calc(100% - 40px),
+                900px
+            );
+
+        margin:
+            85px auto;
+
+        padding:
+            clamp(45px, 7vw, 75px)
+            clamp(25px, 7vw, 80px);
+
+        text-align:
+            center;
+
+        color:
+            var(--cream);
+
+        background:
+            linear-gradient(
+                145deg,
+                var(--olive),
+                var(--olive-dark)
+            );
+
+        border-radius:
+            var(--radius-large);
+
+        box-shadow:
+            0 25px 60px
+            rgba(40, 56, 43, 0.22);
+    }
+
+    .quote-mark {
+        display:
+            block;
+
+        margin:
+            0 0
+            8px;
+
+        color:
+            var(--sage-light);
+
+        font-family:
+            var(--font-display);
+
+        font-size:
+            5rem;
+
+        line-height:
+            0.7;
+    }
+
+    .testimonial-section blockquote {
+        max-width:
+            700px;
+
+        margin:
+            0 auto
+            24px;
+
+        font-family:
+            var(--font-display);
+
+        font-size:
+            clamp(1.65rem, 3.5vw, 2.6rem);
+
+        font-style:
+            italic;
+
+        font-weight:
+            400;
+
+        line-height:
+            1.25;
+    }
+
+    .testimonial-author {
+        margin:
+            0;
+
+        color:
+            rgba(247, 243, 234, 0.72);
+
+        font-size:
+            0.72rem;
+
+        font-weight:
+            700;
+
+        letter-spacing:
+            0.20em;
+
+        text-transform:
+            uppercase;
+    }
+
+
+    /* =========================================================
+       13. CARD REFORMER
+    ========================================================= */
+
+    .explore-section {
+        width:
+            min(
+                calc(100% - 40px),
+                1180px
+            );
+
+        margin:
+            0 auto
+            100px;
+    }
+
+    .explore-card {
+        position:
+            relative;
+
+        display:
+            grid;
+
+        grid-template-columns:
+            1.1fr 0.9fr;
+
+        min-height:
+            430px;
+
+        overflow:
+            hidden;
+
+        color:
+            var(--white);
+
+        background:
+            var(--olive-dark);
+
+        border-radius:
+            var(--radius-large);
+
+        box-shadow:
+            var(--shadow-soft);
+    }
+
+    .explore-content {
+        position:
+            relative;
+
+        z-index:
+            2;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        justify-content:
+            center;
+
+        align-items:
+            flex-start;
+
+        padding:
+            clamp(45px, 7vw, 85px);
+    }
+
+    .explore-content .section-kicker {
+        justify-content:
+            flex-start;
+
+        color:
+            var(--sage-light);
+    }
+
+    .explore-content .section-kicker::before,
+    .explore-content .section-kicker::after {
+        background:
+            var(--sage-light);
+    }
+
+    .explore-content h2 {
+        max-width:
+            550px;
+
+        margin:
+            0 0
+            20px;
+
+        font-family:
+            var(--font-display);
+
+        font-size:
+            clamp(3.1rem, 6vw, 5.5rem);
+
+        font-weight:
+            400;
+
+        line-height:
+            0.9;
+    }
+
+    .explore-content p {
+        max-width:
+            500px;
+
+        margin:
+            0 0
+            30px;
+
+        color:
+            rgba(255, 255, 255, 0.78);
+
+        font-size:
+            1rem;
+
+        line-height:
+            1.8;
+    }
+
+    .explore-image {
+        min-height:
+            320px;
+
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(40, 56, 43, 0.42),
+                rgba(40, 56, 43, 0.05)
+            ),
+            url("foto-reformer.jpg");
+
+        background-size:
+            cover;
+
+        background-position:
+            center;
+    }
+
+
+    /* =========================================================
+       14. FOOTER
+    ========================================================= */
+
+    .footer-bar {
+        padding:
+            48px 20px;
+
+        text-align:
+            center;
+
+        color:
+            rgba(247, 243, 234, 0.82);
+
+        background:
+            var(--olive-dark);
+
+        font-size:
+            0.82rem;
+
+        line-height:
+            1.8;
+    }
+
+    .footer-bar p {
+        margin:
+            0;
+    }
+
+    .footer-bar p + p {
+        margin-top:
+            10px;
+    }
+
+    .footer-bar a {
+        color:
+            var(--cream);
+
+        text-underline-offset:
+            4px;
+
+        transition:
+            opacity var(--transition);
+    }
+
+    .footer-bar a:hover {
+        opacity:
+            0.7;
+    }
+
+
+    /* =========================================================
+       15. ANIMAZIONI
+    ========================================================= */
+
+    @keyframes heroReveal {
+        from {
+            opacity: 0;
+
+            transform:
+                translateY(30px);
         }
 
-        /* Pattern di sfondo sottile per l'intera pagina */
-        body::before {
-            content: ''; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0;
-            background-image: url('Sfondo beige con foglie per sito web.png'); 
-            background-size: 350px; 
-            background-repeat: repeat; 
-            opacity: 0.15; 
-            z-index: -1; 
+        to {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+
+            transform:
+                translateY(20px);
         }
 
-        /* 📌 IL TRUCCO RIPRISTINATO: Foto a tutto schermo come nel Reformer */
+        to {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+    }
+
+    @keyframes iconFloat {
+        0%,
+        100% {
+            transform:
+                translateY(0);
+        }
+
+        50% {
+            transform:
+                translateY(-5px);
+        }
+    }
+
+    @keyframes leafReveal {
+        from {
+            opacity: 0;
+
+            transform:
+                translateY(24px)
+                rotate(-5deg);
+        }
+
+        to {
+            opacity: 0.88;
+
+            transform:
+                translateY(0)
+                rotate(0);
+        }
+    }
+
+
+    /* =========================================================
+       16. RESPONSIVE TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+        .features-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+
+        .feature-item:last-child {
+            grid-column:
+                1 / -1;
+
+            width:
+                min(100%, 420px);
+
+            margin:
+                0 auto;
+        }
+
+        .explore-card {
+            grid-template-columns:
+                1fr;
+        }
+
+        .explore-image {
+            min-height:
+                340px;
+
+            order:
+                -1;
+        }
+    }
+
+
+    /* =========================================================
+       17. RESPONSIVE MOBILE
+    ========================================================= */
+
+    @media (max-width: 680px) {
+
+        body {
+            line-height:
+                1.65;
+        }
+
         .hero-matwork {
-            height: 75vh; 
-            background-image: url('foto-matwork-pulita.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            position: relative;
-            
-            /* Trucco per estendere a tutta la larghezza dello schermo */
-            width: 100vw;
-            margin-left: -50vw;
-            left: 50%;
-            margin-right: -50vw;
-            right: 50%;
+            min-height:
+                680px;
+
+            background-position:
+                56% center;
+
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 0,
+                    100% 97%,
+                    70% 99%,
+                    35% 97%,
+                    0 99%
+                );
         }
-        
-        /* Sovrapposizione leggera per la leggibilità del testo bianco */
-        .hero-matwork::after {
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.15); 
-            z-index: 1;
+
+        .hero-content {
+            padding:
+                110px 20px
+                135px;
         }
-        
-        .hero-content { 
-            position: relative; 
-            z-index: 2; 
-            text-align: center;
+
+        .hero-eyebrow {
+            gap:
+                9px;
+
+            font-size:
+                0.60rem;
+
+            letter-spacing:
+                0.23em;
+        }
+
+        .hero-eyebrow::before,
+        .hero-eyebrow::after {
+            width:
+                20px;
         }
 
         .hero-content h1 {
-            font-size: 6rem;
-            color: #ffffff; 
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            text-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+            font-size:
+                clamp(4.7rem, 23vw, 6.5rem);
         }
 
-        /* Riquadro centrale che non si sovrappone alla foto */
+        .hero-subtitle {
+            max-width:
+                330px;
+
+            margin-top:
+                24px;
+
+            font-size:
+                0.88rem;
+        }
+
+        .main-content {
+            width:
+                min(
+                    calc(100% - 20px),
+                    1180px
+                );
+
+            margin-top:
+                -55px;
+        }
+
         .content-section {
-            max-width: 900px;
-            margin: 60px auto 0 auto; 
-            background-color: var(--crema-sfondo);
-            padding: 70px 50px;
-            text-align: center;
-            border-radius: 16px; 
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            padding:
+                52px 18px;
+
+            border-radius:
+                24px;
         }
 
-        /* Logo centrale del Brand */
         .brand-svg-container {
-            margin: 0 auto 30px;
-            max-width: 180px;
+            width:
+                135px;
+
+            margin-bottom:
+                28px;
         }
-        .brand-svg-container img {
-            width: 100%;
-            height: auto;
+
+        .section-kicker {
+            font-size:
+                0.60rem;
+
+            letter-spacing:
+                0.22em;
         }
 
         .content-section h2 {
-            font-size: 3.5rem;
-            color: var(--verde-oliva-titoli);
-            margin-bottom: 10px;
-            margin-top: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-size:
+                4rem;
         }
 
         .content-section h3 {
-            font-size: 1rem;
-            color: var(--verde-salvia);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            font-weight: normal;
+            max-width:
+                290px;
+
+            font-size:
+                0.64rem;
+
+            letter-spacing:
+                0.19em;
         }
 
         .content-section p.descrizione {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            color: var(--testo-scuro);
-            margin-bottom: 50px;
+            font-size:
+                1rem;
+
+            line-height:
+                1.9;
         }
 
-        /* GRIGLIA ICONE */
+        .cta-area {
+            flex-direction:
+                column;
+
+            width:
+                100%;
+
+            margin-bottom:
+                58px;
+        }
+
+        .button {
+            width:
+                100%;
+            max-width:
+                340px;
+        }
+
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns:
+                1fr;
+
+            gap:
+                18px;
+
+            margin-bottom:
+                58px;
         }
 
-        .feature-item { text-align: center; }
+        .feature-item,
+        .feature-item:last-child {
+            grid-column:
+                auto;
+
+            width:
+                100%;
+
+            min-height:
+                auto;
+
+            padding:
+                38px 24px;
+        }
+
+        .feature-icon-wrap {
+            width:
+                96px;
+
+            height:
+                96px;
+
+            margin-bottom:
+                23px;
+        }
+
         .feature-item img {
-            width: 80px; 
-            height: 80px;
-            margin-bottom: 15px;
-            display: inline-block;
+            width:
+                56px;
+
+            height:
+                56px;
         }
-        .feature-item h5 {
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            color: var(--verde-oliva-titoli);
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
+
         .feature-item p {
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: var(--testo-scuro);
-            margin: 0;
+            max-width:
+                300px;
         }
 
-        .slogan {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--verde-oliva-titoli);
-            font-style: italic;
-            margin-top: 30px;
+        .testimonial-section {
+            width:
+                calc(100% - 20px);
+
+            margin:
+                55px auto;
+
+            border-radius:
+                24px;
         }
 
-        /* FOGLIA GIGANTE IN FONDO */
-        .leaf-bottom {
-            width: 160px;
-            height: auto;
-            display: block;
-            margin: 40px auto 0 auto;
-            opacity: 0.85;
+        .testimonial-section blockquote {
+            font-size:
+                1.8rem;
         }
 
-        /* Footer */
+        .explore-section {
+            width:
+                calc(100% - 20px);
+
+            margin-bottom:
+                65px;
+        }
+
+        .explore-card {
+            border-radius:
+                24px;
+        }
+
+        .explore-image {
+            min-height:
+                270px;
+        }
+
+        .explore-content {
+            padding:
+                42px 25px
+                48px;
+        }
+
+        .explore-content h2 {
+            font-size:
+                3.7rem;
+        }
+
         .footer-bar {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--verde-oliva-titoli);
-            color: var(--crema-sfondo);
-            font-size: 0.9rem;
+            padding:
+                40px 20px;
+
+            font-size:
+                0.75rem;
+        }
+    }
+
+
+    /* =========================================================
+       18. ACCESSIBILITÀ:
+       RIDUZIONE DELLE ANIMAZIONI
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        html {
+            scroll-behavior:
+                auto;
         }
 
-        /* Responsive per i telefoni */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 4rem; }
-            .content-section { margin-top: 30px; padding: 40px 20px; border-radius: 0; }
-            .features-grid { grid-template-columns: 1fr; gap: 40px; }
-            .leaf-bottom { width: 120px; }
+        *,
+        *::before,
+        *::after {
+            animation-duration:
+                0.01ms !important;
+
+            animation-iteration-count:
+                1 !important;
+
+            transition-duration:
+                0.01ms !important;
         }
-    </style>
+    }
+
+</style>
+```
+
 </head>
+
 <body>
 
-    <nav class="sub-nav">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="metodo.html">Il Metodo</a></li>
-            <li><a href="lo-spazio.html">Lo Spazio</a></li>
-            <li><a href="contatti.html">Contatti e Orari</a></li>
-        </ul>
-    </nav>
+```
+<!-- =========================================================
+     NAVIGAZIONE
+========================================================= -->
 
-    <header class="hero-matwork">
-        <div class="hero-content">
-            <h1>Matwork</h1>
-        </div>
-    </header>
+<nav class="sub-nav" aria-label="Navigazione principale">
 
-    <section class="content-section">
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="metodo.html">
+                Il Metodo
+            </a>
+        </li>
+
+        <li>
+            <a href="lo-spazio.html">
+                Lo Spazio
+            </a>
+        </li>
+
+        <li>
+            <a href="contatti.html">
+                Contatti e Orari
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO FULL-WIDTH
+========================================================= -->
+
+<header class="hero-matwork">
+
+    <div class="hero-content">
+
+        <p class="hero-eyebrow">
+            Pilates Garden Pesaro
+        </p>
+
+        <h1>
+            Matwork
+        </h1>
+
+        <p class="hero-subtitle">
+            Il movimento prende forma attraverso
+            stabilità, ascolto e attenzione ai dettagli.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     CONTENUTO PRINCIPALE
+========================================================= -->
+
+<main class="main-content">
+
+    <section
+        class="content-section"
+        aria-labelledby="matwork-title"
+    >
+
+        <!-- Logo -->
         <div class="brand-svg-container">
-            <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden">
+
+            <img
+                src="pilatesgardenpes.svg"
+                alt="Pilates Garden Pesaro"
+                width="180"
+                height="100"
+            >
+
         </div>
-        
-        <h2>Matwork</h2>
-        <h3>Lavoro a terra su base in legno</h3>
-        
-        <p class="descrizione">Nel Matwork la qualità degli appoggi cambia profondamente il lavoro. Una superficie stabile, uniforme e naturale permette al corpo di percepirsi con maggiore precisione, favorendo un movimento più consapevole, preciso e organizzato.</p>
+
+
+        <!-- Introduzione -->
+        <p class="section-kicker">
+            L'esperienza Matwork
+        </p>
+
+        <h2 id="matwork-title">
+            Matwork
+        </h2>
+
+        <h3>
+            Lavoro a terra su base in legno
+        </h3>
+
+        <p class="descrizione">
+
+            Nel Matwork la qualità degli appoggi cambia
+            profondamente il lavoro. Una superficie stabile,
+            uniforme e naturale permette al corpo di percepirsi
+            con maggiore precisione, favorendo un movimento
+            più consapevole, preciso e organizzato.
+
+        </p>
+
+
+        <!-- CTA -->
+        <div class="cta-area">
+
+            <a
+                class="button button-primary"
+                href="contatti.html"
+            >
+                Prenota una lezione
+
+                <span aria-hidden="true">
+                    →
+                </span>
+            </a>
+
+            <a
+                class="button button-secondary"
+                href="contatti.html"
+            >
+                Richiedi informazioni
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             BENEFICI
+        ================================================== -->
 
         <div class="features-grid">
-            <div class="feature-item">
-                <img src="sassi.svg" alt="Stabilità">
-                <h5>STABILITÀ</h5>
-                <p>Una superficie solida e uniforme che aiuta l'allineamento e migliora la consapevolezza.</p>
-            </div>
-            <div class="feature-item">
-                <img src="ramo.svg" alt="Naturalezza">
-                <h5>NATURALEZZA</h5>
-                <p>Il legno è un materiale vivo, caldo, autentico. In armonia con la natura che ci circonda.</p>
-            </div>
-            <div class="feature-item">
-                <img src="attenzione.svg" alt="Attenzione">
-                <h5>ATTENZIONE</h5>
-                <p>Ogni dettaglio è scelto per prendersi cura di te e del tuo movimento.</p>
-            </div>
+
+            <!-- Stabilità -->
+            <article class="feature-item">
+
+                <div class="feature-icon-wrap">
+
+                    <img
+                        src="sassi.svg"
+                        alt=""
+                        width="80"
+                        height="80"
+                    >
+
+                </div>
+
+                <h4>
+                    STABILITÀ
+                </h4>
+
+                <p>
+
+                    Una superficie solida e uniforme
+                    che aiuta l'allineamento e migliora
+                    la consapevolezza del corpo.
+
+                </p>
+
+            </article>
+
+
+            <!-- Naturalezza -->
+            <article class="feature-item">
+
+                <div class="feature-icon-wrap">
+
+                    <img
+                        src="ramo.svg"
+                        alt=""
+                        width="80"
+                        height="80"
+                    >
+
+                </div>
+
+                <h4>
+                    NATURALEZZA
+                </h4>
+
+                <p>
+
+                    Il legno è un materiale vivo,
+                    caldo e autentico, in armonia
+                    con la natura che ci circonda.
+
+                </p>
+
+            </article>
+
+
+            <!-- Attenzione -->
+            <article class="feature-item">
+
+                <div class="feature-icon-wrap">
+
+                    <img
+                        src="attenzione.svg"
+                        alt=""
+                        width="80"
+                        height="80"
+                    >
+
+                </div>
+
+                <h4>
+                    ATTENZIONE
+                </h4>
+
+                <p>
+
+                    Ogni dettaglio è scelto con cura
+                    per accompagnarti in un movimento
+                    più presente e consapevole.
+
+                </p>
+
+            </article>
+
         </div>
 
-        <div style="width: 40px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px;"></div>
-        
-        <div class="slogan">Perché i dettagli fanno la differenza.</div>
-        
-        <img src="fogliamatw.svg" alt="Decoro Foglia Matwork" class="leaf-bottom">
+
+        <!-- Divisore -->
+        <div
+            class="sage-divider"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- Slogan -->
+        <p class="slogan">
+            Perché i dettagli fanno la differenza.
+        </p>
+
+
+        <!-- Foglia decorativa -->
+        <img
+            src="fogliamatw.svg"
+            alt=""
+            class="leaf-bottom"
+            loading="lazy"
+            width="210"
+            height="260"
+        >
+
     </section>
 
-   <footer class="footer-bar">
-        <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
-            <a href="privacy.html" style="color: var(--crema-sfondo); text-decoration: underline;">Privacy & Cookie Policy</a>
-        </p>
-    </footer>
+</main>
+
+
+<!-- =========================================================
+     TESTIMONIAL
+
+     Sostituisci il testo con una recensione reale.
+========================================================= -->
+
+<section
+    class="testimonial-section"
+    aria-labelledby="testimonial-title"
+>
+
+    <span
+        class="quote-mark"
+        aria-hidden="true"
+    >
+        “
+    </span>
+
+    <blockquote id="testimonial-title">
+
+        Ho ritrovato una qualità di movimento
+        che non pensavo possibile. Ogni lezione
+        è un momento di ascolto e attenzione.
+
+    </blockquote>
+
+    <p class="testimonial-author">
+
+        Cliente Pilates Garden
+
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     CROSS-LINK REFORMER
+
+     IMPORTANTE:
+     Sostituisci "foto-reformer.jpg" con il nome
+     reale dell'immagine utilizzata nella pagina Reformer.
+========================================================= -->
+
+<section
+    class="explore-section"
+    aria-labelledby="reformer-title"
+>
+
+    <article class="explore-card">
+
+        <div class="explore-content">
+
+            <p class="section-kicker">
+                Un'altra esperienza
+            </p>
+
+            <h2 id="reformer-title">
+                Scopri il Reformer
+            </h2>
+
+            <p>
+
+                Un percorso guidato attraverso
+                resistenza, controllo e precisione,
+                per esplorare il movimento in modo
+                ancora più personalizzato.
+
+            </p>
+
+            <a
+                class="button button-secondary"
+                href="reformer.html"
+            >
+                Esplora il Reformer
+
+                <span aria-hidden="true">
+                    →
+                </span>
+            </a>
+
+        </div>
+
+        <div
+            class="explore-image"
+            role="img"
+            aria-label="Lezione di Pilates Reformer"
+        ></div>
+
+    </article>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer-bar">
+
+    <p>
+
+        Pilates Garden Pesaro di Sara Di Franco
+        | P.IVA: 02812250419
+        | Metodo Covatech®
+
+    </p>
+
+    <p>
+
+        <a href="privacy.html">
+
+            Privacy &amp; Cookie Policy
+
+        </a>
+
+    </p>
+
+</footer>
+```
+
 </body>
 </html>

@@ -15,24 +15,105 @@
             opacity: 0.15; z-index: -1; 
         }
 
-        .home-container { max-width: 1350px; margin: 0 auto; width: 100%; padding: 60px 20px; text-align: center; } 
+        .home-container { 
+            max-width: 1350px; 
+            margin: 0 auto; 
+            width: 100%; 
+            padding: 60px 20px; 
+            text-align: center; 
+        } 
         
-        .logo-wrapper { display: flex; justify-content: center; margin-bottom: 50px; }
-        .hero-logo { width: 250px; border-radius: 140px 140px 15px 15px; border: 6px solid var(--crema-sfondo); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .logo-wrapper { 
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 50px; 
+        }
+
+        .hero-logo { 
+            width: 250px; 
+            border-radius: 140px 140px 15px 15px; 
+            border: 6px solid var(--crema-sfondo); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+        }
         
-        .subtitle-italic { font-size: 1.8rem; font-style: italic; color: var(--testo-scuro); text-align: center; margin-bottom: 40px; }
+        .subtitle-italic { 
+            font-size: 1.8rem; 
+            font-style: italic; 
+            color: var(--testo-scuro); 
+            text-align: center; 
+            margin-bottom: 40px; 
+        }
+
+        /* RICHIAMO FAQ: subito visibile sotto il messaggio di benvenuto */
+        .faq-highlight {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 28px 32px;
+            background-color: var(--crema-sfondo);
+            border: 2px solid var(--verde-salvia);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(94, 110, 79, 0.14);
+        }
+
+        .faq-highlight h2 {
+            margin: 0 0 8px;
+            color: var(--verde-oliva-titoli);
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .faq-highlight p {
+            margin: 0 0 20px;
+            color: var(--testo-scuro);
+            font-size: 1.15rem;
+            line-height: 1.45;
+        }
+
+        .btn-faq {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            background-color: var(--terracotta);
+            color: white;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-faq:hover {
+            background-color: var(--verde-oliva-titoli);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(94, 110, 79, 0.25);
+        }
         
         .promo-img-container { 
-            margin: 0 auto 30px auto; /* Margine ridotto per avvicinare il bottone */
-            max-width: 900px; border-radius: 18px; 
-            overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: transform 0.4s ease; 
+            margin: 0 auto 30px auto;
+            max-width: 900px; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            transition: transform 0.4s ease; 
         }
-        .promo-img-container:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(0,0,0,0.15); }
-        .promo-img { width: 100%; height: auto; display: block; }
 
-        /* ===================================================
-           NUOVO BOTTONE ANIMATO: LISTINO PREZZI
-        =================================================== */
+        .promo-img-container:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.15); 
+        }
+
+        .promo-img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        /* BOTTONE ANIMATO: LISTINO PREZZI */
         .btn-listino-wrapper {
             margin-bottom: 70px;
             display: flex;
@@ -61,18 +142,27 @@
             background-color: var(--verde-oliva-titoli);
             box-shadow: 0 8px 25px rgba(94, 110, 79, 0.3);
             color: white;
-            animation: none; /* Ferma la pulsazione quando ci passi sopra */
+            animation: none;
         }
 
         @keyframes pulse-listino {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(154, 160, 138, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); 
+            }
+
+            50% { 
+                transform: scale(1.03); 
+                box-shadow: 0 6px 20px rgba(154, 160, 138, 0.6); 
+            }
+
+            100% { 
+                transform: scale(1); 
+                box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); 
+            }
         }
 
-        /* ===================================================
-           BOX AVVISO SETTEMBRE ANIMATO
-        =================================================== */
+        /* BOX AVVISO SETTEMBRE ANIMATO */
         .avviso-settembre {
             background-color: #EBE5D9; 
             border: 2px dashed var(--verde-salvia);
@@ -86,12 +176,26 @@
         }
 
         @keyframes float-avviso {
-            0% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); }
-            50% { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(94, 110, 79, 0.25); }
-            100% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); }
+            0% { 
+                transform: translateY(0px); 
+                box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); 
+            }
+
+            50% { 
+                transform: translateY(-10px); 
+                box-shadow: 0 15px 40px rgba(94, 110, 79, 0.25); 
+            }
+
+            100% { 
+                transform: translateY(0px); 
+                box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); 
+            }
         }
 
-        .avviso-icona { font-size: 2.5rem; margin-bottom: 10px; }
+        .avviso-icona { 
+            font-size: 2.5rem; 
+            margin-bottom: 10px; 
+        }
         
         .avviso-settembre h4 { 
             color: var(--terracotta); 
@@ -108,7 +212,9 @@
             line-height: 1.4; 
         }
         
-        .avviso-settembre p strong { color: var(--verde-oliva-titoli); }
+        .avviso-settembre p strong { 
+            color: var(--verde-oliva-titoli); 
+        }
         
         .avviso-sub { 
             font-style: italic; 
@@ -145,37 +251,100 @@
         }
 
         /* STRUTTURA CARD */
-        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; text-align: left;} 
+        .cards-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px; 
+            align-items: stretch; 
+            text-align: left;
+        } 
         
         .card { 
-            background-color: var(--crema-sfondo); border-radius: 20px; overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; 
-            text-decoration: none; transition: transform 0.4s ease; border: 1px solid rgba(94, 110, 79, 0.15);
+            background-color: var(--crema-sfondo); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            display: flex; 
+            flex-direction: column; 
+            text-decoration: none; 
+            transition: transform 0.4s ease; 
+            border: 1px solid rgba(94, 110, 79, 0.15);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
+        }
         
-        .card-img-wrapper { position: relative; width: 100%; height: 400px; }
-        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .card-img-wrapper { 
+            position: relative; 
+            width: 100%; 
+            height: 400px; 
+        }
+
+        .card-img-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
         
         .card-matwork .card-img-wrapper img { object-position: 50% 60%; }
         .card-reformer .card-img-wrapper img { object-position: 50% 60%; }
         .card-spazio .card-img-wrapper img { object-position: 50% 60%; }
 
         .card-img-wrapper::after {
-            content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 160px;
-            background: linear-gradient(to bottom, rgba(243, 238, 228, 0) 0%, var(--crema-sfondo) 100%);
+            content: ''; 
+            position: absolute; 
+            bottom: -1px; 
+            left: 0; 
+            right: 0; 
+            height: 160px;
+            background: linear-gradient(
+                to bottom, 
+                rgba(243, 238, 228, 0) 0%, 
+                var(--crema-sfondo) 100%
+            );
         }
         
         .card-content { 
-            padding: 0 30px 40px 30px; flex-grow: 1; text-align: center; 
-            display: flex; flex-direction: column; align-items: center;
-            background-color: var(--crema-sfondo); position: relative; z-index: 2;
+            padding: 0 30px 40px 30px; 
+            flex-grow: 1; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            background-color: var(--crema-sfondo); 
+            position: relative; 
+            z-index: 2;
         }
         
-        .card-content h3 { font-size: 3.2rem; margin-bottom: 10px; font-weight: 400; color: var(--verde-oliva-titoli); line-height: 1; }
-        .card-divider { width: 50px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px auto; }
-        .card-content p { font-size: 1.3rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
-        .card-bottom-leaf { width: 140px; margin-top: auto; padding-top: 30px; }
+        .card-content h3 { 
+            font-size: 3.2rem; 
+            margin-bottom: 10px; 
+            font-weight: 400; 
+            color: var(--verde-oliva-titoli); 
+            line-height: 1; 
+        }
+
+        .card-divider { 
+            width: 50px; 
+            height: 1px; 
+            background-color: var(--verde-salvia); 
+            margin: 0 auto 20px auto; 
+        }
+
+        .card-content p { 
+            font-size: 1.3rem; 
+            color: var(--testo-scuro); 
+            margin-bottom: 10px; 
+            line-height: 1.4; 
+        }
+
+        .card-bottom-leaf { 
+            width: 140px; 
+            margin-top: auto; 
+            padding-top: 30px; 
+        }
         
         /* FOOTER */
         .footer-bar {
@@ -185,19 +354,59 @@
             color: var(--crema-sfondo);
             font-size: 0.9rem;
         }
-        .footer-bar a { color: var(--crema-sfondo); text-decoration: underline; opacity: 0.8; }
-        .footer-bar a:hover { opacity: 1; }
 
-        @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+        .footer-bar a { 
+            color: var(--crema-sfondo); 
+            text-decoration: underline; 
+            opacity: 0.8; 
+        }
+
+        .footer-bar a:hover { 
+            opacity: 1; 
+        }
+
+        @media (max-width: 1100px) { 
+            .cards-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            } 
+        }
+
         @media (max-width: 768px) { 
-            .cards-grid { grid-template-columns: 1fr; } 
-            .card-img-wrapper { height: 260px; } 
-            .avviso-settembre { padding: 30px 20px; }
-            .avviso-settembre h4 { font-size: 1.8rem; }
-            .btn-listino { font-size: 1.1rem; padding: 14px 25px; text-align: center; flex-direction: column; gap: 5px; }
+            .cards-grid { 
+                grid-template-columns: 1fr; 
+            } 
+
+            .card-img-wrapper { 
+                height: 260px; 
+            }
+
+            .avviso-settembre { 
+                padding: 30px 20px; 
+            }
+
+            .avviso-settembre h4 { 
+                font-size: 1.8rem; 
+            }
+
+            .faq-highlight { 
+                padding: 24px 20px; 
+            }
+
+            .faq-highlight h2 { 
+                font-size: 1.65rem; 
+            }
+
+            .btn-listino { 
+                font-size: 1.1rem; 
+                padding: 14px 25px; 
+                text-align: center; 
+                flex-direction: column; 
+                gap: 5px; 
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav class="sub-nav">
@@ -214,21 +423,37 @@
             <img src="logo.png" alt="Pilates Garden Pesaro" class="hero-logo">
         </div>
         
-        <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
+        <p class="subtitle-italic">
+            Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.
+        </p>
+
+        <!-- FAQ IN EVIDENZA -->
+        <section class="faq-highlight" aria-labelledby="faq-title">
+            <h2 id="faq-title">Hai qualche dubbio prima di iniziare?</h2>
+            <p>
+                Trova subito risposta alle domande più frequenti su lezioni, 
+                prenotazioni, abbigliamento, prezzi e molto altro.
+            </p>
+
+            <a href="Faq.HTML" class="btn-faq" aria-label="Apri le domande frequenti">
+                <span aria-hidden="true">?</span>
+                Scopri le domande frequenti
+            </a>
+        </section>
 
         <!-- IMMAGINE PROMOZIONE -->
         <div class="promo-img-container">
             <img src="promo-estate.jpg" alt="Promozione Estate" class="promo-img">
         </div>
 
-        <!-- AVVISO LISTINO PREZZI (IL LINK PUNTA ALL'ANCORA #listino-prezzi) -->
+        <!-- AVVISO LISTINO PREZZI -->
         <div class="btn-listino-wrapper">
             <a href="contatti.html#listino-prezzi" class="btn-listino">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="12" y1="1" x2="12" y2="23"></line>
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                 </svg>
-                Scopri il Listino Prezzi & Promo -30%
+                Scopri il Listino Prezzi &amp; Promo -30%
             </a>
         </div>
 
@@ -236,11 +461,19 @@
         <div class="avviso-settembre">
             <div class="avviso-icona">✨</div>
             <h4>Grandi Novità in Arrivo!</h4>
-            <p>A <strong>Settembre</strong> Pilates Garden Pesaro si sposterà al coperto, per continuare a prenderci cura di voi e della vostra pratica anche nelle stagioni più fresche.</p>
-            <p class="avviso-sub">Segui le nostre pagine social per scoprire il nuovo spazio e rimanere sempre aggiornato:</p>
+
+            <p>
+                A <strong>Settembre</strong> Pilates Garden Pesaro si sposterà al coperto,
+                per continuare a prenderci cura di voi e della vostra pratica anche nelle
+                stagioni più fresche.
+            </p>
+
+            <p class="avviso-sub">
+                Segui le nostre pagine social per scoprire il nuovo spazio e rimanere sempre aggiornato:
+            </p>
             
             <div class="avviso-social">
-                <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">Instagram</a>
+                <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">Instagram</a>
                 <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">Facebook</a>
             </div>
         </div>
@@ -251,11 +484,18 @@
                 <div class="card-img-wrapper">
                     <img src="foto-matwork-pulita.jpg" alt="Matwork">
                 </div>
+
                 <div class="card-content">
                     <h3>Matwork</h3>
                     <div class="card-divider"></div>
-                    <p>Lavoro a terra su base in legno.<br>Classi intime di massimo 3 persone<br>per garantire la massima attenzione.</p>
-                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">Perché i dettagli fanno la differenza.</p>
+                    <p>
+                        Lavoro a terra su base in legno.<br>
+                        Classi intime di massimo 3 persone<br>
+                        per garantire la massima attenzione.
+                    </p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">
+                        Perché i dettagli fanno la differenza.
+                    </p>
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
@@ -264,11 +504,17 @@
                 <div class="card-img-wrapper">
                     <img src="foto-reformer-pulita.jpg" alt="Reformer">
                 </div>
+
                 <div class="card-content">
                     <h3>Reformer</h3>
                     <div class="card-divider"></div>
-                    <p>Lezioni in piccoli gruppi,<br>massimo 2 persone.</p>
-                    <p style="font-style: italic; color: var(--verde-oliva-titoli); margin-top: 10px;">Precisione, fluidità e attenzione personalizzata.</p>
+                    <p>
+                        Lezioni in piccoli gruppi,<br>
+                        massimo 2 persone.
+                    </p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli); margin-top: 10px;">
+                        Precisione, fluidità e attenzione personalizzata.
+                    </p>
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
@@ -277,21 +523,28 @@
                 <div class="card-img-wrapper">
                     <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
                 </div>
+
                 <div class="card-content">
                     <h3>Uno spazio da vivere</h3>
                     <div class="card-divider"></div>
-                    <p>Un giardino immerso nel verde,<br>dove natura e silenzio creano<br>il luogo ideale per ritrovare equilibrio e benessere.</p>
-                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">Perché anche l'ambiente fa parte della pratica.</p>
+                    <p>
+                        Un giardino immerso nel verde,<br>
+                        dove natura e silenzio creano<br>
+                        il luogo ideale per ritrovare equilibrio e benessere.
+                    </p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">
+                        Perché anche l'ambiente fa parte della pratica.
+                    </p>
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
         </div>
     </div>
 
-   <footer class="footer-bar">
+    <footer class="footer-bar">
         <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
         <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
-            <a href="privacy.html">Privacy & Cookie Policy</a>
+            <a href="privacy.html">Privacy &amp; Cookie Policy</a>
         </p>
     </footer>
 

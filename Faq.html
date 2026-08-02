@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domande Frequenti | Pilates Garden Pesaro</title>
+<link rel="stylesheet" href="common.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ===================================================
+   TOKEN DI DESIGN — identici alle altre pagine del sito,
+   cosi' la coerenza visiva e' garantita
+=================================================== */
+:root {
+    --crema-sfondo: #F3EEE4;
+    --crema-carta: #FBF9F4;
+    --verde-salvia: #9AA08A;
+    --verde-salvia-chiaro: #C3C9B6;
+    --verde-oliva-titoli: #5E6E4F;
+    --verde-oliva-scuro: #48543D;
+    --terracotta: #A65A4B;
+    --terracotta-chiaro: #C98A76;
+    --testo-scuro: #3A362F;
+    --testo-soft: #6B6659;
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-ui: 'Inter', sans-serif;
+
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+
+    --shadow-soft: 0 20px 50px rgba(94, 110, 79, 0.10);
+    --shadow-lift: 0 25px 60px rgba(94, 110, 79, 0.20);
+
+    --ease: cubic-bezier(.25,.8,.25,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--crema-sfondo);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-ui);
+    color: var(--testo-scuro);
+    position: relative;
+    overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('Sfondo beige con foglie per sito web.png');
+    background-size: 380px;
+    background-repeat: repeat;
+    opacity: 0.10;
+    z-index: -1;
+}
+
+a { color: inherit; }
+
+a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--terracotta);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.reveal { animation: fadeUp 0.9s var(--ease) both; }
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================================
+   NAVIGAZIONE
+=================================================== */
+.sub-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 18px 20px;
+    text-align: center;
+    background: rgba(243, 238, 228, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(94, 110, 79, 0.12);
+}
+.nav-links { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.nav-links li { display: inline; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--verde-oliva-titoli);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.nav-links a:hover, .nav-links a.active { background-color: var(--verde-oliva-titoli); color: #fff; }
+
+/* ===================================================
+   CTA STICKY "PRENOTA ORA" — identica alle altre pagine
+=================================================== */
+.sticky-cta-desktop {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--terracotta);
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 26px;
+    border-radius: 50px;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 15px 35px rgba(166, 90, 75, 0.35);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+.sticky-cta-desktop:hover {
+    transform: translateY(-4px);
+    background-color: var(--verde-oliva-titoli);
+    box-shadow: 0 18px 40px rgba(94,110,79,0.35);
+}
+.sticky-cta-desktop svg { width: 18px; height: 18px; }
+
+.sticky-cta-mobile { display: none; }
+
+@media (max-width: 780px) {
+    .sticky-cta-desktop { display: none; }
+    .sticky-cta-mobile {
+        display: flex;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 60;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 14px;
+        background: var(--terracotta);
+        color: #fff;
+        text-decoration: none;
+        font-family: var(--font-ui);
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        box-shadow: 0 -8px 25px rgba(0,0,0,0.12);
+        min-height: 56px;
+    }
+    .sticky-cta-mobile svg { width: 20px; height: 20px; }
+    body { padding-bottom: 62px; }
+}
+
+/* ===================================================
+   HERO — intestazione dedicata della pagina FAQ
+=================================================== */
+.faq-hero {
+    padding: 100px 8% 60px 8%;
+    text-align: center;
+    background: linear-gradient(180deg, var(--crema-carta) 0%, var(--crema-sfondo) 100%);
+    position: relative;
+    z-index: 2;
+}
+.eyebrow {
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 14px;
+    display: block;
+}
+.faq-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+    font-weight: 500;
+    color: var(--verde-oliva-titoli);
+    margin: 0 0 18px 0;
+    line-height: 1.08;
+}
+.faq-hero p.subtitle {
+    max-width: 560px;
+    margin: 0 auto;
+    font-family: var(--font-ui);
+    font-size: 1.05rem;
+    color: var(--testo-soft);
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ===================================================
+   SEZIONE FAQ — stesso accordion gia' presente sul sito,
+   ora raggruppato per argomento per una lettura piu' rapida
+=================================================== */
+.faq-section { padding: 10px 20px 100px 20px; position: relative; z-index: 2; }
+.faq-container { max-width: 780px; margin: 0 auto; }
+
+.faq-group { margin-bottom: 46px; }
+.faq-group:last-child { margin-bottom: 0; }
+
+.faq-group-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--verde-oliva-titoli);
+    margin-bottom: 18px;
+}
+.faq-group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(94, 110, 79, 0.25);
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 14px; }
+
+.faq-item {
+    background: var(--crema-carta);
+    border: 1px solid rgba(94, 110, 79, 0.18);
+    border-radius: var(--radius-sm);
+    padding: 4px 26px;
+    transition: box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.faq-item[open] { box-shadow: var(--shadow-soft); border-color: var(--verde-salvia); }
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--verde-oliva-titoli);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-plus {
+    width: 26px; height: 26px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--verde-oliva-titoli);
+    position: relative;
+    transition: transform 0.35s var(--ease), background-color 0.35s var(--ease);
+}
+.faq-plus::before, .faq-plus::after {
+    content: '';
+    position: absolute;
+    background: var(--verde-oliva-titoli);
+    top: 50%; left: 50%;
+    transition: transform 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+.faq-plus::before { width: 11px; height: 1.5px; transform: translate(-50%, -50%); }
+.faq-plus::after { width: 1.5px; height: 11px; transform: translate(-50%, -50%); }
+.faq-item[open] .faq-plus { background-color: var(--terracotta); border-color: var(--terracotta); }
+.faq-item[open] .faq-plus::before, .faq-item[open] .faq-plus::after { background: #fff; }
+.faq-item[open] .faq-plus::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+
+.faq-answer {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--testo-soft);
+    line-height: 1.7;
+    padding-bottom: 22px;
+    animation: fadeUp 0.4s var(--ease) both;
+}
+
+/* Box finale di richiamo al contatto diretto */
+.faq-cta {
+    max-width: 780px;
+    margin: 56px auto 0 auto;
+    background: linear-gradient(135deg, #EFEAE0 0%, #E7E1D3 100%);
+    border: 1px solid rgba(94, 110, 79, 0.25);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+}
+.faq-cta h4 {
+    font-family: var(--font-display);
+    color: var(--verde-oliva-titoli);
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+}
+.faq-cta p {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--testo-soft);
+    margin: 0 0 24px 0;
+    line-height: 1.6;
+}
+.btn-cta-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--terracotta);
+    font-family: var(--font-ui);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: all 0.3s var(--ease);
+    box-shadow: 0 12px 28px rgba(166, 90, 75, 0.3);
+}
+.btn-cta-whatsapp svg { width: 18px; height: 18px; }
+.btn-cta-whatsapp:hover {
+    transform: translateY(-3px);
+    background-color: var(--verde-oliva-titoli);
+    box-shadow: 0 15px 32px rgba(94,110,79,0.35);
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+.legal-footer {
+    text-align: center;
+    padding: 34px 20px;
+    background-color: var(--verde-oliva-scuro);
+    color: var(--crema-sfondo);
+    font-size: 0.85rem;
+    font-family: var(--font-ui);
+    position: relative;
+    z-index: 2;
+}
+.legal-footer p { margin: 6px 0; opacity: 0.9; }
+.legal-footer a { color: var(--crema-sfondo); text-decoration: none; opacity: 0.75; }
+.legal-footer a:hover { opacity: 1; text-decoration: underline; }
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+@media (max-width: 900px) {
+    .faq-hero { padding: 70px 6% 44px 6%; }
+    .faq-cta { margin: 44px 16px 0 16px; padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="metodo.html">Il Metodo</a></li>
+        <li><a href="lo-spazio.html">Lo Spazio</a></li>
+        <li><a href="contatti.html">Contatti e Orari</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+    </ul>
+</nav>
+
+<a href="https://wa.me/393922351065" target="_blank" class="sticky-cta-desktop" aria-label="Prenota su WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
+    Prenota su WhatsApp
+</a>
+<a href="https://wa.me/393922351065" target="_blank" class="sticky-cta-mobile" aria-label="Prenota su WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
+    Prenota ora su WhatsApp
+</a>
+
+<!-- HERO -->
+<section class="faq-hero reveal">
+    <span class="eyebrow">Pilates Garden Pesaro</span>
+    <h1>Domande Frequenti</h1>
+    <p class="subtitle">Tutto quello che c'è da sapere sul metodo, sulla pratica e sulla prenotazione delle lezioni. Non trovi la risposta che cerchi? Scrivimi pure direttamente.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="faq-container">
+
+        <div class="faq-group reveal">
+            <div class="faq-group-label">Il metodo e la pratica</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Che cos'è il metodo CovaTech® Pilates®? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Il metodo CovaTech® Pilates® è un percorso di formazione altamente specializzato che unisce i principi del Pilates classico alle più recenti conoscenze scientifiche in ambito biomeccanico e muscolo-scheletrico. La formazione prevede un aggiornamento continuo, permettendomi di proporre un lavoro personalizzato, sicuro e basato su solide competenze tecniche.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Non ho mai fatto Pilates. Posso iniziare lo stesso? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Assolutamente sì. Il percorso parte sempre dal livello della persona, senza bisogno di esperienza precedente. Ogni esercizio viene adattato alle tue capacità e ai tuoi obiettivi.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>È un'attività molto faticosa? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">No. Il Pilates non punta allo sforzo fine a sé stesso, ma alla qualità del movimento. L'intensità viene adattata alla persona e aumenta gradualmente nel tempo.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Quando inizierò a sentire i benefici? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Ogni persona è diversa, ma con costanza molte persone iniziano a percepire miglioramenti nella postura, nella mobilità e nella consapevolezza del proprio corpo già dopo le prime settimane.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Cosa cambia tra Matwork e Reformer? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Il Matwork si pratica a corpo libero su tappetino, in piccoli gruppi fino a 3 persone. Il Reformer utilizza l'apposito macchinario e si svolge in gruppi più ristretti, fino a 2 persone, per un lavoro ancora più mirato.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Cosa devo portare alla prima lezione? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Abbigliamento comodo, calze antiscivolo (se le possiedi) e una bottiglietta d'acqua. Al resto penso io.</div>
+                </details>
+            </div>
+        </div>
+
+        <div class="faq-group reveal">
+            <div class="faq-group-label">Salute e sicurezza</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Serve un certificato medico? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Sì, è richiesto il certificato medico per attività sportiva non agonistica, come previsto dalla normativa vigente. Se hai particolari condizioni di salute, ne parleremo insieme prima di iniziare.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Ho mal di schiena: posso praticare Pilates? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Dipende dalla fase in cui ti trovi. In presenza di dolore acuto e fortemente invalidante, che impedisce di camminare o di svolgere normalmente le attività quotidiane, è necessario rivolgersi prima al medico, al fisiatra o al fisioterapista. In questa fase non è opportuno iniziare una lezione di Pilates senza una valutazione specialistica.<br><br>Superata la fase acuta, il Pilates può essere inserito nel percorso di recupero o di mantenimento, rispettando le indicazioni dello specialista e adattando esercizi, intensità e attrezzi alla situazione della persona. La mia formazione comprende lo studio e l'aggiornamento dei protocolli ortopedici relativi alle più comuni problematiche muscolo-scheletriche.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Il fisiatra o l'ortopedico mi ha consigliato una ginnastica posturale. Posso seguire un percorso con te? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">La formazione CovaTech® Pilates® dedica ampio spazio ai protocolli ortopedici e al loro costante aggiornamento. Per questo motivo, il percorso viene adattato alle esigenze della persona e alle eventuali indicazioni di fisiatra o ortopedico, con l'obiettivo di migliorare postura, movimento e benessere in totale sicurezza.</div>
+                </details>
+            </div>
+        </div>
+
+        <div class="faq-group reveal">
+            <div class="faq-group-label">Prenotazioni e informazioni pratiche</div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Quanto dura una lezione? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Ogni lezione, sia Matwork che Reformer, dura 55 minuti.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Come prenoto il mio posto? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Il modo più rapido è scrivere su WhatsApp: ti confermo la disponibilità aggiornata e concordiamo insieme l'orario più comodo per te.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Cosa cambia a settembre? <span class="faq-plus"></span></summary>
+                    <div class="faq-answer">Lo studio si sposterà al coperto per continuare le lezioni anche nei mesi più freddi. Tutti gli aggiornamenti sul nuovo spazio verranno pubblicati su Instagram e Facebook.</div>
+                </details>
+            </div>
+        </div>
+
+        <div class="faq-cta reveal">
+            <h4>Non hai trovato la tua risposta?</h4>
+            <p>Scrivimi direttamente: ti rispondo il prima possibile.</p>
+            <a href="https://wa.me/393922351065" target="_blank" class="btn-cta-whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
+                Scrivimi su WhatsApp
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<footer class="legal-footer">
+    <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
+    <p style="font-size: 0.8rem; opacity: 0.75;">
+        <a href="privacy.html">Privacy &amp; Cookie Policy</a>
+    </p>
+</footer>
+
+</body>
+</html>

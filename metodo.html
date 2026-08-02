@@ -85,7 +85,8 @@ a { color: inherit; }
 .panel-1 { display: flex; flex-direction: column; }
 
 .logo-mark { display: flex; flex-direction: column; align-items: center; margin-bottom: 44px; }
-.logo-triangle { width: 74px; height: 74px; margin-bottom: 10px; object-fit: contain; }
+/* LOGO PRINCIPALE INGRANDITO (da 74px a 160px) */
+.logo-triangle { width: 160px; height: 160px; margin-bottom: 10px; object-fit: contain; }
 .logo-mark .logo-s { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 2px; }
 .logo-mark .logo-pilates { font-family: var(--font-ui); font-size: 0.85rem; letter-spacing: 6px; font-weight: 600; margin-top: 6px; }
 .logo-mark .logo-garden { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 3px; opacity: 0.75; margin-top: 4px; }
@@ -177,10 +178,14 @@ a { color: inherit; }
     align-items: center;
     gap: 8px;
 }
+
+/* LOGHI CERTIFICAZIONI INGRANDITI (100px) */
 img.cert-mark {
-    width: 42px; height: 42px;
+    width: 100px; 
+    height: 100px;
     object-fit: contain;
 }
+
 .cert-card .cert-name { font-family: var(--font-ui); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.5px; color: var(--testo-scuro); }
 .cert-card .cert-desc { font-family: var(--font-ui); font-size: 0.62rem; line-height: 1.35; color: var(--testo-soft); }
 
@@ -291,7 +296,7 @@ img.cert-mark {
     <div class="panel panel-olive panel-1 reveal">
 
         <div class="logo-mark">
-            <!-- SOSTITUITO CON IMMAGINE DEL LOGO TRASPARENTE -->
+            <!-- LOGO PRINCIPALE (Ingrandito) -->
             <img src="logotrasp.png" alt="Logo Pilates Garden Pesaro" class="logo-triangle">
             
             <span class="logo-s">S</span>
@@ -303,7 +308,7 @@ img.cert-mark {
         <div class="claim-title">Il movimento<br>che nasce<br>dalla competenza.</div>
         <p class="claim-sub">Percorsi di Pilates personalizzati per il tuo benessere e la qualità di vita.</p>
 
-        <!-- SOSTITUITO CON FOTO SARA 1 -->
+        <!-- FOTO SARA 1 -->
         <img src="fotosara1.png" alt="Sara sul Reformer" class="panel-1-photo">
 
         <div class="signature-block">
@@ -333,36 +338,29 @@ img.cert-mark {
 
         <div class="cert-heading">LE NOSTRE CERTIFICAZIONI<br>E ACCREDITAMENTI</div>
 
-        <!-- SOSTITUITO CON LOGHI (da logo1.svg a logo8.svg) -->
+        <!-- LOGHI CERTIFICAZIONI (Ingranditi) -->
         <div class="cert-grid">
             <div class="cert-card">
                 <img src="logo1.svg" class="cert-mark" alt="APPI">
-               
             </div>
             <div class="cert-card">
                 <img src="logo2.svg" class="cert-mark" alt="ITALIA">
-              
             </div>
             <div class="cert-card">
                 <img src="logo3.svg" class="cert-mark" alt="ASI">
-               
             </div>
             <div class="cert-card">
                 <img src="logo4.svg" class="cert-mark" alt="SNaQ">
-                </div>
+            </div>
             <div class="cert-card">
                 <img src="logo5.svg" class="cert-mark" alt="EFA">
-             
             </div>
             <div class="cert-card">
                 <img src="logo6.svg" class="cert-mark" alt="EQF">
-               
             </div>
             <div class="cert-card">
                 <img src="logo7.svg" class="cert-mark" alt="ISO 9001:2015">
-                
             </div>
-            
         </div>
     </div>
 
@@ -414,7 +412,7 @@ img.cert-mark {
     ============================================ -->
     <div class="panel panel-olive panel-4 reveal">
 
-        <!-- SOSTITUITO CON FOTO SARA 2 -->
+        <!-- FOTO SARA 2 -->
         <img src="fotosara2.png" alt="Ritratto di Sara" class="panel-4-photo">
 
         <div class="contact-name">SARA DI FRANCO</div>

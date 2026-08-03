@@ -63,8 +63,6 @@ a { color: inherit; }
 /* ===================================================
    STRUTTURA A 4 PANNELLI
 =================================================== */
-/* FIX: aggiunto max-width + centratura, cosi' su monitor molto larghi
-   le colonne non si allargano in modo incontrollato */
 .brochure {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr 1.15fr 0.85fr;
@@ -88,9 +86,6 @@ a { color: inherit; }
 
 .logo-mark { display: flex; flex-direction: column; align-items: center; margin-bottom: 44px; }
 
-/* FIX: il logo principale aveva width E height fissi a 200px (rischio di
-   "gabbia" quadrata su un'immagine che magari non e' 1:1). Ora e' responsive
-   con un tetto massimo, altezza auto per non deformare mai le proporzioni. */
 .logo-triangle {
     width: 100%;
     max-width: 170px;
@@ -127,10 +122,6 @@ a { color: inherit; }
     display: block; 
 }
 
-/* FIX: "flex:1" da solo permetteva alla foto di allungarsi a dismisura
-   quando il pannello veniva "tirato" in altezza dagli altri pannelli
-   (vedi fix su .cert-mark, causa principale del problema).
-   Aggiunto un max-height di sicurezza + aspect-ratio come guida. */
 .panel-1-photo {
     flex: 1;
     min-height: 260px;
@@ -144,7 +135,6 @@ a { color: inherit; }
 .signature-block .name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 500; margin-bottom: 2px; }
 .signature-block .role { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 1.5px; opacity: 0.8; margin-bottom: 20px; }
 
-/* FIX: badge teacher portato a una dimensione piu' equilibrata e sempre responsive */
 .covatech-badge-img {
     height: auto;
     width: 100%;
@@ -184,9 +174,6 @@ a { color: inherit; }
     line-height: 1.5;
 }
 
-/* FIX: minmax abbassato da 240px a 130px, coerente con i loghi ora
-   molto piu' piccoli. Prima, con loghi da 300px, questa griglia su
-   desktop creava colonne enormi e un'ultima riga sbilanciata. */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -204,13 +191,6 @@ a { color: inherit; }
     gap: 12px;
 }
 
-/* FIX PRINCIPALE: questa era la causa radice di tutto.
-   width E height fissi a 300px (senza "auto") rendevano il Pannello 2
-   altissimo su desktop; per via del comportamento di default di CSS Grid
-   (align-items: stretch), quell'altezza si propagava a TUTTI i pannelli
-   della riga, incluso quello della foto di Sara, che si stirava per
-   riempire lo spazio in eccesso. Ora i loghi sono badge piccoli e
-   proporzionati, con aspect-ratio 1:1 per non deformarsi mai. */
 img.cert-mark {
     width: 100%;
     max-width: 110px;
@@ -322,7 +302,7 @@ img.cert-mark {
 <div class="brochure">
 
     <!-- ===========================================
-         PANNELLO 1 — Logo, claim, foto reformer, firma
+         PANNELLO 1
     ============================================ -->
     <div class="panel panel-olive panel-1 reveal">
 
@@ -332,7 +312,7 @@ img.cert-mark {
         </div>
 
         <div class="claim-title">Il movimento<br>che nasce<br>dalla competenza.</div>
-        <p class="claim-sub">Percorsi di Pilates personalizzati per il tuo benessere e la qualità di vita.</p>
+        <p class="claim-sub">Percorsi di Pilates personalizzati per il tuo benessere e la qualità della vita.</p>
 
         <img src="fotosara1.png" alt="Sara sul Reformer" class="panel-1-photo">
 
@@ -344,14 +324,14 @@ img.cert-mark {
     </div>
 
     <!-- ===========================================
-         PANNELLO 2 — CovaTech Pilates School + certificazioni
+         PANNELLO 2
     ============================================ -->
     <div class="panel panel-cream panel-2 reveal">
         <h2 class="panel-title">COVATECH® PILATES® SCHOOL</h2>
 
-        <p class="panel-text">CovaTech® Pilates® School è una delle scuole storiche e di riferimento in Italia nella formazione degli insegnanti di Pilates.</p>
+        <p class="panel-text">CovaTech® Pilates® School è una delle scuole storiche di riferimento in Italia per la formazione degli insegnanti di Pilates.</p>
 
-        <p class="panel-text">Il metodo CovaTech® è stato ideato da Anna Maria Cova, pioniera del Pilates in Italia, con l'obiettivo di unire la precisione e l'efficacia del Pilates, con la più moderna conoscenza anatomo-fisiologica, biomeccanica e riabilitativa.</p>
+        <p class="panel-text">Il metodo CovaTech® è stato ideato da Anna Maria Cova, pioniera del Pilates in Italia, con l'obiettivo di coniugare la precisione e l'efficacia del Pilates con le più moderne conoscenze anatomo-fisiologiche, biomeccaniche e riabilitative.</p>
 
         <p class="panel-text">La scuola propone un percorso formativo rigoroso e completo che unisce pratica, teoria ed esperienza diretta, formando insegnanti competenti, consapevoli e in grado di accompagnare ogni persona verso il benessere attraverso il movimento.</p>
 
@@ -387,7 +367,7 @@ img.cert-mark {
     </div>
 
     <!-- ===========================================
-         PANNELLO 3 — Chi è il Teacher + a chi è rivolto
+         PANNELLO 3
     ============================================ -->
     <div class="panel panel-cream panel-3 reveal">
 
@@ -397,30 +377,30 @@ img.cert-mark {
             <div class="icon-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
             </div>
-            <p class="panel-text">È un insegnante di Pilates che si è formato presso la nostra Scuola portando a termine un difficile percorso formativo, di apprendimento della qualità della sua preparazione.</p>
+            <p class="panel-text">È un insegnante di Pilates che ha completato con successo presso la nostra Scuola un rigoroso percorso formativo, garanzia di un'elevata preparazione tecnica.</p>
         </div>
 
         <div class="icon-block">
             <div class="icon-circle">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 16.9l-6.2 3.4 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
             </div>
-            <p class="panel-text">È un insegnante che si mantiene aggiornato e ha rinnovato l'attestazione Pilates® Teacher CovaTech®, il programma annuale che accompagna il Teacher lungo tutto lo svolgimento della sua carriera e che lo rende influente testimone degli standard richiesti dal metodo CovaTech®.</p>
+            <p class="panel-text">È un docente che si mantiene costantemente aggiornato, avendo rinnovato l'attestazione <em>Pilates® Teacher CovaTech®</em>: un programma annuale che accompagna l'insegnante lungo tutto il percorso professionale e lo rende autorevole testimone degli standard qualitativi del metodo CovaTech®.</p>
         </div>
 
         <div class="panel-divider"></div>
 
-        <p class="callout-text">Competenza, aggiornamento continuo e passione: questo sono le basi su cui Creiamo e che rendono unico ogni CovaTech® Pilates® Teacher.</p>
+        <p class="callout-text">Competenza, aggiornamento continuo e passione: questi sono i pilastri su cui fondiamo il nostro lavoro e che rendono unico ogni CovaTech® Pilates® Teacher.</p>
 
         <h2 class="panel-title" style="text-align:center;">A CHI È RIVOLTO</h2>
 
         <ul class="checklist">
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Migliorare la postura e l'equilibrio e ridurre lo stress</span></li>
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Recuperare tonicità e benessere in modo sicuro</span></li>
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Ritrovare agilità e senza dolori</span></li>
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Migliorare vitalità e fiducia nel movimento</span></li>
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Ritrovare benessere e consapevolezza per una connessione più profonda con il proprio corpo</span></li>
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Allenare corpo e mente e personalizzare per i tuoi obiettivi</span></li>
-            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Accompagnare il recupero funzionale con il parere del professionista sanitario, rispettando il metodo consapevole</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Migliorare la postura e l'equilibrio, riducendo lo stress</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Recuperare tonicità e benessere in piena sicurezza</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Ritrovare agilità e libertà di movimento</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Incrementare la vitalità e la fiducia nel proprio corpo</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Acquisire una maggiore consapevolezza per una connessione profonda con il proprio corpo</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Allenare corpo e mente attraverso programmi personalizzati sui tuoi obiettivi</span></li>
+            <li><span class="check-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Favorire il recupero funzionale in accordo con il parere del professionista sanitario, nel pieno rispetto di un metodo consapevole</span></li>
         </ul>
 
         <div class="free-lesson">
@@ -430,7 +410,7 @@ img.cert-mark {
     </div>
 
     <!-- ===========================================
-         PANNELLO 4 — Foto ritratto + contatti Sara
+         PANNELLO 4
     ============================================ -->
     <div class="panel panel-olive panel-4 reveal">
 
@@ -446,8 +426,8 @@ img.cert-mark {
         </ul>
 
         <ul class="contact-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:3291234567">+39 392 235 1065</a></li>
-            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6z"/></svg><a href="https://wa.me/393291234567" target="_blank">+39 392 235 1065</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:3922351065">+39 392 235 1065</a></li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6z"/></svg><a href="https://wa.me/393922351065" target="_blank">+39 392 235 1065</a></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-8.5 8-13a8 8 0 1 0-16 0c0 4.5 4 9 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Pesaro – Zona Case Bruciate</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg><a href="https://www.pilatesgardenpesaro.it" target="_blank">www.pilatesgardenpesaro.it</a></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg><a href="https://www.instagram.com/pilates_garden_pesaro" target="_blank">@pilates_garden_pesaro</a></li>

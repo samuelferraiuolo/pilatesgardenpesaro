@@ -526,6 +526,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .vibrando-section .day-grid { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto 20px auto; }
 
+/* Secondo blocco orari (quello di ottobre): staccato dal primo */
+.schedule-container + .schedule-container { margin-top: 40px; }
+.schedule-container { scroll-margin-top: 90px; }
+
+/* Orari di ottobre: i quattro giorni stanno su una riga sola in desktop */
+.day-grid--ottobre { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 860px) {
+    .day-grid--ottobre { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .day-grid--ottobre { grid-template-columns: 1fr; }
+}
+/* Qui i chip contengono un intervallo (9:00 – 10:00), non un orario singolo:
+   sono troppo larghi per stare affiancati, quindi uno per riga */
+.day-grid--ottobre .time-chips { flex-direction: column; align-items: flex-start; }
+
 /* ===================================================
    LISTINO PREZZI — il vero "capolavoro" della pagina:
    card comparative + sigillo boutique al posto del
@@ -542,15 +558,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     box-shadow: var(--shadow-soft);
     position: relative;
     z-index: 2;
+    /* la nav sticky non deve coprire il titolo quando si arriva da #listino-prezzi */
+    scroll-margin-top: 90px;
 }
 
+/* Tre listini affiancati su desktop, in colonna su schermi stretti */
 .pricing-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 26px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     margin: 40px 0 48px 0;
 }
-@media (max-width: 700px) {
+@media (max-width: 860px) {
     .pricing-cards { grid-template-columns: 1fr; }
 }
 
@@ -558,11 +577,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     position: relative;
     border: 1px solid rgba(94, 110, 79, 0.25);
     border-radius: var(--radius-md);
-    padding: 40px 30px 34px 30px;
+    padding: 40px 24px 34px 24px;
     background-color: rgba(255, 255, 255, 0.7);
     text-align: center;
     overflow: hidden;
     transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .price-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
 
@@ -573,8 +595,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .featured-tag {
     position: absolute;
-    top: 18px; left: 50%;
-    transform: translateX(-50%);
+    top: 16px; left: 18px;
+    z-index: 2;
     background: var(--terracotta);
     color: #fff;
     font-family: var(--font-ui);
@@ -584,6 +606,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     text-transform: uppercase;
     padding: 6px 16px;
     border-radius: 20px;
+    white-space: nowrap;
 }
 
 /* Sigillo circolare per lo sconto — sostituisce il badge "volantino" */
@@ -621,12 +644,35 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     font-family: var(--font-ui);
     margin-bottom: 26px;
 }
+/* Quando sotto alla capienza c'è il badge di disponibilità, avvicino i due elementi */
+.price-card .capacity.capacity--compact { margin-bottom: 12px; }
+
+/* Badge "Disponibile da ottobre" */
+.availability {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--verde-oliva-titoli);
+    background: rgba(154, 160, 138, 0.18);
+    border: 1px solid rgba(154, 160, 138, 0.4);
+    padding: 6px 13px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+}
+
+/* Spinge i prezzi in fondo alla card: così le tre cifre restano allineate
+   anche quando una card ha una riga di testo in più */
+.price-block { margin-top: auto; width: 100%; }
+.price-block .label { display: block; }
 
 .price-figures {
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 14px;
+    gap: 12px;
     margin-bottom: 6px;
 }
 .old-price {
@@ -640,10 +686,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 }
 .new-price .amount {
     font-family: var(--font-display);
-    font-size: 3.2rem;
+    font-size: 3rem;
     color: var(--verde-oliva-titoli);
     font-weight: 600;
 }
+.price-card.featured .new-price .amount { color: var(--terracotta); }
 .price-card .label {
     font-size: 0.8rem;
     font-family: var(--font-ui);
@@ -883,7 +930,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 <!-- Locandina Orari & Prezzi -->
 <section class="schedule-section">
 
-    <!-- BLOCCO ORARI — tabella sostituita con card-grid, 
+    <!-- BLOCCO ORARI — tabella sostituita con card-grid,
          identica e leggibile su desktop e mobile -->
     <div class="schedule-container reveal">
         <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden Pesaro" class="schedule-logo">
@@ -960,41 +1007,107 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         </div>
     </div>
 
+    <!-- BLOCCO ORARI MATWORK max 5 persone — attivi da ottobre, come da locandina -->
+    <div class="schedule-container reveal" id="orari-ottobre">
+        <span class="section-label">Da ottobre</span>
+        <div class="schedule-title">Orari Matwork</div>
+        <div class="schedule-divider"></div>
+
+        <div class="badges-wrapper">
+            <div class="info-badge">👥 Max 5 persone</div>
+            <div class="info-badge badge-alert">🍂 Attivi da ottobre</div>
+        </div>
+
+        <div class="day-grid day-grid--ottobre">
+            <div class="day-card">
+                <span class="day-name">Lunedì</span>
+                <div class="time-chips">
+                    <span class="time-chip">9:00 – 10:00</span>
+                    <span class="time-chip">10:00 – 11:00</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Mercoledì</span>
+                <div class="time-chips">
+                    <span class="time-chip">17:30 – 18:30</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Giovedì</span>
+                <div class="time-chips">
+                    <span class="time-chip">19:45 – 20:45</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Venerdì</span>
+                <div class="time-chips">
+                    <span class="time-chip">9:00 – 10:00</span>
+                    <span class="time-chip">17:30 – 18:30</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <div>Gli orari possono subire variazioni in base alle richieste.</div>
+        </div>
+    </div>
+
     <!-- BLOCCO LISTINO PREZZI — ristrutturato in card comparative
-         con sigillo boutique al posto del badge "volantino" -->
-    <div class="pricing-container reveal">
+         con sigillo boutique al posto del badge "volantino".
+         Prezzi allineati alla locandina: promozione valida fino al 31/12. -->
+    <div class="pricing-container reveal" id="listino-prezzi">
         <span class="section-label">Investi su di te</span>
         <div class="schedule-title">Listino Prezzi</div>
         <div class="schedule-divider"></div>
 
         <div class="pricing-cards">
-            <!-- Card Matwork -->
+            <!-- Card Matwork max 3 -->
             <div class="price-card">
-                <div class="discount-seal"><span class="num">-30%</span><span class="txt">promo</span></div>
+                <div class="discount-seal"><span class="num">-22%</span><span class="txt">promo</span></div>
                 <h3>Matwork</h3>
                 <p class="capacity">max 3 persone</p>
-                <div class="price-figures">
-                    <span class="old-price">18€</span>
-                    <span class="new-price"><span class="amount">13€</span></span>
+                <div class="price-block">
+                    <div class="price-figures">
+                        <span class="old-price">18€</span>
+                        <span class="new-price"><span class="amount">14€</span></span>
+                    </div>
+                    <span class="label">a lezione</span>
                 </div>
-                <span class="label">a lezione</span>
+            </div>
+
+            <!-- Card Matwork max 5 — disponibile da ottobre -->
+            <div class="price-card">
+                <div class="discount-seal"><span class="num">-23%</span><span class="txt">promo</span></div>
+                <h3>Matwork</h3>
+                <p class="capacity capacity--compact">max 5 persone</p>
+                <span class="availability">Disponibile da ottobre</span>
+                <div class="price-block">
+                    <div class="price-figures">
+                        <span class="old-price">13€</span>
+                        <span class="new-price"><span class="amount">10€</span></span>
+                    </div>
+                    <span class="label">a lezione</span>
+                </div>
             </div>
 
             <!-- Card Reformer -->
             <div class="price-card featured">
                 <span class="featured-tag">Più richiesto</span>
-                <div class="discount-seal"><span class="num">-30%</span><span class="txt">promo</span></div>
+                <div class="discount-seal"><span class="num">-28%</span><span class="txt">promo</span></div>
                 <h3>Reformer</h3>
                 <p class="capacity">max 2 persone</p>
-                <div class="price-figures">
-                    <span class="old-price">25€</span>
-                    <span class="new-price"><span class="amount">18€</span></span>
+                <div class="price-block">
+                    <div class="price-figures">
+                        <span class="old-price">25€</span>
+                        <span class="new-price"><span class="amount">18€</span></span>
+                    </div>
+                    <span class="label">a lezione</span>
                 </div>
-                <span class="label">a lezione</span>
             </div>
         </div>
 
-        <span class="promo-note">Promozione valida fino al 31 agosto</span>
+        <span class="promo-note">Promozione valida fino al 31 dicembre</span>
 
         <!-- Note Informative -->
         <div class="pricing-notes-list">

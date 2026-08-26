@@ -710,4 +710,334 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     margin-top: 30px;
     filter: saturate(0.9);
 }
-.map-frame-wrap iframe { display: b
+.map-frame-wrap iframe { display: block; width: 100%; height: 380px; border: 0; }
+
+/* ===================================================
+   FAQ — nuova sezione strategica, accordion puro CSS
+=================================================== */
+.faq-section { padding: 10px 20px 100px 20px; position: relative; z-index: 2; }
+.faq-container { max-width: 780px; margin: 0 auto; text-align: center; }
+.faq-list { margin-top: 34px; text-align: left; display: flex; flex-direction: column; gap: 14px; }
+
+.faq-item {
+    background: var(--crema-carta);
+    border: 1px solid rgba(94, 110, 79, 0.18);
+    border-radius: var(--radius-sm);
+    padding: 4px 26px;
+    transition: box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.faq-item[open] { box-shadow: var(--shadow-soft); border-color: var(--verde-salvia); }
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 0;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--verde-oliva-titoli);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-plus {
+    width: 26px; height: 26px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--verde-oliva-titoli);
+    position: relative;
+    transition: transform 0.35s var(--ease), background-color 0.35s var(--ease);
+}
+.faq-plus::before, .faq-plus::after {
+    content: '';
+    position: absolute;
+    background: var(--verde-oliva-titoli);
+    top: 50%; left: 50%;
+    transition: transform 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+.faq-plus::before { width: 11px; height: 1.5px; transform: translate(-50%, -50%); }
+.faq-plus::after { width: 1.5px; height: 11px; transform: translate(-50%, -50%); }
+.faq-item[open] .faq-plus { background-color: var(--terracotta); border-color: var(--terracotta); }
+.faq-item[open] .faq-plus::before, .faq-item[open] .faq-plus::after { background: #fff; }
+.faq-item[open] .faq-plus::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+
+.faq-answer {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--testo-soft);
+    line-height: 1.7;
+    padding-bottom: 22px;
+    animation: fadeUp 0.4s var(--ease) both;
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+.legal-footer {
+    text-align: center;
+    padding: 34px 20px;
+    background-color: var(--verde-oliva-scuro);
+    color: var(--crema-sfondo);
+    font-size: 0.85rem;
+    font-family: var(--font-ui);
+    position: relative;
+    z-index: 2;
+}
+.legal-footer p { margin: 6px 0; opacity: 0.9; }
+.legal-footer a { color: var(--crema-sfondo); text-decoration: none; opacity: 0.75; }
+.legal-footer a:hover { opacity: 1; text-decoration: underline; }
+
+/* ===================================================
+   RESPONSIVE — tuning fine mobile
+=================================================== */
+@media (max-width: 900px) {
+    .btn-grid { grid-template-columns: 1fr; }
+    .contact-left { min-height: 320px; }
+    .contact-right { padding: 56px 24px; }
+    .schedule-container, .pricing-container { padding: 40px 22px; }
+    .schedule-title { font-size: 2.1rem; }
+    .avviso-settembre { margin: 40px 16px 10px 16px; padding: 34px 24px; }
+    .pricing-note-item { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="metodo.html">Il Metodo</a></li>
+        <li><a href="lo-spazio.html">Lo Spazio</a></li>
+        <li><a href="contatti.html">Contatti e Orari</a></li>
+    </ul>
+</nav>
+
+<!-- ===================================================
+     CTA STICKY "PRENOTA ORA" — nuova aggiunta strategica.
+     Desktop: pulsante flottante in basso a destra.
+     Mobile: barra fissa a tutta larghezza, sempre visibile.
+=================================================== -->
+<a href="https://wa.me/393922351065" target="_blank" class="sticky-cta-desktop" aria-label="Prenota su WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
+    Prenota su WhatsApp
+</a>
+<a href="https://wa.me/393922351065" target="_blank" class="sticky-cta-mobile" aria-label="Prenota su WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
+    Prenota ora su WhatsApp
+</a>
+
+<!-- Sezione Contatti Superiori -->
+<div class="contact-split">
+    <div class="contact-left"></div>
+
+    <div class="contact-right">
+        <div class="contact-content reveal">
+            <span class="eyebrow">Pilates Garden Pesaro</span>
+            <h1>Inizia un percorso</h1>
+            <p class="subtitle">Per informazioni o per riservare il tuo posto nel giardino, contattami direttamente. Risponderò il prima possibile.</p>
+
+            <div class="btn-grid">
+                <a href="https://wa.me/393922351065" target="_blank" class="btn-contact">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
+                    WhatsApp
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sara.difranco78@gmail.com" target="_blank" class="btn-contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                    Email
+                </a>
+                <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                    Instagram
+                </a>
+                <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-contact">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1c-.4 0-1.6-.1-3-.1-3 0-5 1.8-5 5.2V9H6v4h3v9h4z"/></svg>
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AVVISO SETTEMBRE -->
+<div class="avviso-settembre reveal">
+    <div class="avviso-icona">✨</div>
+    <h4>Grandi Novità in Arrivo</h4>
+    <p>A <strong>settembre</strong> Pilates Garden Pesaro si sposterà al coperto, per continuare a prenderci cura di voi e della vostra pratica anche nelle stagioni più fresche.</p>
+    <p class="avviso-sub">Segui le nostre pagine social per scoprire il nuovo spazio</p>
+
+    <div class="avviso-social">
+        <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            Instagram
+        </a>
+        <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V7c0-1.2.3-2 2-2h2V1.1c-.4 0-1.6-.1-3-.1-3 0-5 1.8-5 5.2V9H6v4h3v9h4z"/></svg>
+            Facebook
+        </a>
+    </div>
+</div>
+
+<!-- Locandina Orari & Prezzi -->
+<section class="schedule-section">
+
+    <!-- BLOCCO ORARI — tabella sostituita con card-grid, 
+         identica e leggibile su desktop e mobile -->
+    <div class="schedule-container reveal">
+        <img src="pilatesgardenpes.svg" alt="Logo Pilates Garden Pesaro" class="schedule-logo">
+        <span class="section-label">Il Giardino</span>
+        <div class="schedule-title">Orari di inizio</div>
+        <div class="schedule-divider"></div>
+
+        <div class="badges-wrapper">
+            <div class="info-badge">🕒 Lezioni della durata di 55 minuti</div>
+            <div class="info-badge badge-alert">⚠️ Validi fino al 31 agosto</div>
+        </div>
+
+        <div class="day-grid">
+            <div class="day-card">
+                <span class="day-name">Lunedì</span>
+                <div class="time-chips">
+                    <span class="time-chip">7:00</span><span class="time-chip">8:00</span>
+                    <span class="time-chip">18:30</span><span class="time-chip">19:45</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Martedì</span>
+                <div class="time-chips">
+                    <span class="time-chip">7:00</span><span class="time-chip">8:00</span>
+                    <span class="time-chip">19:45</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Mercoledì</span>
+                <div class="time-chips">
+                    <span class="time-chip">7:00</span><span class="time-chip">8:00</span>
+                    <span class="time-chip">9:00</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Giovedì</span>
+                <div class="time-chips">
+                    <span class="time-chip">7:00</span><span class="time-chip">8:00</span>
+                    <span class="time-chip">9:00</span><span class="time-chip">18:30</span>
+                    <span class="time-chip">19:45</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Venerdì</span>
+                <div class="time-chips">
+                    <span class="time-chip">7:00</span><span class="time-chip">8:00</span>
+                    <span class="time-chip">9:00</span>
+                </div>
+            </div>
+            <div class="day-card">
+                <span class="day-name">Sabato</span>
+                <div class="time-chips">
+                    <span class="time-chip">7:00</span><span class="time-chip">8:00</span>
+                    <span class="time-chip">9:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-8.5 8-13a8 8 0 1 0-16 0c0 4.5 4 9 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <div>Poiché alcuni turni possono essere già occupati, è possibile contattarmi per conoscere la disponibilità aggiornata e concordare insieme l'appuntamento.</div>
+        </div>
+
+        <div class="vibrando-section">
+            <div class="vibrando-title">Vibrando Home</div>
+            <div class="schedule-divider" style="width: 40px;"></div>
+            <div class="day-grid">
+                <div class="day-card">
+                    <span class="day-name">Venerdì</span>
+                    <div class="time-chips"><span class="time-chip">18:30</span></div>
+                </div>
+            </div>
+            <div class="info-badge">🕒 Lezioni della durata di 55 minuti</div>
+        </div>
+    </div>
+
+    <!-- BLOCCO LISTINO PREZZI — ristrutturato in card comparative
+         con sigillo boutique al posto del badge "volantino" -->
+    <div class="pricing-container reveal">
+        <span class="section-label">Investi su di te</span>
+        <div class="schedule-title">Listino Prezzi</div>
+        <div class="schedule-divider"></div>
+
+        <div class="pricing-cards">
+            <!-- Card Matwork -->
+            <div class="price-card">
+                <div class="discount-seal"><span class="num">-30%</span><span class="txt">promo</span></div>
+                <h3>Matwork</h3>
+                <p class="capacity">max 3 persone</p>
+                <div class="price-figures">
+                    <span class="old-price">18€</span>
+                    <span class="new-price"><span class="amount">13€</span></span>
+                </div>
+                <span class="label">a lezione</span>
+            </div>
+
+            <!-- Card Reformer -->
+            <div class="price-card featured">
+                <span class="featured-tag">Più richiesto</span>
+                <div class="discount-seal"><span class="num">-30%</span><span class="txt">promo</span></div>
+                <h3>Reformer</h3>
+                <p class="capacity">max 2 persone</p>
+                <div class="price-figures">
+                    <span class="old-price">25€</span>
+                    <span class="new-price"><span class="amount">18€</span></span>
+                </div>
+                <span class="label">a lezione</span>
+            </div>
+        </div>
+
+        <span class="promo-note">Promozione valida fino al 31 agosto</span>
+
+        <!-- Note Informative -->
+        <div class="pricing-notes-list">
+            <div class="pricing-note-item">
+                <div class="note-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="note-text">I prezzi indicati si riferiscono alle lezioni <strong>Semi-Personal</strong>, ovvero in coppia (due persone).</div>
+            </div>
+
+            <div class="pricing-note-item">
+                <div class="note-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="note-text">Le prime lezioni si svolgono prevalentemente in forma <strong>individuale</strong>.</div>
+            </div>
+
+            <div class="pricing-note-item">
+                <div class="note-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path><circle cx="20" cy="10" r="2"></circle></svg>
+                </div>
+                <div class="note-text">Qualora lo ritenessi opportuno, è disponibile una <strong>valutazione fisiatrica</strong>.</div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     FAQ — nuova sezione strategica, accordion puro CSS
+     (nessun JavaScript necessario, usa <details>/<summary>)
+=================================================== -->
+
+
+<!-- Footer -->
+<footer class="legal-footer">
+    <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
+    <p style="font-size: 0.8rem; opacity: 0.75;">
+        <a href="privacy.html">Privacy &amp; Cookie Policy</a>
+    </p>
+</footer>
+
+</body>
+</html>

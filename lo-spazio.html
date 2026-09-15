@@ -10,6 +10,94 @@
         /* Reset e Sfondo Base */
         body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
 
+        /* --- STILI POPUP AVVISO INVERNALE --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .modal-overlay.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-box {
+            background-color: var(--crema-sfondo);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+            border: 2px solid var(--verde-salvia);
+            transform: translateY(-30px);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.show .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-x {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--verde-oliva-titoli);
+            background: none;
+            border: none;
+            transition: transform 0.2s ease;
+        }
+
+        .modal-x:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-box h3 {
+            color: var(--terracotta);
+            font-size: 2.2rem;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .modal-box p {
+            color: var(--testo-scuro);
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .modal-close-btn {
+            background-color: var(--verde-salvia);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: sans-serif;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--verde-oliva-titoli);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(94, 110, 79, 0.3);
+        }
+
         /* 1. HERO SECTION */
         .hero-spazio {
             height: 90vh; 
@@ -247,6 +335,19 @@
 </head>
 <body>
 
+    <!-- POPUP AVVISO INVERNALE -->
+    <div class="modal-overlay" id="winterModal">
+        <div class="modal-box">
+            <button class="modal-x" id="closeX" aria-label="Chiudi">&times;</button>
+            <div style="font-size: 3rem; margin-bottom: 5px;">🍂</div>
+            <h3>Avviso Chiusura Giardino</h3>
+            <p>Ti informiamo che il giardino all'aperto resterà <strong>chiuso per tutta la stagione invernale</strong>.</p>
+            <p>Ma le lezioni continuano al caldo! Ci siamo trasferiti nella nostra <strong>nuova casa</strong> al coperto presso <strong>AB Studio</strong>, in <strong>Via San Leo 6 a Pesaro</strong>.</p>
+            <p style="font-style: italic; color: var(--verde-salvia); font-size: 1.1rem;">Ti aspettiamo per praticare insieme!</p>
+            <button class="modal-close-btn" id="closeModalBtn">Ho capito, Chiudi</button>
+        </div>
+    </div>
+
     <nav class="sub-nav">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -363,6 +464,37 @@
     </footer>
 
     <script>
+        // SCRIPT GESTIONE POPUP (MODAL)
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('winterModal');
+            const closeBtn = document.getElementById('closeModalBtn');
+            const closeX = document.getElementById('closeX');
+
+            // Apre il popup dopo 0.8 secondi dall'apertura della pagina
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 800);
+
+            // Funzione per chiudere il popup
+            function closeModal() {
+                modal.classList.remove('show');
+            }
+
+            // Click sul bottone Chiudi
+            closeBtn.addEventListener('click', closeModal);
+            
+            // Click sulla X
+            closeX.addEventListener('click', closeModal);
+            
+            // Click fuori dal riquadro per chiuderlo
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        // SCRIPT GESTIONE CAROUSEL (ESISTENTE)
         const track = document.querySelector('.carousel-track');
         const nextButton = document.querySelector('.next-btn');
         const prevButton = document.querySelector('.prev-btn');

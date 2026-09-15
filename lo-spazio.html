@@ -18,21 +18,22 @@
         /* --- STILI TICKER BANNER (Avviso scorrevole FISSO) --- */
         .ticker-banner {
             background-color: var(--terracotta);
-            color: black; /* TESTO NERO */
+            color: white; /* TESTO BIANCO */
             padding: 12px 0;
             overflow: hidden;
             position: fixed; /* Ancorata in modo permanente allo schermo */
-            bottom: 0; /* Fissata in basso (cambia in "top: 0;" se la vuoi in alto) */
+            bottom: 0; /* Fissata in basso */
             left: 0;
             right: 0;
             z-index: 9998;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.15);
+            /* OMRA IMPORTANTE: Crea un forte distacco dalle foto sottostanti */
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
             display: flex;
             align-items: center;
         }
 
         .ticker-text {
-            color: black; /* TESTO NERO */
+            color: white; /* TESTO BIANCO */
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%; /* Inizia da fuori schermo a destra */
@@ -40,6 +41,8 @@
             font-size: 1.05rem;
             font-family: sans-serif;
             letter-spacing: 0.5px;
+            /* Ombra anche sul testo per farlo risaltare al massimo */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .ticker-text strong {
@@ -391,7 +394,7 @@
         </div>
     </div>
 
-    <!-- NUOVO TICKER BANNER SCORREVOLE E FISSO IN BASSO -->
+    <!-- NUOVO TICKER BANNER SCORREVOLE E FISSO IN BASSO CON OMRA MARCATA -->
     <div class="ticker-banner">
         <div class="ticker-text">
             🍂 Il giardino all'aperto è attualmente <strong>chiuso per la stagione invernale</strong>. Le lezioni continuano al coperto nella nuova sede in <strong>Via San Leo 6, Pesaro (presso AB Studio)</strong>. Ti aspettiamo! ✨

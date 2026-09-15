@@ -15,34 +15,36 @@
             padding-bottom: 50px; /* Lascia spazio in fondo per non coprire il footer con la barra fissa */
         }
 
-        /* --- STILI TICKER BANNER (Avviso scorrevole FISSO) --- */
+        /* --- STILI TICKER BANNER (Avviso scorrevole FISSO - SOLUZIONE ELEGANTE) --- */
         .ticker-banner {
-            background-color: var(--terracotta);
-            color: white; /* TESTO BIANCO */
+            /* Colore solido assicurato: se la var non va, usa il colore esadecimale #B85D43 */
+            background-color: var(--terracotta, #B85D43); 
             padding: 12px 0;
             overflow: hidden;
-            position: fixed; /* Ancorata in modo permanente allo schermo */
-            bottom: 0; /* Fissata in basso */
+            position: fixed; 
+            bottom: 0; 
             left: 0;
             right: 0;
             z-index: 9998;
-            /* OMRA IMPORTANTE: Crea un forte distacco dalle foto sottostanti */
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.7);
+            
+            /* Addio macchia nera! Mettiamo un bordino chiaro e un'ombra leggerissima e pulita */
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
             display: flex;
             align-items: center;
         }
 
         .ticker-text {
-            color: white; /* TESTO BIANCO */
+            color: #ffffff; /* Testo bianco puro */
             display: inline-block;
             white-space: nowrap;
-            padding-left: 100%; /* Inizia da fuori schermo a destra */
+            padding-left: 100%; 
             animation: scorri-testo 25s linear infinite; 
             font-size: 1.05rem;
             font-family: sans-serif;
             letter-spacing: 0.5px;
-            /* Ombra anche sul testo per farlo risaltare al massimo */
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            /* Ombra leggerissima sul testo solo per renderlo più nitido, senza sbavature */
+            text-shadow: 0px 1px 2px rgba(0,0,0,0.3);
         }
 
         .ticker-text strong {
@@ -394,7 +396,7 @@
         </div>
     </div>
 
-    <!-- NUOVO TICKER BANNER SCORREVOLE E FISSO IN BASSO CON OMRA MARCATA -->
+    <!-- NUOVO TICKER BANNER SCORREVOLE E FISSO IN BASSO -->
     <div class="ticker-banner">
         <div class="ticker-text">
             🍂 Il giardino all'aperto è attualmente <strong>chiuso per la stagione invernale</strong>. Le lezioni continuano al coperto nella nuova sede in <strong>Via San Leo 6, Pesaro (presso AB Studio)</strong>. Ti aspettiamo! ✨

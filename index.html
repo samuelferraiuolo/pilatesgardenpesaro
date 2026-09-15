@@ -15,6 +15,29 @@
             opacity: 0.15; z-index: -1; 
         }
 
+        /* --- BARRA SVILUPPATORE IN ALTO --- */
+        .developer-top-bar {
+            background-color: var(--verde-oliva-titoli, #5e6e4f);
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            letter-spacing: 0.5px;
+            z-index: 100;
+            position: relative;
+        }
+
+        .developer-top-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .developer-top-bar a:hover {
+            text-decoration: underline;
+        }
+
         .home-container { 
             max-width: 1350px; 
             margin: 0 auto; 
@@ -44,7 +67,7 @@
             margin-bottom: 40px; 
         }
 
-        /* RICHIAMO FAQ: subito visibile sotto il messaggio di benvenuto */
+        /* RICHIAMO FAQ */
         .faq-highlight {
             max-width: 900px;
             margin: 0 auto 40px;
@@ -146,20 +169,9 @@
         }
 
         @keyframes pulse-listino {
-            0% { 
-                transform: scale(1); 
-                box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); 
-            }
-
-            50% { 
-                transform: scale(1.03); 
-                box-shadow: 0 6px 20px rgba(154, 160, 138, 0.6); 
-            }
-
-            100% { 
-                transform: scale(1); 
-                box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); 
-            }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(154, 160, 138, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(154, 160, 138, 0.4); }
         }
 
         /* BOX AVVISO SETTEMBRE ANIMATO */
@@ -176,59 +188,18 @@
         }
 
         @keyframes float-avviso {
-            0% { 
-                transform: translateY(0px); 
-                box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); 
-            }
-
-            50% { 
-                transform: translateY(-10px); 
-                box-shadow: 0 15px 40px rgba(94, 110, 79, 0.25); 
-            }
-
-            100% { 
-                transform: translateY(0px); 
-                box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); 
-            }
+            0% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); }
+            50% { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(94, 110, 79, 0.25); }
+            100% { transform: translateY(0px); box-shadow: 0 10px 30px rgba(94, 110, 79, 0.15); }
         }
 
-        .avviso-icona { 
-            font-size: 2.5rem; 
-            margin-bottom: 10px; 
-        }
-        
-        .avviso-settembre h4 { 
-            color: var(--terracotta); 
-            font-size: 2.2rem; 
-            margin-top: 0; 
-            margin-bottom: 15px; 
-            font-weight: 400; 
-        }
-        
-        .avviso-settembre p { 
-            font-size: 1.25rem; 
-            color: var(--testo-scuro); 
-            margin-bottom: 10px; 
-            line-height: 1.4; 
-        }
-        
-        .avviso-settembre p strong { 
-            color: var(--verde-oliva-titoli); 
-        }
-        
-        .avviso-sub { 
-            font-style: italic; 
-            color: var(--verde-oliva-titoli) !important; 
-            margin-bottom: 30px !important; 
-        }
+        .avviso-icona { font-size: 2.5rem; margin-bottom: 10px; }
+        .avviso-settembre h4 { color: var(--terracotta); font-size: 2.2rem; margin-top: 0; margin-bottom: 15px; font-weight: 400; }
+        .avviso-settembre p { font-size: 1.25rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
+        .avviso-settembre p strong { color: var(--verde-oliva-titoli); }
+        .avviso-sub { font-style: italic; color: var(--verde-oliva-titoli) !important; margin-bottom: 30px !important; }
 
-        .avviso-social { 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-            flex-wrap: wrap; 
-        }
-        
+        .avviso-social { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .btn-social {
             padding: 14px 30px;
             border-radius: 50px;
@@ -242,196 +213,66 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
         }
-
-        .btn-social:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 8px 20px rgba(94, 110, 79, 0.3); 
-            background-color: var(--verde-oliva-titoli); 
-            color: white;
-        }
+        .btn-social:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(94, 110, 79, 0.3); background-color: var(--verde-oliva-titoli); color: white; }
 
         /* STRUTTURA CARD */
-        .cards-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px; 
-            align-items: stretch; 
-            text-align: left;
-        } 
-        
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; text-align: left; } 
         .card { 
-            background-color: var(--crema-sfondo); 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
-            display: flex; 
-            flex-direction: column; 
-            text-decoration: none; 
-            transition: transform 0.4s ease; 
-            border: 1px solid rgba(94, 110, 79, 0.15);
+            background-color: var(--crema-sfondo); border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; 
+            text-decoration: none; transition: transform 0.4s ease; border: 1px solid rgba(94, 110, 79, 0.15);
         }
-
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
-        }
-        
-        .card-img-wrapper { 
-            position: relative; 
-            width: 100%; 
-            height: 400px; 
-        }
-
-        .card-img-wrapper img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .card-img-wrapper { position: relative; width: 100%; height: 400px; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
         
         .card-matwork .card-img-wrapper img { object-position: 50% 60%; }
         .card-reformer .card-img-wrapper img { object-position: 50% 60%; }
         .card-spazio .card-img-wrapper img { object-position: 50% 60%; }
 
         .card-img-wrapper::after {
-            content: ''; 
-            position: absolute; 
-            bottom: -1px; 
-            left: 0; 
-            right: 0; 
-            height: 160px;
-            background: linear-gradient(
-                to bottom, 
-                rgba(243, 238, 228, 0) 0%, 
-                var(--crema-sfondo) 100%
-            );
+            content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 160px;
+            background: linear-gradient(to bottom, rgba(243, 238, 228, 0) 0%, var(--crema-sfondo) 100%);
         }
         
-        .card-content { 
-            padding: 0 30px 40px 30px; 
-            flex-grow: 1; 
-            text-align: center; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
-            background-color: var(--crema-sfondo); 
-            position: relative; 
-            z-index: 2;
-        }
-        
-        .card-content h3 { 
-            font-size: 3.2rem; 
-            margin-bottom: 10px; 
-            font-weight: 400; 
-            color: var(--verde-oliva-titoli); 
-            line-height: 1; 
-        }
-
-        .card-divider { 
-            width: 50px; 
-            height: 1px; 
-            background-color: var(--verde-salvia); 
-            margin: 0 auto 20px auto; 
-        }
-
-        .card-content p { 
-            font-size: 1.3rem; 
-            color: var(--testo-scuro); 
-            margin-bottom: 10px; 
-            line-height: 1.4; 
-        }
-
-        .card-bottom-leaf { 
-            width: 140px; 
-            margin-top: auto; 
-            padding-top: 30px; 
-        }
+        .card-content { padding: 0 30px 40px 30px; flex-grow: 1; text-align: center; display: flex; flex-direction: column; align-items: center; background-color: var(--crema-sfondo); position: relative; z-index: 2; }
+        .card-content h3 { font-size: 3.2rem; margin-bottom: 10px; font-weight: 400; color: var(--verde-oliva-titoli); line-height: 1; }
+        .card-divider { width: 50px; height: 1px; background-color: var(--verde-salvia); margin: 0 auto 20px auto; }
+        .card-content p { font-size: 1.3rem; color: var(--testo-scuro); margin-bottom: 10px; line-height: 1.4; }
+        .card-bottom-leaf { width: 140px; margin-top: auto; padding-top: 30px; }
         
         /* FOOTER E FIRMA SVILUPPATORE */
-        .footer-bar {
-            text-align: center;
-            padding: 30px 20px 20px 20px;
-            background-color: var(--verde-oliva-titoli);
-            color: var(--crema-sfondo);
-            font-size: 0.9rem;
-        }
+        .footer-bar { text-align: center; padding: 30px 20px 20px 20px; background-color: var(--verde-oliva-titoli); color: var(--crema-sfondo); font-size: 0.9rem; }
+        .footer-bar a { color: var(--crema-sfondo); text-decoration: underline; opacity: 0.8; }
+        .footer-bar a:hover { opacity: 1; }
+        .developer-signature { margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.8rem; opacity: 0.6; transition: opacity 0.3s ease; }
+        .developer-signature:hover { opacity: 1; }
+        .developer-signature a { color: var(--crema-sfondo); text-decoration: none; font-weight: 600; letter-spacing: 0.5px; }
+        .developer-signature a:hover { text-decoration: underline; }
 
-        .footer-bar a { 
-            color: var(--crema-sfondo); 
-            text-decoration: underline; 
-            opacity: 0.8; 
-        }
-
-        .footer-bar a:hover { 
-            opacity: 1; 
-        }
-
-        .developer-signature {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.15); /* Linea divisoria per separare dal footer principale */
-            font-size: 0.8rem;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-
-        .developer-signature:hover {
-            opacity: 1;
-        }
-
-        .developer-signature a {
-            color: var(--crema-sfondo);
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .developer-signature a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 1100px) { 
-            .cards-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-            } 
-        }
-
+        @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) { 
-            .cards-grid { 
-                grid-template-columns: 1fr; 
-            } 
-
-            .card-img-wrapper { 
-                height: 260px; 
-            }
-
-            .avviso-settembre { 
-                padding: 30px 20px; 
-            }
-
-            .avviso-settembre h4 { 
-                font-size: 1.8rem; 
-            }
-
-            .faq-highlight { 
-                padding: 24px 20px; 
-            }
-
-            .faq-highlight h2 { 
-                font-size: 1.65rem; 
-            }
-
-            .btn-listino { 
-                font-size: 1.1rem; 
-                padding: 14px 25px; 
-                text-align: center; 
-                flex-direction: column; 
-                gap: 5px; 
-            }
+            .cards-grid { grid-template-columns: 1fr; } 
+            .card-img-wrapper { height: 260px; }
+            .avviso-settembre { padding: 30px 20px; }
+            .avviso-settembre h4 { font-size: 1.8rem; }
+            .faq-highlight { padding: 24px 20px; }
+            .faq-highlight h2 { font-size: 1.65rem; }
+            .btn-listino { font-size: 1.1rem; padding: 14px 25px; text-align: center; flex-direction: column; gap: 5px; }
+            
+            /* Adatta la top bar sui telefoni */
+            .developer-top-bar { padding: 8px 10px; font-size: 0.8rem; }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- INIZIO BARRA SVILUPPATORE IN ALTO -->
+    <div class="developer-top-bar">
+        💻 Ti piace questo sito? Scopri come avere il tuo! Sviluppo Web: <strong>Samuel Ferraiuolo</strong> | <a href="tel:+393470876731">📱 347 0876 731</a>
+    </div>
+    <!-- FINE BARRA SVILUPPATORE IN ALTO -->
 
     <nav class="sub-nav">
         <ul class="nav-links">
@@ -451,35 +292,20 @@
         <div class="avviso-settembre">
             <div class="avviso-icona">✨</div>
             <h4>Siamo in una nuova casa!</h4>
-
-            <p>
-                Da <strong>settembre</strong> Pilates Garden Pesaro si è spostato al coperto:
-                le lezioni continuano presso <strong>AB Studio</strong>, in Via San Leo 6 a Pesaro,
-                per prenderci cura di voi e della vostra pratica in ogni stagione.
-            </p>
-
-            <p class="avviso-sub">
-                Trovi gli orari aggiornati nella pagina Contatti e Orari. Seguici anche sui social:
-            </p>
-            
+            <p>Da <strong>settembre</strong> Pilates Garden Pesaro si è spostato al coperto: le lezioni continuano presso <strong>AB Studio</strong>, in Via San Leo 6 a Pesaro, per prenderci cura di voi e della vostra pratica in ogni stagione.</p>
+            <p class="avviso-sub">Trovi gli orari aggiornati nella pagina Contatti e Orari. Seguici anche sui social:</p>
             <div class="avviso-social">
                 <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-social">Instagram</a>
                 <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" class="btn-social">Facebook</a>
             </div>
         </div>
         
-        <p class="subtitle-italic">
-            Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.
-        </p>
+        <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
 
         <!-- FAQ IN EVIDENZA -->
         <section class="faq-highlight" aria-labelledby="faq-title">
             <h2 style="color: black;" id="faq-title">Hai qualche dubbio prima di iniziare?</h2>
-            <p>
-                Trova subito risposta alle domande più frequenti su lezioni, 
-                prenotazioni, abbigliamento, prezzi e molto altro.
-            </p>
-
+            <p>Trova subito risposta alle domande più frequenti su lezioni, prenotazioni, abbigliamento, prezzi e molto altro.</p>
             <a style="color: black;" href="Faq.html" class="btn-faq" aria-label="Apri le domande frequenti">
                 <span style="color: black;" aria-hidden="true">?</span>
                 Scopri le domande frequenti
@@ -505,60 +331,31 @@
         <!-- CARD DEI SERVIZI -->
         <div class="cards-grid">
             <a href="matwork.html" class="card card-matwork">
-                <div class="card-img-wrapper">
-                    <img src="foto-matwork-pulita.jpg" alt="Matwork">
-                </div>
-
+                <div class="card-img-wrapper"><img src="foto-matwork-pulita.jpg" alt="Matwork"></div>
                 <div class="card-content">
-                    <h3>Matwork</h3>
-                    <div class="card-divider"></div>
-                    <p>
-                        Lavoro a terra su base in legno.<br>
-                        Classi intime di massimo 3 persone<br>
-                        per garantire la massima attenzione.
-                    </p>
-                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">
-                        Perché i dettagli fanno la differenza.
-                    </p>
+                    <h3>Matwork</h3><div class="card-divider"></div>
+                    <p>Lavoro a terra su base in legno.<br>Classi intime di massimo 3 persone<br>per garantire la massima attenzione.</p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">Perché i dettagli fanno la differenza.</p>
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
 
             <a href="reformer.html" class="card card-reformer">
-                <div class="card-img-wrapper">
-                    <img src="foto-reformer-pulita.jpg" alt="Reformer">
-                </div>
-
+                <div class="card-img-wrapper"><img src="foto-reformer-pulita.jpg" alt="Reformer"></div>
                 <div class="card-content">
-                    <h3>Reformer</h3>
-                    <div class="card-divider"></div>
-                    <p>
-                        Lezioni in piccoli gruppi,<br>
-                        massimo 2 persone.
-                    </p>
-                    <p style="font-style: italic; color: var(--verde-oliva-titoli); margin-top: 10px;">
-                        Precisione, fluidità e attenzione personalizzata.
-                    </p>
+                    <h3>Reformer</h3><div class="card-divider"></div>
+                    <p>Lezioni in piccoli gruppi,<br>massimo 2 persone.</p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli); margin-top: 10px;">Precisione, fluidità e attenzione personalizzata.</p>
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
 
             <a href="lo-spazio.html" class="card card-spazio">
-                <div class="card-img-wrapper">
-                    <img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere">
-                </div>
-
+                <div class="card-img-wrapper"><img src="foto-spazio-pulita.jpg" alt="Uno spazio da vivere"></div>
                 <div class="card-content">
-                    <h3>Uno spazio da vivere</h3>
-                    <div class="card-divider"></div>
-                    <p>
-                        Un nuovo ambiente accogliente e curato,<br>
-                        il luogo ideale per ritrovare<br>
-                        equilibrio e benessere.
-                    </p>
-                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">
-                        Perché anche l'ambiente fa parte della pratica.
-                    </p>
+                    <h3>Uno spazio da vivere</h3><div class="card-divider"></div>
+                    <p>Un nuovo ambiente accogliente e curato,<br>il luogo ideale per ritrovare<br>equilibrio e benessere.</p>
+                    <p style="font-style: italic; color: var(--verde-oliva-titoli);">Perché anche l'ambiente fa parte della pratica.</p>
                     <img src="decoro-foglie-orizzontale.png" class="card-bottom-leaf" alt="Decoro">
                 </div>
             </a>
@@ -571,9 +368,9 @@
             <a href="privacy.html">Privacy &amp; Cookie Policy</a>
         </p>
         
-        <!-- INIZIO FIRMA SVILUPPATORE -->
+        <!-- INIZIO FIRMA SVILUPPATORE (MANTENUTA ANCHE NEL FOOTER) -->
         <div class="developer-signature">
-            💻 Ti piace questo sito? Scopri come avere il tuo! Sviluppo Web a cura di <strong>Samuel Ferraiuolo</strong> | <a href="tel:+393470876731">📱 347 0876 731</a>
+            Sviluppo Web a cura di <strong>Samuel Ferraiuolo</strong> | <a href="tel:+393470876731">📱 347 0876 731</a>
         </div>
         <!-- FINE FIRMA SVILUPPATORE -->
     </footer>

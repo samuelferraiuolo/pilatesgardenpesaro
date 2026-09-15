@@ -880,6 +880,55 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .legal-footer a:hover { opacity: 1; text-decoration: underline; }
 
 /* ===================================================
+   BARRA SVILUPPATORE IN ALTO E FIRMA IN BASSO
+=================================================== */
+.developer-top-bar {
+    background-color: var(--verde-oliva-scuro);
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    font-family: var(--font-ui);
+    letter-spacing: 0.5px;
+    z-index: 100;
+    position: relative;
+}
+
+.developer-top-bar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.developer-top-bar a:hover {
+    text-decoration: underline;
+}
+
+.developer-signature {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.developer-signature:hover {
+    opacity: 1;
+}
+
+.developer-signature a {
+    color: var(--crema-sfondo);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.developer-signature a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================================
    RESPONSIVE — tuning fine mobile
 =================================================== */
 @media (max-width: 900px) {
@@ -891,9 +940,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     .avviso-settembre { margin: 40px 16px 10px 16px; padding: 34px 24px; }
     .pricing-note-item { gap: 16px; }
 }
+
+@media (max-width: 768px) {
+    .developer-top-bar { padding: 8px 10px; font-size: 0.8rem; }
+}
 </style>
 </head>
 <body>
+
+<!-- INIZIO BARRA SVILUPPATORE IN ALTO -->
+<div class="developer-top-bar">
+    💻 Ti piace questo sito? Scopri come avere il tuo! Sviluppo Web: <strong>Samuel Ferraiuolo</strong> | <a href="tel:+393470876731">📱 347 0876 731</a>
+</div>
+<!-- FINE BARRA SVILUPPATORE IN ALTO -->
 
 <nav class="sub-nav">
     <ul class="nav-links">
@@ -1224,8 +1283,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
     <p style="font-size: 0.8rem; opacity: 0.75;">
         <a href="privacy.html">Privacy &amp; Cookie Policy</a>
     </p>
+
+    <!-- INIZIO FIRMA SVILUPPATORE -->
+    <div class="developer-signature">
+        Sviluppo Web a cura di <strong>Samuel Ferraiuolo</strong> | <a href="tel:+393470876731">📱 347 0876 731</a>
+    </div>
+    <!-- FINE FIRMA SVILUPPATORE -->
 </footer>
 
 </body>
 </html>
-

@@ -346,10 +346,10 @@
             padding-top: 30px; 
         }
         
-        /* FOOTER */
+        /* FOOTER E FIRMA SVILUPPATORE */
         .footer-bar {
             text-align: center;
-            padding: 30px 20px;
+            padding: 30px 20px 20px 20px;
             background-color: var(--verde-oliva-titoli);
             color: var(--crema-sfondo);
             font-size: 0.9rem;
@@ -363,6 +363,30 @@
 
         .footer-bar a:hover { 
             opacity: 1; 
+        }
+
+        .developer-signature {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.15); /* Linea divisoria per separare dal footer principale */
+            font-size: 0.8rem;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .developer-signature:hover {
+            opacity: 1;
+        }
+
+        .developer-signature a {
+            color: var(--crema-sfondo);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .developer-signature a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 1100px) { 
@@ -546,6 +570,12 @@
         <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
             <a href="privacy.html">Privacy &amp; Cookie Policy</a>
         </p>
+        
+        <!-- INIZIO FIRMA SVILUPPATORE -->
+        <div class="developer-signature">
+            Ti piace questo sito? Sviluppo Web a cura di <strong>Samuel Ferraiuolo</strong> | <a href="tel:+393470876731">📱 347 0876 731</a>
+        </div>
+        <!-- FINE FIRMA SVILUPPATORE -->
     </footer>
 
 </body>

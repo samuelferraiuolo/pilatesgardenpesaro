@@ -10,6 +10,43 @@
         /* Reset e Sfondo Base */
         body { background-color: var(--crema-sfondo); margin: 0; padding: 0; }
 
+        /* --- STILI TICKER BANNER (Avviso scorrevole) --- */
+        .ticker-banner {
+            background-color: var(--terracotta);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            position: sticky; /* Rimane bloccata in alto scorrendo */
+            top: 0; 
+            z-index: 998;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%; /* Inizia da fuori schermo a destra */
+            animation: scorri-testo 25s linear infinite; /* 25s è la velocità, modificala se la vuoi più lenta o veloce */
+            font-size: 1.05rem;
+            font-family: sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-text strong {
+            font-weight: bold;
+        }
+
+        @keyframes scorri-testo {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker-banner:hover .ticker-text {
+            animation-play-state: paused; /* Se l'utente ci passa sopra con il mouse, si ferma per poter leggere meglio */
+        }
+
         /* --- STILI POPUP AVVISO INVERNALE --- */
         .modal-overlay {
             position: fixed;
@@ -165,9 +202,8 @@
             margin: 0; 
         }
 
-        /* 📌 STILE FOGLIA ACCANTO AL TITOLO */
         .leaf-accent {
-            width: 95px; /* 👈 MODIFICA QUI: Cambia i pixel per ingrandire la fogliolina (es. mettila a 90px se la vuoi gigante) */
+            width: 95px; 
             height: auto;
             display: block;
             opacity: 0.8;
@@ -219,10 +255,9 @@
         
         .icon-item { text-align: center; }
         
-        /* 📌 STILE ICONE DELLA GRIGLIA (Salute, Postura, ecc.) */
         .icon-item img { 
-            width: 105px; /* 👈 MODIFICA QUI: Cambia i pixel per allargare o stringere le icone SVG */
-            height: 105px; /* 👈 MODIFICA QUI: Ricorda di mantenere questo valore uguale alla larghezza per non schiacciarle */
+            width: 105px; 
+            height: 105px; 
             margin-bottom: 20px; 
             display: inline-block; 
         } 
@@ -357,6 +392,13 @@
         </ul>
     </nav>
 
+    <!-- NUOVO TICKER BANNER SCORREVOLE E BLOCCATO -->
+    <div class="ticker-banner">
+        <div class="ticker-text">
+            🍂 Il giardino all'aperto è attualmente <strong>chiuso per la stagione invernale</strong>. Le lezioni continuano al coperto nella nuova sede in <strong>Via San Leo 6, Pesaro (presso AB Studio)</strong>. Ti aspettiamo! ✨
+        </div>
+    </div>
+
     <section class="hero-spazio">
         <div class="hero-content">
             <h1  style="color: white;">Uno<br>spazio<br>da vivere</h1>
@@ -412,10 +454,10 @@
                     <div class="carousel-item">
                         <img src="imag1.jpg" alt="Scorcio Giardino 1">
                     </div>
-   <div class="carousel-item">
+                    <div class="carousel-item">
                         <img src="imag6.jpg" alt="Scorcio Giardino 6">
                     </div>
-                      <div class="carousel-item">
+                    <div class="carousel-item">
                         <img src="imag10.jpg" alt="Scorcio Giardino 2">
                     </div>
                     
@@ -423,8 +465,7 @@
                         <img src="imag11.jpg" ></img>
                     </div>
                  
-                  
-                          <div class="carousel-item">
+                    <div class="carousel-item">
                         <img src="imag12.jpg" alt="Scorcio Giardino 2">
                     </div>
                           

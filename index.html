@@ -215,6 +215,18 @@
         }
         .btn-social:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(94, 110, 79, 0.3); background-color: var(--verde-oliva-titoli); color: white; }
 
+        /* SEZIONE CURA DEL CLIENTE */
+        .cura-section { max-width: 1100px; margin: 0 auto 60px; }
+        .cura-section h2 { color: var(--verde-oliva-titoli); font-size: 2.6rem; font-weight: 400; margin: 0 0 12px; }
+        .cura-section .card-divider { margin-bottom: 35px; }
+        .cura-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
+        .cura-item {
+            background-color: var(--crema-sfondo); border: 1px solid rgba(94, 110, 79, 0.15); border-radius: 20px;
+            padding: 34px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        }
+        .cura-item h3 { color: var(--verde-oliva-titoli); font-size: 1.75rem; font-weight: 400; margin: 0 0 12px; line-height: 1.15; }
+        .cura-item p { color: var(--testo-scuro); font-size: 1.2rem; line-height: 1.5; margin: 0; }
+
         /* STRUTTURA CARD */
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-items: stretch; text-align: left; } 
         .card { 
@@ -256,6 +268,8 @@
             .card-img-wrapper { height: 260px; }
             .avviso-settembre { padding: 30px 20px; }
             .avviso-settembre h4 { font-size: 1.8rem; }
+            .cura-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cura-section h2 { font-size: 2rem; }
             .faq-highlight { padding: 24px 20px; }
             .faq-highlight h2 { font-size: 1.65rem; }
             .btn-listino { font-size: 1.1rem; padding: 14px 25px; text-align: center; flex-direction: column; gap: 5px; }
@@ -301,6 +315,26 @@
         </div>
         
         <p class="subtitle-italic">Ascolto, attenzione, natura. Un modo diverso di vivere il Pilates.</p>
+
+        <!-- CURA DEL CLIENTE -->
+        <section class="cura-section" aria-labelledby="cura-title">
+            <h2 id="cura-title">Il mio modo di prendermi cura di te</h2>
+            <div class="card-divider"></div>
+            <div class="cura-grid">
+                <article class="cura-item">
+                    <h3>Poche persone, tutta la mia attenzione</h3>
+                    <p>Al Reformer lavoro con al massimo 2 persone, nel Matwork con piccoli gruppi. Così ti seguo davvero: correggo ogni movimento e adatto ogni esercizio a te.</p>
+                </article>
+                <article class="cura-item">
+                    <h3>Un percorso su misura</h3>
+                    <p>Non esiste una lezione uguale per tutti. Parto da come stai tu, dai tuoi obiettivi e dalle tue esigenze, e costruisco il lavoro insieme a te, lezione dopo lezione.</p>
+                </article>
+                <article class="cura-item">
+                    <h3>Solo il meglio per la tua pratica</h3>
+                    <p>Scelgo attrezzature e prodotti di massima qualità, perché il tuo benessere e la tua sicurezza vengono prima di tutto.</p>
+                </article>
+            </div>
+        </section>
 
         <!-- FAQ IN EVIDENZA -->
         <section class="faq-highlight" aria-labelledby="faq-title">

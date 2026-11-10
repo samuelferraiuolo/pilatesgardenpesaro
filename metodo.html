@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CovaTech® Pilates School | Pilates Garden Pesaro</title>
+<title>Il Metodo CovaTech® | Pilates Garden Pesaro</title>
 <meta name="description" content="Il metodo CovaTech® e Sara Di Franco, CovaTech® Pilates® Teacher: percorsi di Pilates personalizzati a Pesaro, presso AB Studio.">
 <link rel="stylesheet" href="common.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 <style>
 /* ===================================================
@@ -43,7 +43,7 @@ body {
 body::before {
     content: '';
     position: fixed; inset: 0;
-    background-image: url('Sfondo beige con foglie per sito web.png');
+    background-image: url('sfondo-foglie.jpg');
     background-size: 380px;
     opacity: 0.09;
     z-index: -1;
@@ -52,10 +52,9 @@ body::before {
 
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; border-radius: 6px; }
-.sub-nav a:focus-visible,
+.btn-primario:focus-visible, .btn-chiaro:focus-visible { border-radius: 40px; outline-color: var(--verde-oliva-scuro); }
 .legal-footer a:focus-visible,
 .developer-top-bar a:focus-visible { outline-color: var(--carta); }
-.btn-primario:focus-visible { outline-color: var(--verde-oliva-scuro); }
 
 .nav-links a { font-family: var(--font-display); }
 
@@ -76,7 +75,7 @@ p { margin: 0; }
 /* Foto ad arco: la stessa forma del logo */
 .arco {
     margin: 0;
-    border-radius: 999px 999px 26px 26px;
+    border-radius: 50% 50% 26px 26px / 40% 40% 26px 26px;
     overflow: hidden;
     background: var(--parete);
 }
@@ -151,7 +150,7 @@ p { margin: 0; }
 }
 .firma span { font-size: 0.95rem; color: var(--testo-soft); }
 
-.apertura-foto { position: relative; }
+.apertura-foto { position: relative; width: 100%; max-width: 400px; justify-self: end; }
 .apertura-foto .arco { aspect-ratio: 4 / 5; }
 .apertura-foto .arco img { object-position: 50% 30%; }
 .qualifiche {
@@ -207,6 +206,8 @@ p { margin: 0; }
 }
 .loghi img { display: block; height: 58px; width: auto; max-width: 170px; object-fit: contain; }
 .loghi li:first-child img { height: 62px; max-width: 200px; }
+.loghi li:nth-child(4) img { height: 66px; }
+.loghi li:nth-child(7) img { height: 72px; }
 
 /* ===================================================
    IL TEACHER
@@ -246,6 +247,7 @@ p { margin: 0; }
     line-height: 1.2;
     max-width: 30ch;
 }
+.pilastri cite { display: block; margin-top: 22px; font-style: normal; font-size: 0.95rem; }
 
 /* ===================================================
    A CHI È RIVOLTO
@@ -281,7 +283,7 @@ p { margin: 0; }
     padding: 34px 30px;
     background: var(--carta);
     border: 1px solid var(--filo);
-    border-radius: 999px 999px 24px 24px;
+    border-radius: 50% 50% 24px 24px / 160px 160px 24px 24px;
     text-align: center;
 }
 .prima-lezione svg.goccia { width: 30px; height: 30px; color: var(--verde-oliva-titoli); margin: 26px auto 10px; display: block; }
@@ -299,7 +301,7 @@ p { margin: 0; }
    CONTATTI IN CHIUSURA
 =================================================== */
 .chiusura { padding: 0 0 110px; }
-.chiusura .wrap {
+.chiusura-griglia {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 32px 72px;
@@ -333,7 +335,8 @@ p { margin: 0; }
    RESPONSIVE
 =================================================== */
 @media (max-width: 900px) {
-    .apertura .wrap, .scuola-layout, .rivolto-layout, .chiusura .wrap { grid-template-columns: 1fr; }
+    .apertura .wrap, .scuola-layout, .rivolto-layout, .chiusura-griglia { grid-template-columns: 1fr; }
+    .apertura-foto { justify-self: start; }
     .apertura-foto { max-width: 460px; }
     .prima-lezione { position: static; max-width: 420px; }
 }
@@ -379,7 +382,7 @@ p { margin: 0; }
             <h1>Il movimento che nasce dalla competenza.</h1>
             <p class="lead">Percorsi di Pilates personalizzati per il tuo benessere e la qualità della vita.</p>
             <div class="firma">
-                <img src="logoteacher.svg" alt="CovaTech Pilates Teacher">
+                <img src="logoteacher.svg" alt="" width="380" height="278">
                 <div>
                     <strong>Sara Di Franco</strong>
                     <span>CovaTech® Pilates® Teacher</span>
@@ -425,7 +428,7 @@ p { margin: 0; }
         </div>
 
         <div class="certificazioni">
-            <h3>Le nostre certificazioni e accreditamenti</h3>
+            <h3>Certificazioni e accreditamenti della scuola</h3>
             <ul class="loghi">
                 <li><img src="logo1.svg" alt="APPI, scuola approvata 2021, 2022 e 2023" loading="lazy"></li>
                 <li><img src="logo2.svg" alt="APPI, Associazione Professionisti Pilates in Italia" loading="lazy"></li>
@@ -446,7 +449,7 @@ p { margin: 0; }
         <div class="teacher-punti">
             <article>
                 <h3>Una preparazione rigorosa</h3>
-                <p>È un insegnante di Pilates che ha completato con successo presso la nostra Scuola un rigoroso percorso formativo, garanzia di un'elevata preparazione tecnica.</p>
+                <p>È un insegnante di Pilates che ha completato con successo presso la Scuola CovaTech® un rigoroso percorso formativo, garanzia di un'elevata preparazione tecnica.</p>
             </article>
             <article>
                 <h3>Sempre aggiornato</h3>
@@ -460,6 +463,7 @@ p { margin: 0; }
     <div class="wrap">
         <blockquote>
             <p>Competenza, aggiornamento continuo e passione: questi sono i pilastri su cui fondiamo il nostro lavoro e che rendono unico ogni CovaTech<span class="r">®</span> Pilates<span class="r">®</span> Teacher.</p>
+            <cite>CovaTech® Pilates® School</cite>
         </blockquote>
     </div>
 </section>
@@ -491,7 +495,7 @@ p { margin: 0; }
 
 <!-- CONTATTI -->
 <section class="chiusura" aria-labelledby="titolo-contatti">
-    <div class="wrap">
+    <div class="wrap"><div class="chiusura-griglia">
         <div>
             <h2 class="titolo" id="titolo-contatti">Dove e come trovarmi</h2>
         </div>
@@ -501,13 +505,13 @@ p { margin: 0; }
             <li><a href="contatti.html#dove-trovarmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4-4 8-8.5 8-13a8 8 0 1 0-16 0c0 4.5 4 9 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg>AB Studio · Via San Leo 6, Pesaro</a></li>
             <li><a href="https://www.instagram.com/pilates_garden_pesaro" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>@pilates_garden_pesaro</a></li>
         </ul>
-    </div>
+    </div></div>
 </section>
 
 </main>
 
 <footer class="legal-footer">
-    <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
+    <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo CovaTech®</p>
     <p style="font-size: 0.8rem;"><a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
     <!-- INIZIO FIRMA SVILUPPATORE -->
     <div class="developer-signature">

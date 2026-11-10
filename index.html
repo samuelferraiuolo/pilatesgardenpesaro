@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home | Pilates Garden Pesaro</title>
-<meta name="description" content="Pilates Garden Pesaro: lezioni di Pilates in piccolissimi gruppi con Sara Di Franco, CovaTech® Pilates® Teacher, presso AB Studio, Via San Leo 6, Pesaro.">
+<meta name="description" content="Pilates Garden Pesaro: lezioni di Pilates in piccoli gruppi con Sara Di Franco, CovaTech® Pilates® Teacher, presso AB Studio, Via San Leo 6, Pesaro.">
 <link rel="stylesheet" href="common.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@ body {
 body::before {
     content: '';
     position: fixed; inset: 0;
-    background-image: url('Sfondo beige con foglie per sito web.png');
+    background-image: url('sfondo-foglie.jpg');
     background-size: 380px;
     opacity: 0.09;
     z-index: -1;
@@ -52,7 +52,7 @@ body::before {
 
 a { color: inherit; }
 a:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; border-radius: 6px; }
-.sub-nav a:focus-visible,
+.btn-primario:focus-visible, .btn-chiaro:focus-visible { border-radius: 40px; outline-color: var(--verde-oliva-scuro); }
 .legal-footer a:focus-visible,
 .developer-top-bar a:focus-visible,
 .promo a:focus-visible { outline-color: var(--carta); }
@@ -109,7 +109,8 @@ p { margin: 0; }
 @keyframes entrata { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 .logo-arco {
     width: 112px;
-    border-radius: 999px 999px 12px 12px;
+    height: auto;
+    border-radius: 50% 50% 12px 12px / 39% 39% 12px 12px;
     border: 4px solid var(--carta);
     box-shadow: 0 10px 24px rgba(63, 74, 53, 0.12);
     margin-bottom: 30px;
@@ -140,13 +141,13 @@ p { margin: 0; }
     max-width: 42ch;
 }
 .social { margin-top: 26px; font-size: 0.95rem; color: var(--testo-soft); }
-.social a { color: var(--verde-oliva-titoli); text-decoration: none; border-bottom: 1px solid var(--filo); }
-.social a:hover { border-bottom-color: currentColor; }
+.social a { color: var(--verde-oliva-titoli); text-decoration: none; border-bottom: 1px solid currentColor; }
+.social a:hover { color: var(--verde-oliva-scuro); }
 
 .apertura-foto {
     margin: 0;
     aspect-ratio: 4 / 5;
-    border-radius: 999px 999px 26px 26px;
+    border-radius: 50% 50% 26px 26px / 40% 40% 26px 26px;
     overflow: hidden;
     background: var(--parete);
 }
@@ -215,7 +216,7 @@ p { margin: 0; }
 }
 .scheda-foto {
     aspect-ratio: 3 / 4;
-    border-radius: 999px 999px 22px 22px;
+    border-radius: 50% 50% 22px 22px / 37.5% 37.5% 22px 22px;
     overflow: hidden;
     background: var(--parete);
 }
@@ -277,7 +278,8 @@ p { margin: 0; }
 }
 .promo-prezzi .nome { font-family: var(--font-display); font-size: 1.5rem; }
 .promo-prezzi .cifra { font-family: var(--font-display); font-size: 2rem; font-weight: 500; }
-.promo-prezzi s { font-family: var(--font-ui); font-size: 0.9rem; margin-right: 8px; }
+.promo-prezzi s { font-family: var(--font-ui); font-size: 0.9rem; margin-left: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .btn-chiaro {
     display: inline-flex; align-items: center;
     margin-top: 22px;
@@ -331,7 +333,7 @@ p { margin: 0; }
 =================================================== */
 @media (max-width: 900px) {
     .apertura .wrap, .promo-pannello { grid-template-columns: 1fr; }
-    .apertura-foto { max-width: 460px; aspect-ratio: 1 / 1.05; }
+    .apertura-foto { max-width: 460px; aspect-ratio: 1 / 1.05; border-radius: 50% 50% 26px 26px / 47.6% 47.6% 26px 26px; }
     .cura-grid { grid-template-columns: 1fr; gap: 26px; }
     .schede { grid-template-columns: 1fr 1fr; }
     .scheda:last-child { grid-column: 1 / -1; }
@@ -344,7 +346,7 @@ p { margin: 0; }
     .sede-riga { border-radius: 22px; padding: 18px 20px; }
     .cura, .scopri, .promo { padding-top: 64px; }
     .schede { grid-template-columns: 1fr; gap: 40px; }
-    .scheda .scheda-foto, .scheda:last-child .scheda-foto { aspect-ratio: 4 / 3.4; border-radius: 999px 999px 22px 22px; }
+    .scheda .scheda-foto, .scheda:last-child .scheda-foto { aspect-ratio: 4 / 3.4; border-radius: 50% 50% 22px 22px / 58.8% 58.8% 22px 22px; }
     .promo-pannello { border-radius: 22px; }
     .faq { padding-bottom: 80px; }
     .developer-top-bar { padding: 8px 10px; font-size: 0.8rem; }
@@ -375,9 +377,9 @@ p { margin: 0; }
 <header class="apertura">
     <div class="wrap">
         <div class="apertura-testo">
-            <img src="logo.png" alt="Pilates Garden Pesaro" class="logo-arco">
+            <img src="logo.png" alt="Pilates Garden Pesaro" class="logo-arco" width="764" height="985">
             <h1>Ascolto, attenzione, natura. <em>Un modo diverso di vivere il Pilates.</em></h1>
-            <p class="lead">Lezioni di Pilates in piccolissimi gruppi a Pesaro, con Sara Di Franco, CovaTech® Pilates® Teacher.</p>
+            <p class="lead">Lezioni di Pilates in piccoli gruppi a Pesaro, con Sara Di Franco, CovaTech® Pilates® Teacher.</p>
             <div class="azioni">
                 <a class="btn-primario" href="https://wa.me/393922351065" target="_blank" rel="noopener">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h0a7.94 7.94 0 0 0 5.55-13.58zm-5.55 12.2a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.44-.16-.25a6.6 6.6 0 1 1 12.24-3.5 6.55 6.55 0 0 1-6.65 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64s-.32-.1-.45.1-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.6-.98 5.9 5.9 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4s.2-.23.29-.35a1.3 1.3 0 0 0 .2-.33.36.36 0 0 0 0-.35c-.05-.1-.45-1.08-.61-1.48s-.33-.33-.45-.34h-.38a.74.74 0 0 0-.53.25 2.24 2.24 0 0 0-.7 1.67 3.9 3.9 0 0 0 .81 2.06 8.9 8.9 0 0 0 3.4 3 10 10 0 0 0 1.14.42 2.75 2.75 0 0 0 1.26.08 2.06 2.06 0 0 0 1.35-.95 1.66 1.66 0 0 0 .12-.95c-.05-.1-.18-.15-.38-.25z"/></svg>
@@ -385,7 +387,7 @@ p { margin: 0; }
                 </a>
                 <a class="link-sottolineato" href="contatti.html">Orari e prezzi</a>
             </div>
-            <p class="social">Seguici anche su <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagram</a> e <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" rel="noopener">Facebook</a></p>
+            <p class="social">Seguimi anche su <a href="https://www.instagram.com/pilates_garden_pesaro?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagram</a> e <a href="https://www.facebook.com/share/1CcC9o8e2n/" target="_blank" rel="noopener">Facebook</a></p>
         </div>
 
         <figure class="apertura-foto">
@@ -402,7 +404,7 @@ p { margin: 0; }
         <div class="sede-riga">
             <p>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4-4 8-8.5 8-13a8 8 0 1 0-16 0c0 4.5 4 9 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                <span>Siamo in una nuova casa: da settembre le lezioni continuano al coperto, presso <strong>AB Studio, in Via San Leo 6 a Pesaro</strong>.</span>
+                <span>Mi trovi in una nuova casa: da settembre le lezioni continuano al coperto, presso <strong>AB Studio, in Via San Leo 6 a Pesaro</strong>, per prendermi cura di te e della tua pratica in ogni stagione.</span>
             </p>
             <a class="link-sottolineato" href="contatti.html#dove-trovarmi">Come arrivare</a>
         </div>
@@ -439,7 +441,7 @@ p { margin: 0; }
             <a href="matwork.html" class="scheda">
                 <div class="scheda-foto"><img src="foto-matwork-pulita.jpg" alt="Matwork"></div>
                 <h3>Matwork</h3>
-                <p>Lavoro a terra su base in legno. Classi intime di massimo 3 persone per garantire la massima attenzione.</p>
+                <p>Lavoro a terra su base in legno. Classi intime di massimo 3 persone per garantire la massima attenzione. Perché i dettagli fanno la differenza.</p>
                 <span class="vai">Scopri il Matwork</span>
             </a>
             -->
@@ -452,7 +454,7 @@ p { margin: 0; }
             <a href="metodo.html" class="scheda">
                 <div class="scheda-foto"><img src="fotosara2.png" alt="Sara Di Franco in giardino" loading="lazy"></div>
                 <h3>Il metodo</h3>
-                <p>La formazione CovaTech®, una delle scuole storiche del Pilates in Italia, e il mio modo di insegnare.</p>
+                <p>La mia formazione con CovaTech®, una delle scuole storiche del Pilates in Italia, e il mio modo di insegnare.</p>
                 <span class="vai">Scopri il metodo</span>
             </a>
             <a href="lo-spazio.html" class="scheda">
@@ -471,13 +473,13 @@ p { margin: 0; }
         <div class="promo-pannello">
             <div>
                 <h2 id="promo-title">Prima lezione individuale gratuita</h2>
-                <p class="scadenza">E fino al 31 dicembre i prezzi delle lezioni sono in promozione.</p>
+                <p class="scadenza">E fino al 31 dicembre i prezzi delle lezioni sono in promozione. Prezzi a lezione, Semi-Personal (in coppia).</p>
                 <a class="btn-chiaro" href="contatti.html#listino-prezzi">Vedi il listino prezzi</a>
             </div>
             <ul class="promo-prezzi">
-                <li><span class="nome">Reformer</span><span class="cifra"><s>25€</s>18€</span></li>
-                <li><span class="nome">Matwork, max 3</span><span class="cifra"><s>18€</s>14€</span></li>
-                <li><span class="nome">Matwork, max 5</span><span class="cifra"><s>13€</s>10€</span></li>
+                <li><span class="nome">Reformer</span><span class="cifra">18€ <s><span class="sr-only">invece di </span>25€</s></span></li>
+                <li><span class="nome">Matwork, max 3</span><span class="cifra">14€ <s><span class="sr-only">invece di </span>18€</s></span></li>
+                <li><span class="nome">Matwork, max 5</span><span class="cifra">10€ <s><span class="sr-only">invece di </span>13€</s></span></li>
             </ul>
         </div>
     </div>
@@ -485,19 +487,19 @@ p { margin: 0; }
 
 <!-- DOMANDE FREQUENTI -->
 <section class="faq" aria-labelledby="faq-title">
-    <div class="wrap faq-riga">
+    <div class="wrap"><div class="faq-riga">
         <div>
             <h2 id="faq-title">Hai qualche dubbio prima di iniziare?</h2>
             <p>Trova subito risposta alle domande più frequenti su lezioni, prenotazioni, abbigliamento, prezzi e molto altro.</p>
         </div>
         <a class="btn-primario" href="Faq.html">Leggi le domande frequenti</a>
-    </div>
+    </div></div>
 </section>
 
 </main>
 
 <footer class="legal-footer">
-    <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo Covatech®</p>
+    <p>Pilates Garden Pesaro di Sara Di Franco | P.IVA: 02812250419 | Metodo CovaTech®</p>
     <p style="font-size: 0.8rem;"><a href="privacy.html">Privacy &amp; Cookie Policy</a></p>
     <!-- INIZIO FIRMA SVILUPPATORE (MANTENUTA ANCHE NEL FOOTER) -->
     <div class="developer-signature">

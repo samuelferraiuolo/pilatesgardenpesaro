@@ -30,7 +30,7 @@ h1, h2, h3, h4 { color: var(--verde-oliva-titoli); font-weight: 600; text-align:
 
 /* --- NAVBAR VERDE SALVIA --- */
 .sub-nav {
-    background-color: var(--verde-salvia); /* Colore cambiato per matchare il banner! */
+    background-color: #63755C; /* verde "parete" dello studio: più leggibile del salvia */
     padding: 20px 5%;
     display: flex; 
     justify-content: center;
@@ -48,6 +48,8 @@ h1, h2, h3, h4 { color: var(--verde-oliva-titoli); font-weight: 600; text-align:
 }
 
 .nav-links a:hover { color: #ffffff; }
+.nav-links a[aria-current="page"] { color: #ffffff; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.sub-nav a:focus-visible { outline: 2px solid #FBF8F2; outline-offset: 3px; border-radius: 4px; }
 
 /* FOOTER */
 .footer-bar {
@@ -59,5 +61,7 @@ h1, h2, h3, h4 { color: var(--verde-oliva-titoli); font-weight: 600; text-align:
 
 /* RESPONSIVE BASE */
 @media (max-width: 768px) {
-    .nav-links { flex-wrap: wrap; gap: 15px; justify-content: center; }
+    .sub-nav { padding: 12px 4%; }
+    .nav-links { flex-wrap: wrap; gap: 6px 18px; justify-content: center; }
+    .nav-links a { font-size: 0.95rem; letter-spacing: 1px; }
 }
